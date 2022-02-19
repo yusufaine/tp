@@ -94,9 +94,9 @@ public class Ingredient {
     public boolean equals(Object other) {
         return other == this
                 || ((other instanceof Ingredient)
-                && this.ingredientName.equals(((Ingredient) other).getIngredientName())
-                && this.quantity == ((Ingredient) other).getQuantity()
-                && this.quantifier.equals(((Ingredient) other).getQuantifier()));
+                     && this.ingredientName.equals(((Ingredient) other).getIngredientName())
+                     && this.quantity == ((Ingredient) other).getQuantity()
+                     && this.quantifier.equals(((Ingredient) other).getQuantifier()));
     }
 
     @Override
