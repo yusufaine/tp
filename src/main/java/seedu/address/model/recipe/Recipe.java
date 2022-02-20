@@ -42,7 +42,9 @@ public class Recipe {
         this.tags.addAll(tags);
 
         // Tags -> Ingredient/ Cuisine (provided by user).
-        this.ingredients.forEach(ingredient -> tags.add(new Tag(ingredient.getIngredientName())));
+        // TODO: Tags to only be `Tag`, search feature would need to look through Ingredient and Tag
+
+        // this.ingredients.forEach(ingredient -> tags.add(new Tag(ingredient.getIngredientName())));
     }
 
     public Name getName() {
