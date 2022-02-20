@@ -32,7 +32,10 @@ public class RecipeBook implements ReadOnlyRecipeBook {
         setRecipes(newData.getRecipeList());
     }
 
-    public void hasRecipe(Recipe recipe) {}
+    public boolean hasRecipe(Recipe recipe) {
+        //TODO
+        return false;
+    }
 
     public void addRecipe(Recipe toAdd) {}
 
