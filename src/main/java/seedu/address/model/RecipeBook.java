@@ -1,14 +1,18 @@
 package seedu.address.model;
 
-import javafx.collections.ObservableList;
-import seedu.address.model.recipe.Recipe;
-import seedu.address.model.recipe.UniqueRecipeList;
+import static java.util.Objects.requireNonNull;
 
 import java.util.List;
 import java.util.Objects;
 
-import static java.util.Objects.requireNonNull;
+import javafx.collections.ObservableList;
+import seedu.address.model.recipe.Recipe;
+import seedu.address.model.recipe.UniqueRecipeList;
 
+/**
+ * Wraps all data at the recipe-book level <br>
+ * Duplicates are not allowed (by .isSameRecipe comparison).
+ */
 public class RecipeBook implements ReadOnlyRecipeBook {
 
     private final UniqueRecipeList recipes;
@@ -17,24 +21,38 @@ public class RecipeBook implements ReadOnlyRecipeBook {
         recipes = new UniqueRecipeList();
     }
 
+    // ------ List Operations ------
+    /**
+     * Creates a RecipeBook using the Recipes in the {@code toBeCopied}
+     */
     public RecipeBook(ReadOnlyRecipeBook toBeCopied) {
         this();
         resetData(toBeCopied);
     }
 
+    /**
+     * Replaces the contents of the recipe list with {@code recipes}. <br>
+     * {@code recipes} must not contain duplicate persons.
+     */
     public void setRecipes(List<Recipe> recipes) {
         //TODO
         this.recipes.setRecipes(recipes);
     }
 
+    /**
+     * Resets the existing data of this {@code RecipeBook} with {@code newData}.
+     */
     public void resetData(ReadOnlyRecipeBook newData) {
         requireNonNull(newData);
         setRecipes(newData.getRecipeList());
     }
 
+    // ------ Recipe Operations ------
+
+    /** Returns true if a recipe shares the same name as {@code recipe} exists in the recipe book. */
     public boolean hasRecipe(Recipe recipe) {
-        //TODO
-        return false;
+        return this.getRecipeList().stream()
+                .anyMatch(recipe::isSameRecipe);
     }
 
     public void addRecipe(Recipe toAdd) {}
@@ -43,6 +61,7 @@ public class RecipeBook implements ReadOnlyRecipeBook {
 
     public void removeRecipe(Recipe toRemove) {}
 
+    // ------ Utils ------
     @Override
     public String toString() {
         return String.format("%d recipe(s)", recipes.asUnmodifiableObservableList().size());

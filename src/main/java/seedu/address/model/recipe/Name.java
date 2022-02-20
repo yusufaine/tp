@@ -43,8 +43,8 @@ public class Name {
     @Override
     public boolean equals(Object other) {
         return other == this
-                || (other instanceof Name      // handles nulls
-                    && this.fullName.equals(((Name)other).fullName));
+                || (other instanceof Name
+                    && this.fullName.equals(((Name) other).fullName));
     }
 
     @Override

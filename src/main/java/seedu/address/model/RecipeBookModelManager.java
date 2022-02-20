@@ -3,23 +3,23 @@ package seedu.address.model;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
+import java.nio.file.Path;
+import java.util.Objects;
+import java.util.function.Predicate;
+import java.util.logging.Logger;
+
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.recipe.Recipe;
 
-import java.nio.file.Path;
-import java.util.Objects;
-import java.util.function.Predicate;
-import java.util.logging.Logger;
-
 /**
  * Represents the in-memory model of the recipe book data.
  */
 public class RecipeBookModelManager implements RecipeBookModel {
     //TODO: rename to "ModelManager" once we confirm that we don't need AB3 files
-    private final static Logger logger = LogsCenter.getLogger(RecipeBookModelManager.class);
+    private static final Logger logger = LogsCenter.getLogger(RecipeBookModelManager.class);
 
     private final RecipeBook recipeBook;
     private final RecipeBookUserPrefs userPrefs;

@@ -1,11 +1,12 @@
 package seedu.address.model;
 
-import javafx.collections.ObservableList;
-import seedu.address.commons.core.GuiSettings;
-import seedu.address.model.recipe.Recipe;
 
 import java.nio.file.Path;
 import java.util.function.Predicate;
+
+import javafx.collections.ObservableList;
+import seedu.address.commons.core.GuiSettings;
+import seedu.address.model.recipe.Recipe;
 
 /**
  * The API of the Model component.

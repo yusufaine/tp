@@ -1,9 +1,9 @@
 package seedu.address.model.recipe;
 
-import java.util.Objects;
-
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
+
+import java.util.Objects;
 
 /**
  * Represents a Recipe's ingredient in the recipe book.
@@ -76,6 +76,9 @@ public class Ingredient {
         return test.matches(NAME_VALIDATION_REGEX);
     }
 
+    /**
+     * Checks if the quantity is a valid Integer value > 0.
+     */
     public static boolean isValidQuantity(String test) {
         return test.matches(QUANTITY_VALIDATION_REGEX)
                 && Integer.parseInt(test) > 0;
