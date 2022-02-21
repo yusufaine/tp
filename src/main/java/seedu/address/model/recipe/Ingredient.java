@@ -13,7 +13,8 @@ import java.util.Objects;
 public class Ingredient {
 
     public static final String NAME_CONSTRAINTS = "Ingredients name should not be left blank";
-    public static final String QUANTITY_CONSTRAINTS = "Quantity should be a valid integer and should not be left blank";
+    public static final String QUANTITY_CONSTRAINTS = "Quantity should be a valid number (greater than 0.0) and "
+            + "should not be left blank";
     public static final String QUANTIFIER_CONSTRAINTS = "Quantifier name should not be left blank";
 
     /*
