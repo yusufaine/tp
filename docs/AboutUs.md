@@ -19,15 +19,15 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 * Role: Project Advisor
 
-### Jane Doe
+### Gigi Tuang
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/gigituang.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](http://github.com/gigituang)]
+[[portfolio](team/gigituang.md)]
 
-* Role: Team Lead
-* Responsibilities: UI
+* Role: Developer
+* Responsibilities: UI, Developer and testing
 
 ### Johnny Doe
 
