@@ -88,18 +88,25 @@ public class Recipe {
      * Returns true if both recipes have the same field values. <br>
      * This defines a stronger notion of equality between two recipes.
      *
-     * @param other another {@code Recipe} object
+     * @param o another {@code Recipe} object
      * @return true if both recipes have the same field values.
      */
     @Override
-    public boolean equals(Object other) {
-        return other == this
-                || (other instanceof Recipe
-                    && this.getName().equals(((Recipe) other).getName())
-                    && this.getIngredients().equals(((Recipe) other).getIngredients())
-                    && this.getPortion() == ((Recipe) other).getPortion()
-                    && this.getDirections().equals(((Recipe) other).getDirections())
-                    && this.getTags().equals(((Recipe) other).getTags()));
+    public boolean equals(Object o) {
+        if (!(o instanceof Recipe)) {
+            return false;
+        }
+
+        if (o == this) {
+            return true;
+        }
+
+        Recipe other = (Recipe) o;
+        return this.getName().equals(other.getName())
+                && this.getIngredients().equals(other.getIngredients())
+                && this.getPortion() == other.getPortion()
+                && this.getDirections().equals(other.getDirections())
+                && this.getTags().equals(other.getTags());
     }
 
     @Override

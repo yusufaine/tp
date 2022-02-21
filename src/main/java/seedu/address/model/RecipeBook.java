@@ -73,10 +73,17 @@ public class RecipeBook implements ReadOnlyRecipeBook {
     }
 
     @Override
-    public boolean equals(Object other) {
-        return other == this
-                || (other instanceof RecipeBook
-                    && recipes.equals(((RecipeBook) other).recipes));
+    public boolean equals(Object o) {
+        if (!(o instanceof RecipeBook)) {
+            return false;
+        }
+
+        if (o == this) {
+            return true;
+        }
+
+        RecipeBook other = (RecipeBook) o;
+        return this.recipes.equals(other.recipes);
     }
 
     @Override

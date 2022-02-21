@@ -44,10 +44,16 @@ public class UniqueRecipeList implements Iterable<Recipe> {
     }
 
     @Override
-    public boolean equals(Object other) {
-        return other == this
-                || (other instanceof UniqueRecipeList
-                    && internalList.equals(((UniqueRecipeList) other).internalList));
+    public boolean equals(Object o) {
+        if (!(o instanceof UniqueRecipeList)) {
+            return false;
+        }
+
+        if (o == this) {
+            return true;
+        }
+        UniqueRecipeList other = (UniqueRecipeList) o;
+        return this.internalList.equals(other.internalList);
     }
 
     @Override

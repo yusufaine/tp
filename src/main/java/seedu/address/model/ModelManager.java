@@ -66,7 +66,7 @@ public class ModelManager implements Model {
 
     @Override
     public Path getAddressBookFilePath() {
-        return userPrefs.getRecipeBookFilePath();
+        return userPrefs.getAddressBookFilePath();
     }
 
     @Override

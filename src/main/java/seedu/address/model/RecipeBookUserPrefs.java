@@ -35,7 +35,7 @@ public class RecipeBookUserPrefs implements ReadOnlyUserPrefs {
     public void resetData(ReadOnlyUserPrefs newUserPrefs) {
         requireNonNull(newUserPrefs);
         setGuiSettings(newUserPrefs.getGuiSettings());
-        setRecipeBookFilePath(newUserPrefs.getRecipeBookFilePath());
+        setRecipeBookFilePath(newUserPrefs.getAddressBookFilePath());
     }
 
     public GuiSettings getGuiSettings() {
@@ -47,7 +47,8 @@ public class RecipeBookUserPrefs implements ReadOnlyUserPrefs {
         this.guiSettings = guiSettings;
     }
 
-    public Path getRecipeBookFilePath() {
+    //TODO: change this method name after removing AB3
+    public Path getAddressBookFilePath() {
         return recipeBookFilePath;
     }
 
@@ -57,11 +58,18 @@ public class RecipeBookUserPrefs implements ReadOnlyUserPrefs {
     }
 
     @Override
-    public boolean equals(Object other) {
-        return other == this
-                || (other instanceof RecipeBookUserPrefs
-                    && guiSettings.equals(((RecipeBookUserPrefs) other).guiSettings)
-                    && recipeBookFilePath.equals(((RecipeBookUserPrefs) other).recipeBookFilePath));
+    public boolean equals(Object o) {
+        if (!(o instanceof RecipeBookUserPrefs)) {
+            return false;
+        }
+
+        if (o == this) {
+            return true;
+        }
+
+        RecipeBookUserPrefs other = (RecipeBookUserPrefs) o;
+        return this.guiSettings.equals(other.guiSettings)
+                && this.recipeBookFilePath.equals(other.recipeBookFilePath);
     }
 
     @Override

@@ -41,10 +41,17 @@ public class Name {
     }
 
     @Override
-    public boolean equals(Object other) {
-        return other == this
-                || (other instanceof Name
-                    && this.fullName.equals(((Name) other).fullName));
+    public boolean equals(Object o) {
+        if (!(o instanceof Name)) {
+            return false;
+        }
+
+        if (o == this) {
+            return true;
+        }
+
+        Name other = (Name) o;
+        return this.fullName.equals(other.fullName);
     }
 
     @Override

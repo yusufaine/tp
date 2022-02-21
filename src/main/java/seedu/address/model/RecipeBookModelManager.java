@@ -73,7 +73,7 @@ public class RecipeBookModelManager implements RecipeBookModel {
 
     @Override
     public Path getRecipeBookFilePath() {
-        return userPrefs.getRecipeBookFilePath();
+        return userPrefs.getAddressBookFilePath();
     }
 
     @Override
@@ -135,12 +135,19 @@ public class RecipeBookModelManager implements RecipeBookModel {
     // ====== Equality ======
 
     @Override
-    public boolean equals(Object other) {
-        return other == this
-                || (other instanceof RecipeBookModelManager
-                    && this.recipeBook.equals(((RecipeBookModelManager) other).recipeBook)
-                    && this.userPrefs.equals(((RecipeBookModelManager) other).userPrefs)
-                    && this.filteredRecipes.equals(((RecipeBookModelManager) other).filteredRecipes));
+    public boolean equals(Object o) {
+        if (!(o instanceof RecipeBookModelManager)) {
+            return false;
+        }
+
+        if (o == this) {
+            return false;
+        }
+
+        RecipeBookModelManager other = (RecipeBookModelManager) o;
+        return this.recipeBook.equals(other.recipeBook)
+                && this.userPrefs.equals(other.userPrefs)
+                && this.filteredRecipes.equals(other.filteredRecipes);
     }
 
     @Override
