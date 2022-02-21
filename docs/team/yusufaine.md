@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Blake Tan Ting Yu's Project Portfolio Page
+title: Yusuf Bin Musa's Project Portfolio Page
 ---
 
 ### Project: McKitchen
@@ -34,7 +34,7 @@ Given below are my contributions to the project.
   * Setting up the GitHub organisation and team repo
   * Maintaining the issue tracker
   * Release management
-  * ————
+  * ———
   * PRs reviewed (with non-trivial review comments): [\#12](), [\#32](), [\#19](), [\#42]()
   * Contributed to forum discussions (examples: [1](), [2](), [3](), [4]())
   * Reported bugs and suggestions for other teams in the class (examples: [1](), [2](), [3]())

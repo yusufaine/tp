@@ -9,15 +9,16 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ## Project team
 
-### John Doe
+### Yusuf Bin Musa
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/yusuf.png" width="200px">
 
 [[homepage](http://www.comp.nus.edu.sg/~damithch)]
-[[github](https://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](https://github.com/yusufaine)]
+[[portfolio](team/yusufaine.md)]
 
-* Role: Project Advisor
+* Role: Team Lead, GitHub and IntelliJ expert
+* Responsibilities: Integration, Deliverables, and Scheduling and Tracking 
 
 ### Jane Doe
 
@@ -29,14 +30,17 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 * Role: Team Lead
 * Responsibilities: UI
 
-### Johnny Doe
+### Blake Tan Ting Yu
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/blake.png" width="200px">
 
-[[github](http://github.com/johndoe)] [[portfolio](team/johndoe.md)]
+[[homepage](https://vigilant-hoover-ef8564.netlify.app/)]
+[[github](https://github.com/blaketingyu)]
+[[portfolio](team/blake.md)]
 
-* Role: Developer
-* Responsibilities: Data
+
+* Role: Developer, QA Engineer, GitHub and intelliJ expert
+* Responsibilities: Continuous Development and Continuous Integration, testing
 
 ### Jean Doe
 
