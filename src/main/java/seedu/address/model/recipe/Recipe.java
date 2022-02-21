@@ -31,7 +31,7 @@ public class Recipe {
      *
      * Every field must be present a not null, otherwise it throws a NullPointerException.
      */
-    public Recipe(Name name, List<Ingredient> ingredients, int portion, List<String> directions, Set<Tag> tags) {
+    public Recipe(Name name, List<Ingredient> ingredients, double portion, List<String> directions, Set<Tag> tags) {
 
         //TODO: Parser needs to ensure that ingredients and directions are in a list.
         requireAllNonNull(name, ingredients, portion, directions, tags);

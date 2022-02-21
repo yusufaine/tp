@@ -56,7 +56,7 @@ public class Ingredient {
 
         this.ingredientName = name;
         //TODO: check if parsing was done "properly" based on the available ab3 files.
-        this.quantity = Integer.parseInt(quantity);
+        this.quantity = Double.parseDouble(quantity);
         this.quantifier = quantifier;
     }
 
@@ -81,7 +81,7 @@ public class Ingredient {
      */
     public static boolean isValidQuantity(String test) {
         return test.matches(QUANTITY_VALIDATION_REGEX)
-                && Integer.parseInt(test) > 0;
+                && Double.parseDouble(test) > 0;
     }
 
     public static boolean isValidQuantifier(String test) {
