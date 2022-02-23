@@ -26,7 +26,7 @@ public class Ingredient {
     /*
      * The quantity of the ingredient must be a valid number.
      */
-    public static final String QUANTITY_VALIDATION_REGEX = "\\d";
+    public static final String QUANTITY_VALIDATION_REGEX = "[0-9]+\\.?[0-9]*|\\.[0-9]+";
 
     /**
      * The first character of the quantifier must not be a whitespace,
