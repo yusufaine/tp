@@ -11,7 +11,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Yusuf Bin Musa
 
-<img src="images/yusuf.png" width="200px">
+<img src="images/yusufaine.png" width="200px">
 
 [[homepage](http://www.comp.nus.edu.sg/~damithch)]
 [[github](https://github.com/yusufaine)]
@@ -32,25 +32,25 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Blake Tan Ting Yu
 
-<img src="images/blake.png" width="200px">
+<img src="images/blaketingyu.png" width="200px">
 
 [[homepage](https://vigilant-hoover-ef8564.netlify.app/)]
 [[github](https://github.com/blaketingyu)]
-[[portfolio](team/blake.md)]
+[[portfolio](team/blaketingyu.md)]
 
 
 * Role: Developer, QA Engineer, GitHub and intelliJ expert
 * Responsibilities: Continuous Development and Continuous Integration, testing
 
-### Jean Doe
+### Ryan Aidan
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/aidanaden.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](https://github.com/aidanaden)]
+[[portfolio](team/aidanaden.md)]
 
-* Role: Developer
-* Responsibilities: Dev Ops + Threading
+* Role: Night-owl developer, UI design & dev, Github veteran
+* Responsibilities: UI Development, Integration, Deliverables, and Scheduling & Tracking
 
 ### Ng Geon Woo, Robin
 
