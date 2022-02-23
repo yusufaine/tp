@@ -270,14 +270,17 @@ _{Explain here how the data archiving feature will be implemented}_
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                     | So that I can…​                                                        |
-| -------- | ------------------------------------------ | ------------------------------ | ---------------------------------------------------------------------- |
-| `* * *`  | new user                                   | see usage instructions         | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person               |                                                                        |
-| `* * *`  | user                                       | delete a person                | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name           | locate a person easily                                                 |
+| Priority | As a …​                                | I want to …​                              | So that I can…​                                             |
+|----------|----------------------------------------|-------------------------------------------|-------------------------------------------------------------|
+| `* * *`  | user                                   | have a list feature                       | list all the recipes that I have sorted                     |
+| `* * *`  | user                                   | have a load and save feature              | load and save my recipes automatically                      |
+| `* * *`  | user                                   | have a view command feature               | view my recipes                                             |
+| `* * *`  | user                                   | have a create recipe feature              | add my recipes to the app and save them for later viewing   |
+| `* * *`  | user                                   | have a delete command feature             | remove my recipes from a text file in my local computer     |
+| `* * *`  | user                                   | have a edit feature                       | edit my recipes to the app and make changes later           |
+| `* *`    | user with dietary restrictions         | know how to prepare suitable recipes      | cook more of them easily                                    |
+| `* *`    | student who has online classes at home | cook with what I have at home             | save money                                                  |
+| `* *`    | person who cooks well                  | be able to export my recipes              | share them with people who are curious about a certain dish |
 
 *{More to be added}*
 
