@@ -42,15 +42,15 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 * Role: Developer, QA Engineer, GitHub and intelliJ expert
 * Responsibilities: Continuous Development and Continuous Integration, testing
 
-### Jean Doe
+### Ryan Aidan
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/aidanaden.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](https://github.com/aidanaden)]
+[[portfolio](team/aidanaden.md)]
 
-* Role: Developer
-* Responsibilities: Dev Ops + Threading
+* Role: Night-owl developer, UI design & dev, Github veteran
+* Responsibilities: UI Development, Integration, Deliverables, and Scheduling & Tracking
 
 ### Ng Geon Woo, Robin
 
