@@ -23,7 +23,7 @@ public class Recipe {
 
     // Data fields
     private final double portion;
-    private final List<String> directions = new ArrayList<>();
+    private final List<String> steps = new ArrayList<>();
     private final Set<Tag> tags = new HashSet<>();
 
     /**
@@ -31,14 +31,14 @@ public class Recipe {
      *
      * Every field must be present a not null, otherwise it throws a NullPointerException.
      */
-    public Recipe(Name name, List<Ingredient> ingredients, double portion, List<String> directions, Set<Tag> tags) {
+    public Recipe(Name name, List<Ingredient> ingredients, double portion, List<String> steps, Set<Tag> tags) {
 
-        //TODO: Parser needs to ensure that ingredients and directions are in a list.
-        requireAllNonNull(name, ingredients, portion, directions, tags);
+        //TODO: Parser needs to ensure that ingredients and steps are in a list.
+        requireAllNonNull(name, ingredients, portion, steps, tags);
         this.name = name;
         this.ingredients.addAll(ingredients);
         this.portion = portion;
-        this.directions.addAll(directions);
+        this.steps.addAll(steps);
         this.tags.addAll(tags);
 
         // Tags -> Ingredient/ Cuisine (provided by user).
@@ -59,8 +59,8 @@ public class Recipe {
         return portion;
     }
 
-    public List<String> getDirections() {
-        return directions;
+    public List<String> getSteps() {
+        return steps;
     }
 
     /**
@@ -105,13 +105,13 @@ public class Recipe {
         return this.getName().equals(other.getName())
                 && this.getIngredients().equals(other.getIngredients())
                 && this.getPortion() == other.getPortion()
-                && this.getDirections().equals(other.getDirections())
+                && this.getSteps().equals(other.getSteps())
                 && this.getTags().equals(other.getTags());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, ingredients, portion, directions, tags);
+        return Objects.hash(name, ingredients, portion, steps, tags);
     }
 
     @Override
