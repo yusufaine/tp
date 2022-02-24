@@ -1,7 +1,8 @@
-package seedu.address.newStorage;
+package seedu.address.newstorage;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.recipe.Step;
 

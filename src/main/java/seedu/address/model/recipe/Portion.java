@@ -1,9 +1,8 @@
 package seedu.address.model.recipe;
 
-import java.util.Objects;
-
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
+import java.util.Objects;
 /**
  * Represents a Recipe's portion in the recipe book.
  * Guarantees: immutable; is valid as declared in {@link #isValidPortion(double)}

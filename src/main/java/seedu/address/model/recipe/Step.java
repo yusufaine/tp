@@ -1,12 +1,9 @@
 package seedu.address.model.recipe;
 
-import seedu.address.model.person.Address;
-
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
-import java.util.List;
-
+import seedu.address.model.person.Address;
 /**
  * Represents the list of steps to make the Recipe in the recipe book.
  * Guarantees: immutable; is valid as declared in {@link #isValidSteps(String)},

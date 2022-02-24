@@ -1,13 +1,12 @@
-package seedu.address.newStorage;
-
-import seedu.address.commons.exceptions.DataConversionException;
-import seedu.address.model.ReadOnlyUserPrefs;
-import seedu.address.model.UserPrefs;
+package seedu.address.newstorage;
 
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Optional;
 
+import seedu.address.commons.exceptions.DataConversionException;
+import seedu.address.model.ReadOnlyUserPrefs;
+import seedu.address.model.UserPrefs;
 /**
  * Represents a storage for {@link UserPrefs}.
  */

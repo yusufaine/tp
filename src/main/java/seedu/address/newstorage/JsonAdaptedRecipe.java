@@ -1,16 +1,21 @@
-package seedu.address.newStorage;
-
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.recipe.*;
-import seedu.address.model.tag.Tag;
+package seedu.address.newstorage;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import seedu.address.commons.exceptions.IllegalValueException;
+import seedu.address.model.recipe.Ingredient;
+import seedu.address.model.recipe.Name;
+import seedu.address.model.recipe.Portion;
+import seedu.address.model.recipe.Recipe;
+import seedu.address.model.recipe.Step;
+import seedu.address.model.tag.Tag;
 
 /**
  * Jackson-friendly version of {@link Recipe}.
@@ -29,8 +34,10 @@ class JsonAdaptedRecipe {
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
      */
     @JsonCreator
-    public JsonAdaptedRecipe(@JsonProperty("name") String name, @JsonProperty("ingredients") List<JsonAdaptedIngredient> ingredients,
-                             @JsonProperty("portion") double portion, @JsonProperty("steps") List<JsonAdaptedStep> steps,
+    public JsonAdaptedRecipe(@JsonProperty("name") String name,
+                             @JsonProperty("ingredients") List<JsonAdaptedIngredient> ingredients,
+                             @JsonProperty("portion") double portion,
+                             @JsonProperty("steps") List<JsonAdaptedStep> steps,
                              @JsonProperty("tags") List<JsonAdaptedTag> tags) {
         this.name = name;
         this.portion = portion;
@@ -52,13 +59,13 @@ class JsonAdaptedRecipe {
         name = source.getName().fullName;
         portion = source.getPortion().value;
         tags.addAll(source.getTags().stream()
-                .map(seedu.address.newStorage.JsonAdaptedTag::new)
+                .map(seedu.address.newstorage.JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
         steps.addAll(source.getSteps().stream()
-                .map(seedu.address.newStorage.JsonAdaptedStep::new)
+                .map(seedu.address.newstorage.JsonAdaptedStep::new)
                 .collect(Collectors.toList()));
         ingredients.addAll(source.getIngredients().stream()
-                .map(seedu.address.newStorage.JsonAdaptedIngredient::new)
+                .map(seedu.address.newstorage.JsonAdaptedIngredient::new)
                 .collect(Collectors.toList()));
     }
 
@@ -84,7 +91,8 @@ class JsonAdaptedRecipe {
         }
 
         if (name == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Name.class.getSimpleName()));
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    Name.class.getSimpleName()));
         }
         if (!Name.isValidName(name)) {
             throw new IllegalValueException(Name.MESSAGE_CONSTRAINTS);
@@ -92,7 +100,8 @@ class JsonAdaptedRecipe {
         final Name modelName = new Name(name);
 
         if (portion == 0) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Portion.class.getSimpleName()));
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    Portion.class.getSimpleName()));
         }
         if (!Portion.isValidPortion(portion)) {
             throw new IllegalValueException(Portion.MESSAGE_CONSTRAINTS);
