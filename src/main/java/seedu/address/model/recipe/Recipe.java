@@ -128,7 +128,7 @@ public class Recipe {
         // TODO: edit if needed
         StringBuilder sb = new StringBuilder();
         sb.append(getName())
-                .append(String.format("; Completion time: %d, Portions: %2f",
+                .append(String.format("; Completion time: %d (mins), Portions: %2f",
                         getCompletionTime(), getPortion()));
 
         Set<Tag> tags = getTags();
