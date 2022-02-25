@@ -5,7 +5,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
  * Represents a step in the list of steps to make the Recipe in the recipe book.
- * Guarantees: immutable; is valid as declared in {@link #isValidSteps(String)},
+ * Guarantees: immutable; is valid as declared in {@link #isValidStep(String)},
  */
 public class Step {
     public static final String MESSAGE_CONSTRAINTS = "Recipe should not contain any empty steps";
