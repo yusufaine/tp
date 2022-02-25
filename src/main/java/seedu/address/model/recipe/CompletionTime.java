@@ -11,7 +11,7 @@ import java.util.Objects;
  */
 public class CompletionTime {
 
-    public static final String MESSAGE_CONSTRAINTS = "Portion size should not be left blank";
+    public static final String MESSAGE_CONSTRAINTS = "Completion time should not be left blank";
 
     public final int value;
 
