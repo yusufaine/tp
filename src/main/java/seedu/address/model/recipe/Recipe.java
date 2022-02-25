@@ -41,7 +41,7 @@ public class Recipe {
         this.ingredients.addAll(ingredients);
         this.completionTime = completionTime;
         this.portion = portion;
-        this.steps = steps;
+        this.steps.addAll(steps);
         this.tags.addAll(tags);
 
         // Tags -> Ingredient/ Cuisine (provided by user).
@@ -57,7 +57,6 @@ public class Recipe {
     public List<Ingredient> getIngredients() {
         return ingredients;
     }
-  
     public CompletionTime getCompletionTime() {
         return completionTime;
     }
@@ -129,7 +128,7 @@ public class Recipe {
         StringBuilder sb = new StringBuilder();
         sb.append(getName())
                 .append(String.format("; Completion time: %s, Portions: %2f",
-                        getCompletionTime(), getPortion()));
+                        getCompletionTime(), getPortion().value));
 
         Set<Tag> tags = getTags();
         if (!tags.isEmpty()) {

@@ -7,27 +7,27 @@ import java.util.Objects;
 
 /**
  * Represents a Recipe's completion time in the recipe book.
- * Guarantees: immutable; is valid as declared in {@link #isValidCompletionTime(int)}
+ * Guarantees: immutable; is valid as declared in {@link #isValidCompletionTime(Integer)}
  */
 public class CompletionTime {
 
     public static final String MESSAGE_CONSTRAINTS = "Completion time should be greater than 0";
 
-    public final int value;
+    public final Integer value;
 
     /**
      * Constructs a {@code CompletionTime}.
      *
      * @param completionTime A valid completion time.
      */
-    public CompletionTime(int completionTime) {
+    public CompletionTime(Integer completionTime) {
         requireNonNull(completionTime);
         checkArgument(isValidCompletionTime(completionTime), MESSAGE_CONSTRAINTS);
 
         value = completionTime;
     }
 
-    public static boolean isValidCompletionTime(int test) {
+    public static boolean isValidCompletionTime(Integer test) {
         return (test > 0);
     }
 
@@ -47,7 +47,7 @@ public class CompletionTime {
         }
 
         CompletionTime other = (CompletionTime) o;
-        return this.value == other.value;
+        return this.value.equals(other.value);
     }
 
     @Override

@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
+import seedu.address.model.recipe.CompletionTime;
 import seedu.address.model.recipe.Ingredient;
 import seedu.address.model.recipe.Name;
 import seedu.address.model.recipe.Portion;
@@ -26,6 +27,7 @@ class JsonAdaptedRecipe {
 
     private final String name;
     private final List<JsonAdaptedIngredient> ingredients = new ArrayList<>();
+    private final Integer completionTime;
     private final Double portion;
     private final List<JsonAdaptedStep> steps = new ArrayList<>();
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
@@ -36,11 +38,13 @@ class JsonAdaptedRecipe {
     @JsonCreator
     public JsonAdaptedRecipe(@JsonProperty("name") String name,
                              @JsonProperty("ingredients") List<JsonAdaptedIngredient> ingredients,
-                             @JsonProperty("portion") double portion,
+                             @JsonProperty("completionTime") Integer completionTime,
+                             @JsonProperty("portion") Double portion,
                              @JsonProperty("steps") List<JsonAdaptedStep> steps,
                              @JsonProperty("tags") List<JsonAdaptedTag> tags) {
         this.name = name;
         this.portion = portion;
+        this.completionTime = completionTime;
         if (ingredients != null) {
             this.ingredients.addAll(ingredients);
         }
@@ -58,6 +62,7 @@ class JsonAdaptedRecipe {
     public JsonAdaptedRecipe(Recipe source) {
         name = source.getName().fullName;
         portion = source.getPortion().value;
+        completionTime = source.getCompletionTime().value;
         tags.addAll(source.getTags().stream()
                 .map(seedu.address.newstorage.JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
@@ -106,11 +111,19 @@ class JsonAdaptedRecipe {
         if (!Portion.isValidPortion(portion)) {
             throw new IllegalValueException(Portion.MESSAGE_CONSTRAINTS);
         }
+        if (completionTime == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    CompletionTime.class.getSimpleName()));
+        }
+        if (!CompletionTime.isValidCompletionTime(completionTime)) {
+            throw new IllegalValueException(CompletionTime.MESSAGE_CONSTRAINTS);
+        }
+        final CompletionTime modelCompletionTime = new CompletionTime(completionTime);
         final Portion modelPortion = new Portion(portion);
         final List<Step> modelSteps = new ArrayList<>(recipeSteps);
         final List<Ingredient> modelIngredients = new ArrayList<>(recipeIngredients);
         final Set<Tag> modelTags = new HashSet<>(recipeTags);
-        return new Recipe(modelName, modelIngredients, modelPortion, modelSteps, modelTags);
+        return new Recipe(modelName, modelIngredients, modelCompletionTime, modelPortion, modelSteps, modelTags);
     }
 
 }
