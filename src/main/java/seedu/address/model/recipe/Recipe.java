@@ -57,7 +57,6 @@ public class Recipe {
     public List<Ingredient> getIngredients() {
         return ingredients;
     }
-  
     public CompletionTime getCompletionTime() {
         return completionTime;
     }
