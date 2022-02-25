@@ -19,7 +19,7 @@ public class Step {
      */
     public Step(String step) {
         requireNonNull(step);
-        checkArgument(isValidSteps(step), MESSAGE_CONSTRAINTS);
+        checkArgument(isValidStep(step), MESSAGE_CONSTRAINTS);
         value = step;
     }
 

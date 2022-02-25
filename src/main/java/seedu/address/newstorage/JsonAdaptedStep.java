@@ -39,7 +39,7 @@ class JsonAdaptedStep {
      * @throws IllegalValueException if there were any data constraints violated in the adapted Step.
      */
     public Step toModelType() throws IllegalValueException {
-        if (!Step.isValidSteps(stepName)) {
+        if (!Step.isValidStep(stepName)) {
             throw new IllegalValueException(Step.MESSAGE_CONSTRAINTS);
         }
         return new Step(stepName);
