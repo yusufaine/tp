@@ -28,7 +28,7 @@ public class Step {
      * Returns true if the given list of steps is not empty.
      */
     public static boolean isValidSteps(String test) {
-        return (!test.isEmpty());
+        return (!test.isEmpty() || !test.isBlank());
     }
 
     @Override
