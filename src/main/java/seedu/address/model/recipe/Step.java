@@ -9,7 +9,7 @@ import seedu.address.model.person.Address;
  * Guarantees: immutable; is valid as declared in {@link #isValidSteps(String)},
  */
 public class Step {
-    public static final String MESSAGE_CONSTRAINTS = "The steps to make the ingredients should not be empty";
+    public static final String MESSAGE_CONSTRAINTS = "Recipe should not contain any empty steps";
 
     public final String value;
 
