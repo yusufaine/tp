@@ -22,8 +22,9 @@ public class Recipe {
     private final List<Ingredient> ingredients = new ArrayList<>();
 
     // Data fields
+    private final CompletionTime completionTime;
     private final Portion portion;
-    private final List<Step> steps;
+    private final List<Step> steps = new ArrayList<>();
     private final Set<Tag> tags = new HashSet<>();
 
     /**
@@ -31,12 +32,14 @@ public class Recipe {
      *
      * Every field must be present a not null, otherwise it throws a NullPointerException.
      */
-    public Recipe(Name name, List<Ingredient> ingredients, Portion portion, List<Step> steps, Set<Tag> tags) {
+    public Recipe(Name name, List<Ingredient> ingredients, CompletionTime completionTime,
+                  Portion portion, List<Step> steps, Set<Tag> tags) {
 
         //TODO: Parser needs to ensure that ingredients and steps are in a list.
         requireAllNonNull(name, ingredients, portion, steps, tags);
         this.name = name;
         this.ingredients.addAll(ingredients);
+        this.completionTime = completionTime;
         this.portion = portion;
         this.steps = steps;
         this.tags.addAll(tags);
@@ -53,6 +56,10 @@ public class Recipe {
 
     public List<Ingredient> getIngredients() {
         return ingredients;
+    }
+  
+    public CompletionTime getCompletionTime() {
+        return completionTime;
     }
 
     public Portion getPortion() {
@@ -104,6 +111,7 @@ public class Recipe {
         Recipe other = (Recipe) o;
         return this.getName().equals(other.getName())
                 && this.getIngredients().equals(other.getIngredients())
+                && this.getCompletionTime().equals(other.getCompletionTime())
                 && this.getPortion() == other.getPortion()
                 && this.getSteps().equals(other.getSteps())
                 && this.getTags().equals(other.getTags());
@@ -111,7 +119,7 @@ public class Recipe {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, ingredients, portion, steps, tags);
+        return Objects.hash(name, ingredients, completionTime, portion, steps, tags);
     }
 
     @Override
@@ -120,7 +128,8 @@ public class Recipe {
         // TODO: edit if needed
         StringBuilder sb = new StringBuilder();
         sb.append(getName())
-                .append(String.format("; Portions: %2f", getPortion()));
+                .append(String.format("; Completion time: %s, Portions: %2f",
+                        getCompletionTime(), getPortion()));
 
         Set<Tag> tags = getTags();
         if (!tags.isEmpty()) {
