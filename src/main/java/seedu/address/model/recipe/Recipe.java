@@ -128,8 +128,8 @@ public class Recipe {
         // TODO: edit if needed
         StringBuilder sb = new StringBuilder();
         sb.append(getName())
-                .append(String.format("; Completion time: %d (mins), Portions: %2f",
-                        getCompletionTime().value, getPortion()));
+                .append(String.format("; Completion time: %s, Portions: %2f",
+                        getCompletionTime(), getPortion()));
 
         Set<Tag> tags = getTags();
         if (!tags.isEmpty()) {
