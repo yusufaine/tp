@@ -1,23 +1,26 @@
 package seedu.address.model.recipe;
 
+import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
 import java.util.Objects;
 /**
  * Represents a Recipe's portion in the recipe book.
- * Guarantees: immutable; is valid as declared in {@link #isValidPortion(double)}
+ * Guarantees: immutable; is valid as declared in {@link #isValidPortion(Double)}
  */
 public class Portion {
-    public static final String MESSAGE_CONSTRAINTS = "Portion size should not be left blank";
+    public static final String MESSAGE_CONSTRAINTS = "Portion size should not be left blank or "
+            + "less than 0";
 
-    public final double value;
+    public final Double value;
 
     /**
      * Constructs a {@code Portion}.
      *
      * @param portion A valid portion size.
      */
-    public Portion(double portion) {
+    public Portion(Double portion) {
+        requireNonNull(portion);
         checkArgument(isValidPortion(portion), MESSAGE_CONSTRAINTS);
         value = portion;
     }
@@ -25,13 +28,13 @@ public class Portion {
     /**
      * Checks if the quantity is a valid Integer value > 0.
      */
-    public static boolean isValidPortion(double test) {
-        return (test >= 0);
+    public static boolean isValidPortion(Double test) {
+        return test > 0;
     }
 
     @Override
     public String toString() {
-        return "" + this.value;
+        return String.valueOf(this.value);
     }
 
     @Override
@@ -45,7 +48,7 @@ public class Portion {
         }
 
         Portion other = (Portion) o;
-        return this.value == other.value;
+        return this.value.equals(other.value);
     }
 
     @Override

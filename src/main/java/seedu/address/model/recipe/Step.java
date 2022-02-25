@@ -3,20 +3,19 @@ package seedu.address.model.recipe;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
-import seedu.address.model.person.Address;
 /**
- * Represents the list of steps to make the Recipe in the recipe book.
+ * Represents a step in the list of steps to make the Recipe in the recipe book.
  * Guarantees: immutable; is valid as declared in {@link #isValidSteps(String)},
  */
 public class Step {
-    public static final String MESSAGE_CONSTRAINTS = "The steps to make the ingredients should not be empty";
+    public static final String MESSAGE_CONSTRAINTS = "Recipe should not contain any empty steps";
 
     public final String value;
 
     /**
      * Constructs a {@code Steps}.
      *
-     * @param step A valid list of steps.
+     * @param step  a step in the list of steps to make the Recipe.
      */
     public Step(String step) {
         requireNonNull(step);
@@ -25,10 +24,10 @@ public class Step {
     }
 
     /**
-     * Returns true if the given list of steps is not empty.
+     * Returns true if the given step is not empty.
      */
     public static boolean isValidSteps(String test) {
-        return (!test.isEmpty());
+        return (!test.isEmpty() || !test.isBlank());
     }
 
     @Override
@@ -39,8 +38,8 @@ public class Step {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof Address // instanceof handles nulls
-                && value.equals(((Address) other).value)); // state check
+                || (other instanceof Step // instanceof handles nulls
+                && value.equals(((Step) other).value)); // state check
     }
 
     @Override

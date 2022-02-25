@@ -14,31 +14,31 @@ import seedu.address.model.RecipeBook;
 import seedu.address.model.recipe.Recipe;
 
 /**
- * An Immutable AddressBook that is serializable to JSON format.
+ * An Immutable RecipeBook that is serializable to JSON format.
  */
 @JsonRootName(value = "recipebook")
 class JsonSerializableRecipeBook {
 
     public static final String MESSAGE_DUPLICATE_RECIPE = "Recipes list contains duplicate recipe(s).";
 
-    private final List<seedu.address.newstorage.JsonAdaptedRecipe> recipes = new ArrayList<>();
+    private final List<JsonAdaptedRecipe> recipes = new ArrayList<>();
 
     /**
-     * Constructs a {@code JsonSerializableAddressBook} with the given persons.
+     * Constructs a {@code JsonSerializableRecipeBook} with the given recipes.
      */
     @JsonCreator
     public JsonSerializableRecipeBook(
-            @JsonProperty("persons") List<seedu.address.newstorage.JsonAdaptedRecipe> recipes) {
+            @JsonProperty("recipes") List<JsonAdaptedRecipe> recipes) {
         this.recipes.addAll(recipes);
     }
 
     /**
-     * Converts a given {@code ReadOnlyAddressBook} into this class for Jackson use.
+     * Converts a given {@code ReadOnlyRecipeBook} into this class for Jackson use.
      *
-     * @param source future changes to this will not affect the created {@code JsonSerializableAddressBook}.
+     * @param source future changes to this will not affect the created {@code JsonSerializableRecipeBook}.
      */
     public JsonSerializableRecipeBook(ReadOnlyRecipeBook source) {
-        recipes.addAll(source.getRecipeList().stream().map(seedu.address.newstorage.JsonAdaptedRecipe::new)
+        recipes.addAll(source.getRecipeList().stream().map(JsonAdaptedRecipe::new)
                         .collect(Collectors.toList()));
     }
 
@@ -49,7 +49,7 @@ class JsonSerializableRecipeBook {
      */
     public RecipeBook toModelType() throws IllegalValueException {
         RecipeBook recipeBook = new RecipeBook();
-        for (seedu.address.newstorage.JsonAdaptedRecipe jsonAdaptedRecipe : recipes) {
+        for (JsonAdaptedRecipe jsonAdaptedRecipe : recipes) {
             Recipe recipe = jsonAdaptedRecipe.toModelType();
             if (recipeBook.hasRecipe(recipe)) {
                 throw new IllegalValueException(MESSAGE_DUPLICATE_RECIPE);

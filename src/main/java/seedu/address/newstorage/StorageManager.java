@@ -11,7 +11,7 @@ import seedu.address.model.ReadOnlyRecipeBook;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.UserPrefs;
 /**
- * Manages storage of AddressBook data in local storage.
+ * Manages storage of RecipeBook data in local storage.
  */
 public class StorageManager implements Storage {
 
@@ -64,8 +64,8 @@ public class StorageManager implements Storage {
     }
 
     @Override
-    public void saveRecipeBook(ReadOnlyRecipeBook addressBook) throws IOException {
-        saveRecipeBook(addressBook, recipeBookStorage.getRecipeBookFilePath());
+    public void saveRecipeBook(ReadOnlyRecipeBook recipeBook) throws IOException {
+        saveRecipeBook(recipeBook, recipeBookStorage.getRecipeBookFilePath());
     }
 
     @Override

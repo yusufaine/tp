@@ -26,12 +26,12 @@ class JsonAdaptedRecipe {
 
     private final String name;
     private final List<JsonAdaptedIngredient> ingredients = new ArrayList<>();
-    private final double portion;
+    private final Double portion;
     private final List<JsonAdaptedStep> steps = new ArrayList<>();
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
 
     /**
-     * Constructs a {@code JsonAdaptedPerson} with the given person details.
+     * Constructs a {@code JsonAdaptedRecipe} with the given recipe details.
      */
     @JsonCreator
     public JsonAdaptedRecipe(@JsonProperty("name") String name,
@@ -70,9 +70,9 @@ class JsonAdaptedRecipe {
     }
 
     /**
-     * Converts this Jackson-friendly adapted person object into the model's {@code Person} object.
+     * Converts this Jackson-friendly adapted recipe object into the model's {@code Recipe} object.
      *
-     * @throws IllegalValueException if there were any data constraints violated in the adapted person.
+     * @throws IllegalValueException if there were any data constraints violated in the adapted recipe.
      */
     public Recipe toModelType() throws IllegalValueException {
         final List<Tag> recipeTags = new ArrayList<>();
@@ -99,7 +99,7 @@ class JsonAdaptedRecipe {
         }
         final Name modelName = new Name(name);
 
-        if (portion == 0) {
+        if (portion == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
                     Portion.class.getSimpleName()));
         }

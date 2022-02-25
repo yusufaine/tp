@@ -16,7 +16,8 @@ class JsonAdaptedIngredient {
     public final String quantifier;
 
     /**
-     * Constructs a {@code JsonAdaptedTag} with the given {@code tagName}.
+     * Constructs a {@code JsonAdaptedIngredient} with the given {@code ingredientName},
+     * {@code quantity} and {@code quantifier}.
      */
     @JsonCreator
     public JsonAdaptedIngredient(String ingredientName, String quantity, String quantifier) {
@@ -26,7 +27,7 @@ class JsonAdaptedIngredient {
     }
 
     /**
-     * Converts a given {@code Tag} into this class for Jackson use.
+     * Converts a given {@code Ingredient} into this class for Jackson use.
      */
     public JsonAdaptedIngredient(Ingredient source) {
         ingredientName = source.ingredientName;
@@ -50,9 +51,9 @@ class JsonAdaptedIngredient {
     }
 
     /**
-     * Converts this Jackson-friendly adapted tag object into the model's {@code Tag} object.
+     * Converts this Jackson-friendly adapted ingredient object into the model's {@code Ingredient} object.
      *
-     * @throws IllegalValueException if there were any data constraints violated in the adapted tag.
+     * @throws IllegalValueException if there were any data constraints violated in the adapted ingredient.
      */
     public Ingredient toModelType() throws IllegalValueException {
         if (!Ingredient.isValidIngredientName(ingredientName)) {
