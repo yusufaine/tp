@@ -10,7 +10,7 @@ import java.util.Objects;
  */
 public class Portion {
     public static final String MESSAGE_CONSTRAINTS = "Portion size should not be left blank or "
-            + "less than 0";
+            + "less than or equals to 0";
 
     public final Double value;
 
