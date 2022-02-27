@@ -11,26 +11,26 @@ import seedu.address.model.recipe.Step;
  */
 class JsonAdaptedStep {
 
-    private final String stepName;
+    private final String stepValue;
 
     /**
-     * Constructs a {@code JsonAdaptedStep} with the given {@code StepName}.
+     * Constructs a {@code JsonAdaptedStep} with the given {@code stepValue}.
      */
     @JsonCreator
-    public JsonAdaptedStep(String stepName) {
-        this.stepName = stepName;
+    public JsonAdaptedStep(String stepValue) {
+        this.stepValue = stepValue;
     }
 
     /**
      * Converts a given {@code Step} into this class for Jackson use.
      */
     public JsonAdaptedStep(Step source) {
-        stepName = source.value;
+        stepValue = source.value;
     }
 
     @JsonValue
-    public String getStepName() {
-        return stepName;
+    public String getStepValue() {
+        return stepValue;
     }
 
     /**
@@ -39,10 +39,10 @@ class JsonAdaptedStep {
      * @throws IllegalValueException if there were any data constraints violated in the adapted Step.
      */
     public Step toModelType() throws IllegalValueException {
-        if (!Step.isValidStep(stepName)) {
+        if (!Step.isValidStep(stepValue)) {
             throw new IllegalValueException(Step.MESSAGE_CONSTRAINTS);
         }
-        return new Step(stepName);
+        return new Step(stepValue);
     }
 
 }
