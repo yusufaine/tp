@@ -23,8 +23,8 @@ public class Recipe {
 
     // Data fields
     private final CompletionTime completionTime;
-    private final double portion;
-    private final List<String> steps = new ArrayList<>();
+    private final Portion portion;
+    private final List<Step> steps = new ArrayList<>();
     private final Set<Tag> tags = new HashSet<>();
 
     /**
@@ -33,10 +33,10 @@ public class Recipe {
      * Every field must be present a not null, otherwise it throws a NullPointerException.
      */
     public Recipe(Name name, List<Ingredient> ingredients, CompletionTime completionTime,
-                  double portion, List<String> steps, Set<Tag> tags) {
+                  Portion portion, List<Step> steps, Set<Tag> tags) {
 
         //TODO: Parser needs to ensure that ingredients and steps are in a list.
-        requireAllNonNull(name, ingredients, portion, steps, tags);
+        requireAllNonNull(name, completionTime, ingredients, portion, steps, tags);
         this.name = name;
         this.ingredients.addAll(ingredients);
         this.completionTime = completionTime;
@@ -57,16 +57,15 @@ public class Recipe {
     public List<Ingredient> getIngredients() {
         return ingredients;
     }
-
     public CompletionTime getCompletionTime() {
         return completionTime;
     }
 
-    public double getPortion() {
+    public Portion getPortion() {
         return portion;
     }
 
-    public List<String> getSteps() {
+    public List<Step> getSteps() {
         return steps;
     }
 
@@ -129,7 +128,7 @@ public class Recipe {
         StringBuilder sb = new StringBuilder();
         sb.append(getName())
                 .append(String.format("; Completion time: %s, Portions: %2f",
-                        getCompletionTime(), getPortion()));
+                        getCompletionTime(), getPortion().value));
 
         Set<Tag> tags = getTags();
         if (!tags.isEmpty()) {
