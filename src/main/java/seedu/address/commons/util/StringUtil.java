@@ -65,4 +65,15 @@ public class StringUtil {
             return false;
         }
     }
+
+    public static boolean isNonZeroPositiveDouble(String s) {
+        requireNonNull(s);
+
+        try {
+            double value = Double.parseDouble(s);
+            return value > 0;
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+    }
 }

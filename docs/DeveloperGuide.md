@@ -293,7 +293,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 *Actor: User*
 
 **Guarantees**
-1. Recipe will be added to a new or existing list of recipes only if the name, portion, ingredients, steps and tags are valid
+1. Recipe will be added to a new or existing list of recipes only if the name, servingSize, ingredients, steps and tags are valid
 
 **MSS**
 1. User requests to add recipes

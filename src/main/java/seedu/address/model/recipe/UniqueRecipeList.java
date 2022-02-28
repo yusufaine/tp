@@ -21,6 +21,7 @@ public class UniqueRecipeList implements Iterable<Recipe> {
     private final ObservableList<Recipe> internalUnmodifiableList =
             FXCollections.unmodifiableObservableList(internalList);
 
+    // TODO: Implement these features
     public void add(Recipe toAdd) {}
 
     public void remove(Recipe toRemove) {}

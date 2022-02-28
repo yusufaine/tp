@@ -1,6 +1,7 @@
 package seedu.address.logic.parser;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,7 +28,11 @@ public class ArgumentMultimap {
      */
     public void put(Prefix prefix, String argValue) {
         List<String> argValues = getAllValues(prefix);
-        argValues.add(argValue);
+
+        // splits argValue by commas, used for Ingredients/Steps
+        // if singular value is passed without comma, it would not be affected.
+        // TODO: consider edge case
+        Collections.addAll(argValues, argValue.split(","));
         argMultimap.put(prefix, argValues);
     }
 
@@ -36,7 +41,10 @@ public class ArgumentMultimap {
      */
     public Optional<String> getValue(Prefix prefix) {
         List<String> values = getAllValues(prefix);
-        return values.isEmpty() ? Optional.empty() : Optional.of(values.get(values.size() - 1));
+
+        return values.isEmpty()
+                ? Optional.empty()
+                : Optional.of(values.get(values.size() - 1));
     }
 
     /**
