@@ -49,11 +49,7 @@ public class StringUtil {
     }
 
     /**
-     * Returns true if {@code s} represents a non-zero unsigned integer
-     * e.g. 1, 2, 3, ..., {@code Integer.MAX_VALUE} <br>
-     * Will return false for any other non-null string input
-     * e.g. empty string, "-1", "0", "+1", and " 2 " (untrimmed), "3 0" (contains whitespace), "1 a" (contains letters)
-     * @throws NullPointerException if {@code s} is null.
+     * @return true if the integer value of {@code s} is greater than 0.
      */
     public static boolean isNonZeroUnsignedInteger(String s) {
         requireNonNull(s);
@@ -66,6 +62,9 @@ public class StringUtil {
         }
     }
 
+    /**
+     * @return true if the double value of {@code s} is greater than 0.
+     */
     public static boolean isNonZeroPositiveDouble(String s) {
         requireNonNull(s);
 
