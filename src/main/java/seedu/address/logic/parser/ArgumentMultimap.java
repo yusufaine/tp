@@ -28,11 +28,7 @@ public class ArgumentMultimap {
      */
     public void put(Prefix prefix, String argValue) {
         List<String> argValues = getAllValues(prefix);
-
-        // splits argValue by commas, used for Ingredients/Steps
-        // if singular value is passed without comma, it would not be affected.
-        // TODO: consider edge case
-        Collections.addAll(argValues, argValue.split(","));
+        argValues.add(argValue);
         argMultimap.put(prefix, argValues);
     }
 
