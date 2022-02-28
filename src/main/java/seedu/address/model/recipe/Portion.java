@@ -26,7 +26,7 @@ public class Portion {
     }
 
     /**
-     * Checks if the quantity is a valid Integer value > 0.
+     * Checks if the quantity is a valid Double value > 0.
      */
     public static boolean isValidPortion(Double test) {
         return test > 0;
