@@ -67,6 +67,8 @@ public class JsonRecipeBookStorage implements RecipeBookStorage {
      * Similar to {@link #saveRecipeBook(ReadOnlyRecipeBook)}.
      *
      * @param filePath location of the data. Cannot be null.
+     *
+     * @param recipeBook the recipe book the recipe will be saved in.
      */
     public void saveRecipeBook(ReadOnlyRecipeBook recipeBook, Path filePath) throws IOException {
         requireNonNull(recipeBook);

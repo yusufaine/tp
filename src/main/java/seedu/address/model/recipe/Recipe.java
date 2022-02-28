@@ -36,7 +36,7 @@ public class Recipe {
                   Portion portion, List<Step> steps, Set<Tag> tags) {
 
         //TODO: Parser needs to ensure that ingredients and steps are in a list.
-        requireAllNonNull(name, ingredients, portion, steps, tags);
+        requireAllNonNull(name, completionTime, ingredients, portion, steps, tags);
         this.name = name;
         this.ingredients.addAll(ingredients);
         this.completionTime = completionTime;
