@@ -1,0 +1,80 @@
+@startuml
+!define LIGHTBLUE
+!include style.puml
+
+class RecipeBook {
+    recipes: List<Recipe>
+}
+
+class Recipe {
+    name: Name
+    ingredients: List<Ingredient>
+    servingSize: ServingSize
+    steps: List<Step>
+    tags: Set<Tag>
+    getName(): Name
+    getIngredients(): List<Ingredient>
+    getServingSize(): Integer
+    getSteps(): List<step>
+    getTags(): Set<Tag>
+    isSameRecipe(): Boolean
+
+}
+
+class Name {
+    name: String
+    isValidName(): Boolean
+}
+
+class Ingredient {
+    ingredientName: String
+    quantity: String
+    quantifier: String
+    getIngredientName(): String
+    getQuantity(): Double
+    getQuantifier(): String
+    isValidIngredientName(): Boolean
+    isValidQuantity(): Boolean
+    isValidQuantifier(): Boolean
+}
+
+class Steps {
+    value: String
+    isValidSteps(): Boolean
+
+}
+
+class ServingSize {
+    servingSize: Integer
+    isValidServingSize(): Boolean
+}
+
+class CompletionTime {
+    completionTime: Integer
+    isValidCompletionTime(): Boolean
+}
+
+class UniqueRecipeList {
+    internalList: ObservableList<Recipe>
+    internalUnmodifiableList: ObservableList<Recipe>
+    void add()
+    void remove()
+    void contains()
+    void setRecipe()
+    void setRecipes()
+    asUnmodifiableObservableList() : ObservableList<Recipe>
+}
+
+interface Iterable<Recipe> {
+}
+
+
+RecipeBook<|-- Recipe
+Recipe <|-- Name
+Recipe <|-- Ingredient
+Recipe <|-- ServingSize
+Recipe <|-- Steps
+Recipe <|-- CompletionTime
+Iterable <|.. UniqueRecipeList
+
+@enduml
