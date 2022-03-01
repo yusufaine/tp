@@ -129,7 +129,7 @@ public class RecipeBookParserUtil {
     }
 
     /**
-     * Parses a {@code String portion} into a {@code ServingSize} and returns it. <br>
+     * Parses a {@code String servingSize} into a {@code ServingSize} and returns it. <br>
      * Leading and trailing whitespaces will be trimmed.
      * @throws ParseException if the ServingSize is invalid (not a non-zero positive number).
      */
