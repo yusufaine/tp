@@ -68,7 +68,7 @@ public class RecipeBookParserUtil {
         // ------ Guard Clauses ------
         // Quantity not detected
         if (!numberMatcher.find()) {
-            throw new ParseException(Ingredient.QUANTIFIER_CONSTRAINTS);
+            throw new ParseException(Ingredient.QUANTITY_CONSTRAINTS);
         }
 
         String[] splitIngredient = ingredient.split(Ingredient.QUANTITY_VALIDATION_REGEX);
