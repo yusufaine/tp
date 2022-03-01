@@ -33,8 +33,8 @@ public class Name {
 
     /**
      * Checks the validity of the input string for {@code Name}. <br>
-     * Validity: Input is not empty and not blank.
-     * @return true if input st
+     * Validity: Input is not empty (trim would strip whitespace).
+     * @return true if input string is not empty
      */
     public static boolean isValidName(String test) {
         // if test = " ", test.strip = ""
