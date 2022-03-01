@@ -7,7 +7,7 @@ title: Developer Guide
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Acknowledgements**
+## **Acknowledgements** (TO UPDATE)
 
 * {list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well}
 
@@ -67,7 +67,8 @@ For example, the `Logic` component defines its API in the `Logic.java` interface
 
 The sections below give more details of each component.
 
-### UI component
+### UI component 
+(TO UPDATE)
 
 The **API** of this component is specified in [`Ui.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java)
 
@@ -86,7 +87,7 @@ The `UI` component,
 
 ### Logic component
 
-**API** : [`Logic.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/logic/Logic.java)
+**API** : [`Logic.java`]() (TO UPDATE)
 
 Here's a (partial) class diagram of the `Logic` component:
 
@@ -114,9 +115,9 @@ How the parsing works:
 * All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
 
 ### Model component
-**API** : [`Model.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java)
+**API** : [`Model.java`]() (TO UPDATE)
 
-<img src="images/ModelClassDiagram.png" width="450" />
+<img src="umlDiagrams/img/ModelClassDiagram.png"/>
 
 
 The `Model` component,
@@ -134,8 +135,7 @@ The `Model` component,
 
 
 ### Storage component
-
-**API** : [`Storage.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/storage/Storage.java)
+**API** : [`Storage.java`]() (TO UPDATE)
 
 <img src="images/StorageClassDiagram.png" width="550" />
 
@@ -286,7 +286,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Use cases
 
-(For all use cases below, the **System** is the `McKitchen` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is the `RecipeBook` and the **Actor** is the `user`, unless specified otherwise)
 
 **Use case: Add a recipe**
 
@@ -297,22 +297,22 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 1. User requests to add recipes
-2. McKitchen Adds the recipe to a new or existing list of recipes
+2. RecipeBook Adds the recipe to a new or existing list of recipes
 
     Use case ends.
 
 **Extensions**
 
 * 2a. The list is empty.
-  * McKitchen creates a new list.
+  * RecipeBook creates a new list.
 * 2b. The list is not empty.
-  * McKitchen checks if the input fields are valid
+  * RecipeBook checks if the input fields are valid
     * If input fields are valid,
   
       Use case ends.
   
     * If input fields are invalid,
-      * McKitchen shows an error message
+      * RecipeBook shows an error message
 
         Use case resumes at step 1
 
@@ -327,9 +327,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 1. User requests to list recipes
-2. McKitchen shows a list of recipes
+2. RecipeBook shows a list of recipes
 3. User requests to delete a specific recipe in the list
-4. McKitchen deletes the recipe
+4. RecipeBook deletes the recipe
 
     Use case ends.
 
@@ -339,13 +339,13 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
   Use case ends.
 
-* 4a. McKitchen checks if the given index is valid. 
+* 4a. RecipeBook checks if the given index is valid. 
   * If index is valid
   
     Use case ends.
 
   * If index is invalid, 
-    * McKitchen shows an error message
+    * RecipeBook shows an error message
 
       Use case resumes at step 2
 
@@ -360,9 +360,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 1. User requests to list recipes
-2. McKitchen shows a list of recipes
+2. RecipeBook shows a list of recipes
 3. User requests to view a specific recipe in the list
-4. McKitchen displays the specific recipe requested by the user for viewing
+4. RecipeBook displays the specific recipe requested by the user for viewing
 
     Use case ends.
 
@@ -371,13 +371,13 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
   Use case ends.
 
-* 4a. McKitchen checks if the given index is valid.
+* 4a. RecipeBook checks if the given index is valid.
     * If index is valid
 
       Use case ends.
 
     * If index is invalid,
-        * McKitchen shows an error message
+        * RecipeBook shows an error message
 
           Use case resumes at step 2
 
@@ -393,11 +393,11 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1. User requests to list recipes
-2. McKitchen shows a list of recipes
+2. RecipeBook shows a list of recipes
 3. User requests to edit a specific recipe in the list
-4. McKitchen displays the specific recipe requested by the user
+4. RecipeBook displays the specific recipe requested by the user
 5. User edits the recipe
-6. McKitchen updates the changes in the recipe
+6. RecipeBook updates the changes in the recipe
 
     Use case ends.
 
@@ -407,22 +407,22 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
   Use case ends.
 
-* 4a. McKitchen checks if the given index is valid.
+* 4a. RecipeBook checks if the given index is valid.
     * If index is valid
 
       Use case ends.
 
     * If index is invalid,
-        * McKitchen shows an error message
+        * RecipeBook shows an error message
 
           Use case resumes at step 2
       
-* 6a. McKitchen checks if the fields to be edited are valid
+* 6a. RecipeBook checks if the fields to be edited are valid
     * if input fields are valid
     
       Use case ends
     * if input fields are invalid
-      * McKitchen shows an error message
+      * RecipeBook shows an error message
       
         Use case resumes at step 4
 
