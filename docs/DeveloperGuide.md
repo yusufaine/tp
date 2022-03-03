@@ -7,7 +7,7 @@ title: Developer Guide
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Acknowledgements**
+## **Acknowledgements** (TO UPDATE)
 
 * {list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well}
 
@@ -67,7 +67,8 @@ For example, the `Logic` component defines its API in the `Logic.java` interface
 
 The sections below give more details of each component.
 
-### UI component
+### UI component 
+(TO UPDATE)
 
 The **API** of this component is specified in [`Ui.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java)
 
@@ -86,7 +87,7 @@ The `UI` component,
 
 ### Logic component
 
-**API** : [`Logic.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/logic/Logic.java)
+**API** : [`Logic.java`]() (TO UPDATE)
 
 Here's a (partial) class diagram of the `Logic` component:
 
@@ -114,9 +115,9 @@ How the parsing works:
 * All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
 
 ### Model component
-**API** : [`Model.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java)
+**API** : [`Model.java`]() (TO UPDATE)
 
-<img src="images/ModelClassDiagram.png" width="450" />
+<img src="umlDiagrams/img/ModelClassDiagram.png"/>
 
 
 The `Model` component,
@@ -134,8 +135,7 @@ The `Model` component,
 
 
 ### Storage component
-
-**API** : [`Storage.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/storage/Storage.java)
+**API** : [`Storage.java`]() (TO UPDATE)
 
 <img src="images/StorageClassDiagram.png" width="550" />
 
@@ -270,29 +270,66 @@ _{Explain here how the data archiving feature will be implemented}_
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                     | So that I can…​                                                        |
-| -------- | ------------------------------------------ | ------------------------------ | ---------------------------------------------------------------------- |
-| `* * *`  | new user                                   | see usage instructions         | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person               |                                                                        |
-| `* * *`  | user                                       | delete a person                | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name           | locate a person easily                                                 |
+| Priority | As a …​                                | I want to …​                                      | So that I can…​                                                      |
+|----------|----------------------------------------|---------------------------------------------------|----------------------------------------------------------------------|
+| `* * *`  | user                                   | be able to see a list of recipes                  | view all the recipes that I have stored                              |
+| `* * *`  | user                                   | be able to save and load                          | Automatically see my recently stored recipes                         |
+| `* * *`  | user                                   | be able to view my recipes                        | see the full details of the recipe such as the ingredients and steps |
+| `* * *`  | user                                   | be able to create recipes                         | add them to the app and save them for later viewing                  |
+| `* * *`  | user                                   | be able to delete recipes from my list of recipes | remove them from a text file in my local computer                    |
+| `* * *`  | user                                   | be able to edit my recipes                        | make further changes at any point of time                            |
+| `* *`    | user with dietary restrictions         | be able to prepare suitable recipes               | cook more of them easily                                             |
+| `* *`    | student who has online classes at home | cook with what I have at home                     | save money                                                           |
+| `* *`    | person who cooks well                  | be able to export my recipes                      | share them with people who are curious about a certain dish          |
 
 *{More to be added}*
 
 ### Use cases
 
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is the `RecipeBook` and the **Actor** is the `user`, unless specified otherwise)
 
-**Use case: Delete a person**
+**Use case: Add a recipe**
+
+*Actor: User*
+
+**Guarantees**
+1. Recipe will be added to a new or existing list of recipes only if the name, portion, ingredients, steps and tags are valid
 
 **MSS**
+1. User requests to add recipes
+2. RecipeBook Adds the recipe to a new or existing list of recipes
 
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+  * RecipeBook creates a new list.
+* 2b. The list is not empty.
+  * RecipeBook checks if the input fields are valid
+    * If input fields are valid,
+  
+      Use case ends.
+  
+    * If input fields are invalid,
+      * RecipeBook shows an error message
+
+        Use case resumes at step 1
+
+**Use case: Delete a recipe**
+
+*Actor: User*
+
+*Preconditions: User should have an existing list of recipes stored in the local file*
+
+**Guarantees**
+1. Recipe will be deleted from a list of recipes only if the recipe exists in the recipe list
+
+**MSS**
+1. User requests to list recipes
+2. RecipeBook shows a list of recipes
+3. User requests to delete a specific recipe in the list
+4. RecipeBook deletes the recipe
 
     Use case ends.
 
@@ -302,19 +339,104 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
   Use case ends.
 
-* 3a. The given index is invalid.
+* 4a. RecipeBook checks if the given index is valid. 
+  * If index is valid
+  
+    Use case ends.
 
-    * 3a1. AddressBook shows an error message.
+  * If index is invalid, 
+    * RecipeBook shows an error message
 
-      Use case resumes at step 2.
+      Use case resumes at step 2
+
+**Use case: view a recipe**
+
+*Actor: User*
+
+*Preconditions: User should have an existing list of recipes stored in the local file*
+
+**Guarantees**
+1. Recipe can be viewed only if the recipe exists in the recipe list
+
+**MSS**
+1. User requests to list recipes
+2. RecipeBook shows a list of recipes
+3. User requests to view a specific recipe in the list
+4. RecipeBook displays the specific recipe requested by the user for viewing
+
+    Use case ends.
+
+**Extensions**
+* 2a. The list is empty.
+
+  Use case ends.
+
+* 4a. RecipeBook checks if the given index is valid.
+    * If index is valid
+
+      Use case ends.
+
+    * If index is invalid,
+        * RecipeBook shows an error message
+
+          Use case resumes at step 2
+
+**Use case: Edit a recipe**
+
+*Actor: User*
+
+*Preconditions: User should have an existing list of recipes stored in the local file*
+
+**Guarantees**
+1. Recipe will be edited only if the recipe exists in the recipe list and fields to be edited are valid
+
+**MSS**
+
+1. User requests to list recipes
+2. RecipeBook shows a list of recipes
+3. User requests to edit a specific recipe in the list
+4. RecipeBook displays the specific recipe requested by the user
+5. User edits the recipe
+6. RecipeBook updates the changes in the recipe
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+
+* 4a. RecipeBook checks if the given index is valid.
+    * If index is valid
+
+      Use case ends.
+
+    * If index is invalid,
+        * RecipeBook shows an error message
+
+          Use case resumes at step 2
+      
+* 6a. RecipeBook checks if the fields to be edited are valid
+    * if input fields are valid
+    
+      Use case ends
+    * if input fields are invalid
+      * RecipeBook shows an error message
+      
+        Use case resumes at step 4
 
 *{More to be added}*
 
 ### Non-Functional Requirements
 
-1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
-2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
-3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+1. Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
+2. Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
+3. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+4. Should not use a DBMS to store data.
+5. Should work without requiring an installer.
+6. GUI should be usable with resolutions 1280x720 and higher, for screen scales 150%
+7. Should package everything into a single JAR file
 
 *{More to be added}*
 
