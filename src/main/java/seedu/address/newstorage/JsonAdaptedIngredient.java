@@ -56,11 +56,17 @@ class JsonAdaptedIngredient {
      * @throws IllegalValueException if there were any data constraints violated in the adapted ingredient.
      */
     public Ingredient toModelType() throws IllegalValueException {
+        double dblQuantity;
         if (!Ingredient.isValidIngredientName(ingredientName)) {
             throw new IllegalValueException(Ingredient.NAME_CONSTRAINTS);
         }
 
-        if (!Ingredient.isValidQuantity(quantity)) {
+        try {
+            dblQuantity = Double.parseDouble(quantity);
+            if (!Ingredient.isValidQuantity(dblQuantity)) {
+                throw new IllegalValueException(Ingredient.QUANTITY_CONSTRAINTS);
+            }
+        } catch (NumberFormatException nfe) {
             throw new IllegalValueException(Ingredient.QUANTITY_CONSTRAINTS);
         }
 
@@ -68,7 +74,7 @@ class JsonAdaptedIngredient {
             throw new IllegalValueException(Ingredient.QUANTIFIER_CONSTRAINTS);
         }
 
-        return new Ingredient(ingredientName, quantity, quantifier);
+        return new Ingredient(ingredientName, dblQuantity, quantifier);
     }
 
 }

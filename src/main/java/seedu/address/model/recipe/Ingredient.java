@@ -8,13 +8,13 @@ import java.util.Objects;
 /**
  * Represents a Recipe's ingredient in the recipe book.
  * Guarantees: immutable; is valid as declared in {@link #isValidIngredientName(String)},
- * {@link #isValidQuantity(String)}, and {@link #isValidQuantifier(String)}.
+ * {@link #isValidQuantity(double)}, and {@link #isValidQuantifier(String)}.
  */
 public class Ingredient {
 
     public static final String NAME_CONSTRAINTS = "Ingredients name should not be left blank";
-    public static final String QUANTITY_CONSTRAINTS = "Quantity should be a valid number (greater than 0.0) and "
-            + "should not be left blank";
+    public static final String QUANTITY_CONSTRAINTS =
+            "Quantity should be a valid number (greater than 0.0) and should not be left blank";
     public static final String QUANTIFIER_CONSTRAINTS = "Quantifier name should not be left blank";
 
     /*
@@ -45,19 +45,17 @@ public class Ingredient {
      * @param quantity A valid quantity.
      * @param quantifier A valid quantifier.
      */
-    public Ingredient(String name, String quantity, String quantifier) {
+    public Ingredient(String name, double quantity, String quantifier) {
         requireNonNull(name);
         checkArgument(isValidIngredientName(name), NAME_CONSTRAINTS);
 
-        requireNonNull(quantity);
         checkArgument(isValidQuantity(quantity), QUANTITY_CONSTRAINTS);
 
         requireNonNull(quantifier);
         checkArgument(isValidQuantifier(quantifier), QUANTIFIER_CONSTRAINTS);
 
         this.ingredientName = name;
-        //TODO: check if parsing was done "properly" based on the available ab3 files.
-        this.quantity = Double.parseDouble(quantity);
+        this.quantity = quantity;
         this.quantifier = quantifier;
     }
 
@@ -77,12 +75,8 @@ public class Ingredient {
         return test.matches(NAME_VALIDATION_REGEX);
     }
 
-    /**
-     * Checks if the quantity is a valid Integer value > 0.
-     */
-    public static boolean isValidQuantity(String test) {
-        return test.matches(QUANTITY_VALIDATION_REGEX)
-                && Double.parseDouble(test) > 0;
+    public static boolean isValidQuantity(double test) {
+        return test > 0;
     }
 
     public static boolean isValidQuantifier(String test) {
