@@ -11,7 +11,6 @@ public class Name {
 
     public static final String MESSAGE_CONSTRAINTS = "Names should not be left blank";
 
-    //TODO: figure this regex thing out
     /*
      * The first character of the name must not be a whitespace,
      * otherwise " " (a blank string) becomes a valid input.
@@ -27,12 +26,19 @@ public class Name {
      */
     public Name(String name) {
         requireNonNull(name);
+        name = name.trim();
         checkArgument(isValidName(name), MESSAGE_CONSTRAINTS);
         fullName = name;
     }
 
+    /**
+     * Checks the validity of the input string for {@code Name}. <br>
+     * Validity: Input is not empty (trim would strip whitespace).
+     * @return true if input string is not empty
+     */
     public static boolean isValidName(String test) {
-        return test.matches(VALIDATION_REGEX);
+        // if test = " ", test.strip = ""
+        return !test.isEmpty();
     }
 
     @Override
