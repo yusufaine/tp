@@ -208,4 +208,5 @@ public class RecipeBookParserUtil {
         if (!StringUtil.isNonZeroPositiveDouble(quantity)) {
             throw new ParseException(Ingredient.QUANTITY_CONSTRAINTS);
         }
+    }
 }
