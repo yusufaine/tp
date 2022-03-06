@@ -27,7 +27,7 @@ public class RecipeBookParserUtil {
 
     public static final String MESSAGE_INVALID_INDEX = "Index is not a non-zero positive integer.";
     public static final String MESSAGE_MISSING_INGREDIENT_FIELDS =
-            "Ingredient is not in the <name> <quantity> <quantifier> format.";
+            "Ingredient is not in the <name> <quantity> [<quantifier>] format.";
 
     /**
      * Parses a {@code String oneBasedIndex} into an {@code Index} and returns it. <br>
@@ -76,29 +76,32 @@ public class RecipeBookParserUtil {
         String[] splitIngredient = ingredient.split(Ingredient.QUANTITY_VALIDATION_REGEX);
 
         // String split should be [ingredient, quantifier]
-        if (splitIngredient.length != 2) {
+
+        String name;
+        String quantity;
+        String quantifier;
+
+        switch (splitIngredient.length) {
+        case 1: // (name, quantity) case
+            name = splitIngredient[0].trim();
+            quantity = numberMatcher.group(0).trim();
+
+            isValidIngredientInput(name, quantity);
+
+            return new Ingredient(name, Double.parseDouble(quantity));
+
+        case 2: // (name, quantity, quantifier) case
+            name = splitIngredient[0].trim();
+            quantity = numberMatcher.group(0).trim();
+            quantifier = splitIngredient[1].trim();
+
+            isValidIngredientInput(name, quantity);
+
+            return new Ingredient(name, Double.parseDouble(quantity), quantifier);
+
+        default:
             throw new ParseException(MESSAGE_MISSING_INGREDIENT_FIELDS);
         }
-
-        String name = splitIngredient[0].trim();
-        String quantity = numberMatcher.group(0).trim();
-        String quantifier = splitIngredient[1].trim();
-
-        if (!Ingredient.isValidIngredientName(name)) {
-            throw new ParseException(Ingredient.NAME_CONSTRAINTS);
-        }
-
-        if (!StringUtil.isNonZeroPositiveDouble(quantity)) {
-            throw new ParseException(Ingredient.QUANTITY_CONSTRAINTS);
-        }
-
-        if (!Ingredient.isValidQuantifier(quantifier)) {
-            throw new ParseException(Ingredient.QUANTIFIER_CONSTRAINTS);
-        }
-
-        // ---------------------------
-
-        return new Ingredient(name, Double.parseDouble(quantity), quantifier);
     }
 
     /**
@@ -195,5 +198,15 @@ public class RecipeBookParserUtil {
             tagSet.add(parseTag(tagName));
         }
         return tagSet;
+    }
+
+    private static void isValidIngredientInput(String name, String quantity) throws ParseException {
+        if (!Ingredient.isValidIngredientName(name)) {
+            throw new ParseException(Ingredient.NAME_CONSTRAINTS);
+        }
+
+        if (!StringUtil.isNonZeroPositiveDouble(quantity)) {
+            throw new ParseException(Ingredient.QUANTITY_CONSTRAINTS);
+        }
     }
 }
