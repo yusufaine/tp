@@ -70,10 +70,6 @@ class JsonAdaptedIngredient {
             throw new IllegalValueException(Ingredient.QUANTITY_CONSTRAINTS);
         }
 
-        if (!Ingredient.isValidQuantifier(quantifier)) {
-            throw new IllegalValueException(Ingredient.QUANTIFIER_CONSTRAINTS);
-        }
-
         return new Ingredient(ingredientName, dblQuantity, quantifier);
     }
 
