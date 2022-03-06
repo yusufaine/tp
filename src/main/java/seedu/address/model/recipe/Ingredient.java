@@ -8,7 +8,7 @@ import java.util.Objects;
 /**
  * Represents a Recipe's ingredient in the recipe book.
  * Guarantees: immutable; is valid as declared in {@link #isValidIngredientName(String)},
- * {@link #isValidQuantity(double)}, and {@link #isValidQuantifier(String)}.
+ * and {@link #isValidQuantity(double)}.
  */
 public class Ingredient {
 

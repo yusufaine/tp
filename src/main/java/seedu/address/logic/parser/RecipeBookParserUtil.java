@@ -24,7 +24,7 @@ public class RecipeBookParserUtil {
 
     public static final String MESSAGE_INVALID_INDEX = "Index is not a non-zero positive integer.";
     public static final String MESSAGE_MISSING_INGREDIENT_FIELDS =
-            "Ingredient is not in the <name> <quantity> <quantifier> format.";
+            "Ingredient is not in the <name> <quantity> [<quantifier>] format.";
 
     /**
      * Parses a {@code String oneBasedIndex} into an {@code Index} and returns it. <br>
