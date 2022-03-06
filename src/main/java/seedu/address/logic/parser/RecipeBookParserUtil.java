@@ -199,7 +199,7 @@ public class RecipeBookParserUtil {
         }
         return tagSet;
     }
-    
+
     private static void isValidIngredientInput(String name, String quantity) throws ParseException {
         if (!Ingredient.isValidIngredientName(name)) {
             throw new ParseException(Ingredient.NAME_CONSTRAINTS);
