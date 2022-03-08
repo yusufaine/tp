@@ -15,7 +15,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyRecipeBook;
 import seedu.address.model.recipe.Recipe;
-import seedu.address.storage.Storage;
+import seedu.address.newstorage.Storage;
 
 /**
  * The main LogicManager of the app.

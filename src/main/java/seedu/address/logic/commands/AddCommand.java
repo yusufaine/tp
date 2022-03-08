@@ -5,8 +5,8 @@ import static seedu.address.logic.parser.RecipeBookSyntax.PREFIX_COMPLETION_TIME
 import static seedu.address.logic.parser.RecipeBookSyntax.PREFIX_INGREDIENT;
 import static seedu.address.logic.parser.RecipeBookSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.RecipeBookSyntax.PREFIX_SERVING_SIZE;
-import static seedu.address.logic.parser.RecipeBookSyntax.PREFIX_TAG;
 import static seedu.address.logic.parser.RecipeBookSyntax.PREFIX_STEP;
+import static seedu.address.logic.parser.RecipeBookSyntax.PREFIX_TAG;
 
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;

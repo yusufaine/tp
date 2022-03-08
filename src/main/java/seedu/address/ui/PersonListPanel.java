@@ -13,20 +13,20 @@ import seedu.address.model.recipe.Recipe;
 /**
  * Panel containing the list of recipess.
  */
-public class RecipeListPanel extends UiPart<Region> {
-    private static final String FXML = "RecipeListPanel.fxml";
-    private final Logger logger = LogsCenter.getLogger(RecipeListPanel.class);
+public class PersonListPanel extends UiPart<Region> {
+    private static final String FXML = "PersonListPanel.fxml";
+    private final Logger logger = LogsCenter.getLogger(PersonListPanel.class);
 
     @FXML
-    private ListView<Recipe> recipeListView;
+    private ListView<Recipe> personListView;
 
     /**
-     * Creates a {@code RecipeListPanel} with the given {@code ObservableList}.
+     * Creates a {@code PersonListPanel} with the given {@code ObservableList}.
      */
-    public RecipeListPanel(ObservableList<Recipe> recipeList) {
+    public PersonListPanel(ObservableList<Recipe> recipeList) {
         super(FXML);
-        recipeListView.setItems(recipeList);
-        recipeListView.setCellFactory(listView -> new RecipeListViewCell());
+        personListView.setItems(recipeList);
+        personListView.setCellFactory(listView -> new RecipeListViewCell());
     }
 
     /**

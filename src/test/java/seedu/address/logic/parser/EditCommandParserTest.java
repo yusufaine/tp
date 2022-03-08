@@ -99,7 +99,8 @@
 //         assertParseFailure(parser, "1" + TAG_EMPTY + TAG_DESC_FRIEND + TAG_DESC_HUSBAND, Tag.MESSAGE_CONSTRAINTS);
 //
 //         // multiple invalid values, but only the first invalid value is captured
-//         assertParseFailure(parser, "1" + INVALID_NAME_DESC + INVALID_EMAIL_DESC + VALID_ADDRESS_AMY + VALID_PHONE_AMY,
+//         assertParseFailure(parser, "1" + INVALID_NAME_DESC +
+//                 INVALID_EMAIL_DESC + VALID_ADDRESS_AMY + VALID_PHONE_AMY,
 //                 Name.MESSAGE_CONSTRAINTS);
 //     }
 //
@@ -171,7 +172,8 @@
 //                 + PHONE_DESC_BOB + ADDRESS_DESC_BOB + EMAIL_DESC_BOB + TAG_DESC_HUSBAND;
 //
 //         EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder().withPhone(VALID_PHONE_BOB)
-//                 .withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_FRIEND, VALID_TAG_HUSBAND)
+//                 .withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB)
+//                 .withTags(VALID_TAG_FRIEND, VALID_TAG_HUSBAND)
 //                 .build();
 //         EditCommand expectedCommand = new EditCommand(targetIndex, descriptor);
 //

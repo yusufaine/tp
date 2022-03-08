@@ -119,11 +119,30 @@ public class Recipe {
     @Override
     public String toString() {
         // use this to display a short version of the recipe in the default/list view
-        // TODO: edit if needed
         StringBuilder sb = new StringBuilder();
         sb.append(getName())
                 .append(String.format("; Completion time: %s, Serving size: %s",
                         getCompletionTime(), getServingSize()));
+
+        List<Ingredient> ingredients = getIngredients();
+        if (!ingredients.isEmpty()) {
+            sb.append("; Ingredients: ");
+
+            // return ingredients with commas separating each ingredient
+            // substring function removes leading and trailing brackets
+            sb.append(String.join(",", ingredients.toString().substring(1,
+                    ingredients.toString().length() - 1)));
+        }
+
+        List<Step> steps = getSteps();
+        if (!steps.isEmpty()) {
+            sb.append("; Steps: ");
+
+            // return steps with commas separating each step
+            // substring function removes leading and trailing brackets
+            sb.append(String.join(",", steps.toString().substring(1,
+                    steps.toString().length() - 1)));
+        }
 
         Set<Tag> tags = getTags();
         if (!tags.isEmpty()) {
