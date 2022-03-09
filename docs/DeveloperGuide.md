@@ -3,7 +3,7 @@ layout: page
 title: Developer Guide
 ---
 * Table of Contents
-{:toc}
+  {:toc}
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -67,7 +67,7 @@ For example, the `Logic` component defines its API in the `Logic.java` interface
 
 The sections below give more details of each component.
 
-### UI component 
+### UI component
 (TO UPDATE)
 
 The **API** of this component is specified in [`Ui.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java)
@@ -224,13 +224,13 @@ The following activity diagram summarizes what happens when a user executes a ne
 **Aspect: How undo & redo executes:**
 
 * **Alternative 1 (current choice):** Saves the entire address book.
-  * Pros: Easy to implement.
-  * Cons: May have performance issues in terms of memory usage.
+    * Pros: Easy to implement.
+    * Cons: May have performance issues in terms of memory usage.
 
 * **Alternative 2:** Individual command knows how to undo/redo by
   itself.
-  * Pros: Will use less memory (e.g. for `delete`, just save the person being deleted).
-  * Cons: We must ensure that the implementation of each individual command are correct.
+    * Pros: Will use less memory (e.g. for `delete`, just save the person being deleted).
+    * Cons: We must ensure that the implementation of each individual command are correct.
 
 _{more aspects and alternatives to be added}_
 
@@ -300,22 +300,22 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1. User requests to add recipes
 2. RecipeBook Adds the recipe to a new or existing list of recipes
 
-    Use case ends.
+   Use case ends.
 
 **Extensions**
 
 * 2a. The list is empty.
-  * RecipeBook creates a new list.
+    * RecipeBook creates a new list.
 * 2b. The list is not empty.
-  * RecipeBook checks if the input fields are valid
-    * If input fields are valid,
-  
-      Use case ends.
-  
-    * If input fields are invalid,
-      * RecipeBook shows an error message
+    * RecipeBook checks if the input fields are valid
+        * If input fields are valid,
 
-        Use case resumes at step 1
+          Use case ends.
+
+        * If input fields are invalid,
+            * RecipeBook shows an error message
+
+              Use case resumes at step 1
 
 **Use case: Delete a recipe**
 
@@ -332,7 +332,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 3. User requests to delete a specific recipe in the list
 4. RecipeBook deletes the recipe
 
-    Use case ends.
+   Use case ends.
 
 **Extensions**
 
@@ -340,15 +340,15 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
   Use case ends.
 
-* 4a. RecipeBook checks if the given index is valid. 
-  * If index is valid
-  
-    Use case ends.
+* 4a. RecipeBook checks if the given index is valid.
+    * If index is valid
 
-  * If index is invalid, 
-    * RecipeBook shows an error message
+      Use case ends.
 
-      Use case resumes at step 2
+    * If index is invalid,
+        * RecipeBook shows an error message
+
+          Use case resumes at step 2
 
 **Use case: view a recipe**
 
@@ -365,7 +365,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 3. User requests to view a specific recipe in the list
 4. RecipeBook displays the specific recipe requested by the user for viewing
 
-    Use case ends.
+   Use case ends.
 
 **Extensions**
 * 2a. The list is empty.
@@ -400,7 +400,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 5. User edits the recipe
 6. RecipeBook updates the changes in the recipe
 
-    Use case ends.
+   Use case ends.
 
 **Extensions**
 
@@ -417,15 +417,15 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
         * RecipeBook shows an error message
 
           Use case resumes at step 2
-      
+
 * 6a. RecipeBook checks if the fields to be edited are valid
     * if input fields are valid
-    
+
       Use case ends
     * if input fields are invalid
-      * RecipeBook shows an error message
-      
-        Use case resumes at step 4
+        * RecipeBook shows an error message
+
+          Use case resumes at step 4
 
 *{More to be added}*
 
@@ -461,15 +461,15 @@ testers are expected to do more *exploratory* testing.
 
 1. Initial launch
 
-   1. Download the jar file and copy into an empty folder
+    1. Download the jar file and copy into an empty folder
 
-   1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
+    1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
 
 1. Saving window preferences
 
-   1. Resize the window to an optimum size. Move the window to a different location. Close the window.
+    1. Resize the window to an optimum size. Move the window to a different location. Close the window.
 
-   1. Re-launch the app by double-clicking the jar file.<br>
+    1. Re-launch the app by double-clicking the jar file.<br>
        Expected: The most recent window size and location is retained.
 
 1. _{ more test cases …​ }_
@@ -478,16 +478,16 @@ testers are expected to do more *exploratory* testing.
 
 1. Deleting a person while all persons are being shown
 
-   1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
+    1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
 
-   1. Test case: `delete 1`<br>
-      Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
+    1. Test case: `delete 1`<br>
+       Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
 
-   1. Test case: `delete 0`<br>
-      Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.
+    1. Test case: `delete 0`<br>
+       Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.
 
-   1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
-      Expected: Similar to previous.
+    1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
+       Expected: Similar to previous.
 
 1. _{ more test cases …​ }_
 
@@ -495,6 +495,6 @@ testers are expected to do more *exploratory* testing.
 
 1. Dealing with missing/corrupted data files
 
-   1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
+    1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
 
 1. _{ more test cases …​ }_
