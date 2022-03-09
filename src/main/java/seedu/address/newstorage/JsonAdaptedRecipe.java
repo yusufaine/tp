@@ -123,7 +123,7 @@ class JsonAdaptedRecipe {
         final List<Step> modelSteps = new ArrayList<>(recipeSteps);
         final List<Ingredient> modelIngredients = new ArrayList<>(recipeIngredients);
         final Set<Tag> modelTags = new HashSet<>(recipeTags);
-        return new Recipe(modelName, modelIngredients, modelCompletionTime, modelServingSize, modelSteps, modelTags);
+        return new Recipe(modelName, modelCompletionTime, modelServingSize, modelIngredients, modelSteps, modelTags);
     }
 
 }

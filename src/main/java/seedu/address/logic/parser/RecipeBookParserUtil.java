@@ -57,6 +57,35 @@ public class RecipeBookParserUtil {
     }
 
     /**
+     * Parses a {@code String time} into an {@code CompletionTime} and returns it. <br>
+     * Leading and trailing whitespaces will be trimmed.
+     * @throws ParseException if the time is invalid (not a non-zero positive integer).
+     */
+    public static CompletionTime parseCompletionTime(String time) throws ParseException {
+        requireNonNull(time);
+
+        String trimmedTime = time.trim();
+        if (!StringUtil.isNonZeroUnsignedInteger(trimmedTime)) {
+            throw new ParseException(CompletionTime.MESSAGE_CONSTRAINTS);
+        }
+        return new CompletionTime(Integer.parseInt(trimmedTime));
+    }
+
+    /**
+     * Parses a {@code String servingSize} into a {@code ServingSize} and returns it. <br>
+     * Leading and trailing whitespaces will be trimmed.
+     * @throws ParseException if the ServingSize is invalid (not a non-zero positive number).
+     */
+    public static ServingSize parseServingSize(String servingSize) throws ParseException {
+        String trimmedSize = servingSize.trim();
+        if (!StringUtil.isNonZeroPositiveDouble(trimmedSize)) {
+            throw new ParseException(ServingSize.MESSAGE_CONSTRAINTS);
+        }
+        return new ServingSize(Integer.parseInt(servingSize));
+    }
+
+
+    /**
      * Parses a {@code String ingredient} into a {@code Ingredient}. <br>
      * Input string is checked for validity and trimmed before returning an {@code Ingredient}.
      *
@@ -116,34 +145,6 @@ public class RecipeBookParserUtil {
         }
 
         return ingredientList;
-    }
-
-    /**
-     * Parses a {@code String time} into an {@code CompletionTime} and returns it. <br>
-     * Leading and trailing whitespaces will be trimmed.
-     * @throws ParseException if the time is invalid (not a non-zero positive integer).
-     */
-    public static CompletionTime parseCompletionTime(String time) throws ParseException {
-        requireNonNull(time);
-
-        String trimmedTime = time.trim();
-        if (!StringUtil.isNonZeroUnsignedInteger(trimmedTime)) {
-            throw new ParseException(CompletionTime.MESSAGE_CONSTRAINTS);
-        }
-        return new CompletionTime(Integer.parseInt(trimmedTime));
-    }
-
-    /**
-     * Parses a {@code String servingSize} into a {@code ServingSize} and returns it. <br>
-     * Leading and trailing whitespaces will be trimmed.
-     * @throws ParseException if the ServingSize is invalid (not a non-zero positive number).
-     */
-    public static ServingSize parseServingSize(String servingSize) throws ParseException {
-        String trimmedSize = servingSize.trim();
-        if (!StringUtil.isNonZeroPositiveDouble(trimmedSize)) {
-            throw new ParseException(ServingSize.MESSAGE_CONSTRAINTS);
-        }
-        return new ServingSize(Integer.parseInt(servingSize));
     }
 
     /**

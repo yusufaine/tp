@@ -1,7 +1,7 @@
 package seedu.address.newstorage;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.recipe.Ingredient;
@@ -11,16 +11,18 @@ import seedu.address.model.recipe.Ingredient;
  */
 class JsonAdaptedIngredient {
 
-    public final String ingredientName;
-    public final String quantity;
-    public final String quantifier;
+    private final String ingredientName;
+    private final String quantity;
+    private final String quantifier;
 
     /**
      * Constructs a {@code JsonAdaptedIngredient} with the given {@code ingredientName},
      * {@code quantity} and {@code quantifier}.
      */
     @JsonCreator
-    public JsonAdaptedIngredient(String ingredientName, String quantity, String quantifier) {
+    public JsonAdaptedIngredient(@JsonProperty("ingredientName") String ingredientName,
+                                 @JsonProperty("quantity") String quantity,
+                                 @JsonProperty("quantifier") String quantifier) {
         this.ingredientName = ingredientName;
         this.quantity = quantity;
         this.quantifier = quantifier;
@@ -35,17 +37,14 @@ class JsonAdaptedIngredient {
         quantifier = source.quantifier;
     }
 
-    @JsonValue
     public String getIngredientName() {
         return ingredientName;
     }
 
-    @JsonValue
     public String getQuantity() {
         return quantity;
     }
 
-    @JsonValue
     public String getQuantifier() {
         return quantifier;
     }
