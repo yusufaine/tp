@@ -35,7 +35,7 @@ public class RecipeBookUserPrefs implements ReadOnlyUserPrefs {
     public void resetData(ReadOnlyUserPrefs newUserPrefs) {
         requireNonNull(newUserPrefs);
         setGuiSettings(newUserPrefs.getGuiSettings());
-        setRecipeBookFilePath(newUserPrefs.getAddressBookFilePath());
+        setRecipeBookFilePath(newUserPrefs.getRecipeBookFilePath());
     }
 
     public GuiSettings getGuiSettings() {
@@ -48,7 +48,7 @@ public class RecipeBookUserPrefs implements ReadOnlyUserPrefs {
     }
 
     //TODO: change this method name after removing AB3
-    public Path getAddressBookFilePath() {
+    public Path getRecipeBookFilePath() {
         return recipeBookFilePath;
     }
 

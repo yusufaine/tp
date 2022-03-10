@@ -1,7 +1,11 @@
-// package seedu.address.model.person;
+// package seedu.address.model.recipe;
 //
-// import static org.junit.jupiter.api.Assertions.assertFalse;
-// import static org.junit.jupiter.api.Assertions.assertTrue;
+// import org.junit.jupiter.api.Test;
+// import seedu.address.model.person.Person;
+// import seedu.address.testutil.PersonBuilder;
+// import seedu.address.testutil.RecipeBuilder;
+//
+// import static org.junit.jupiter.api.Assertions.*;
 // import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
 // import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 // import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
@@ -11,20 +15,16 @@
 // import static seedu.address.testutil.TypicalPersons.ALICE;
 // import static seedu.address.testutil.TypicalPersons.BOB;
 //
-// import org.junit.jupiter.api.Test;
-//
-// import seedu.address.testutil.PersonBuilder;
-//
-// public class PersonTest {
+// class RecipeTest {
 //
 //     @Test
 //     public void asObservableList_modifyList_throwsUnsupportedOperationException() {
-//         Person person = new PersonBuilder().build();
-//         assertThrows(UnsupportedOperationException.class, () -> person.getTags().remove(0));
+//         Recipe recipe = new RecipeBuilder().build();
+//         assertThrows(UnsupportedOperationException.class, () -> recipe.getTags().remove(0));
 //     }
 //
 //     @Test
-//     public void isSamePerson() {
+//     public void isSameRecipe() {
 //         // same object -> returns true
 //         assertTrue(ALICE.isSamePerson(ALICE));
 //
@@ -87,5 +87,29 @@
 //         // different tags -> returns false
 //         editedAlice = new PersonBuilder(ALICE).withTags(VALID_TAG_HUSBAND).build();
 //         assertFalse(ALICE.equals(editedAlice));
+//     }
+//
+//     @Test
+//     void getName() {
+//     }
+//
+//     @Test
+//     void getIngredients() {
+//     }
+//
+//     @Test
+//     void getPortion() {
+//     }
+//
+//     @Test
+//     void getDirections() {
+//     }
+//
+//     @Test
+//     void getTags() {
+//     }
+//
+//     @Test
+//     void isSameRecipe() {
 //     }
 // }
