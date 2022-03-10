@@ -17,7 +17,7 @@ import seedu.address.model.recipe.Recipe;
 /**
  * Represents the in-memory model of the recipe book data.
  */
-public class RecipeBookModelManager implements RecipeBookModel {
+public class RecipeBookModelManager implements Model {
     //TODO: rename to "ModelManager" once we confirm that we don't need AB3 files
     private static final Logger logger = LogsCenter.getLogger(RecipeBookModelManager.class);
 
@@ -30,7 +30,7 @@ public class RecipeBookModelManager implements RecipeBookModel {
     /**
      * Initializes a ModelManager with the given recipeBook and userPrefs
      */
-    public RecipeBookModelManager(ReadOnlyRecipeBook recipeBook, RecipeBookUserPrefs userPrefs) {
+    public RecipeBookModelManager(ReadOnlyRecipeBook recipeBook, ReadOnlyUserPrefs userPrefs) {
         requireAllNonNull(recipeBook, userPrefs);
 
         logger.fine(String.format("Initializing with recipe book: %s and user prefs %s", recipeBook, userPrefs));
@@ -73,7 +73,7 @@ public class RecipeBookModelManager implements RecipeBookModel {
 
     @Override
     public Path getRecipeBookFilePath() {
-        return userPrefs.getAddressBookFilePath();
+        return userPrefs.getRecipeBookFilePath();
     }
 
     @Override

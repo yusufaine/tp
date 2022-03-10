@@ -32,14 +32,14 @@ public class Recipe {
      *
      * Every field must be present a not null, otherwise it throws a NullPointerException.
      */
-    public Recipe(Name name, List<Ingredient> ingredients, CompletionTime completionTime,
-                  ServingSize servingSize, List<Step> steps, Set<Tag> tags) {
+    public Recipe(Name name, CompletionTime completionTime, ServingSize servingSize,
+                  List<Ingredient> ingredients, List<Step> steps, Set<Tag> tags) {
 
-        requireAllNonNull(name, completionTime, ingredients, servingSize, steps, tags);
+        requireAllNonNull(name, completionTime, servingSize, ingredients, steps, tags);
         this.name = name;
-        this.ingredients.addAll(ingredients);
         this.completionTime = completionTime;
         this.servingSize = servingSize;
+        this.ingredients.addAll(ingredients);
         this.steps.addAll(steps);
         this.tags.addAll(tags);
     }
@@ -48,16 +48,16 @@ public class Recipe {
         return name;
     }
 
-    public List<Ingredient> getIngredients() {
-        return ingredients;
-    }
-
     public CompletionTime getCompletionTime() {
         return completionTime;
     }
 
     public ServingSize getServingSize() {
         return servingSize;
+    }
+
+    public List<Ingredient> getIngredients() {
+        return ingredients;
     }
 
     public List<Step> getSteps() {
@@ -104,26 +104,45 @@ public class Recipe {
 
         Recipe other = (Recipe) o;
         return this.getName().equals(other.getName())
-                && this.getIngredients().equals(other.getIngredients())
                 && this.getCompletionTime().equals(other.getCompletionTime())
                 && this.getServingSize() == other.getServingSize()
+                && this.getIngredients().equals(other.getIngredients())
                 && this.getSteps().equals(other.getSteps())
                 && this.getTags().equals(other.getTags());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, ingredients, completionTime, servingSize, steps, tags);
+        return Objects.hash(name, completionTime, servingSize, ingredients, steps, tags);
     }
 
     @Override
     public String toString() {
         // use this to display a short version of the recipe in the default/list view
-        // TODO: edit if needed
         StringBuilder sb = new StringBuilder();
         sb.append(getName())
                 .append(String.format("; Completion time: %s, Serving size: %s",
                         getCompletionTime(), getServingSize()));
+
+        List<Ingredient> ingredients = getIngredients();
+        if (!ingredients.isEmpty()) {
+            sb.append("; Ingredients: ");
+
+            // return ingredients with commas separating each ingredient
+            // substring function removes leading and trailing brackets
+            sb.append(String.join(",", ingredients.toString().substring(1,
+                    ingredients.toString().length() - 1)));
+        }
+
+        List<Step> steps = getSteps();
+        if (!steps.isEmpty()) {
+            sb.append("; Steps: ");
+
+            // return steps with commas separating each step
+            // substring function removes leading and trailing brackets
+            sb.append(String.join(",", steps.toString().substring(1,
+                    steps.toString().length() - 1)));
+        }
 
         Set<Tag> tags = getTags();
         if (!tags.isEmpty()) {

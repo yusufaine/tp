@@ -12,40 +12,39 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.stage.Stage?>
 
-<fx:root minHeight="725.0" minWidth="593.0" onCloseRequest="#handleExit" resizable="false" title="McKitchen"
-         type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root minHeight="725.0" minWidth="593.0" onCloseRequest="#handleExit" resizable="false" title="McKitchen" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
     <icons>
-        <Image url="@/images/mckitchen_32.png"/>
+        <Image url="@/images/mckitchen_32.png" />
     </icons>
     <scene>
         <Scene>
             <stylesheets>
-                <URL value="@DarkTheme.css"/>
-                <URL value="@Extensions.css"/>
+                <URL value="@DarkTheme.css" />
+                <URL value="@Extensions.css" />
             </stylesheets>
 
             <VBox>
                 <MenuBar fx:id="menuBar" VBox.vgrow="NEVER">
                     <Menu mnemonicParsing="false" text="File">
-                        <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Exit"/>
+                        <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Exit" />
                     </Menu>
                     <Menu mnemonicParsing="false" text="Help">
-                        <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#handleHelp" text="Help"/>
+                        <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#handleHelp" text="Help" />
                     </Menu>
                 </MenuBar>
                 <HBox VBox.vgrow="ALWAYS">
                     <children>
 
-                        <VBox fx:id="personList" minWidth="340" prefWidth="340" styleClass="pane-with-border">
+                        <VBox fx:id="personList" minWidth="280.0" prefWidth="280.0" styleClass="pane-with-border">
                             <padding>
-                                <Insets bottom="10" left="10" right="10" top="10"/>
+                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                             </padding>
-                            <StackPane fx:id="personListPanelPlaceholder" VBox.vgrow="ALWAYS"/>
+                            <StackPane fx:id="personListPanelPlaceholder" VBox.vgrow="ALWAYS" />
                         </VBox>
 
                         <StackPane fx:id="resultDisplayPlaceholder" styleClass="pane-with-border" HBox.hgrow="ALWAYS">
                             <padding>
-                                <Insets bottom="5" left="10" right="10" top="5"/>
+                                <Insets bottom="5" left="10" right="10" top="5" />
                             </padding>
                         </StackPane>
                     </children>
@@ -53,16 +52,16 @@
 
                 <StackPane fx:id="commandBoxPlaceholder" alignment="BOTTOM_LEFT" styleClass="pane-with-border">
                     <padding>
-                        <Insets bottom="5" left="10" right="10" top="5"/>
+                        <Insets bottom="5" left="10" right="10" top="5" />
                     </padding>
                     <VBox.margin>
-                        <Insets/>
+                        <Insets />
                     </VBox.margin>
                 </StackPane>
 
                 <StackPane fx:id="statusbarPlaceholder" alignment="BOTTOM_LEFT" VBox.vgrow="NEVER">
                     <VBox.margin>
-                        <Insets/>
+                        <Insets />
                     </VBox.margin>
                 </StackPane>
             </VBox>
