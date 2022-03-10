@@ -1,5 +1,10 @@
 package seedu.address.logic.commands;
 
+import static java.util.Objects.requireNonNull;
+
+import java.util.List;
+
+import seedu.address.commons.core.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.recipe.Ingredient;
@@ -7,11 +12,8 @@ import seedu.address.model.recipe.Name;
 import seedu.address.model.recipe.Recipe;
 import seedu.address.model.recipe.Step;
 
-import java.util.List;
-import static java.util.Objects.requireNonNull;
-
 /**
- * Displays the contents of a recipe to the resultBox
+ * Displays the contents of a recipe to the result display.
  */
 public class ViewCommand extends Command {
 
@@ -31,6 +33,12 @@ public class ViewCommand extends Command {
 
     private final Name targetName;
 
+    /**
+     * Create a ViewCommand that displays the contents of stored recipe
+     * with the same {@code Name} as the specified name.
+     *
+     * @param targetName Name of recipe to be viewed.
+     */
     public ViewCommand(Name targetName) {
         this.targetName = targetName;
     }
@@ -42,8 +50,7 @@ public class ViewCommand extends Command {
         Recipe recipe = getRecipe(lastShownList, targetName);
 
         if (recipe == null) { // Recipe not found in LastShownList
-            // throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
-            throw new CommandException("Recipe not found in the recipe list");
+            throw new CommandException(String.format(Messages.MESSAGE_RECIPE_NOT_FOUND, targetName.fullName));
         }
 
         return new CommandResult(String.format(RECIPE_CONTENT,
@@ -58,6 +65,15 @@ public class ViewCommand extends Command {
                 && targetName.equals(((ViewCommand) other).targetName)); // state check
     }
 
+    /**
+     * Retrieves the {@code Recipe} with the same name as the specified name
+     * from a given list of recipes.
+     * Returns null if a recipe with the same name cannot be found.
+     *
+     * @param lastShownList the list of recipes to search from.
+     * @param recipeName the name of the recipe to match.
+     * @return the recipe from the list matching the specified name.
+     */
     private Recipe getRecipe(List<Recipe> lastShownList, Name recipeName) {
         for (Recipe recipe : lastShownList) {
             if (recipeName.equals(recipe.getName())) {
@@ -67,15 +83,27 @@ public class ViewCommand extends Command {
         return null;
     }
 
+    /**
+     * Parses the {@code Ingredient}s of a given {@code Recipe} into a formatted String for display.
+     *
+     * @param recipe the recipe to parse.
+     * @return the formatted String of ingredients.
+     */
     private String getIngredients(Recipe recipe) {
         StringBuilder ingredients = new StringBuilder();
         for (Ingredient ingredient : recipe.getIngredients()) {
-            ingredients.append(String.format("%s %s%s\n", ingredient.getIngredientName(),
+            ingredients.append(String.format("%s %s %s\n", ingredient.getIngredientName(),
                     ingredient.getQuantity(), ingredient.getQuantifier()));
         }
         return ingredients.toString();
     }
 
+    /**
+     * Parses the {@code Step}s of a given {@code Recipe} into a formatted String for display.
+     *
+     * @param recipe the recipe to parse.
+     * @return the formatted String of steps.
+     */
     private String getSteps(Recipe recipe) {
         int index = 1;
         StringBuilder steps = new StringBuilder();
