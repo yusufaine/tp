@@ -7,6 +7,9 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.recipe.Name;
 
 
+/**
+ * Parses input arguments and creates a new ViewCommand object.
+ */
 public class ViewCommandParser implements Parser<ViewCommand> {
 
     /**
