@@ -38,6 +38,22 @@ public class StringUtil {
     }
 
     /**
+     * Returns true if the {@code sentence} contains the {@code searchValue}.
+     *   Ignores case, but a full word/phrase match is required.
+     * @param sentence cannot be null
+     * @param searchValue cannot be null and cannot be empty
+     */
+    public static boolean containsWordsIgnoreCase(String sentence, String searchValue) {
+        requireNonNull(sentence);
+        requireNonNull(searchValue);
+
+        String preppedSearchValue = searchValue.trim();
+        checkArgument(!preppedSearchValue.isEmpty(), "Search value cannot be empty");
+
+        return sentence.contains(preppedSearchValue);
+    }
+
+    /**
      * Returns a detailed message of the t, including the stack trace.
      */
     public static String getDetails(Throwable t) {

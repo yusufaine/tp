@@ -18,6 +18,6 @@ public class RecipeContainsKeywordPredicate implements Predicate<Recipe> {
     @Override
     public boolean test(Recipe recipe) {
         return keywords.stream()
-                .anyMatch(v -> StringUtil.containsWordIgnoreCase(recipe.getSearchSet().toString(), v));
+                .anyMatch(v -> StringUtil.containsWordsIgnoreCase(recipe.getSearchSet().toString(), v));
     }
 }
