@@ -4,7 +4,9 @@ import static java.util.Objects.requireNonNull;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -16,6 +18,7 @@ import seedu.address.model.recipe.Ingredient;
 import seedu.address.model.recipe.Name;
 import seedu.address.model.recipe.ServingSize;
 import seedu.address.model.recipe.Step;
+import seedu.address.model.tag.Tag;
 
 /**
  * Contains utility methods used for parsing strings in the various *Parser classes.
@@ -24,7 +27,7 @@ public class RecipeBookParserUtil {
 
     public static final String MESSAGE_INVALID_INDEX = "Index is not a non-zero positive integer.";
     public static final String MESSAGE_MISSING_INGREDIENT_FIELDS =
-            "Ingredient is not in the <name> <quantity> <quantifier> format.";
+            "Ingredient is not in the <name> <quantity> [<quantifier>] format.";
 
     /**
      * Parses a {@code String oneBasedIndex} into an {@code Index} and returns it. <br>
@@ -51,65 +54,6 @@ public class RecipeBookParserUtil {
             throw new ParseException(Name.MESSAGE_CONSTRAINTS);
         }
         return new Name(trimmedName);
-    }
-
-    /**
-     * Parses a {@code String ingredient} into a {@code Ingredient}. <br>
-     * Input string is checked for validity and trimmed before returning an {@code Ingredient}.
-     *
-     * @throws ParseException if any of the fields given in {@code ingredient} is invalid.
-     */
-    public static Ingredient parseIngredient(String ingredient) throws ParseException {
-        requireNonNull(ingredient);
-        Pattern numberPattern = Pattern.compile(Ingredient.QUANTITY_VALIDATION_REGEX);
-        Matcher numberMatcher = numberPattern.matcher(ingredient);
-
-        // ------ Guard Clauses ------
-        // Quantity not detected
-        if (!numberMatcher.find()) {
-            throw new ParseException(Ingredient.QUANTITY_CONSTRAINTS);
-        }
-
-        String[] splitIngredient = ingredient.split(Ingredient.QUANTITY_VALIDATION_REGEX);
-
-        // String split should be [ingredient, quantifier]
-        if (splitIngredient.length != 2) {
-            throw new ParseException(MESSAGE_MISSING_INGREDIENT_FIELDS);
-        }
-
-        String name = splitIngredient[0].trim();
-        String quantity = numberMatcher.group(0).trim();
-        String quantifier = splitIngredient[1].trim();
-
-        if (!Ingredient.isValidIngredientName(name)) {
-            throw new ParseException(Ingredient.NAME_CONSTRAINTS);
-        }
-
-        if (!StringUtil.isNonZeroPositiveDouble(quantity)) {
-            throw new ParseException(Ingredient.QUANTITY_CONSTRAINTS);
-        }
-
-        if (!Ingredient.isValidQuantifier(quantifier)) {
-            throw new ParseException(Ingredient.QUANTIFIER_CONSTRAINTS);
-        }
-
-        // ---------------------------
-
-        return new Ingredient(name, Double.parseDouble(quantity), quantifier);
-    }
-
-    /**
-     * Parses {@code Collection<String> ingredients} into a {@code List<Ingredient>}.
-     */
-    public static List<Ingredient> parseIngredients(Collection<String> ingredients) throws ParseException {
-        requireNonNull(ingredients);
-
-        final List<Ingredient> ingredientList = new ArrayList<>();
-        for (String ingredient : ingredients) {
-            ingredientList.add(parseIngredient(ingredient));
-        }
-
-        return ingredientList;
     }
 
     /**
@@ -140,6 +84,69 @@ public class RecipeBookParserUtil {
         return new ServingSize(Integer.parseInt(servingSize));
     }
 
+
+    /**
+     * Parses a {@code String ingredient} into a {@code Ingredient}. <br>
+     * Input string is checked for validity and trimmed before returning an {@code Ingredient}.
+     *
+     * @throws ParseException if any of the fields given in {@code ingredient} is invalid.
+     */
+    public static Ingredient parseIngredient(String ingredient) throws ParseException {
+        requireNonNull(ingredient);
+        Pattern numberPattern = Pattern.compile(Ingredient.QUANTITY_VALIDATION_REGEX);
+        Matcher numberMatcher = numberPattern.matcher(ingredient);
+
+        // ------ Guard Clauses ------
+        // Quantity not detected
+        if (!numberMatcher.find()) {
+            throw new ParseException(Ingredient.QUANTITY_CONSTRAINTS);
+        }
+
+        String[] splitIngredient = ingredient.split(Ingredient.QUANTITY_VALIDATION_REGEX);
+
+        // String split should be [ingredient, quantifier]
+
+        String name;
+        String quantity;
+        String quantifier;
+
+        switch (splitIngredient.length) {
+        case 1: // (name, quantity) case
+            name = splitIngredient[0].trim();
+            quantity = numberMatcher.group(0).trim();
+
+            isValidIngredientInput(name, quantity);
+
+            return new Ingredient(name, Double.parseDouble(quantity));
+
+        case 2: // (name, quantity, quantifier) case
+            name = splitIngredient[0].trim();
+            quantity = numberMatcher.group(0).trim();
+            quantifier = splitIngredient[1].trim();
+
+            isValidIngredientInput(name, quantity);
+
+            return new Ingredient(name, Double.parseDouble(quantity), quantifier);
+
+        default:
+            throw new ParseException(MESSAGE_MISSING_INGREDIENT_FIELDS);
+        }
+    }
+
+    /**
+     * Parses {@code Collection<String> ingredients} into a {@code List<Ingredient>}.
+     */
+    public static List<Ingredient> parseIngredients(Collection<String> ingredients) throws ParseException {
+        requireNonNull(ingredients);
+
+        final List<Ingredient> ingredientList = new ArrayList<>();
+        for (String ingredient : ingredients) {
+            ingredientList.add(parseIngredient(ingredient));
+        }
+
+        return ingredientList;
+    }
+
     /**
      * Parses a {@code String step} into a {@code Step} and returns it. <br>
      * Leading and trailing whitespaces will be trimmed.
@@ -165,5 +172,42 @@ public class RecipeBookParserUtil {
             stepList.add(parseStep(step));
         }
         return stepList;
+    }
+
+    /**
+     * Parses a {@code String tag} into a {@code Tag}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code tag} is invalid.
+     */
+    public static Tag parseTag(String tag) throws ParseException {
+        requireNonNull(tag);
+        String trimmedTag = tag.trim();
+        if (!Tag.isValidTagName(trimmedTag)) {
+            throw new ParseException(Tag.MESSAGE_CONSTRAINTS);
+        }
+        return new Tag(trimmedTag);
+    }
+
+    /**
+     * Parses {@code Collection<String> tags} into a {@code Set<Tag>}.
+     */
+    public static Set<Tag> parseTags(Collection<String> tags) throws ParseException {
+        requireNonNull(tags);
+        final Set<Tag> tagSet = new HashSet<>();
+        for (String tagName : tags) {
+            tagSet.add(parseTag(tagName));
+        }
+        return tagSet;
+    }
+
+    private static void isValidIngredientInput(String name, String quantity) throws ParseException {
+        if (!Ingredient.isValidIngredientName(name)) {
+            throw new ParseException(Ingredient.NAME_CONSTRAINTS);
+        }
+
+        if (!StringUtil.isNonZeroPositiveDouble(quantity)) {
+            throw new ParseException(Ingredient.QUANTITY_CONSTRAINTS);
+        }
     }
 }
