@@ -3,8 +3,8 @@ layout: page
 title: McKitchen
 ---
 
-[![CI Status](https://github.com/se-edu/addressbook-level3/workflows/Java%20CI/badge.svg)](https://github.com/se-edu/addressbook-level3/actions)
-[![codecov](https://codecov.io/gh/se-edu/addressbook-level3/branch/master/graph/badge.svg)](https://codecov.io/gh/se-edu/addressbook-level3)
+[![CI Status](https://github.com/AY2122S2-CS2103T-T17-2/tp/workflows/Java%20CI/badge.svg)](https://github.com/AY2122S2-CS2103T-T17-2/tp/actions)
+[![codecov](https://codecov.io/gh/AY2122S2-CS2103T-T17-2/tp/branch/master/graph/badge.svg?token=XLO3ZFY12V)](https://codecov.io/gh/AY2122S2-CS2103T-T17-2/tp)
 
 ![Ui](images/Ui.png)
 
