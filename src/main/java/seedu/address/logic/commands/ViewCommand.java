@@ -26,10 +26,10 @@ public class ViewCommand extends Command {
             + "Example: " + COMMAND_WORD + " Mac and cheese";
 
     public static final String RECIPE_CONTENT = "Name: %s\n\n"
-            + "Ingredients:\n%s\n"
-            + "Steps:\n%s\n"
             + "Total time: %s\n"
-            + "Servings: %s";
+            + "Servings: %s\n\n"
+            + "Ingredients:\n%s\n"
+            + "Steps:\n%s\n";
 
     private final Name targetName;
 
@@ -40,6 +40,7 @@ public class ViewCommand extends Command {
      * @param targetName Name of recipe to be viewed.
      */
     public ViewCommand(Name targetName) {
+        requireNonNull(targetName);
         this.targetName = targetName;
     }
 
@@ -53,9 +54,7 @@ public class ViewCommand extends Command {
             throw new CommandException(String.format(Messages.MESSAGE_RECIPE_NOT_FOUND, targetName.fullName));
         }
 
-        return new CommandResult(String.format(RECIPE_CONTENT,
-                recipe.getName(), getIngredients(recipe), getSteps(recipe),
-                recipe.getCompletionTime(), recipe.getServingSize()));
+        return new CommandResult(generateRecipeContent(recipe));
     }
 
     @Override
@@ -63,6 +62,21 @@ public class ViewCommand extends Command {
         return other == this // short circuit if same object
                 || (other instanceof ViewCommand // instanceof handles nulls
                 && targetName.equals(((ViewCommand) other).targetName)); // state check
+    }
+
+    /**
+     * Generates a properly formatted string of the contents of a specified {@code Recipe}.
+     *
+     * @param recipe the recipe to read the contents from.
+     * @return a formatted String of the contents of the specified recipe.
+     */
+    private String generateRecipeContent(Recipe recipe) {
+        return String.format(RECIPE_CONTENT,
+                recipe.getName(),
+                recipe.getCompletionTime(),
+                recipe.getServingSize(),
+                getIngredients(recipe),
+                getSteps(recipe));
     }
 
     /**
