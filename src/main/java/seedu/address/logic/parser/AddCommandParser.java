@@ -25,17 +25,20 @@ import seedu.address.model.tag.Tag;
 /**
  * Parses input arguments and creates a new AddCommand object
  */
-public class AddRecipeCommandParser implements Parser<AddCommand> {
+public class AddCommandParser implements Parser<AddCommand> {
 
     /**
-     * Parses the given {@code String} of arguments in the context of the AddCommand
-     * and returns an AddCommand object for execution.
-     * @throws ParseException if the user input does not conform the expected format
+     * Parses the given {@code String} of user input in the context of the AddCommand
+     * and returns a AddCommand object for execution.
+     *
+     * @param userInput the string name of the recipe to be viewed.
+     * @return the AddCommand object that adds a new {@code Recipe} into the RecipeBook.
+     * @throws ParseException if the user input does not conform the expected format.
      */
     @Override
-    public AddCommand parse(String args) throws ParseException {
+    public AddCommand parse(String userInput) throws ParseException {
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_COMPLETION_TIME, PREFIX_SERVING_SIZE,
+                ArgumentTokenizer.tokenize(userInput, PREFIX_NAME, PREFIX_COMPLETION_TIME, PREFIX_SERVING_SIZE,
                         PREFIX_INGREDIENT, PREFIX_TAG, PREFIX_STEP);
 
         if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_COMPLETION_TIME, PREFIX_SERVING_SIZE,

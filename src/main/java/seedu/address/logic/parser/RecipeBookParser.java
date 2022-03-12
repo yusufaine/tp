@@ -42,7 +42,7 @@ public class RecipeBookParser {
         switch (commandWord) {
 
         case AddCommand.COMMAND_WORD:
-            return new AddRecipeCommandParser().parse(arguments);
+            return new AddCommandParser().parse(arguments);
         case DeleteCommand.COMMAND_WORD:
             return new DeleteCommandParser().parse(arguments);
         case FindCommand.COMMAND_WORD:

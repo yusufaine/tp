@@ -17,7 +17,7 @@ public class FindCommand extends Command {
             + ": Searches all recipes whose name, ingredient(s), or tag(s) contain any of the specified "
             + "keywords (case-insensitive) and displays them as a list with index numbers.\n"
             + "Parameters: KEYWORD [, MORE_KEYWORDS]... \n"
-            + "Example: " + COMMAND_WORD + "chicken cutlet, garlic, western";
+            + "Example: " + COMMAND_WORD + " chicken cutlet, garlic, western";
 
     private final RecipeContainsKeywordPredicate recipePredicate;
 
