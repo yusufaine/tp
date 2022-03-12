@@ -31,7 +31,7 @@ public class RecipeContainsKeywordPredicate implements Predicate<Recipe> {
         }
 
         RecipeContainsKeywordPredicate other = (RecipeContainsKeywordPredicate) o;
-        return this.equals(other.recipePredicate);
+        return this.equals(other);
     }
 
 }
