@@ -20,6 +20,7 @@ public class ViewCommandParser implements Parser<ViewCommand> {
      * @return the ViewCommand object that displays the contents of the appropriate recipe.
      * @throws ParseException if the user input does not conform the expected format.
      */
+    @Override
     public ViewCommand parse(String userInput) throws ParseException {
         try {
             Name name = RecipeBookParserUtil.parseName(userInput);
