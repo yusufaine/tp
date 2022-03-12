@@ -25,12 +25,15 @@ import seedu.address.model.tag.Tag;
 /**
  * Parses input arguments and creates a new AddCommand object
  */
-public class AddRecipeCommandParser implements Parser<AddCommand> {
+public class AddCommandParser implements Parser<AddCommand> {
 
     /**
-     * Parses the given {@code String} of arguments in the context of the AddCommand
-     * and returns an AddCommand object for execution.
-     * @throws ParseException if the user input does not conform the expected format
+     * Parses the given {@code String} of user input in the context of the AddCommand
+     * and returns a AddCommand object for execution.
+     *
+     * @param userInput the string name of the recipe to be viewed.
+     * @return the AddCommand object that adds a new {@code Recipe} into the RecipeBook.
+     * @throws ParseException if the user input does not conform the expected format.
      */
     @Override
     public AddCommand parse(String userInput) throws ParseException {

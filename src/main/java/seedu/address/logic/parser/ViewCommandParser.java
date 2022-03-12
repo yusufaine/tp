@@ -13,7 +13,7 @@ import seedu.address.model.recipe.Name;
 public class ViewCommandParser implements Parser<ViewCommand> {
 
     /**
-     * Parses the given {@code String} of arguments in the context of the ViewCommand
+     * Parses the given {@code String} of user input in the context of the ViewCommand
      * and returns a ViewCommand object for execution.
      *
      * @param userInput the string name of the recipe to be viewed.

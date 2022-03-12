@@ -10,10 +10,18 @@ import seedu.address.model.recipe.RecipeContainsKeywordPredicate;
 
 /**
  * Finds and lists all persons in address book whose name contains any of the argument keywords.
- * Keyword matching is case insensitive.
+ * Keyword matching is case-insensitive.
  */
 public class FindCommandParser implements Parser<FindCommand> {
 
+    /**
+     * Parses the given {@code String} of user input in the context of the FindCommand
+     * and returns a FindCommand object for execution.
+     *
+     * @param userInput the string name of the recipe to be viewed.
+     * @return the FindCommand object that filters the list of recipes based on the given user input(s).
+     * @throws ParseException if the user input does not conform the expected format.
+     */
     @Override
     public FindCommand parse(String userInput) throws ParseException {
         String trimmedArgs = userInput.trim();
