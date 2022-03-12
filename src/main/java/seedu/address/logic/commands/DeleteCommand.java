@@ -4,50 +4,67 @@ import static java.util.Objects.requireNonNull;
 
 import java.util.List;
 
-import seedu.address.commons.core.Messages;
-import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.person.Person;
+import seedu.address.model.recipe.Name;
+import seedu.address.model.recipe.Recipe;
+
+
 
 /**
- * Deletes a person identified using it's displayed index from the address book.
+ * Deletes a recipe identified using it's displayed recipe name from the Recipe Book.
  */
 public class DeleteCommand extends Command {
 
     public static final String COMMAND_WORD = "delete";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Deletes the person identified by the index number used in the displayed person list.\n"
-            + "Parameters: INDEX (must be a positive integer)\n"
-            + "Example: " + COMMAND_WORD + " 1";
+            + ": Deletes the recipe identified by the name used in the displayed list of recipes.\n"
+            + "Parameters: name (must be a valid case sensitive name)\n"
+            + "Example: " + COMMAND_WORD + " Aglio Olio";
 
-    public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Deleted Person: %1$s";
+    public static final String MESSAGE_DELETE_RECIPE_SUCCESS = "Deleted Recipe: %1$s";
+    public static final String MESSAGE_DELETE_RECIPE_NOT_EXIST = "Recipe does not exist in the recipe book";
 
-    private final Index targetIndex;
 
-    public DeleteCommand(Index targetIndex) {
-        this.targetIndex = targetIndex;
+    private final Name toDelete;
+
+    /**
+     * Creates a DeleteCommand to delete the specified {@code Recipe}
+     * @param toDelete
+     */
+    public DeleteCommand(Name toDelete) {
+        this.toDelete = toDelete;
+    }
+
+    public int getRecipeIndex(List<Recipe> lastShownList, Name recipeName) {
+        for (Recipe recipe : lastShownList) {
+            if (recipeName.equals(recipe.getName())) {
+                return lastShownList.indexOf(recipe);
+            }
+        }
+        return -1;
     }
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-        List<Person> lastShownList = model.getFilteredPersonList();
 
-        if (targetIndex.getZeroBased() >= lastShownList.size()) {
-            throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+        List<Recipe> lastShownList = model.getFilteredRecipeList();
+        int recipeToDeleteIndex = getRecipeIndex(lastShownList, toDelete);
+        if (recipeToDeleteIndex >= 0) {
+            Recipe recipeToDelete = lastShownList.get(recipeToDeleteIndex);
+            model.deleteRecipe(recipeToDelete);
+            return new CommandResult(String.format(MESSAGE_DELETE_RECIPE_SUCCESS, recipeToDelete));
+        } else {
+            throw new CommandException(MESSAGE_DELETE_RECIPE_NOT_EXIST);
         }
-
-        Person personToDelete = lastShownList.get(targetIndex.getZeroBased());
-        model.deletePerson(personToDelete);
-        return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, personToDelete));
     }
 
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof DeleteCommand // instanceof handles nulls
-                && targetIndex.equals(((DeleteCommand) other).targetIndex)); // state check
+                && toDelete.equals(((DeleteCommand) other).toDelete)); // state check
     }
 }

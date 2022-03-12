@@ -31,11 +31,26 @@ public class StringUtil {
         checkArgument(!preppedWord.isEmpty(), "Word parameter cannot be empty");
         checkArgument(preppedWord.split("\\s+").length == 1, "Word parameter should be a single word");
 
-        String preppedSentence = sentence;
-        String[] wordsInPreppedSentence = preppedSentence.split("\\s+");
+        String[] wordsInPreppedSentence = sentence.split("\\s+");
 
         return Arrays.stream(wordsInPreppedSentence)
                 .anyMatch(preppedWord::equalsIgnoreCase);
+    }
+
+    /**
+     * Returns true if the {@code sentence} contains the {@code searchValue}.
+     *   Ignores case, but a full word/phrase match is required.
+     * @param sentence cannot be null
+     * @param searchValue cannot be null and cannot be empty
+     */
+    public static boolean containsWordsIgnoreCase(String sentence, String searchValue) {
+        requireNonNull(sentence);
+        requireNonNull(searchValue);
+
+        String preppedSearchValue = searchValue.trim();
+        checkArgument(!preppedSearchValue.isEmpty(), "Search value cannot be empty");
+
+        return sentence.contains(preppedSearchValue);
     }
 
     /**
@@ -49,11 +64,7 @@ public class StringUtil {
     }
 
     /**
-     * Returns true if {@code s} represents a non-zero unsigned integer
-     * e.g. 1, 2, 3, ..., {@code Integer.MAX_VALUE} <br>
-     * Will return false for any other non-null string input
-     * e.g. empty string, "-1", "0", "+1", and " 2 " (untrimmed), "3 0" (contains whitespace), "1 a" (contains letters)
-     * @throws NullPointerException if {@code s} is null.
+     * @return true if the integer value of {@code s} is greater than 0.
      */
     public static boolean isNonZeroUnsignedInteger(String s) {
         requireNonNull(s);
@@ -61,6 +72,20 @@ public class StringUtil {
         try {
             int value = Integer.parseInt(s);
             return value > 0 && !s.startsWith("+"); // "+1" is successfully parsed by Integer#parseInt(String)
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+    }
+
+    /**
+     * @return true if the double value of {@code s} is greater than 0.
+     */
+    public static boolean isNonZeroPositiveDouble(String s) {
+        requireNonNull(s);
+
+        try {
+            double value = Double.parseDouble(s);
+            return value > 0;
         } catch (NumberFormatException nfe) {
             return false;
         }

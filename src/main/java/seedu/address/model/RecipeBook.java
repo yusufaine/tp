@@ -35,7 +35,6 @@ public class RecipeBook implements ReadOnlyRecipeBook {
      * {@code recipes} must not contain duplicate persons.
      */
     public void setRecipes(List<Recipe> recipes) {
-        //TODO
         this.recipes.setRecipes(recipes);
     }
 
@@ -55,11 +54,19 @@ public class RecipeBook implements ReadOnlyRecipeBook {
                 .anyMatch(recipe::isSameRecipe);
     }
 
-    public void addRecipe(Recipe toAdd) {}
+    public void addRecipe(Recipe toAdd) {
+        recipes.add(toAdd);
+    }
 
-    public void setRecipe(Recipe target, Recipe editedRecipe) {}
+    public void setRecipe(Recipe target, Recipe editedRecipe) {
+        requireNonNull(editedRecipe);
 
-    public void removeRecipe(Recipe toRemove) {}
+        recipes.setRecipe(target, editedRecipe);
+    }
+
+    public void removeRecipe(Recipe toRemove) {
+        recipes.remove(toRemove);
+    }
 
     // ------ Utils ------
     @Override
