@@ -9,7 +9,8 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.recipe.RecipeContainsKeywordPredicate;
 
 /**
- * Parses input arguments and creates a new FindCommand object
+ * Finds and lists all persons in address book whose name contains any of the argument keywords.
+ * Keyword matching is case insensitive.
  */
 public class FindCommandParser implements Parser<FindCommand> {
 
