@@ -33,9 +33,9 @@ public class AddRecipeCommandParser implements Parser<AddCommand> {
      * @throws ParseException if the user input does not conform the expected format
      */
     @Override
-    public AddCommand parse(String args) throws ParseException {
+    public AddCommand parse(String userInput) throws ParseException {
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_COMPLETION_TIME, PREFIX_SERVING_SIZE,
+                ArgumentTokenizer.tokenize(userInput, PREFIX_NAME, PREFIX_COMPLETION_TIME, PREFIX_SERVING_SIZE,
                         PREFIX_INGREDIENT, PREFIX_TAG, PREFIX_STEP);
 
         if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_COMPLETION_TIME, PREFIX_SERVING_SIZE,

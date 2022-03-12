@@ -16,13 +16,13 @@ public class ViewCommandParser implements Parser<ViewCommand> {
      * Parses the given {@code String} of arguments in the context of the ViewCommand
      * and returns a ViewCommand object for execution.
      *
-     * @param args the string name of the recipe to be viewed.
+     * @param userInput the string name of the recipe to be viewed.
      * @return the ViewCommand object that displays the contents of the appropriate recipe.
      * @throws ParseException if the user input does not conform the expected format.
      */
-    public ViewCommand parse(String args) throws ParseException {
+    public ViewCommand parse(String userInput) throws ParseException {
         try {
-            Name name = RecipeBookParserUtil.parseName(args);
+            Name name = RecipeBookParserUtil.parseName(userInput);
             return new ViewCommand(name);
         } catch (ParseException pe) {
             throw new ParseException(

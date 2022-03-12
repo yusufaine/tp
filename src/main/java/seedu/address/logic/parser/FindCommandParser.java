@@ -15,8 +15,8 @@ import seedu.address.model.recipe.RecipeContainsKeywordPredicate;
 public class FindCommandParser implements Parser<FindCommand> {
 
     @Override
-    public FindCommand parse(String args) throws ParseException {
-        String trimmedArgs = args.trim();
+    public FindCommand parse(String userInput) throws ParseException {
+        String trimmedArgs = userInput.trim();
         if (trimmedArgs.isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));
         }
