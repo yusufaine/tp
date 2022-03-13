@@ -122,7 +122,7 @@ public class Recipe {
         Recipe other = (Recipe) o;
         return this.getName().equals(other.getName())
                 && this.getCompletionTime().equals(other.getCompletionTime())
-                && this.getServingSize() == other.getServingSize()
+                && this.getServingSize().equals(other.getServingSize())
                 && this.getIngredients().equals(other.getIngredients())
                 && this.getSteps().equals(other.getSteps())
                 && this.getTags().equals(other.getTags());

@@ -1,5 +1,6 @@
 package seedu.address.storage;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static seedu.address.newstorage.JsonAdaptedRecipe.MISSING_FIELD_MESSAGE_FORMAT;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalRecipes.AGLIO_OLIO;
@@ -40,13 +41,12 @@ public class JsonAdaptedRecipeTest {
     private static final List<JsonAdaptedTag> VALID_TAGS =
             AGLIO_OLIO.getTags().stream().map(JsonAdaptedTag::new).collect(Collectors.toList());
 
-    //Should return true if creation of JsonAdaptedRecipe is successful
-    //Todo: Check 2 Recipes are equals
-    //     @Test
-    //     public void toModelType_validRecipeDetails_returnsRecipe() throws Exception {
-    //         JsonAdaptedRecipe recipe = new JsonAdaptedRecipe(AGLIO_OLIO);
-    //         assertEquals(AGLIO_OLIO, recipe.toModelType());
-    //     }
+
+    @Test
+    public void toModelType_validRecipeDetails_returnsRecipe() throws Exception {
+        JsonAdaptedRecipe recipe = new JsonAdaptedRecipe(AGLIO_OLIO);
+        assertEquals(AGLIO_OLIO, recipe.toModelType());
+    }
 
     @Test
     public void toModelType_invalidName_throwsIllegalValueException() {
