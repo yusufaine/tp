@@ -29,7 +29,6 @@ public class SampleDataUtil {
         Ingredient[] ingredientArr = new Ingredient[]{ingredient1, ingredient2, ingredient3, ingredient4};
         List<Ingredient> ingredients = List.of(ingredientArr);
 
-
         Step step1 = new Step("Cook the pasta");
         Step step2 = new Step("Saute the garlic");
         Step step3 = new Step("Toss pasta in the sauce");
