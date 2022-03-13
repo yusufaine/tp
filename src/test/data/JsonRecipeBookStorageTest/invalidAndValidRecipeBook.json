@@ -24,7 +24,7 @@
     "steps" : [ "Pour Sugar", "Pour Spice", "Pour Everything nice", "Add Chemical X" ],
     "tags" : [ "Powerpuff Girls", "Blossom", "Bubbles", "Buttercup" ]
   }, {
-    "name" : "Invalid Recipes",
+    "name" : "Invalid Recipe with an empty tag",
     "ingredients" : [ {
       "ingredientName" : "Sugar",
       "quantity" : "1.0",
