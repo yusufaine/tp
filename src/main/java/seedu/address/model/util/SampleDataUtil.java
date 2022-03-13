@@ -79,8 +79,8 @@ public class SampleDataUtil {
                     //For edge cases
                     String quantityAndQuantifier = s.substring(lastIndexOfQuantity);
                     String[] delimitedByWhiteSpace = quantityAndQuantifier.split(" ");
-                    quantifier = quantityAndQuantifier.substring(quantityAndQuantifier.indexOf(delimitedByWhiteSpace[1].
-                            charAt(0)));
+                    quantifier = quantityAndQuantifier.substring(quantityAndQuantifier.indexOf(delimitedByWhiteSpace[1]
+                            .charAt(0)));
                 }
 
                 listOfIngredients.add(new Ingredient(ingredientName, quantity, quantifier));
