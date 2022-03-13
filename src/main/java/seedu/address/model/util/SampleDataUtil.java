@@ -1,11 +1,10 @@
 package seedu.address.model.util;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
+import seedu.address.logic.parser.RecipeBookParserUtil;
+import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.ReadOnlyRecipeBook;
 import seedu.address.model.RecipeBook;
 import seedu.address.model.recipe.CompletionTime;
@@ -56,40 +55,11 @@ public class SampleDataUtil {
        * Returns an ingredient list containing the list of strings given.
        * @param strings ingredients that are to the list of ingredients.
        * @return the list of ingredients containing the newly added ingredients.
-       * @throws Exception Throws exception if number of variables is less than required
-       *                   or if the 2nd argument (Quantifier) is unable to be parsed as
-       *                   double.
+       * @throws ParseException if any of the fields given in {@code strings} is invalid.
        */
-    public static List<Ingredient> getIngredientList(String... strings) throws Exception {
-        List<Ingredient> listOfIngredients = new ArrayList<>();
-        for (String s : strings) {
-            try {
-                //Get Quantity
-                String quantityRegex = s.replaceAll("[^0-9.]+", " ").trim();
-
-                double quantity = Double.parseDouble(quantityRegex);
-
-                //Get Ingredient Name
-                String ingredientName = s.substring(0, s.indexOf(quantityRegex.charAt(0))).trim();
-
-                //Get Quantifier if any
-                String quantifier = "";
-                int lastIndexOfQuantity = s.indexOf(quantityRegex.charAt(quantityRegex.length() - 1)) + 1;
-                if (lastIndexOfQuantity < s.length()) {
-                    //For edge cases
-                    String quantityAndQuantifier = s.substring(lastIndexOfQuantity);
-                    String[] delimitedByWhiteSpace = quantityAndQuantifier.split(" ");
-                    quantifier = quantityAndQuantifier.substring(quantityAndQuantifier.indexOf(delimitedByWhiteSpace[1]
-                            .charAt(0)));
-                }
-
-                listOfIngredients.add(new Ingredient(ingredientName, quantity, quantifier));
-
-            } catch (NumberFormatException e) {
-                throw new Exception("String does not contain Parsable Double");
-            }
-        }
-        return listOfIngredients;
+    public static List<Ingredient> getIngredientList(String... strings) throws ParseException {
+        Collection<String> toBeParsed = List.of(strings);
+        return RecipeBookParserUtil.parseIngredients(toBeParsed);
     }
 
     /**
