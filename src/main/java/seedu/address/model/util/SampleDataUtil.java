@@ -17,7 +17,7 @@ import seedu.address.model.recipe.Step;
 import seedu.address.model.tag.Tag;
 
 /**
- * Contains utility methods for populating {@code AddressBook} with sample data.
+ * Contains utility methods for populating {@code RecipeBook} with sample data.
  */
 public class SampleDataUtil {
     private static Recipe[] getSampleRecipes() {
@@ -27,7 +27,7 @@ public class SampleDataUtil {
         Ingredient ingredient4 = new Ingredient("Bacon", 3, "slices");
 
         Ingredient[] ingredientArr = new Ingredient[]{ingredient1, ingredient2, ingredient3, ingredient4};
-        List<Ingredient> ingredients = new ArrayList(List.of(ingredientArr));
+        List<Ingredient> ingredients = new ArrayList<>(List.of(ingredientArr));
 
         Step step1 = new Step("Cook the pasta");
         Step step2 = new Step("Saute the garlic");
@@ -52,15 +52,50 @@ public class SampleDataUtil {
         return sampleRb;
     }
 
-    // /**
-    //  * Returns an ingredient list containing the list of strings given.
-    //  */
-    // public static List<Ingredient> getIngredientList(String... strings) {
-    //     return Arrays.stream(strings).map(Ingredient::new).collect(Collectors.toList());
-    // }
+    /**
+       * Returns an ingredient list containing the list of strings given.
+       * @param strings ingredients that are to the list of ingredients.
+       * @return the list of ingredients containing the newly added ingredients.
+       * @throws Exception Throws exception if number of variables is less than required
+       *                   or if the 2nd argument (Quantifier) is unable to be parsed as
+       *                   double.
+       */
+    public static List<Ingredient> getIngredientList(String... strings) throws Exception {
+        List<Ingredient> listOfIngredients = new ArrayList<>();
+        for (String s : strings) {
+            try {
+                //Get Quantity
+                String quantityRegex = s.replaceAll("[^0-9.]+", " ").trim();
+
+                double quantity = Double.parseDouble(quantityRegex);
+
+                //Get Ingredient Name
+                String ingredientName = s.substring(0, s.indexOf(quantityRegex.charAt(0))).trim();
+
+                //Get Quantifier if any
+                String quantifier = "";
+                int lastIndexOfQuantity = s.indexOf(quantityRegex.charAt(quantityRegex.length() - 1)) + 1;
+                if (lastIndexOfQuantity < s.length()) {
+                    //For edge cases
+                    String quantityAndQuantifier = s.substring(lastIndexOfQuantity);
+                    String[] delimitedByWhiteSpace = quantityAndQuantifier.split(" ");
+                    quantifier = quantityAndQuantifier.substring(quantityAndQuantifier.indexOf(delimitedByWhiteSpace[1].
+                            charAt(0)));
+                }
+
+                listOfIngredients.add(new Ingredient(ingredientName, quantity, quantifier));
+
+            } catch (NumberFormatException e) {
+                throw new Exception("String does not contain Parsable Double");
+            }
+        }
+        return listOfIngredients;
+    }
 
     /**
      * Returns a step list containing the list of strings given.
+     * @param strings list of steps to be added to the list of step.
+     * @return List of Steps containing the newly added list of step.
      */
     public static List<Step> getStepList(String... strings) {
         return Arrays.stream(strings).map(Step::new).collect(Collectors.toList());
@@ -68,11 +103,14 @@ public class SampleDataUtil {
 
     /**
      * Returns a tag set containing the list of strings given.
+     * @param strings list of tag to be added to the list of tag.
+     * @return list of tags containing the newly added list of tags.
      */
     public static Set<Tag> getTagSet(String... strings) {
         return Arrays.stream(strings)
                 .map(Tag::new)
                 .collect(Collectors.toSet());
     }
+
 
 }

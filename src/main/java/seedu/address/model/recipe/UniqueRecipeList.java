@@ -119,7 +119,13 @@ public class UniqueRecipeList implements Iterable<Recipe> {
             return true;
         }
         UniqueRecipeList other = (UniqueRecipeList) o;
-        return this.internalList.equals(other.internalList);
+        // return this.internalList.equals(other.internalList);
+        for (Recipe r : this.internalList) {
+            if (!other.internalList.contains(r)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
