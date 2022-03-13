@@ -8,19 +8,21 @@ import java.util.Set;
  */
 public class SearchSet {
     private final Set<String> searchValues = new HashSet<>();
+    private final StringBuilder stringRepresentation = new StringBuilder();
 
-    public Set<String> getSearchValues() {
-        return searchValues;
-    }
-
+    /**
+     * Adds the {@code value} into {@code searchValues} and only appends to {@code stringRepresentation} if the
+     * element is successfully added into {@code searchValues}.
+     * @param value the value that wants to be added into {@code searchValues} and {@code stringRepresentation}.
+     */
     public void add(String value) {
-        searchValues.add(value);
+        if (this.searchValues.add(value)) {
+            this.stringRepresentation.append(value).append(" ");
+        }
     }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        this.getSearchValues().forEach(v -> sb.append(v).append(" "));
-        return sb.toString();
+        return stringRepresentation.toString();
     }
 }
