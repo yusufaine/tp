@@ -1,24 +1,26 @@
-@import url('fonts/GopherDisplay.ttf');
-@import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
+@font-face {
+  font-family: Gopher Display;
+  src: url('fonts/GopherDisplay-Regular.ttf');
+}
 
 .main-window {
      -fx-background-color: white;
 }
 
 .recipe-list-pane {
-     -fx-font-family: 'Prompt', sans-serif;
+     -fx-font-family: 'Gopher Display', sans-serif;
      -fx-background-color: white;
      -fx-padding: 8;
 }
 
 .result-pane {
-     -fx-font-family: 'Prompt', sans-serif;
+     -fx-font-family: 'Gopher Display', sans-serif;
      -fx-background-color: white;
      -fx-padding: 8 8 8 0;
 }
 
 .command-box-pane {
-     -fx-font-family: 'Prompt', sans-serif;
+     -fx-font-family: 'Gopher Display', sans-serif;
      -fx-background-color: white;
      -fx-padding: 0 8 8 8;
 }
