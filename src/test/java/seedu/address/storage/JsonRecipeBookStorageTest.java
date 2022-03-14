@@ -60,7 +60,6 @@ public class JsonRecipeBookStorageTest {
     public void readRecipeBook_invalidAndValidRecipeBook_throwDataConversionException() {
         assertThrows(DataConversionException.class, () -> readRecipeBook("invalidAndValidRecipeBook.json"));
     }
-    //Requires the equal function for this test
 
     @Test
     public void readAndSaveRecipeBook_allInOrder_success() throws Exception {

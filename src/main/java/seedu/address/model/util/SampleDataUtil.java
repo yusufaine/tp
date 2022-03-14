@@ -57,6 +57,7 @@ public class SampleDataUtil {
 
     /**
        * Returns an ingredient list containing the list of strings given.
+       *
        * @param strings ingredients that are to the list of ingredients.
        * @return the list of ingredients containing the newly added ingredients.
        * @throws ParseException if any of the fields given in {@code strings} is invalid.
@@ -68,6 +69,7 @@ public class SampleDataUtil {
 
     /**
      * Returns a step list containing the list of strings given.
+     *
      * @param strings list of steps to be added to the list of step.
      * @return List of Steps containing the newly added list of step.
      */
@@ -77,6 +79,7 @@ public class SampleDataUtil {
 
     /**
      * Returns a tag set containing the list of strings given.
+     *
      * @param strings list of tag to be added to the list of tag.
      * @return list of tags containing the newly added list of tags.
      */
