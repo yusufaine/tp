@@ -1,0 +1,86 @@
+@import url('fonts/GopherDisplay.ttf');
+@import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
+
+.main-window {
+     -fx-background-color: white;
+}
+
+.recipe-list-pane {
+     -fx-font-family: 'Prompt', sans-serif;
+     -fx-background-color: white;
+     -fx-padding: 8;
+}
+
+.result-pane {
+     -fx-font-family: 'Prompt', sans-serif;
+     -fx-background-color: white;
+     -fx-padding: 8 8 8 0;
+}
+
+.command-box-pane {
+     -fx-font-family: 'Prompt', sans-serif;
+     -fx-background-color: white;
+     -fx-padding: 0 8 8 8;
+}
+
+.creme-control-bg {
+      -fx-inner-control-background: #fdfbe8;
+      -fx-background-color: #fdfbe8;
+      -fx-background-radius: 10;
+}
+
+.creme-control-bg .scroll-pane {
+    -fx-background-color: transparent;
+}
+.creme-control-bg .scroll-pane .viewport{
+    -fx-background-color: transparent;
+}
+.creme-control-bg .scroll-pane .content{
+    -fx-background-color: transparent;
+}
+
+.card {
+     -fx-background-color: #FFEAC1;
+     -fx-border-color: #947146;
+     -fx-border-width: 2;
+     -fx-border-radius: 5;
+     -fx-background-radius: 5;
+}
+
+#name {
+    -fx-font-weight: bold;
+    -fx-font-size: 20;
+}
+
+.cell_small_label {
+     -fx-text-fill: #947146;
+}
+
+.list-cell {
+    -fx-background-color: #fdfbe8;
+    -fx-background-radius: 5;
+}
+
+#tags  {
+    -fx-vgap: 10;
+    -fx-hgap: 10;
+    -fx-padding: 10 0;
+}
+
+#tags .label {
+     -fx-text-fill: white;
+     -fx-background-color: #947146;
+     -fx-background-radius: 5;
+     -fx-background-insets: -3;
+     -fx-padding: 1 3;
+}
+
+#resultDisplay {
+    -fx-font-size: 20;
+}
+
+#commandTextField {
+     -fx-text-fill: #947145;
+     -fx-prompt-text-fill: #947145;
+}
+
