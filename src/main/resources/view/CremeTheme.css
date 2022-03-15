@@ -1,6 +1,11 @@
 @font-face {
   font-family: Gopher Display;
-  src: url('fonts/GopherDisplay-Regular.ttf');
+  src: url('fonts/GopherDisplay-Bold.ttf');
+}
+
+@font-face {
+  font-family: Chivo;
+  src: url('fonts/Chivo-Regular.ttf');
 }
 
 .main-window {
@@ -20,7 +25,7 @@
 }
 
 .command-box-pane {
-     -fx-font-family: 'Gopher Display', sans-serif;
+     -fx-font-family: 'Chivo', sans-serif;
      -fx-background-color: white;
      -fx-padding: 0 8 8 8;
 }
@@ -52,10 +57,10 @@
      -fx-border-radius: 5;
 }
 
-#name {
-    -fx-font-weight: bold;
+.card #name {
     -fx-font-size: 20;
     -fx-text-fill: black;
+    -fx-padding: 0 0 4 0;
 }
 
 .cell_small_label {
@@ -82,11 +87,26 @@
 }
 
 #resultDisplay {
-    -fx-font-size: 20;
+     -fx-font-size: 20;
 }
 
 #commandTextField {
      -fx-text-fill: #947145;
      -fx-prompt-text-fill: #947145;
+}
+
+.card #steps {
+    -fx-font-family: 'Chivo', sans-serif;
+    -fx-font-size: 14;
+}
+
+.card #completionTime {
+    -fx-font-family: 'Chivo', sans-serif;
+    -fx-font-size: 14;
+}
+
+.card #tags {
+    -fx-font-family: 'Chivo', sans-serif;
+    -fx-font-size: 14;
 }
 

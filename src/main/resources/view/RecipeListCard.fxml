@@ -21,7 +21,7 @@
       <HBox spacing="5" alignment="CENTER_LEFT">
         <Label fx:id="name" text="\$first" styleClass="cell_big_label"/>
       </HBox>
-      <HBox spacing="5">
+      <HBox spacing="10">
         <Label fx:id="steps" styleClass="cell_small_label" text="\$steps"/>
         <Label fx:id="completionTime" styleClass="cell_small_label" text="\$completionTime"/>
       </HBox>
