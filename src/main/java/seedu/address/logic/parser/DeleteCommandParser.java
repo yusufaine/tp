@@ -1,7 +1,10 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.logic.parser.RecipeBookSyntax.PREFIX_INDEX;
+import static seedu.address.logic.parser.RecipeBookSyntax.PREFIX_NAME;
 
+import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.DeleteCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.recipe.Name;
@@ -21,9 +24,21 @@ public class DeleteCommandParser implements Parser<DeleteCommand> {
      */
     @Override
     public DeleteCommand parse(String userInput) throws ParseException {
+
+        // Prefix defaults to name if flag "-i" is not specified
+        Prefix prefix = userInput.contains("-i")
+                ? PREFIX_INDEX
+                : PREFIX_NAME;
+        ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(userInput, prefix);
+
         try {
-            Name recipeName = RecipeBookParserUtil.parseName(userInput);
-            return new DeleteCommand(recipeName);
+            if (userInput.contains("-i")) {
+                Index index = RecipeBookParserUtil.parseIndex(argMultimap.getValue(PREFIX_INDEX).get());
+                return new DeleteCommand(index);
+            } else {
+                Name recipeName = RecipeBookParserUtil.parseName(userInput);
+                return new DeleteCommand(recipeName);
+            }
         } catch (ParseException pe) {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteCommand.MESSAGE_USAGE), pe);

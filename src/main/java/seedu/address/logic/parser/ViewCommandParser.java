@@ -1,7 +1,10 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.logic.parser.RecipeBookSyntax.PREFIX_INDEX;
+import static seedu.address.logic.parser.RecipeBookSyntax.PREFIX_NAME;
 
+import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.ViewCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.recipe.Name;
@@ -22,13 +25,23 @@ public class ViewCommandParser implements Parser<ViewCommand> {
      */
     @Override
     public ViewCommand parse(String userInput) throws ParseException {
+        // Prefix defaults to name if flag "-i" is not specified
+        Prefix prefix = userInput.contains("-i")
+                ? PREFIX_INDEX
+                : PREFIX_NAME;
+        ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(userInput, prefix);
+
         try {
-            Name name = RecipeBookParserUtil.parseName(userInput);
-            return new ViewCommand(name);
+            if (userInput.contains("-i")) {
+                Index index = RecipeBookParserUtil.parseIndex(argMultimap.getValue(PREFIX_INDEX).get());
+                return new ViewCommand(index);
+            } else {
+                Name name = RecipeBookParserUtil.parseName(userInput);
+                return new ViewCommand(name);
+            }
         } catch (ParseException pe) {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, ViewCommand.MESSAGE_USAGE), pe);
         }
     }
-
 }
