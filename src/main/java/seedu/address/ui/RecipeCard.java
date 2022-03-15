@@ -33,15 +33,9 @@ public class RecipeCard extends UiPart<Region> {
     @FXML
     private Label id;
     @FXML
-    private Label phone;
-    @FXML
-    private Label address;
-    @FXML
     private Label steps;
     @FXML
     private Label completionTime;
-    @FXML
-    private Label email;
     @FXML
     private FlowPane tags;
 
