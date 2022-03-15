@@ -67,7 +67,7 @@ For example, the `Logic` component defines its API in the `Logic.java` interface
 
 The sections below give more details of each component.
 
-### UI component 
+### UI component
 (TO UPDATE)
 
 The **API** of this component is specified in [`Ui.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java)
@@ -309,9 +309,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 2b. The list is not empty.
   * RecipeBook checks if the input fields are valid
     * If input fields are valid,
-  
+
       Use case ends.
-  
+
     * If input fields are invalid,
       * RecipeBook shows an error message
 
@@ -340,12 +340,12 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
   Use case ends.
 
-* 4a. RecipeBook checks if the given index is valid. 
+* 4a. RecipeBook checks if the given index is valid.
   * If index is valid
-  
+
     Use case ends.
 
-  * If index is invalid, 
+  * If index is invalid,
     * RecipeBook shows an error message
 
       Use case resumes at step 2
@@ -417,14 +417,14 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
         * RecipeBook shows an error message
 
           Use case resumes at step 2
-      
+
 * 6a. RecipeBook checks if the fields to be edited are valid
     * if input fields are valid
-    
+
       Use case ends
     * if input fields are invalid
       * RecipeBook shows an error message
-      
+
         Use case resumes at step 4
 
 *{More to be added}*
