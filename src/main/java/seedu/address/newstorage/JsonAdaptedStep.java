@@ -9,7 +9,7 @@ import seedu.address.model.recipe.Step;
 /**
  * Jackson-friendly version of {@link Step}.
  */
-class JsonAdaptedStep {
+public class JsonAdaptedStep {
 
     private final String stepValue;
 

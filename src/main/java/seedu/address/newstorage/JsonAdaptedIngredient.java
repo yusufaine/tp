@@ -9,7 +9,7 @@ import seedu.address.model.recipe.Ingredient;
 /**
  * Jackson-friendly version of {@link Ingredient}.
  */
-class JsonAdaptedIngredient {
+public class JsonAdaptedIngredient {
 
     private final String ingredientName;
     private final String quantity;
