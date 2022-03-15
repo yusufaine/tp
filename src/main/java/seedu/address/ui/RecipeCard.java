@@ -52,6 +52,7 @@ public class RecipeCard extends UiPart<Region> {
         super(FXML);
         this.recipe = recipe;
         //id.setText(displayedIndex + ". ");
+        name.setWrapText(true);
         name.setText(recipe.getName().fullName);
         steps.setText(String.valueOf(recipe.getSteps().size()) + " steps");
         completionTime.setText(String.valueOf(recipe.getCompletionTime().value) + " mins");
