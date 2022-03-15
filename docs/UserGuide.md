@@ -20,7 +20,7 @@ McKitchen (My-CLI-Kitchen) is a desktop application that can quickly store, edit
 3. Copy the file to the folder you want to use as the _home folder_ for your McKitchen.
 
 4. To run the application, if you're on:
-   1. Windows: Double-click the file to start the app. 
+   1. Windows: Double-click the file to start the app.
    2. MacOS/UNIX: Open the terminal in the _home folder_ (Step 3) and issue the following command: `java -jar McKitchen.jar`
 
 The GUI similar to the below should appear in a few seconds <to update>. <br>
