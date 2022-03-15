@@ -11,22 +11,22 @@ import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.recipe.Recipe;
 
 /**
- * Panel containing the list of recipess.
+ * Panel containing the list of recipes.
  */
-public class PersonListPanel extends UiPart<Region> {
-    private static final String FXML = "PersonListPanel.fxml";
-    private final Logger logger = LogsCenter.getLogger(PersonListPanel.class);
+public class RecipeListPanel extends UiPart<Region> {
+    private static final String FXML = "RecipeListPanel.fxml";
+    private final Logger logger = LogsCenter.getLogger(RecipeListPanel.class);
 
     @FXML
-    private ListView<Recipe> personListView;
+    private ListView<Recipe> recipeListView;
 
     /**
-     * Creates a {@code PersonListPanel} with the given {@code ObservableList}.
+     * Creates a {@code RecipeListPanel} with the given {@code ObservableList}.
      */
-    public PersonListPanel(ObservableList<Recipe> recipeList) {
+    public RecipeListPanel(ObservableList<Recipe> recipeList) {
         super(FXML);
-        personListView.setItems(recipeList);
-        personListView.setCellFactory(listView -> new RecipeListViewCell());
+        recipeListView.setItems(recipeList);
+        recipeListView.setCellFactory(listView -> new RecipeListViewCell());
     }
 
     /**
