@@ -37,6 +37,12 @@ public class DeleteCommand extends Command {
         this.toDelete = toDelete;
     }
 
+    /**
+     * Gets index of each recipe in the last shown list
+     * @param lastShownList list shown after user searches a particular field
+     * @param recipeName name of recipe
+     * @return indexes of recipes in the lastShownList
+     */
     public int getRecipeIndex(List<Recipe> lastShownList, Name recipeName) {
         for (Recipe recipe : lastShownList) {
             if (recipeName.equals(recipe.getName())) {
