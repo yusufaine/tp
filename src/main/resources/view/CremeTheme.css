@@ -43,15 +43,19 @@
 
 .card {
      -fx-background-color: #FFEAC1;
-     -fx-border-color: #947146;
+     -fx-background-radius: 5;
+}
+
+.list-cell:selected .card {
+     -fx-border-color: #947145;
      -fx-border-width: 2;
      -fx-border-radius: 5;
-     -fx-background-radius: 5;
 }
 
 #name {
     -fx-font-weight: bold;
     -fx-font-size: 20;
+    -fx-text-fill: black;
 }
 
 .cell_small_label {
