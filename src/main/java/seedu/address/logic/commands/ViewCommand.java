@@ -23,7 +23,8 @@ public class ViewCommand extends Command {
             + ": Displays the details of a recipe identified by the name of "
             + "the recipe in the recipe list.\n"
             + "Parameters: name (must be a valid case sensitive name)\n"
-            + "Example: " + COMMAND_WORD + " Mac and cheese";
+            + "Example: " + COMMAND_WORD + " Mac and cheese"
+            + "Example: " + COMMAND_WORD + " -i 3";
 
     public static final String RECIPE_CONTENT = "Name: %s\n\n"
             + "Total time: %s\n"

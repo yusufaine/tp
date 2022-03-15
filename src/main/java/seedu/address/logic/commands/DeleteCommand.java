@@ -22,7 +22,8 @@ public class DeleteCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Deletes the recipe identified by the name used in the displayed list of recipes.\n"
             + "Parameters: name (must be a valid case sensitive name)\n"
-            + "Example: " + COMMAND_WORD + " Aglio Olio";
+            + "Example: " + COMMAND_WORD + " Aglio Olio\n"
+            + "Example: " + COMMAND_WORD + " -i 3";
 
     public static final String MESSAGE_DELETE_RECIPE_SUCCESS = "Deleted Recipe: %1$s";
     public static final String MESSAGE_DELETE_RECIPE_NOT_EXIST = "Recipe does not exist in the recipe book";
