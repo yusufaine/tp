@@ -28,17 +28,13 @@ Note how the app contains some sample data.<br>
       ![Ui](images/Ui.png)
 
 5. (TO UPDATE) Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
-   Some example commands you can try:
+   Some commands and what they do:
 
-   * **`list`** : Lists all contacts.
-
-   * **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the Address Book.
-
-   * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
-
-   * **`clear`** : Deletes all contacts.
-
-   * **`exit`** : Exits the app.
+    * [**`add`**](#add-recipe): Adds a new recipe.
+    * [**`delete`**](#delete-recipe): Deletes a recipe.
+    * [**`find`**](#find-recipe): Displays a list of recipes with the specified keywords
+    * [**`list`**](#list-recipe): Lists all the stored recipes.
+    * [**`view`**](#view-recipe): Displays the full content of a recipe.
 
 6. Refer to the [Features](#features) below for details of each command.
 
@@ -46,8 +42,8 @@ Note how the app contains some sample data.<br>
 
 ## Features
 
-### Create recipe
-Create a recipe by specifying its name, ingredients, and steps to prepare the dish.<br>
+### Add recipe
+Add a recipe by specifying its name, ingredients, and steps to prepare the dish.<br>
 Usage: `create recipe n/ <name of recipe> i/ <ingredients separated by commas> s/ <steps separated by commas>` <br>
 Example:
 - `create recipe n/ Aglio Olio i/ spaghetti 56 grams, garlic 3 cloves, bacon 3 slices, olive oil 110 ml, salt ?, pepper ? s/ Cook the spaghetti until al dante, Saute the chopped garlic, Toss spaghetti in the sauce, taste and season with salt and black pepper`
@@ -57,9 +53,22 @@ Example:
     3. Toss the spaghetti in the sauce,
     4. Taste and season with salt and black pepper.
 
-### List recipes
-Displays a list of recipes that the user has stored locally. If this is the first time that the user runs the application, sample recipes will be shown instead. Recipes shown here would be a shortened version of the recipe and only display its name and tags (type of cuisine). For the full details of the recipe, refer to [`view`](###view-recipe) <br>
-Note: The numbers associated with the recipes would be used for other commands.<br>
+### Delete recipe
+Removes a stored recipe based on the number it is associated with in the `list` <br>
+Usage: `delete <recipe number>` <br>
+Example:
+- delete 1
+    - This would delete the first entry in the list of recipes.
+
+### Find recipe
+Searches for a recipe based on the keywords (seperated by comma). <br>
+Usage: `find <keyword> [, other keywords, seperated by comma]` <br>
+Example: 
+- find western, fish
+  - This would display all the recipes that are "western", contains "fish", or both.
+
+### List recipe
+Displays all the available recipes that has been stored locally <br>
 Usage: `list`
 
 ### View recipe
@@ -68,13 +77,6 @@ Usage: `view <recipe number>` <br>
 Example:
 - view 1
     - This would display the full contents of the first recipe in the list which includes its ingredients and steps to prepare the dish.
-
-### Delete recipe
-Removes a stored recipe based on the number it is associated with in the `list` <br>
-Usage: `delete <recipe number>` <br>
-Example:
-- delete 1
-    - This would delete the first entry in the list of recipes.
 
 ### Store recipe
 Store the recipe in a human-readable text file on the user's computer and is modifiable through a text editor if the user is familiar with the format (JSON). <br>
@@ -94,11 +96,12 @@ Usage: (Automatically loads the recipes upon launching the application).
 ## Command Summary
 (To be filled)
 
-| Action                     | Command format                                                                                          |
-|----------------------------|---------------------------------------------------------------------------------------------------------|
-| add a new recipe           | `create recipe n/ <name of recipe> i/ <ingredients separated by commas> s/ <steps separated by commas>` |
-| list all available recipes | `list`                                                                                                  |
-| view specific recipe       | `view <recipe number from list>`                                                                        |
-| delete recipe              | `delete <recipe number from list>`                                                                      |
+| Action               | Command format                                                                                          |
+|----------------------|---------------------------------------------------------------------------------------------------------|
+| add a new recipe     | `create recipe n/ <name of recipe> i/ <ingredients separated by commas> s/ <steps separated by commas>` |
+| delete a recipe      | `delete <recipe number from list>`                                                                      |
+| find a recipe        | `find <keyword> [, other keywords, seperated by comma]`                                                 |
+| list a recipe        | `list`                                                                                                  |
+| view specific recipe | `view <recipe number from list>`                                                                        |
 
 
