@@ -5,8 +5,8 @@ title: User Guide
 # McKitchen User Guide
 McKitchen (My-CLI-Kitchen) is a desktop application that can quickly store, edit, and search for recipes by running a single command, ideal for the fast typists, home cooks, and students who want a simple way to store or search for simple recipes to cook.
 
-* Table of Contents
-{:toc}
+## Table of Content
+{:toc} (TO UPDATE)
 
 ---
 
@@ -53,12 +53,16 @@ Example:
     3. Toss the spaghetti in the sauce,
     4. Taste and season with salt and black pepper.
 
+###### [return to table of content](#table-of-content)
+
 ### Delete recipe
 Removes a stored recipe based on the number it is associated with in the `list` <br>
 Usage: `delete <recipe number>` <br>
 Example:
 - delete 1
     - This would delete the first entry in the list of recipes.
+
+###### [return to table of content](#table-of-content)
 
 ### Find recipe
 Searches for a recipe based on the keywords (seperated by comma). <br>
@@ -67,9 +71,13 @@ Example:
 - find western, fish
   - This would display all the recipes that are "western", contains "fish", or both.
 
+###### [return to table of content](#table-of-content)
+
 ### List recipe
 Displays all the available recipes that has been stored locally <br>
 Usage: `list`
+
+###### [return to table of content](#table-of-content)
 
 ### View recipe
 View the contents of an existing stored recipe based on the number it is associated with in the `list`. <br>
@@ -78,18 +86,26 @@ Example:
 - view 1
     - This would display the full contents of the first recipe in the list which includes its ingredients and steps to prepare the dish.
 
+###### [return to table of content](#table-of-content)
+
 ### Store recipe
 Store the recipe in a human-readable text file on the user's computer and is modifiable through a text editor if the user is familiar with the format (JSON). <br>
 Usage: (Automatically updates text file upon each modifying (writing) operation).
+
+###### [return to table of content](#table-of-content)
 
 ### Load recipe
 Load existing recipes from the text file on the user's computer. Modifications to this file would be displayed accordingly as long as the format is followed. <br>
 Usage: (Automatically loads the recipes upon launching the application).
 
+###### [return to table of content](#table-of-content)
+
 ---
 
 ## FAQ
 (To be filled)
+
+###### [return to table of content](#table-of-content)
 
 ---
 
@@ -104,4 +120,5 @@ Usage: (Automatically loads the recipes upon launching the application).
 | list a recipe        | `list`                                                                                                  |
 | view specific recipe | `view <recipe number from list>`                                                                        |
 
+###### [return to table of content](#table-of-content)
 
