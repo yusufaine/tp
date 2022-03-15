@@ -29,7 +29,6 @@ public class Recipe {
     private final Set<Tag> tags = new HashSet<>();
 
     private SearchSet searchValues;
-
     /**
      * Constructs a {@code Recipe}. <br>
      *
@@ -45,10 +44,8 @@ public class Recipe {
         this.ingredients.addAll(ingredients);
         this.steps.addAll(steps);
         this.tags.addAll(tags);
-        initSearchSet();
+        this.initSearchSet();
     }
-
-
 
     public Name getName() {
         return name;
@@ -97,9 +94,9 @@ public class Recipe {
 
     private void initSearchSet() {
         this.searchValues = new SearchSet();
-        this.searchValues.add(this.name.fullName);
-        this.ingredients.forEach(i -> searchValues.add(i.getIngredientName()));
-        this.tags.forEach(t -> searchValues.add(t.tagName));
+        this.searchValues.add(this.name.fullName.toLowerCase());
+        this.ingredients.forEach(i -> searchValues.add(i.getIngredientName().toLowerCase()));
+        this.tags.forEach(t -> searchValues.add(t.tagName.toLowerCase()));
     }
 
     /**

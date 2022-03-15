@@ -40,17 +40,17 @@ public class StringUtil {
     /**
      * Returns true if the {@code sentence} contains the {@code searchValue}.
      *   Ignores case, but a full word/phrase match is required.
-     * @param sentence cannot be null
+     * @param recipeValues cannot be null
      * @param searchValue cannot be null and cannot be empty
      */
-    public static boolean containsWordsIgnoreCase(String sentence, String searchValue) {
-        requireNonNull(sentence);
+    public static boolean recipeContainsIgnoreCase(String recipeValues, String searchValue) {
+        requireNonNull(recipeValues);
         requireNonNull(searchValue);
 
-        String preppedSearchValue = searchValue.trim();
+        String preppedSearchValue = searchValue.trim().toLowerCase();
         checkArgument(!preppedSearchValue.isEmpty(), "Search value cannot be empty");
 
-        return sentence.contains(preppedSearchValue);
+        return recipeValues.contains(preppedSearchValue);
     }
 
     /**
