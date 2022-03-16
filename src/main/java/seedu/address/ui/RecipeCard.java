@@ -14,7 +14,7 @@ import seedu.address.model.recipe.Recipe;
  */
 public class RecipeCard extends UiPart<Region> {
 
-    private static final String FXML = "PersonListCard.fxml";
+    private static final String FXML = "RecipeListCard.fxml";
 
     /**
      * Note: Certain keywords such as "location" and "resources" are reserved keywords in JavaFX.
@@ -33,11 +33,9 @@ public class RecipeCard extends UiPart<Region> {
     @FXML
     private Label id;
     @FXML
-    private Label phone;
+    private Label steps;
     @FXML
-    private Label address;
-    @FXML
-    private Label email;
+    private Label completionTime;
     @FXML
     private FlowPane tags;
 
@@ -47,11 +45,11 @@ public class RecipeCard extends UiPart<Region> {
     public RecipeCard(Recipe recipe, int displayedIndex) {
         super(FXML);
         this.recipe = recipe;
-        id.setText(displayedIndex + ". ");
+        //id.setText(displayedIndex + ". ");
+        name.setWrapText(true);
         name.setText(recipe.getName().fullName);
-        phone.setText(String.valueOf(recipe.getServingSize().value));
-        address.setText(String.valueOf(recipe.getServingSize().value));
-        email.setText(String.valueOf(recipe.getCompletionTime().value));
+        steps.setText(String.valueOf(recipe.getSteps().size()) + " steps");
+        completionTime.setText(String.valueOf(recipe.getCompletionTime().value) + " mins");
         recipe.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
