@@ -25,14 +25,15 @@ public class ViewCommandParser implements Parser<ViewCommand> {
      */
     @Override
     public ViewCommand parse(String userInput) throws ParseException {
-        // Prefix defaults to name if flag "-i" is not specified
-        Prefix prefix = userInput.contains("-i")
+        // Prefix defaults to name if indexFlag is not specified
+        String indexFlag = "-x";
+        Prefix prefix = userInput.contains(indexFlag)
                 ? PREFIX_INDEX
                 : PREFIX_NAME;
         ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(userInput, prefix);
 
         try {
-            if (userInput.contains("-i")) {
+            if (userInput.contains(indexFlag)) {
                 Index index = RecipeBookParserUtil.parseIndex(argMultimap.getValue(PREFIX_INDEX).get());
                 return new ViewCommand(index);
             } else {

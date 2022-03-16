@@ -13,6 +13,6 @@ public class RecipeBookSyntax {
     public static final Prefix PREFIX_STEP = new Prefix("-s ");
     public static final Prefix PREFIX_TAG = new Prefix("-t ");
 
-    // Used for edit, view, delete
-    public static final Prefix PREFIX_INDEX = new Prefix("-i ");
+    /** Used to indicate index in a command */
+    public static final Prefix PREFIX_INDEX = new Prefix("-x ");
 }
