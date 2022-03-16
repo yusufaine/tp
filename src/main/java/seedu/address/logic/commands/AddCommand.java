@@ -18,14 +18,14 @@ import seedu.address.model.recipe.Recipe;
 public class AddCommand extends Command {
 
     public static final String COMMAND_WORD = "add";
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a recipe to the recipe book. "
-            + "Parameters: "
-            + PREFIX_NAME + "NAME "
-            + PREFIX_COMPLETION_TIME + "COMPLETION TIME "
-            + PREFIX_SERVING_SIZE + "SERVING SIZE "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a recipe to the recipe book.\n\n"
+            + "Parameters:\n"
+            + PREFIX_NAME + "NAME\n"
+            + PREFIX_COMPLETION_TIME + "COMPLETION TIME\n"
+            + PREFIX_SERVING_SIZE + "SERVING SIZE\n"
             + "[" + PREFIX_INGREDIENT + "INGREDIENT]...\n"
             + "[" + PREFIX_TAG + "TAG]...\n"
-            + "[" + PREFIX_STEP + "STEP]...\n"
+            + "[" + PREFIX_STEP + "STEP]...\n\n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_NAME + "Aglio Olio "
             + PREFIX_COMPLETION_TIME + "10 "
@@ -68,9 +68,18 @@ public class AddCommand extends Command {
     }
 
     @Override
-    public boolean equals(Object other) {
-        return other == this // short circuit if same object
-                || (other instanceof AddCommand // instanceof handles nulls
-                && toAdd.equals(((AddCommand) other).toAdd));
+    public boolean equals(Object o) {
+        // instanceof handles nulls
+        if (!(o instanceof ViewCommand)) {
+            return false;
+        }
+
+        // short circuit if same object
+        if (this == o) {
+            return true;
+        }
+
+        AddCommand other = (AddCommand) o;
+        return toAdd.equals(other.toAdd); // state check
     }
 }

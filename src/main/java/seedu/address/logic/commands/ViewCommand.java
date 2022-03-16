@@ -7,6 +7,7 @@ import java.util.List;
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.logic.parser.RecipeBookParserUtil;
 import seedu.address.model.Model;
 import seedu.address.model.recipe.Ingredient;
 import seedu.address.model.recipe.Name;
@@ -21,10 +22,11 @@ public class ViewCommand extends Command {
     public static final String COMMAND_WORD = "view";
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Displays the details of a recipe identified by the name of "
-            + "the recipe in the recipe list.\n"
-            + "Parameters: name (must be a valid case sensitive name)\n"
-            + "Example: " + COMMAND_WORD + " Mac and cheese"
-            + "Example: " + COMMAND_WORD + " -i 3";
+            + "the recipe in the recipe list.\n\n"
+            + "Parameters:\n1. name (must be a valid name, not case-sensitive)\n"
+            + "2. index (must be a valid non-negative index)\n\n"
+            + "Example: " + COMMAND_WORD + " Mac and cheese\n"
+            + "Example: " + COMMAND_WORD + " -x 3";
 
     public static final String RECIPE_CONTENT = "Name: %s\n\n"
             + "Total time: %s\n"
@@ -63,7 +65,7 @@ public class ViewCommand extends Command {
         List<Recipe> lastShownList = model.getFilteredRecipeList();
 
         // Guaranteed that either targetIndex or targetName is non-null.
-        Recipe recipe = (this.targetIndex != null)
+        Recipe recipe = (targetIndex != null)
                 ? getRecipe(lastShownList, targetIndex)
                 : getRecipe(lastShownList, targetName);
 
@@ -75,10 +77,20 @@ public class ViewCommand extends Command {
     }
 
     @Override
-    public boolean equals(Object other) {
-        return other == this // short circuit if same object
-                || (other instanceof ViewCommand // instanceof handles nulls
-                && targetName.equals(((ViewCommand) other).targetName)); // state check
+    public boolean equals(Object o) {
+        // instanceof handles nulls
+        if (!(o instanceof ViewCommand)) {
+            return false;
+        }
+
+        // short circuit if same object
+        if (this == o) {
+            return true;
+        }
+
+        ViewCommand other = (ViewCommand) o;
+        return targetName.equals(other.targetName)
+                || targetIndex.equals(other.targetIndex); // state check
     }
 
     /**
@@ -107,7 +119,7 @@ public class ViewCommand extends Command {
      */
     private Recipe getRecipe(List<Recipe> lastShownList, Name recipeName) {
         for (Recipe recipe : lastShownList) {
-            if (recipeName.equals(recipe.getName())) {
+            if (RecipeBookParserUtil.isRecipeNamesEqual(recipeName, recipe.getName())) {
                 return recipe;
             }
         }
@@ -152,11 +164,10 @@ public class ViewCommand extends Command {
      * @return the formatted String of steps.
      */
     private String getSteps(Recipe recipe) {
-        int index = 1;
         StringBuilder steps = new StringBuilder();
-        for (Step step : recipe.getSteps()) {
-            steps.append(String.format("%d. %s\n", index, step.toString()));
-            index++;
+        for (int i = 0; i < recipe.getSteps().size(); i++) {
+            Step step = recipe.getSteps().get(i);
+            steps.append(String.format("%d. %s\n", (i + 1), step.toString()));
         }
         return steps.toString();
     }
