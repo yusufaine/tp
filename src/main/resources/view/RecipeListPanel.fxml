@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" >
-  <ListView fx:id="recipeListView" VBox.vgrow="ALWAYS" styleClass="list-cell" minWidth="241" minHeight="492" />
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <stylesheets>
+        <URL value="@RecipeListPanelAndCard.css"/>
+    </stylesheets>
+    <ListView fx:id="recipeListView" VBox.vgrow="ALWAYS" styleClass="list-cell" minWidth="241" minHeight="492"/>
 </VBox>

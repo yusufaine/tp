@@ -7,10 +7,8 @@ import java.util.List;
 import seedu.address.commons.core.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.recipe.Ingredient;
 import seedu.address.model.recipe.Name;
 import seedu.address.model.recipe.Recipe;
-import seedu.address.model.recipe.Step;
 
 /**
  * Displays the contents of a recipe to the result display.
@@ -24,12 +22,6 @@ public class ViewCommand extends Command {
             + "the recipe in the recipe list.\n"
             + "Parameters: name (must be a valid case sensitive name)\n"
             + "Example: " + COMMAND_WORD + " Mac and cheese";
-
-    public static final String RECIPE_CONTENT = "Name: %s\n\n"
-            + "Total time: %s\n"
-            + "Servings: %s\n\n"
-            + "Ingredients:\n%s\n"
-            + "Steps:\n%s\n";
 
     private final Name targetName;
 
@@ -54,7 +46,7 @@ public class ViewCommand extends Command {
             throw new CommandException(String.format(Messages.MESSAGE_RECIPE_NOT_FOUND, targetName.fullName));
         }
 
-        return new CommandResult(generateRecipeContent(recipe));
+        return new CommandResult(recipe);
     }
 
     @Override
@@ -62,21 +54,6 @@ public class ViewCommand extends Command {
         return other == this // short circuit if same object
                 || (other instanceof ViewCommand // instanceof handles nulls
                 && targetName.equals(((ViewCommand) other).targetName)); // state check
-    }
-
-    /**
-     * Generates a properly formatted string of the contents of a specified {@code Recipe}.
-     *
-     * @param recipe the recipe to read the contents from.
-     * @return a formatted String of the contents of the specified recipe.
-     */
-    private String generateRecipeContent(Recipe recipe) {
-        return String.format(RECIPE_CONTENT,
-                recipe.getName(),
-                recipe.getCompletionTime(),
-                recipe.getServingSize(),
-                getIngredients(recipe),
-                getSteps(recipe));
     }
 
     /**
@@ -95,36 +72,5 @@ public class ViewCommand extends Command {
             }
         }
         return null;
-    }
-
-    /**
-     * Parses the {@code Ingredient}s of a given {@code Recipe} into a formatted String for display.
-     *
-     * @param recipe the recipe to parse.
-     * @return the formatted String of ingredients.
-     */
-    private String getIngredients(Recipe recipe) {
-        StringBuilder ingredients = new StringBuilder();
-        for (Ingredient ingredient : recipe.getIngredients()) {
-            ingredients.append(String.format("%s %s %s\n", ingredient.getIngredientName(),
-                    ingredient.getQuantity(), ingredient.getQuantifier()));
-        }
-        return ingredients.toString();
-    }
-
-    /**
-     * Parses the {@code Step}s of a given {@code Recipe} into a formatted String for display.
-     *
-     * @param recipe the recipe to parse.
-     * @return the formatted String of steps.
-     */
-    private String getSteps(Recipe recipe) {
-        int index = 1;
-        StringBuilder steps = new StringBuilder();
-        for (Step step : recipe.getSteps()) {
-            steps.append(String.format("%d. %s\n", index, step.toString()));
-            index++;
-        }
-        return steps.toString();
     }
 }
