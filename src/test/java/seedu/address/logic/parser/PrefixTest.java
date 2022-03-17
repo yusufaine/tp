@@ -7,15 +7,15 @@ import org.junit.jupiter.api.Test;
 
 class PrefixTest {
 
-    Prefix name = new Prefix("-n");
-    Prefix index = new Prefix("-x");
+    private final Prefix name = new Prefix("-n");
+    private final Prefix index = new Prefix("-x");
 
     @Test
     public void equalityCheck() {
         Prefix nameCopy = new Prefix(name.getPrefix());
 
         assertEquals(name.toString(), "-n");
-        
+
         // Prefix::equals
         assertNotEquals(name, name.getPrefix());
         assertEquals(name, name);
