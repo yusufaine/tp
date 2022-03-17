@@ -8,8 +8,8 @@ import static seedu.address.testutil.Assert.assertThrows;
 import org.junit.jupiter.api.Test;
 
 class StepTest {
-    Step s1 = new Step("chop garlic");
-    Step s2 = new Step("saute garlic");
+    private final Step s1 = new Step("chop garlic");
+    private final Step s2 = new Step("saute garlic");
 
     @Test
     public void constructor_null_throwsNullPointerException() {
@@ -35,16 +35,16 @@ class StepTest {
 
     @Test
     public void equalityCheck() {
-        Step s1_copy = new Step(s1.value);
+        Step s1Copy = new Step(s1.value);
 
         // Step::equals
         assertNotEquals(s1, s1.value);
         assertEquals(s1, s1);
-        assertEquals(s1, s1_copy);
+        assertEquals(s1, s1Copy);
         assertNotEquals(s1, s2);
 
         // Step::hashCode
-        assertEquals(s1.hashCode(), s1_copy.hashCode());
+        assertEquals(s1.hashCode(), s1Copy.hashCode());
         assertNotEquals(s1.hashCode(), s2.hashCode());
     }
 }

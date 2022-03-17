@@ -8,8 +8,8 @@ import static seedu.address.testutil.Assert.assertThrows;
 import org.junit.jupiter.api.Test;
 
 class CompletionTimeTest {
-    CompletionTime c1 = new CompletionTime(3);
-    CompletionTime c2 = new CompletionTime(4);
+    private final CompletionTime c1 = new CompletionTime(3);
+    private final CompletionTime c2 = new CompletionTime(4);
 
     @Test
     public void constructor_null_throwsNullPointerException() {
@@ -35,14 +35,16 @@ class CompletionTimeTest {
 
     @Test
     public void equalityCheck() {
+        CompletionTime c1Copy = new CompletionTime(c1.value);
+
         // Test CompletionTime::equals
         assertNotEquals(c1, c1.value);
         assertEquals(c1, c1);
-        assertEquals(c1, new CompletionTime(c1.value));
+        assertEquals(c1, c1Copy);
         assertNotEquals(c1, c2);
 
         // Test hashCode
-        assertEquals(c1.hashCode(), new CompletionTime(c1.value).hashCode());
+        assertEquals(c1.hashCode(), c1Copy.hashCode());
         assertNotEquals(c1.hashCode(), c2.hashCode());
     }
 }
