@@ -13,7 +13,7 @@ public class RecipeContainsKeywordPredicate implements Predicate<Recipe> {
     private final List<String> keywords;
 
     public RecipeContainsKeywordPredicate(List<String> keywords) {
-        this.keywords = keywords;
+        this.keywords = List.of(keywords.toArray(new String[]{}));
     }
 
     public List<String> getKeywords() {
