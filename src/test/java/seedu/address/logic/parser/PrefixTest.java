@@ -11,18 +11,21 @@ class PrefixTest {
     private final Prefix index = new Prefix("-x");
 
     @Test
-    public void equalityCheck() {
+    public void equals_test() {
         Prefix nameCopy = new Prefix(name.getPrefix());
 
         assertEquals(name.toString(), "-n");
 
-        // Prefix::equals
         assertNotEquals(name, name.getPrefix());
         assertEquals(name, name);
         assertEquals(name, nameCopy);
         assertNotEquals(name, index);
+    }
 
-        // Prefix::hashCode
+    @Test
+    public void equalityCheck() {
+        Prefix nameCopy = new Prefix(name.getPrefix());
+
         assertEquals(name.hashCode(), nameCopy.hashCode());
         assertNotEquals(name.hashCode(), index.hashCode());
     }
