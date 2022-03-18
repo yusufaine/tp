@@ -91,7 +91,6 @@ public class TypicalRecipes {
     }
 
     public static List<Recipe> getTypicalRecipes() {
-        return new ArrayList<>(Arrays.asList(AGLIO_OLIO, FRIED_RICE, DUCK_RICE, SUSHI, BEEF_TACO, SHOYU_RAMEN,
-                FISH_CHIPS, BOLOGNESE));
+        return List.of(AGLIO_OLIO, FRIED_RICE, DUCK_RICE, SUSHI, BEEF_TACO, SHOYU_RAMEN, FISH_CHIPS, BOLOGNESE);
     }
 }
