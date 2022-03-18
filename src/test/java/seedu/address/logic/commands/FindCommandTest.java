@@ -72,7 +72,7 @@ class FindCommandTest {
         List<Recipe> expectedResults = List.of(FRIED_RICE, DUCK_RICE, SUSHI, SHOYU_RAMEN);
 
         expectedModel.updateFilteredRecipeList(singlePred);
-        assertCommandSuccess(cmd, model,expectedMessage, expectedModel);
+        assertCommandSuccess(cmd, model, expectedMessage, expectedModel);
 
         List<Recipe> modelResults = model.getFilteredRecipeList();
         assertTrue(filteredListEquality(modelResults, expectedResults));
