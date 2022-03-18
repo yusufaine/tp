@@ -42,6 +42,6 @@ public class ListCommand extends Command {
 
     @Override
     public String toString() {
-        return "ListCommand";
+        return COMMAND_WORD;
     }
 }
