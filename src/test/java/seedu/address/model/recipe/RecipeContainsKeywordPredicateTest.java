@@ -36,9 +36,7 @@ class RecipeContainsKeywordPredicateTest {
     public void test_invalidPredicate() {
         // Finding " " should not be allowed
         RecipeContainsKeywordPredicate emptyPred = new RecipeContainsKeywordPredicate(List.of(" "));
-        assertThrows(IllegalArgumentException.class,
-                () -> emptyPred.test(FISH_CHIPS),
-                "Search value cannot be empty");
+        assertThrows(IllegalArgumentException.class, () -> emptyPred.test(FISH_CHIPS), "Search value cannot be empty");
     }
 
     @Test
