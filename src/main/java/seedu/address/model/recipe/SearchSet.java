@@ -1,6 +1,7 @@
 package seedu.address.model.recipe;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -9,6 +10,10 @@ import java.util.Set;
 public class SearchSet {
     private final Set<String> searchValues = new HashSet<>();
     private final StringBuilder stringRepresentation = new StringBuilder();
+
+    public Set<String> getSearchValues() {
+        return searchValues;
+    }
 
     /**
      * Adds the {@code value} into {@code searchValues} and only appends to {@code stringRepresentation} if the
@@ -24,5 +29,24 @@ public class SearchSet {
     @Override
     public String toString() {
         return stringRepresentation.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof SearchSet)) {
+            return false;
+        }
+
+        if (o == this) {
+            return true;
+        }
+
+        SearchSet other = (SearchSet) o;
+        return this.searchValues.equals(other.searchValues);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(searchValues);
     }
 }

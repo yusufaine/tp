@@ -12,7 +12,7 @@ import seedu.address.model.Model;
 public class ListCommand extends Command {
     public static final String COMMAND_WORD = "list";
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Lists all the recipes that has been stored locally.\n"
+            + ": Lists all the recipes that has been stored locally.\n\n"
             + "Example: " + COMMAND_WORD;
 
     @Override
@@ -26,20 +26,22 @@ public class ListCommand extends Command {
 
     @Override
     public boolean equals(Object o) {
+        // instanceof handles nulls
         if (!(o instanceof ListCommand)) {
             return false;
         }
 
+        // short circuit if same object
         if (this == o) {
             return true;
         }
 
         ListCommand other = (ListCommand) o;
-        return this.toString().equals(other.toString());
+        return this.toString().equals(other.toString()); // state check
     }
 
     @Override
     public String toString() {
-        return "ListCommand";
+        return COMMAND_WORD;
     }
 }

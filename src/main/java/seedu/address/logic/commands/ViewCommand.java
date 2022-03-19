@@ -7,6 +7,7 @@ import java.util.List;
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.logic.parser.RecipeBookParserUtil;
 import seedu.address.model.Model;
 import seedu.address.model.recipe.Name;
 import seedu.address.model.recipe.Recipe;
@@ -19,10 +20,12 @@ public class ViewCommand extends Command {
     public static final String COMMAND_WORD = "view";
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Displays the details of a recipe identified by the name of "
-            + "the recipe in the recipe list.\n"
-            + "Parameters: name (must be a valid case sensitive name)\n"
+            + "the recipe in the recipe list.\n\n"
+            + "Parameters:\n1. name (must be a valid name, not case-sensitive)\n"
+            + "2. index (must be a valid non-negative index)\n\n"
             + "Example: " + COMMAND_WORD + " Mac and cheese\n"
-            + "Example: " + COMMAND_WORD + " -i 3";
+            + "Example: " + COMMAND_WORD + " -x 3";
+
 
     private Name targetName;
     private Index targetIndex;
@@ -56,7 +59,7 @@ public class ViewCommand extends Command {
         List<Recipe> lastShownList = model.getFilteredRecipeList();
 
         // Guaranteed that either targetIndex or targetName is non-null.
-        Recipe recipe = (this.targetIndex != null)
+        Recipe recipe = (targetIndex != null)
                 ? getRecipe(lastShownList, targetIndex)
                 : getRecipe(lastShownList, targetName);
 
@@ -68,10 +71,20 @@ public class ViewCommand extends Command {
     }
 
     @Override
-    public boolean equals(Object other) {
-        return other == this // short circuit if same object
-                || (other instanceof ViewCommand // instanceof handles nulls
-                && targetName.equals(((ViewCommand) other).targetName)); // state check
+    public boolean equals(Object o) {
+        // instanceof handles nulls
+        if (!(o instanceof ViewCommand)) {
+            return false;
+        }
+
+        // short circuit if same object
+        if (this == o) {
+            return true;
+        }
+
+        ViewCommand other = (ViewCommand) o;
+        return targetName.equals(other.targetName)
+                || targetIndex.equals(other.targetIndex); // state check
     }
 
     /**
@@ -85,7 +98,7 @@ public class ViewCommand extends Command {
      */
     private Recipe getRecipe(List<Recipe> lastShownList, Name recipeName) {
         for (Recipe recipe : lastShownList) {
-            if (recipeName.equals(recipe.getName())) {
+            if (RecipeBookParserUtil.isRecipeNamesEqual(recipeName, recipe.getName())) {
                 return recipe;
             }
         }

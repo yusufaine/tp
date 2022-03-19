@@ -15,8 +15,8 @@ public class FindCommand extends Command {
     public static final String COMMAND_WORD = "find";
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Searches all recipes whose name, ingredient(s), or tag(s) contain any of the specified "
-            + "keywords (case-insensitive) and displays them as a list with index numbers.\n"
-            + "Parameters: KEYWORD [, MORE_KEYWORDS]... \n"
+            + "keywords (case-insensitive) and displays them as a list with index numbers.\n\n"
+            + "Parameters: KEYWORD [, MORE_KEYWORDS]... \n\n"
             + "Example: " + COMMAND_WORD + " chicken cutlet, garlic, western";
 
     private final RecipeContainsKeywordPredicate recipePredicate;
@@ -37,15 +37,17 @@ public class FindCommand extends Command {
 
     @Override
     public boolean equals(Object o) {
+        // instanceof handles nulls
         if (!(o instanceof FindCommand)) {
             return false;
         }
 
+        // short circuit if same object
         if (this == o) {
             return true;
         }
 
         FindCommand other = (FindCommand) o;
-        return this.recipePredicate.equals(other.recipePredicate);
+        return recipePredicate.equals(other.recipePredicate); // state check
     }
 }
