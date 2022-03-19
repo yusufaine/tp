@@ -12,7 +12,7 @@
         <URL value="@ResultDisplay.css"/>
     </stylesheets>
     <children>
-        <Label fx:id="response" styleClass="heading" viewOrder="-Infinity"/>
+        <Label fx:id="response" styleClass="heading"/>
         <VBox fx:id="recipeFields">
             <Label fx:id="recipeName" styleClass="heading"/>
             <HBox>

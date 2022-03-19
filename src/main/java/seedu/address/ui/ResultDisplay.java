@@ -11,6 +11,9 @@ import seedu.address.model.recipe.Ingredient;
 import seedu.address.model.recipe.Recipe;
 import seedu.address.model.recipe.Step;
 
+/**
+ * The UI component responsible for displaying recipe information and command outputs to the user.
+ */
 public class ResultDisplay extends UiPart<Region> {
 
     private static final String FXML = "ResultDisplay.fxml";
@@ -76,6 +79,7 @@ public class ResultDisplay extends UiPart<Region> {
      * of the recipe.
      */
     private void setRecipeFields() {
+        clearAllText();
         setVisibleResponseField(false);
         setVisibleRecipeFields(true);
 
@@ -96,8 +100,10 @@ public class ResultDisplay extends UiPart<Region> {
      * @param response the message to set into the response label.
      */
     private void setResponse(String response) {
+        clearAllText();
         setVisibleRecipeFields(false);
         setVisibleResponseField(true);
+
         this.response.setText(response);
     }
 
@@ -107,6 +113,18 @@ public class ResultDisplay extends UiPart<Region> {
 
     private void setVisibleResponseField(boolean isVisible) {
         response.setVisible(isVisible);
+    }
+
+    /**
+     * Sets all the text of all variable labels in the result display to empty strings.
+     */
+    private void clearAllText() {
+        response.setText("");
+        recipeName.setText("");
+        ingredients.setText("");
+        steps.setText("");
+        completionTime.setText("");
+        servingSize.setText("");
     }
 
     /**
