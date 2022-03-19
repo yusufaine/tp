@@ -26,18 +26,17 @@ public class ViewCommandParser implements Parser<ViewCommand> {
     @Override
     public ViewCommand parse(String userInput) throws ParseException {
         // Prefix defaults to name if indexFlag is not specified
-        String indexFlag = "-x";
-        Prefix prefix = userInput.contains(indexFlag)
+        Prefix prefix = userInput.contains(PREFIX_INDEX.getPrefix())
                 ? PREFIX_INDEX
                 : PREFIX_NAME;
         ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(userInput, prefix);
 
         try {
-            if (userInput.contains(indexFlag)) {
+            if (prefix.equals(PREFIX_INDEX)) {
                 Index index = RecipeBookParserUtil.parseIndex(argMultimap.getValue(PREFIX_INDEX).get());
                 return new ViewCommand(index);
             } else {
-                Name name = RecipeBookParserUtil.parseName(userInput);
+                Name name = RecipeBookParserUtil.parseName(argMultimap.getPreamble());
                 return new ViewCommand(name);
             }
         } catch (ParseException pe) {
