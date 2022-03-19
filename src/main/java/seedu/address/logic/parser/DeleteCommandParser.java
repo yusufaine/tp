@@ -25,7 +25,7 @@ public class DeleteCommandParser implements Parser<DeleteCommand> {
     @Override
     public DeleteCommand parse(String userInput) throws ParseException {
 
-        // Prefix defaults to name if flag "-i" is not specified
+        // Prefix defaults to name if flag "-x" is not specified
         String indexFlag = "-x";
         Prefix prefix = userInput.contains(indexFlag)
                 ? PREFIX_INDEX
@@ -34,8 +34,8 @@ public class DeleteCommandParser implements Parser<DeleteCommand> {
 
         try {
             if (userInput.contains(indexFlag)) {
-                Index index = RecipeBookParserUtil.parseIndex(argMultimap.getValue(PREFIX_INDEX).get());
-                return new DeleteCommand(index);
+                Index recipeIndex = RecipeBookParserUtil.parseIndex(argMultimap.getValue(PREFIX_INDEX).get());
+                return new DeleteCommand(recipeIndex);
             } else {
                 Name recipeName = RecipeBookParserUtil.parseName(userInput);
                 return new DeleteCommand(recipeName);
