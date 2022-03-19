@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 
 import java.util.List;
 
+import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.recipe.Name;
@@ -21,13 +22,15 @@ public class DeleteCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Deletes the recipe identified by the name used in the displayed list of recipes.\n"
             + "Parameters: name (must be a valid case sensitive name)\n"
-            + "Example: " + COMMAND_WORD + " Aglio Olio";
+            + "Example: " + COMMAND_WORD + " Aglio Olio\n"
+            + "Example: " + COMMAND_WORD + " -i 3";
 
     public static final String MESSAGE_DELETE_RECIPE_SUCCESS = "Deleted Recipe: %1$s";
     public static final String MESSAGE_DELETE_RECIPE_NOT_EXIST = "Recipe does not exist in the recipe book";
 
 
-    private final Name toDelete;
+    private Name toDelete;
+    private Index toDeleteIndex;
 
     /**
      * Creates a DeleteCommand to delete the specified {@code Recipe}
@@ -37,19 +40,8 @@ public class DeleteCommand extends Command {
         this.toDelete = toDelete;
     }
 
-    /**
-     * Gets index of each recipe in the last shown list
-     * @param lastShownList list shown after user searches a particular field
-     * @param recipeName name of recipe
-     * @return indexes of recipes in the lastShownList
-     */
-    public int getRecipeIndex(List<Recipe> lastShownList, Name recipeName) {
-        for (Recipe recipe : lastShownList) {
-            if (recipeName.equals(recipe.getName())) {
-                return lastShownList.indexOf(recipe);
-            }
-        }
-        return -1;
+    public DeleteCommand(Index toDeleteIndex) {
+        this.toDeleteIndex = toDeleteIndex;
     }
 
     @Override
@@ -57,7 +49,9 @@ public class DeleteCommand extends Command {
         requireNonNull(model);
 
         List<Recipe> lastShownList = model.getFilteredRecipeList();
-        int recipeToDeleteIndex = getRecipeIndex(lastShownList, toDelete);
+        int recipeToDeleteIndex = (toDeleteIndex != null)
+                ? this.toDeleteIndex.getZeroBased()
+                : getRecipeIndex(lastShownList, toDelete);
         if (recipeToDeleteIndex >= 0) {
             Recipe recipeToDelete = lastShownList.get(recipeToDeleteIndex);
             model.deleteRecipe(recipeToDelete);
@@ -72,5 +66,20 @@ public class DeleteCommand extends Command {
         return other == this // short circuit if same object
                 || (other instanceof DeleteCommand // instanceof handles nulls
                 && toDelete.equals(((DeleteCommand) other).toDelete)); // state check
+    }
+
+    /**
+     * Gets index of each recipe in the last shown list
+     * @param lastShownList list shown after user searches a particular field
+     * @param recipeName name of recipe
+     * @return indexes of recipes in the lastShownList
+     */
+    private int getRecipeIndex(List<Recipe> lastShownList, Name recipeName) {
+        for (Recipe recipe : lastShownList) {
+            if (recipeName.equals(recipe.getName())) {
+                return lastShownList.indexOf(recipe);
+            }
+        }
+        return -1;
     }
 }

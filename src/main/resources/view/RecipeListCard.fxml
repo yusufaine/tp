@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 
 <HBox id="cardPane" fx:id="cardPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-      styleClass="card" minWidth="200" minHeight="100">
+      styleClass="card" minWidth="200" minHeight="100" onMouseClicked="#copyName">
     <GridPane HBox.hgrow="ALWAYS">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="150"/>
@@ -19,6 +19,7 @@
                 <Insets top="5" right="5" bottom="5" left="15"/>
             </padding>
             <HBox spacing="5" alignment="CENTER_LEFT">
+                <Label fx:id="id" text="\$id" styleClass="cell_big_label"/>
                 <Label fx:id="name" text="\$first" styleClass="cell_big_label"/>
             </HBox>
             <HBox spacing="10">

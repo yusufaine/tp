@@ -4,6 +4,8 @@ import java.util.Comparator;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
@@ -45,7 +47,7 @@ public class RecipeCard extends UiPart<Region> {
     public RecipeCard(Recipe recipe, int displayedIndex) {
         super(FXML);
         this.recipe = recipe;
-        //id.setText(displayedIndex + ". ");
+        id.setText(displayedIndex + ". ");
         name.setWrapText(true);
         name.setText(recipe.getName().fullName);
         steps.setText(String.valueOf(recipe.getSteps().size()) + " steps");
@@ -53,6 +55,14 @@ public class RecipeCard extends UiPart<Region> {
         recipe.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
+    }
+
+    @FXML
+    private void copyName() {
+        final Clipboard clipboard = Clipboard.getSystemClipboard();
+        final ClipboardContent recipeName = new ClipboardContent();
+        recipeName.putString(name.getText());
+        clipboard.setContent(recipeName);
     }
 
     @Override
