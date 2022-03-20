@@ -13,22 +13,22 @@ import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.recipe.CompletionTime;
 import seedu.address.model.recipe.Ingredient;
 import seedu.address.model.recipe.Name;
-import seedu.address.model.recipe.Portion;
 import seedu.address.model.recipe.Recipe;
+import seedu.address.model.recipe.ServingSize;
 import seedu.address.model.recipe.Step;
 import seedu.address.model.tag.Tag;
 
 /**
  * Jackson-friendly version of {@link Recipe}.
  */
-class JsonAdaptedRecipe {
+public class JsonAdaptedRecipe {
 
     public static final String MISSING_FIELD_MESSAGE_FORMAT = "Recipe's %s field is missing!";
 
     private final String name;
     private final List<JsonAdaptedIngredient> ingredients = new ArrayList<>();
     private final Integer completionTime;
-    private final Double portion;
+    private final Integer servingSize;
     private final List<JsonAdaptedStep> steps = new ArrayList<>();
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
 
@@ -39,11 +39,11 @@ class JsonAdaptedRecipe {
     public JsonAdaptedRecipe(@JsonProperty("name") String name,
                              @JsonProperty("ingredients") List<JsonAdaptedIngredient> ingredients,
                              @JsonProperty("completionTime") Integer completionTime,
-                             @JsonProperty("portion") Double portion,
+                             @JsonProperty("servingSize") Integer servingSize,
                              @JsonProperty("steps") List<JsonAdaptedStep> steps,
                              @JsonProperty("tags") List<JsonAdaptedTag> tags) {
         this.name = name;
-        this.portion = portion;
+        this.servingSize = servingSize;
         this.completionTime = completionTime;
         if (ingredients != null) {
             this.ingredients.addAll(ingredients);
@@ -61,7 +61,7 @@ class JsonAdaptedRecipe {
      */
     public JsonAdaptedRecipe(Recipe source) {
         name = source.getName().fullName;
-        portion = source.getPortion().value;
+        servingSize = source.getServingSize().value;
         completionTime = source.getCompletionTime().value;
         tags.addAll(source.getTags().stream()
                 .map(seedu.address.newstorage.JsonAdaptedTag::new)
@@ -104,12 +104,12 @@ class JsonAdaptedRecipe {
         }
         final Name modelName = new Name(name);
 
-        if (portion == null) {
+        if (servingSize == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
-                    Portion.class.getSimpleName()));
+                    ServingSize.class.getSimpleName()));
         }
-        if (!Portion.isValidPortion(portion)) {
-            throw new IllegalValueException(Portion.MESSAGE_CONSTRAINTS);
+        if (!ServingSize.isValidServingSize(servingSize)) {
+            throw new IllegalValueException(ServingSize.MESSAGE_CONSTRAINTS);
         }
         if (completionTime == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
@@ -119,11 +119,11 @@ class JsonAdaptedRecipe {
             throw new IllegalValueException(CompletionTime.MESSAGE_CONSTRAINTS);
         }
         final CompletionTime modelCompletionTime = new CompletionTime(completionTime);
-        final Portion modelPortion = new Portion(portion);
+        final ServingSize modelServingSize = new ServingSize(servingSize);
         final List<Step> modelSteps = new ArrayList<>(recipeSteps);
         final List<Ingredient> modelIngredients = new ArrayList<>(recipeIngredients);
         final Set<Tag> modelTags = new HashSet<>(recipeTags);
-        return new Recipe(modelName, modelIngredients, modelCompletionTime, modelPortion, modelSteps, modelTags);
+        return new Recipe(modelName, modelCompletionTime, modelServingSize, modelIngredients, modelSteps, modelTags);
     }
 
 }

@@ -34,7 +34,7 @@ Given below are my contributions to the project.
   * Maintaining the issue tracker
   * Release management
   * ————
-  * PRs reviewed (with non-trivial review comments): [\#44](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/44) 
+  * PRs reviewed (with non-trivial review comments): [\#44](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/44)
   * Contributed to forum discussions (examples: [1](), [2](), [3](), [4]())
   * Reported bugs and suggestions for other teams in the class (examples: [1](), [2](), [3]())
 

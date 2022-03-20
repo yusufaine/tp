@@ -15,6 +15,7 @@ import org.junit.jupiter.api.io.TempDir;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.exceptions.DataConversionException;
 import seedu.address.model.UserPrefs;
+import seedu.address.newstorage.JsonUserPrefsStorage;
 
 public class JsonUserPrefsStorageTest {
 
@@ -73,7 +74,7 @@ public class JsonUserPrefsStorageTest {
     private UserPrefs getTypicalUserPrefs() {
         UserPrefs userPrefs = new UserPrefs();
         userPrefs.setGuiSettings(new GuiSettings(1000, 500, 300, 100));
-        userPrefs.setAddressBookFilePath(Paths.get("addressbook.json"));
+        userPrefs.setRecipeBookFilePath(Paths.get("data/recipebook.json"));
         return userPrefs;
     }
 

@@ -67,7 +67,7 @@ For example, the `Logic` component defines its API in the `Logic.java` interface
 
 The sections below give more details of each component.
 
-### UI component 
+### UI component
 (TO UPDATE)
 
 The **API** of this component is specified in [`Ui.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java)
@@ -256,14 +256,15 @@ _{Explain here how the data archiving feature will be implemented}_
 ### Product scope
 
 **Target user profile**:
-
-* has a need to manage a significant number of contacts
+* prefers storing recipes locally to their computer
+* wants to be able to quickly access their recipes that they have stored
+* wants to experiment with their recipes and adjust them accordingly
 * prefer desktop apps over other types
 * can type fast
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
 
-**Value proposition**: manage contacts faster than a typical mouse/GUI driven app
+**Value proposition**: manage recipes faster than a typical GUI-driven app
 
 
 ### User stories
@@ -293,7 +294,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 *Actor: User*
 
 **Guarantees**
-1. Recipe will be added to a new or existing list of recipes only if the name, portion, ingredients, steps and tags are valid
+1. Recipe will be added to a new or existing list of recipes only if the name, servingSize, ingredients, steps and tags are valid
 
 **MSS**
 1. User requests to add recipes
@@ -308,9 +309,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 2b. The list is not empty.
   * RecipeBook checks if the input fields are valid
     * If input fields are valid,
-  
+
       Use case ends.
-  
+
     * If input fields are invalid,
       * RecipeBook shows an error message
 
@@ -339,12 +340,12 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
   Use case ends.
 
-* 4a. RecipeBook checks if the given index is valid. 
+* 4a. RecipeBook checks if the given index is valid.
   * If index is valid
-  
+
     Use case ends.
 
-  * If index is invalid, 
+  * If index is invalid,
     * RecipeBook shows an error message
 
       Use case resumes at step 2
@@ -416,14 +417,14 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
         * RecipeBook shows an error message
 
           Use case resumes at step 2
-      
+
 * 6a. RecipeBook checks if the fields to be edited are valid
     * if input fields are valid
-    
+
       Use case ends
     * if input fields are invalid
       * RecipeBook shows an error message
-      
+
         Use case resumes at step 4
 
 *{More to be added}*

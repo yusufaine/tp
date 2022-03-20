@@ -19,6 +19,7 @@ public class Step {
      */
     public Step(String step) {
         requireNonNull(step);
+        step = step.strip();
         checkArgument(isValidStep(step), MESSAGE_CONSTRAINTS);
         value = step;
     }
@@ -27,7 +28,7 @@ public class Step {
      * Returns true if the given step is not empty.
      */
     public static boolean isValidStep(String test) {
-        return (!test.isEmpty() || !test.isBlank());
+        return !test.isEmpty();
     }
 
     @Override
