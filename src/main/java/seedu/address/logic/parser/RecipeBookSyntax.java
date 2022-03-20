@@ -12,4 +12,7 @@ public class RecipeBookSyntax {
     public static final Prefix PREFIX_SERVING_SIZE = new Prefix("-ss ");
     public static final Prefix PREFIX_STEP = new Prefix("-s ");
     public static final Prefix PREFIX_TAG = new Prefix("-t ");
+
+    /** Used to indicate index in a command */
+    public static final Prefix PREFIX_INDEX = new Prefix("-x ");
 }

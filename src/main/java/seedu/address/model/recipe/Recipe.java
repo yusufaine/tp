@@ -11,6 +11,7 @@ import java.util.Set;
 
 import seedu.address.model.tag.Tag;
 
+
 /**
  * Represents a Recipe in the recipe book. <br>
  * Guarantees: details are present and not null, field values are validated and immutable.
@@ -27,6 +28,7 @@ public class Recipe {
     private final List<Step> steps = new ArrayList<>();
     private final Set<Tag> tags = new HashSet<>();
 
+    private SearchSet searchValues;
     /**
      * Constructs a {@code Recipe}. <br>
      *
@@ -42,6 +44,7 @@ public class Recipe {
         this.ingredients.addAll(ingredients);
         this.steps.addAll(steps);
         this.tags.addAll(tags);
+        this.initSearchSet();
     }
 
     public Name getName() {
@@ -85,6 +88,17 @@ public class Recipe {
                 && otherRecipe.getName().equals(this.getName()));
     }
 
+    public SearchSet getSearchSet() {
+        return this.searchValues;
+    }
+
+    private void initSearchSet() {
+        this.searchValues = new SearchSet();
+        this.searchValues.add(this.name.fullName.toLowerCase());
+        this.ingredients.forEach(i -> searchValues.add(i.getIngredientName().toLowerCase()));
+        this.tags.forEach(t -> searchValues.add(t.tagName.toLowerCase()));
+    }
+
     /**
      * Returns true if both recipes have the same field values. <br>
      * This defines a stronger notion of equality between two recipes.
@@ -105,7 +119,7 @@ public class Recipe {
         Recipe other = (Recipe) o;
         return this.getName().equals(other.getName())
                 && this.getCompletionTime().equals(other.getCompletionTime())
-                && this.getServingSize() == other.getServingSize()
+                && this.getServingSize().equals(other.getServingSize())
                 && this.getIngredients().equals(other.getIngredients())
                 && this.getSteps().equals(other.getSteps())
                 && this.getTags().equals(other.getTags());

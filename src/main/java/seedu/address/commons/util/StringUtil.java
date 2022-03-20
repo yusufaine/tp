@@ -31,11 +31,26 @@ public class StringUtil {
         checkArgument(!preppedWord.isEmpty(), "Word parameter cannot be empty");
         checkArgument(preppedWord.split("\\s+").length == 1, "Word parameter should be a single word");
 
-        String preppedSentence = sentence;
-        String[] wordsInPreppedSentence = preppedSentence.split("\\s+");
+        String[] wordsInPreppedSentence = sentence.split("\\s+");
 
         return Arrays.stream(wordsInPreppedSentence)
                 .anyMatch(preppedWord::equalsIgnoreCase);
+    }
+
+    /**
+     * Returns true if the {@code sentence} contains the {@code searchValue}.
+     *   Ignores case, but a full word/phrase match is required.
+     * @param recipeValues cannot be null
+     * @param searchValue cannot be null and cannot be empty
+     */
+    public static boolean recipeContainsIgnoreCase(String recipeValues, String searchValue) {
+        requireNonNull(recipeValues);
+        requireNonNull(searchValue);
+
+        String preppedSearchValue = searchValue.trim().toLowerCase();
+        checkArgument(!preppedSearchValue.isEmpty(), "Search value cannot be empty");
+
+        return recipeValues.contains(preppedSearchValue);
     }
 
     /**

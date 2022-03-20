@@ -210,4 +210,18 @@ public class RecipeBookParserUtil {
             throw new ParseException(Ingredient.QUANTITY_CONSTRAINTS);
         }
     }
+
+    /**
+     * Compares 2 recipe name values and returns if
+     * both are equal or not (non-case-sensitivity)
+     *
+     * @param firstRecipeName the recipe name of the first recipe
+     * @param secondRecipeName the recipe name of the second recipe
+     * @return whether the recipes names are equal (non-case-sensitive)
+     */
+    public static boolean isRecipeNamesEqual(Name firstRecipeName, Name secondRecipeName) {
+        String lowerFirstRecipeName = firstRecipeName.fullName.toLowerCase().trim();
+        String lowerSecondRecipeName = secondRecipeName.fullName.toLowerCase().trim();
+        return lowerFirstRecipeName.equals(lowerSecondRecipeName);
+    }
 }

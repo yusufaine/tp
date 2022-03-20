@@ -2,10 +2,13 @@ package seedu.address.model.util;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import seedu.address.logic.parser.RecipeBookParserUtil;
+import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.ReadOnlyRecipeBook;
 import seedu.address.model.RecipeBook;
 import seedu.address.model.recipe.CompletionTime;
@@ -17,7 +20,7 @@ import seedu.address.model.recipe.Step;
 import seedu.address.model.tag.Tag;
 
 /**
- * Contains utility methods for populating {@code AddressBook} with sample data.
+ * Contains utility methods for populating {@code RecipeBook} with sample data.
  */
 public class SampleDataUtil {
     private static Recipe[] getSampleRecipes() {
@@ -27,7 +30,7 @@ public class SampleDataUtil {
         Ingredient ingredient4 = new Ingredient("Bacon", 3, "slices");
 
         Ingredient[] ingredientArr = new Ingredient[]{ingredient1, ingredient2, ingredient3, ingredient4};
-        List<Ingredient> ingredients = new ArrayList(List.of(ingredientArr));
+        List<Ingredient> ingredients = List.of(ingredientArr);
 
         Step step1 = new Step("Cook the pasta");
         Step step2 = new Step("Saute the garlic");
@@ -52,15 +55,23 @@ public class SampleDataUtil {
         return sampleRb;
     }
 
-    // /**
-    //  * Returns an ingredient list containing the list of strings given.
-    //  */
-    // public static List<Ingredient> getIngredientList(String... strings) {
-    //     return Arrays.stream(strings).map(Ingredient::new).collect(Collectors.toList());
-    // }
+    /**
+       * Returns an ingredient list containing the list of strings given.
+       *
+       * @param strings ingredients that are to the list of ingredients.
+       * @return the list of ingredients containing the newly added ingredients.
+       * @throws ParseException if any of the fields given in {@code strings} is invalid.
+       */
+    public static List<Ingredient> getIngredientList(String... strings) throws ParseException {
+        Collection<String> toBeParsed = List.of(strings);
+        return RecipeBookParserUtil.parseIngredients(toBeParsed);
+    }
 
     /**
      * Returns a step list containing the list of strings given.
+     *
+     * @param strings list of steps to be added to the list of step.
+     * @return List of Steps containing the newly added list of step.
      */
     public static List<Step> getStepList(String... strings) {
         return Arrays.stream(strings).map(Step::new).collect(Collectors.toList());
@@ -68,11 +79,15 @@ public class SampleDataUtil {
 
     /**
      * Returns a tag set containing the list of strings given.
+     *
+     * @param strings list of tag to be added to the list of tag.
+     * @return list of tags containing the newly added list of tags.
      */
     public static Set<Tag> getTagSet(String... strings) {
         return Arrays.stream(strings)
                 .map(Tag::new)
                 .collect(Collectors.toSet());
     }
+
 
 }
