@@ -341,18 +341,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
   Use case ends.
 
 * 4a. RecipeBook checks if the given index is valid.
-<<<<<<< HEAD
     * If index is valid
 
       Use case ends.
-=======
-  * If index is valid
-
-    Use case ends.
-
-  * If index is invalid,
-    * RecipeBook shows an error message
->>>>>>> master
 
     * If index is invalid,
         * RecipeBook shows an error message
@@ -432,15 +423,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case ends
     * if input fields are invalid
-<<<<<<< HEAD
         * RecipeBook shows an error message
 
           Use case resumes at step 4
-=======
-      * RecipeBook shows an error message
-
-        Use case resumes at step 4
->>>>>>> master
 
 *{More to be added}*
 
