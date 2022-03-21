@@ -33,16 +33,19 @@ class ServingSizeTest {
     }
 
     @Test
-    public void equalityCheck() {
+    public void equals_test() {
         ServingSize ss1Copy = new ServingSize(ss1.value);
 
-        // ServingSize::equals
         assertNotEquals(ss1, ss1.value);
         assertEquals(ss1, ss1);
         assertEquals(ss1, ss1Copy);
         assertNotEquals(ss1, ss2);
+    }
 
-        // ServingSize::hashCode
+    @Test
+    public void hashCode_test() {
+        ServingSize ss1Copy = new ServingSize(ss1.value);
+
         assertEquals(ss1.hashCode(), ss1Copy.hashCode());
         assertNotEquals(ss1.hashCode(), ss2.hashCode());
     }

@@ -20,7 +20,7 @@ public class TypicalRecipes {
     public static final Recipe FRIED_RICE = new RecipeBuilder().withName("Fried Rice")
             .withCompletionTime(30).withIngredients("Carrots 3.0", "Eggs 1.0", "White Rice 4.0 Cups")
             .withServingSize(1).withSteps("Place carrots in saucepan and cover with water", "Heat wok")
-            .withTags("Chinese", "Asians").build();
+            .withTags("Chinese", "Asian").build();
 
     public static final Recipe DUCK_RICE = new RecipeBuilder().withName("Duck Rice")
             .withCompletionTime(30).withIngredients("Duck meat 1.0 pound", "Rice 4.0 Cups", "Eggs 1.0")

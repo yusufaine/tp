@@ -33,16 +33,19 @@ public class TagTest {
     }
 
     @Test
-    public void equalityCheck() {
+    public void equals_test() {
         Tag t1Copy = new Tag(t1.tagName);
 
-        // Tag::equals
         assertNotEquals(t1, t1.tagName);
         assertEquals(t1, t1);
         assertEquals(t1, t1Copy);
         assertNotEquals(t1, t2);
+    }
 
-        // Tag::hashCode
+    @Test
+    public void hashCode_test() {
+        Tag t1Copy = new Tag(t1.tagName);
+
         assertEquals(t1.hashCode(), t1Copy.hashCode());
         assertNotEquals(t1.hashCode(), t2.hashCode());
     }
