@@ -126,7 +126,7 @@ public class ArgumentTokenizer {
         String value = argsString.substring(valueStartPos, nextPrefixPosition.getStartPosition());
 
         List<String> multiValue =
-                Arrays.stream(value.split(",")).map(v -> v.trim()).collect(Collectors.toList());
+                Arrays.stream(value.split(",")).map(v -> v.trim()).collect(Collectors.toUnmodifiableList());
 
         return multiValue;
     }
