@@ -130,7 +130,6 @@ public class EditCommandTest {
     public void execute_duplicateRecipeFilteredList_failure() {
         showRecipeAtIndex(model, INDEX_FIRST_RECIPE);
 
-        // edit person in filtered list into a duplicate in address book
         Recipe recipeInList = model.getRecipeBook().getRecipeList().get(INDEX_SECOND_RECIPE.getZeroBased());
         EditCommand editCommand = new EditCommand(INDEX_FIRST_RECIPE,
                 new EditRecipeDescriptorBuilder(recipeInList).build());
