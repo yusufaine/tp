@@ -34,16 +34,19 @@ class NameTest {
     }
 
     @Test
-    public void equalityCheck() {
+    public void equals_test() {
         Name n1Copy = new Name(n1.fullName);
 
-        // Name::equals
         assertNotEquals(n1, n1.fullName);
         assertEquals(n1, n1);
         assertEquals(n1, n1Copy);
         assertNotEquals(n1, n2);
+    }
 
-        // Name::hashCode
+    @Test
+    public void hashCode_test() {
+        Name n1Copy = new Name(n1.fullName);
+
         assertEquals(n1.hashCode(), n1Copy.hashCode());
         assertNotEquals(n1.hashCode(), n2.hashCode());
     }
