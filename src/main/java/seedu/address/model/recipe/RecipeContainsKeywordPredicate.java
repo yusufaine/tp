@@ -25,7 +25,7 @@ public class RecipeContainsKeywordPredicate implements Predicate<Recipe> {
         return keywords.stream()
                 .anyMatch(keyword -> StringUtil.recipeContainsIgnoreCase(recipe.getSearchSet().toString(), keyword));
     }
-    
+
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof RecipeContainsKeywordPredicate)) {
