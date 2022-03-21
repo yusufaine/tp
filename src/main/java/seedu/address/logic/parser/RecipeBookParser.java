@@ -7,7 +7,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import seedu.address.logic.commands.AddCommand;
+import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.Command;
+import seedu.address.logic.commands.ConfirmationCommand;
 import seedu.address.logic.commands.DeleteCommand;
 import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.FindCommand;
@@ -41,8 +43,18 @@ public class RecipeBookParser {
 
         final String commandWord = matcher.group("commandWord");
         final String arguments = matcher.group("arguments");
-        switch (commandWord) {
 
+        /* If previous command is a clear command, enforceConfirmation will ensure the next command
+        a confirmationCommand. */
+        if (EnforceConfirmation.clearIsCalled()) {
+            boolean isConfirmation = EnforceConfirmation.isNextCommandAConfirmation(commandWord);
+            if (!isConfirmation) {
+                EnforceConfirmation.resetConfirmation();
+                throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+                        ConfirmationCommand.ENFORCE_MESSAGE));
+            }
+        }
+        switch (commandWord) {
         case AddCommand.COMMAND_WORD:
             return new AddCommandParser().parse(arguments);
         case DeleteCommand.COMMAND_WORD:
@@ -55,6 +67,12 @@ public class RecipeBookParser {
             return new ListCommand();
         case ViewCommand.COMMAND_WORD:
             return new ViewCommandParser().parse(arguments);
+        case ClearCommand.COMMAND_WORD:
+            System.out.println(arguments);
+            return new ClearCommandParser().parse(arguments);
+        case ConfirmationCommand.CONFIRM_COMMAND_WORD:
+        case ConfirmationCommand.CANCEL_COMMAND_WORD:
+            return new ConfirmationCommand(commandWord);
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }
