@@ -19,10 +19,8 @@ import seedu.address.logic.commands.EditCommand.EditRecipeDescriptor;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.RecipeBook;
-import seedu.address.model.recipe.Ingredient;
 import seedu.address.model.recipe.Recipe;
 import seedu.address.model.recipe.RecipeContainsKeywordPredicate;
-import seedu.address.model.recipe.Step;
 import seedu.address.testutil.EditRecipeDescriptorBuilder;
 
 /**
@@ -35,26 +33,25 @@ public class CommandTestUtil {
     public static final int VALID_COMPLETION_TIME_CHICKEN_CHOP = 10;
     public static final int VALID_SERVING_SIZE_AGLIO_OLIO = 1;
     public static final int VALID_SERVING_SIZE_CHICKEN_CHOP = 2;
-    public static final Ingredient VALID_INGREDIENT_CHICKEN_CHICKEN_CHOP = new Ingredient("Chicken", 1);
-    public static final Ingredient VALID_INGREDIENT_POTATO_CHICKEN_CHOP = new Ingredient("Potato", 2);
-    public static final List<Ingredient> VALID_INGREDIENTS_CHICKEN_CHOP =
+    public static final String VALID_INGREDIENT_CHICKEN_CHICKEN_CHOP = "Chicken 1";
+    public static final String VALID_INGREDIENT_POTATO_CHICKEN_CHOP = "Potato 2";
+    public static final List<String> VALID_INGREDIENTS_CHICKEN_CHOP =
             List.of(VALID_INGREDIENT_CHICKEN_CHICKEN_CHOP, VALID_INGREDIENT_POTATO_CHICKEN_CHOP);
-    public static final Ingredient VALID_INGREDIENT_SPAGHETTI_AGLIO_OLIO = new Ingredient("Spaghetti", 1);
-    public static final Ingredient VALID_INGREDIENT_GARLIC_AGLIO_OLIO = new Ingredient("Garlic", 3, "portions");
-    public static final List<Ingredient> VALID_INGREDIENTS_AGLIO_OLIO =
+    public static final String VALID_INGREDIENT_SPAGHETTI_AGLIO_OLIO = "Spaghetti 1";
+    public static final String VALID_INGREDIENT_GARLIC_AGLIO_OLIO = "Garlic 3 portions";
+    public static final List<String> VALID_INGREDIENTS_AGLIO_OLIO =
             List.of(VALID_INGREDIENT_GARLIC_AGLIO_OLIO, VALID_INGREDIENT_SPAGHETTI_AGLIO_OLIO);
-    public static final Step VALID_STEP_1_CHICKEN_CHOP = new Step("Chop the chickens");
-    public static final Step VALID_STEP_2_CHICKEN_CHOP = new Step("Cook the chicken slices");
-    public static final List<Step> VALID_STEPS_CHICKEN_CHOP =
+    public static final String VALID_STEP_1_CHICKEN_CHOP = "Chop the chickens";
+    public static final String VALID_STEP_2_CHICKEN_CHOP = "Cook the chicken slices";
+    public static final List<String> VALID_STEPS_CHICKEN_CHOP =
             List.of(VALID_STEP_1_CHICKEN_CHOP, VALID_STEP_2_CHICKEN_CHOP);
-    public static final Step VALID_STEP_1_AGLIO_OLIO = new Step("Cook the spaghetti");
-    public static final Step VALID_STEP_2_AGLIO_OLIO = new Step("Slice the garlics");
-    public static final List<Step> VALID_STEPS_AGLIO_OLIO =
+    public static final String VALID_STEP_1_AGLIO_OLIO = "Cook the spaghetti";
+    public static final String VALID_STEP_2_AGLIO_OLIO = "Slice the garlics";
+    public static final List<String> VALID_STEPS_AGLIO_OLIO =
             List.of(VALID_STEP_1_AGLIO_OLIO, VALID_STEP_2_AGLIO_OLIO);
     public static final String VALID_TAG_AGLIO_OLIO = "italian";
     public static final String VALID_TAG_CHICKEN_CHOP = "western";
 
-    //
     public static final String NAME_DESC_AGLIO_OLIO = " " + PREFIX_NAME + VALID_NAME_AGLIO_OLIO;
     public static final String NAME_DESC_CHICKEN_CHOP = " " + PREFIX_NAME + VALID_NAME_CHICKEN_CHOP;
     public static final String COMPLETION_TIME_AGLIO_OLIO = " " + PREFIX_COMPLETION_TIME
@@ -73,13 +70,7 @@ public class CommandTestUtil {
     public static final String STEP_DESC_CHICKEN_CHOP = " " + PREFIX_STEP + VALID_STEP_1_CHICKEN_CHOP;
     public static final String TAG_DESC_AGLIO_OLIO = " " + PREFIX_TAG + VALID_TAG_AGLIO_OLIO;
     public static final String TAG_DESC_CHICKEN_CHOP = " " + PREFIX_TAG + VALID_TAG_CHICKEN_CHOP;
-    //
-    // public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + "James&"; // '&' not allowed in names
-    // public static final String INVALID_PHONE_DESC = " " + PREFIX_PHONE + "911a"; // 'a' not allowed in phones
-    // public static final String INVALID_EMAIL_DESC = " " + PREFIX_EMAIL + "bob!yahoo"; // missing '@' symbol
-    // public static final String INVALID_ADDRESS_DESC = " " + PREFIX_ADDRESS; // empty string not allowed for addresses
-    // public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
-    //
+
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
 
