@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 
 import java.util.List;
 
+import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.RecipeBookParserUtil;
@@ -105,11 +106,15 @@ public class DeleteCommand extends Command {
      * @param lastShownList the list of recipes to search from.
      * @param recipeIndex the index (zero-based) of the recipe to view.
      * @return the recipe from the list matching the specified index.
+     * @throws CommandException if the index specified is out of bounds.
      */
-    private Recipe getRecipe(List<Recipe> lastShownList, Index recipeIndex) {
+    private Recipe getRecipe(List<Recipe> lastShownList, Index recipeIndex) throws CommandException {
         int zeroBasedIndex = recipeIndex.getZeroBased();
         if (zeroBasedIndex < lastShownList.size()) {
             return lastShownList.get(zeroBasedIndex);
+        }
+        if (zeroBasedIndex >= lastShownList.size()) {
+            throw new CommandException(Messages.MESSAGE_INVALID_RECIPE_DISPLAYED_INDEX);
         }
         return null;
     }
