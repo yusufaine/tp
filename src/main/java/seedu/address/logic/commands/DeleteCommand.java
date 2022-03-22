@@ -75,8 +75,13 @@ public class DeleteCommand extends Command {
         }
 
         DeleteCommand other = (DeleteCommand) o;
-        return toDeleteName.equals(other.toDeleteName)
-                || toDeleteIndex.equals(other.toDeleteIndex); // state check
+        if (toDeleteName != null && other.toDeleteName != null) {
+            return toDeleteName.equals(other.toDeleteName);
+        } else if (toDeleteIndex != null && other.toDeleteIndex != null) {
+            return toDeleteIndex.equals(other.toDeleteIndex);
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -112,5 +117,9 @@ public class DeleteCommand extends Command {
             return lastShownList.get(zeroBasedIndex);
         }
         return null;
+    }
+
+    public Index getToDeleteIndex() {
+        return toDeleteIndex;
     }
 }
