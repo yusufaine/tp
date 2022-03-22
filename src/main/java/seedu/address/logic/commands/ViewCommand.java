@@ -115,6 +115,7 @@ public class ViewCommand extends Command {
      *
      * @param lastShownList the list of recipes to search from.
      * @param recipeName the name of the recipe to view.
+     * @return the recipe from the list matching the specified name.
      * @throws CommandException displays recipe name not found error message.
      */
     private Recipe getRecipe(List<Recipe> lastShownList, Name recipeName) throws CommandException {
@@ -132,6 +133,7 @@ public class ViewCommand extends Command {
      *
      * @param lastShownList the list of recipes to search from.
      * @param recipeIndex the index (zero-based) of the recipe to view.
+     * @return the recipe from the list matching the specified index.
      * @throws CommandException displays invalid recipe index error message.
      */
     private Recipe getRecipe(List<Recipe> lastShownList, Index recipeIndex) throws CommandException {

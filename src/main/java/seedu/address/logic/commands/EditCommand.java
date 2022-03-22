@@ -70,8 +70,8 @@ public class EditCommand extends Command {
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_RECIPE = "This recipe already exists in the recipe book.";
 
-    private Name targetName;
-    private Index targetIndex;
+    private final Optional<Name> targetName;
+    private final Optional<Index> targetIndex;
     private final EditRecipeDescriptor editRecipeDescriptor;
 
     /**
@@ -82,7 +82,8 @@ public class EditCommand extends Command {
         requireNonNull(name);
         requireNonNull(editRecipeDescriptor);
 
-        this.targetName = name;
+        this.targetName = Optional.of(name);
+        this.targetIndex = Optional.empty();
         this.editRecipeDescriptor = new EditRecipeDescriptor(editRecipeDescriptor);
     }
 
@@ -94,7 +95,8 @@ public class EditCommand extends Command {
         requireNonNull(index);
         requireNonNull(editRecipeDescriptor);
 
-        this.targetIndex = index;
+        this.targetIndex = Optional.of(index);
+        this.targetName = Optional.empty();
         this.editRecipeDescriptor = new EditRecipeDescriptor(editRecipeDescriptor);
     }
 
@@ -104,9 +106,9 @@ public class EditCommand extends Command {
         List<Recipe> lastShownList = model.getFilteredRecipeList();
 
         // Guaranteed that either targetIndex or targetName is non-null.
-        Recipe recipeToEdit = (targetIndex != null)
-                ? getRecipe(lastShownList, targetIndex)
-                : getRecipe(lastShownList, targetName);
+        Recipe recipeToEdit = (targetIndex.isPresent())
+                ? getRecipe(lastShownList, targetIndex.get())
+                : getRecipe(lastShownList, targetName.orElseThrow());
 
         Recipe editedRecipe = createEditedRecipe(recipeToEdit, editRecipeDescriptor);
 
@@ -157,6 +159,7 @@ public class EditCommand extends Command {
         // state check
         EditCommand e = (EditCommand) other;
         return targetIndex.equals(e.targetIndex)
+                && targetName.equals(e.targetName)
                 && editRecipeDescriptor.equals(e.editRecipeDescriptor);
     }
 
@@ -167,7 +170,8 @@ public class EditCommand extends Command {
      *
      * @param lastShownList the list of recipes to search from.
      * @param recipeName the name of the recipe to view.
-     * @throws CommandException with recipe name not found error message.
+     * @return the recipe from the list matching the specified name.
+     * @throws CommandException displays recipe name not found error message.
      */
     private Recipe getRecipe(List<Recipe> lastShownList, Name recipeName) throws CommandException {
         for (Recipe recipe : lastShownList) {
@@ -185,6 +189,7 @@ public class EditCommand extends Command {
      * @param lastShownList the list of recipes to search from.
      * @param recipeIndex the index (zero-based) of the recipe to view.
      * @return the recipe from the list matching the specified index.
+     * @throws CommandException displays invalid recipe index error message.
      */
     private Recipe getRecipe(List<Recipe> lastShownList, Index recipeIndex) throws CommandException {
         int zeroBasedIndex = recipeIndex.getZeroBased();
@@ -197,7 +202,7 @@ public class EditCommand extends Command {
             return lastShownList.get(zeroBasedIndex);
         }
 
-        return null;
+        throw new CommandException(String.format(Messages.MESSAGE_INVALID_RECIPE_DISPLAYED_INDEX));
     }
 
     /**
