@@ -96,7 +96,8 @@
 //
 //     @Test
 //     public void parseIngredient_invalidValue_throwsParseException() {
-//         assertThrows(ParseException.class, () -> RecipeBookParserUtil.parseIngredient(String.valueOf(INVALID_INGREDIENT)));
+//         assertThrows(ParseException.class, () ->
+//         RecipeBookParserUtil.parseIngredient(String.valueOf(INVALID_INGREDIENT)));
 //     }
 //
 //     @Test
@@ -188,7 +189,8 @@
 //
 //     @Test
 //     public void parseTags_collectionWithInvalidTags_throwsParseException() {
-//         assertThrows(ParseException.class, () -> RecipeBookParserUtil.parseTags(Arrays.asList(VALID_TAG_1, INVALID_TAG)));
+//         assertThrows(ParseException.class,
+//         () -> RecipeBookParserUtil.parseTags(Arrays.asList(VALID_TAG_1, INVALID_TAG)));
 //     }
 //
 //     @Test
