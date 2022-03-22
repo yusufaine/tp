@@ -9,6 +9,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.RecipeBookParserUtil;
 import seedu.address.model.Model;
+import seedu.address.model.recipe.Ingredient;
 import seedu.address.model.recipe.Name;
 import seedu.address.model.recipe.Recipe;
 
@@ -26,10 +27,8 @@ public class ViewCommand extends Command {
             + "Example: " + COMMAND_WORD + " Mac and cheese\n"
             + "Example: " + COMMAND_WORD + " -x 3";
 
-
     private Name targetName;
     private Index targetIndex;
-
 
     /**
      * Create a ViewCommand that displays the contents of stored recipe

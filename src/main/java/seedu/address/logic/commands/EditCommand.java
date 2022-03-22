@@ -31,7 +31,7 @@ import seedu.address.model.recipe.Step;
 import seedu.address.model.tag.Tag;
 
 /**
- * Adds a recipe to the recipe book.
+ * Edits a recipe to the recipe book.
  */
 public class EditCommand extends Command {
 
