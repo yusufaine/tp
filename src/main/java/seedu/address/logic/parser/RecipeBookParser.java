@@ -7,8 +7,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import seedu.address.logic.commands.AddCommand;
+import seedu.address.logic.commands.CancelClearCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.Command;
+import seedu.address.logic.commands.ConfirmedClearCommand;
 import seedu.address.logic.commands.DeleteCommand;
 import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.FindCommand;
@@ -26,6 +28,7 @@ public class RecipeBookParser {
      * Used for initial separation of command word and args.
      */
     private static final Pattern BASIC_COMMAND_FORMAT = Pattern.compile("(?<commandWord>\\S+)(?<arguments>.*)");
+    private boolean requiresConfirmation = false;
 
     /**
      * Parses user input into command for execution.
@@ -43,23 +46,39 @@ public class RecipeBookParser {
         final String commandWord = matcher.group("commandWord");
         final String arguments = matcher.group("arguments");
 
-        switch (commandWord) {
-        case AddCommand.COMMAND_WORD:
-            return new AddCommandParser().parse(arguments);
-        case DeleteCommand.COMMAND_WORD:
-            return new DeleteCommandParser().parse(arguments);
-        case ExitCommand.COMMAND_WORD:
-            return new ExitCommand();
-        case FindCommand.COMMAND_WORD:
-            return new FindCommandParser().parse(arguments);
-        case ListCommand.COMMAND_WORD:
-            return new ListCommand();
-        case ViewCommand.COMMAND_WORD:
-            return new ViewCommandParser().parse(arguments);
-        case ClearCommand.COMMAND_WORD:
-            return new ClearCommand();
-        default:
-            throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
+        if (!requiresConfirmation) {
+            switch (commandWord) {
+            case AddCommand.COMMAND_WORD:
+                return new AddCommandParser().parse(arguments);
+            case DeleteCommand.COMMAND_WORD:
+                return new DeleteCommandParser().parse(arguments);
+            case ExitCommand.COMMAND_WORD:
+                return new ExitCommand();
+            case FindCommand.COMMAND_WORD:
+                return new FindCommandParser().parse(arguments);
+            case ListCommand.COMMAND_WORD:
+                return new ListCommand();
+            case ViewCommand.COMMAND_WORD:
+                return new ViewCommandParser().parse(arguments);
+            case ClearCommand.COMMAND_WORD:
+                requiresConfirmation = ClearCommandParser.isForcedClear(arguments);
+                return new ClearCommandParser().parse(arguments);
+            default:
+                throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
+            }
+        } else {
+            requiresConfirmation = false;
+            switch (commandWord) {
+            case CancelClearCommand.COMMAND_WORD:
+                return new CancelClearCommand();
+            case ConfirmedClearCommand.COMMAND_WORD:
+                return new ConfirmedClearCommand();
+            case ExitCommand.COMMAND_WORD:
+                return new ExitCommand();
+            default:
+                throw new ParseException(ConfirmedClearCommand.MESSAGE_UNKNOWN_COMMAND + ClearCommand.MESSAGE_USAGE);
+            }
+
         }
     }
 }
