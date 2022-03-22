@@ -1,9 +1,12 @@
 package seedu.address.model.recipe;
 
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.Assert.assertThrows;
+
+import org.junit.jupiter.api.Test;
 
 class IngredientTest {
 
@@ -21,8 +24,8 @@ class IngredientTest {
         String invalidIngredientName = "";
         double validIngredientQty = 5.5;
         String validIngredientQuantifier = "g";
-        assertThrows(IllegalArgumentException.class,
-                () -> new Ingredient(invalidIngredientName, validIngredientQty, validIngredientQuantifier));
+        assertThrows(IllegalArgumentException.class, () ->
+                new Ingredient(invalidIngredientName, validIngredientQty, validIngredientQuantifier));
     }
 
     // @Test
@@ -39,8 +42,8 @@ class IngredientTest {
         String invalidIngredientName = "Spaghetti";
         double invalidIngredientQty = 0;
         String validIngredientQuantifier = "g";
-        assertThrows(IllegalArgumentException.class,
-                () -> new Ingredient(invalidIngredientName, invalidIngredientQty, validIngredientQuantifier));
+        assertThrows(IllegalArgumentException.class, () ->
+                new Ingredient(invalidIngredientName, invalidIngredientQty, validIngredientQuantifier));
     }
 
     @Test
@@ -48,7 +51,8 @@ class IngredientTest {
         String invalidIngredientName = "Spaghetti";
         double validIngredientQty = 5.5;
         String nullIngredientQuantifier = null;
-        assertEquals("Spaghetti: 5.5", new Ingredient(invalidIngredientName, validIngredientQty, nullIngredientQuantifier).toString());
+        assertEquals("Spaghetti: 5.5",
+                new Ingredient(invalidIngredientName, validIngredientQty, nullIngredientQuantifier).toString());
     }
 
     @Test
@@ -56,8 +60,8 @@ class IngredientTest {
         String invalidIngredientName = null;
         double validIngredientQty = 5.5;
         String validIngredientQuantifier = "g";
-        assertThrows(NullPointerException.class,
-                () -> new Ingredient(invalidIngredientName, validIngredientQty, validIngredientQuantifier));
+        assertThrows(NullPointerException.class, () ->
+                new Ingredient(invalidIngredientName, validIngredientQty, validIngredientQuantifier));
     }
 
     // @Test
