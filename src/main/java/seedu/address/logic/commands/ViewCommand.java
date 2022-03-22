@@ -9,10 +9,8 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.RecipeBookParserUtil;
 import seedu.address.model.Model;
-import seedu.address.model.recipe.Ingredient;
 import seedu.address.model.recipe.Name;
 import seedu.address.model.recipe.Recipe;
-import seedu.address.model.recipe.Step;
 
 /**
  * Displays the contents of a recipe to the result display.
@@ -28,14 +26,10 @@ public class ViewCommand extends Command {
             + "Example: " + COMMAND_WORD + " Mac and cheese\n"
             + "Example: " + COMMAND_WORD + " -x 3";
 
-    public static final String RECIPE_CONTENT = "Name: %s\n\n"
-            + "Total time: %s\n"
-            + "Servings: %s\n\n"
-            + "Ingredients:\n%s\n"
-            + "Steps:\n%s\n";
 
     private Name targetName;
     private Index targetIndex;
+
 
     /**
      * Create a ViewCommand that displays the contents of stored recipe
@@ -73,7 +67,7 @@ public class ViewCommand extends Command {
             throw new CommandException(String.format(Messages.MESSAGE_RECIPE_NOT_FOUND, targetName.fullName));
         }
 
-        return new CommandResult(generateRecipeContent(recipe));
+        return new CommandResult(recipe);
     }
 
     @Override
@@ -91,21 +85,6 @@ public class ViewCommand extends Command {
         ViewCommand other = (ViewCommand) o;
         return targetName.equals(other.targetName)
                 || targetIndex.equals(other.targetIndex); // state check
-    }
-
-    /**
-     * Generates a properly formatted string of the contents of a specified {@code Recipe}.
-     *
-     * @param recipe the recipe to read the contents from.
-     * @return a formatted String of the contents of the specified recipe.
-     */
-    private String generateRecipeContent(Recipe recipe) {
-        return String.format(RECIPE_CONTENT,
-                recipe.getName(),
-                recipe.getCompletionTime(),
-                recipe.getServingSize(),
-                getIngredients(recipe),
-                getSteps(recipe));
     }
 
     /**
@@ -133,42 +112,16 @@ public class ViewCommand extends Command {
      * @param lastShownList the list of recipes to search from.
      * @param recipeIndex the index (zero-based) of the recipe to view.
      * @return the recipe from the list matching the specified index.
+     * @throws CommandException if the index specified is out of bounds.
      */
-    private Recipe getRecipe(List<Recipe> lastShownList, Index recipeIndex) {
+    private Recipe getRecipe(List<Recipe> lastShownList, Index recipeIndex) throws CommandException {
         int zeroBasedIndex = recipeIndex.getZeroBased();
         if (zeroBasedIndex < lastShownList.size()) {
             return lastShownList.get(zeroBasedIndex);
         }
+        if (zeroBasedIndex >= lastShownList.size()) {
+            throw new CommandException(Messages.MESSAGE_INVALID_RECIPE_DISPLAYED_INDEX);
+        }
         return null;
-    }
-
-    /**
-     * Parses the {@code Ingredient}s of a given {@code Recipe} into a formatted String for display.
-     *
-     * @param recipe the recipe to parse.
-     * @return the formatted String of ingredients.
-     */
-    private String getIngredients(Recipe recipe) {
-        StringBuilder ingredients = new StringBuilder();
-        for (Ingredient ingredient : recipe.getIngredients()) {
-            ingredients.append(String.format("%s %s %s\n", ingredient.getIngredientName(),
-                    ingredient.getQuantity(), ingredient.getQuantifier()));
-        }
-        return ingredients.toString();
-    }
-
-    /**
-     * Parses the {@code Step}s of a given {@code Recipe} into a formatted String for display.
-     *
-     * @param recipe the recipe to parse.
-     * @return the formatted String of steps.
-     */
-    private String getSteps(Recipe recipe) {
-        StringBuilder steps = new StringBuilder();
-        for (int i = 0; i < recipe.getSteps().size(); i++) {
-            Step step = recipe.getSteps().get(i);
-            steps.append(String.format("%d. %s\n", (i + 1), step.toString()));
-        }
-        return steps.toString();
     }
 }
