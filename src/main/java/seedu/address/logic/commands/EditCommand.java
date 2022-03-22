@@ -89,6 +89,8 @@ public class EditCommand extends Command {
     }
 
     /**
+    * Constructs an {@code EditCommand} given a recipe index.
+    *
      * @param index of the recipe in the filtered recipe list to edit
      * @param editRecipeDescriptor details to edit the recipe with
      */
