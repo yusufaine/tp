@@ -39,11 +39,11 @@ class IngredientTest {
 
     @Test
     public void constructor_invalidIngredientQty_throwsIllegalArgumentException() {
-        String invalidIngredientName = "Spaghetti";
+        String validIngredientName = "Spaghetti";
         double invalidIngredientQty = 0;
         String validIngredientQuantifier = "g";
         assertThrows(IllegalArgumentException.class, () ->
-                new Ingredient(invalidIngredientName, invalidIngredientQty, validIngredientQuantifier));
+                new Ingredient(validIngredientName, invalidIngredientQty, validIngredientQuantifier));
     }
 
     @Test
@@ -57,11 +57,11 @@ class IngredientTest {
 
     @Test
     public void constructor_invalidNullIngredientName_throwsIllegalArgumentException() {
-        String invalidIngredientName = null;
+        String nullIngredientName = null;
         double validIngredientQty = 5.5;
         String validIngredientQuantifier = "g";
         assertThrows(NullPointerException.class, () ->
-                new Ingredient(invalidIngredientName, validIngredientQty, validIngredientQuantifier));
+                new Ingredient(nullIngredientName, validIngredientQty, validIngredientQuantifier));
     }
 
     // @Test
