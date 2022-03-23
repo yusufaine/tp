@@ -14,9 +14,6 @@ import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.ReadOnlyRecipeBook;
 import seedu.address.model.RecipeBook;
 import seedu.address.model.UserPrefs;
-import seedu.address.newstorage.JsonRecipeBookStorage;
-import seedu.address.newstorage.JsonUserPrefsStorage;
-import seedu.address.newstorage.StorageManager;
 
 public class StorageManagerTest {
 

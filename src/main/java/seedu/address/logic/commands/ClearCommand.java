@@ -40,8 +40,6 @@ public class ClearCommand extends Command {
         return COMMAND_WORD;
     }
 
-
-
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);
