@@ -2,6 +2,8 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.Objects;
+
 import seedu.address.commons.core.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
@@ -23,6 +25,10 @@ public class FindCommand extends Command {
 
     public FindCommand(RecipeContainsKeywordPredicate recipePredicate) {
         this.recipePredicate = recipePredicate;
+    }
+
+    public RecipeContainsKeywordPredicate getRecipePredicate() {
+        return recipePredicate;
     }
 
     @Override
@@ -49,5 +55,10 @@ public class FindCommand extends Command {
 
         FindCommand other = (FindCommand) o;
         return recipePredicate.equals(other.recipePredicate); // state check
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getRecipePredicate());
     }
 }
