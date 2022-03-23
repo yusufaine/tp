@@ -294,7 +294,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 *Actor: User*
 
 **Guarantees**
-1. Recipe will be added to a new or existing list of recipes only if the name, servingSize, ingredients, steps and tags are valid
+1. Recipe will be added to a new or existing list of recipes only if the name, completionTime, servingSize, ingredients, steps and tags are valid
 
 **MSS**
 1. User requests to add recipes
@@ -308,9 +308,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * RecipeBook creates a new list.
 * 2b. The list is not empty.
     * RecipeBook checks if the input fields are valid
-        * If input fields are valid,
+        * If input fields are valid
+            * RecipeBook adds recipe
 
-          Use case ends.
+              Use case ends.
 
         * If input fields are invalid,
             * RecipeBook shows an error message
@@ -396,9 +397,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1. User requests to list recipes
 2. RecipeBook shows a list of recipes
 3. User requests to edit a specific recipe in the list
-4. RecipeBook displays the specific recipe requested by the user
-5. User edits the recipe
-6. RecipeBook updates the changes in the recipe
+4. RecipeBook updates the changes in the recipe
 
    Use case ends.
 
@@ -408,31 +407,30 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
   Use case ends.
 
-* 4a. RecipeBook checks if the given index is valid.
-    * If index is valid
+* 3a. RecipeBook checks if the given recipe name or index is valid.
+    * If recipe name or index is valid
 
       Use case ends.
 
-    * If index is invalid,
+    * If recipe name or index is invalid,
         * RecipeBook shows an error message
 
           Use case resumes at step 2
 
-* 6a. RecipeBook checks if the fields to be edited are valid
+* 3b. RecipeBook checks if the fields to be edited are valid
     * if input fields are valid
 
       Use case ends
     * if input fields are invalid
         * RecipeBook shows an error message
 
-          Use case resumes at step 4
+          Use case resumes at step 2
 
-*{More to be added}*
 
 ### Non-Functional Requirements
 
 1. Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
-2. Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
+2. Should be able to hold up to 1000 recipes without a noticeable sluggishness in performance for typical usage.
 3. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
 4. Should not use a DBMS to store data.
 5. Should work without requiring an installer.
@@ -474,11 +472,11 @@ testers are expected to do more *exploratory* testing.
 
 1. _{ more test cases …​ }_
 
-### Deleting a person
+### Deleting a recipe
 
-1. Deleting a person while all persons are being shown
+1. Deleting a recipe while all recipes are being shown
 
-    1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
+    1. Prerequisites: List all recipes using the `list` command. Multiple recipes in the list.
 
     1. Test case: `delete 1`<br>
        Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
