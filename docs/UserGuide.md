@@ -118,7 +118,7 @@ Usage: (Automatically loads the recipes upon launching the application).
 | Action               | Command format                                                                                          |
 |----------------------|---------------------------------------------------------------------------------------------------------|
 | add a new recipe     | `create recipe n/ <name of recipe> i/ <ingredients separated by commas> s/ <steps separated by commas>` |
-| delete a recipe      | `delete <recipe number from list>`                                                                      |
+| delete a recipe      | `delete -x <recipe index>` or `delete <recipe name>`                                                    |
 | find a recipe        | `find <keyword> [, other keywords, seperated by comma]`                                                 |
 | list a recipe        | `list`                                                                                                  |
 | view specific recipe | `view <recipe number from list>`                                                                        |
