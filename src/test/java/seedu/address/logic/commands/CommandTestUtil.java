@@ -54,9 +54,9 @@ public class CommandTestUtil {
 
     public static final String NAME_DESC_AGLIO_OLIO = " " + PREFIX_NAME + VALID_NAME_AGLIO_OLIO;
     public static final String NAME_DESC_CHICKEN_CHOP = " " + PREFIX_NAME + VALID_NAME_CHICKEN_CHOP;
-    public static final String COMPLETION_TIME_AGLIO_OLIO = " " + PREFIX_COMPLETION_TIME
+    public static final String COMPLETION_TIME_DESC_AGLIO_OLIO = " " + PREFIX_COMPLETION_TIME
             + VALID_COMPLETION_TIME_AGLIO_OLIO;
-    public static final String COMPLETION_TIME_CHICKEN_CHOP = " " + PREFIX_COMPLETION_TIME
+    public static final String COMPLETION_TIME_DESC_CHICKEN_CHOP = " " + PREFIX_COMPLETION_TIME
             + VALID_COMPLETION_TIME_CHICKEN_CHOP;
     public static final String SERVING_SIZE_DESC_AGLIO_OLIO = " " + PREFIX_SERVING_SIZE
             + VALID_SERVING_SIZE_AGLIO_OLIO;
@@ -70,6 +70,19 @@ public class CommandTestUtil {
     public static final String STEP_DESC_CHICKEN_CHOP = " " + PREFIX_STEP + VALID_STEP_1_CHICKEN_CHOP;
     public static final String TAG_DESC_AGLIO_OLIO = " " + PREFIX_TAG + VALID_TAG_AGLIO_OLIO;
     public static final String TAG_DESC_CHICKEN_CHOP = " " + PREFIX_TAG + VALID_TAG_CHICKEN_CHOP;
+
+    // '&' not allowed in names
+    public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + "James&";
+    // 'a' not allowed in phones
+    public static final String INVALID_COMPLETION_TIME_DESC = " " + PREFIX_COMPLETION_TIME + "911a";
+    // ! not allowed in serving size
+    public static final String INVALID_SERVING_SIZE_DESC = " " + PREFIX_SERVING_SIZE + "bob!yahoo";
+    // empty string not allowed for ingredient
+    public static final String INVALID_INGREDIENT_DESC = " " + PREFIX_INGREDIENT;
+    // empty string not allowed for steps
+    public static final String INVALID_STEP_DESC = " " + PREFIX_STEP;
+    // '*' not allowed in tags
+    public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*";
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
