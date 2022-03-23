@@ -117,11 +117,14 @@ public class DeleteCommand extends Command {
         if (zeroBasedIndex < lastShownList.size()) {
             return lastShownList.get(zeroBasedIndex);
         }
-
         throw new CommandException(Messages.MESSAGE_INVALID_RECIPE_DISPLAYED_INDEX);
     }
 
     public Index getToDeleteIndex() {
         return toDeleteIndex;
+    }
+
+    public Name getToDeleteName() {
+        return toDeleteName;
     }
 }

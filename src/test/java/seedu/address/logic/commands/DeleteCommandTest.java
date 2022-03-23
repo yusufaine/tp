@@ -1,6 +1,8 @@
 package seedu.address.logic.commands;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
@@ -110,25 +112,19 @@ public class DeleteCommandTest {
     public void equals() {
         DeleteCommand deleteFirstCommand = new DeleteCommand(INDEX_FIRST_RECIPE);
         DeleteCommand deleteSecondCommand = new DeleteCommand(INDEX_SECOND_RECIPE);
-        DeleteCommand deleteNameCommand = new DeleteCommand(AGLIO_OLIO.getName());
-
-        // same object -> returns true
-        assertTrue(deleteFirstCommand.equals(deleteFirstCommand));
-
-        // same values -> returns true
         DeleteCommand deleteFirstCommandCopy = new DeleteCommand(deleteFirstCommand.getToDeleteIndex());
-        assertTrue(deleteFirstCommand.equals(deleteFirstCommandCopy));
 
-        // different types -> returns false
-        assertFalse(deleteFirstCommand.equals(1));
+        DeleteCommand deleteNameCommand = new DeleteCommand(AGLIO_OLIO.getName());
+        DeleteCommand deleteNameCommandCopy = new DeleteCommand(deleteNameCommand.getToDeleteName());
 
-        // null -> returns false
-        assertFalse(deleteFirstCommand.equals(null));
-
-        // different recipe -> returns false
-        assertFalse(deleteFirstCommand.equals(deleteSecondCommand));
-
-        assertFalse(deleteFirstCommand.equals(deleteNameCommand));
+        assertNotEquals(deleteFirstCommand, deleteFirstCommand.getToDeleteIndex());
+        assertNotEquals(deleteNameCommand, deleteNameCommand.getToDeleteName());
+        assertEquals(deleteFirstCommand, deleteFirstCommand);
+        assertEquals(deleteNameCommand, deleteNameCommand);
+        assertEquals(deleteNameCommand, deleteNameCommandCopy);
+        assertEquals(deleteFirstCommand, deleteFirstCommandCopy);
+        assertNotEquals(deleteFirstCommand, deleteSecondCommand);
+        assertNotEquals(deleteFirstCommand, deleteNameCommand);
     }
 
     /**
