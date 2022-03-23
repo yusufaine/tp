@@ -57,10 +57,13 @@ Example:
 
 ### Delete recipe
 Removes a stored recipe based on the number it is associated with in the `list` <br>
-Usage: `delete <recipe number>` <br>
+Usage: `delete -x <recipe index>` or `delete <recipe name>` <br> 
 Example:
 - delete 1
     - This would delete the first entry in the list of recipes.
+- delete Aglio Olio 
+    - This would delete the recipe called 'Aglio Olio'.
+  
 
 ###### [return to table of content](#table-of-content)
 
