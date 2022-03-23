@@ -25,6 +25,7 @@ public class RecipeContainsKeywordPredicate implements Predicate<Recipe> {
         return keywords.stream()
                 .anyMatch(keyword -> StringUtil.recipeContainsIgnoreCase(recipe.getSearchSet().toString(), keyword));
     }
+
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof RecipeContainsKeywordPredicate)) {
@@ -36,12 +37,11 @@ public class RecipeContainsKeywordPredicate implements Predicate<Recipe> {
         }
 
         RecipeContainsKeywordPredicate other = (RecipeContainsKeywordPredicate) o;
-        return this.keywords.equals(other.keywords);
+        return this.getKeywords().equals(other.getKeywords());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(keywords);
+        return Objects.hashCode(this.getKeywords());
     }
-
 }
