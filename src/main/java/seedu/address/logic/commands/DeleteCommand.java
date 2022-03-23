@@ -107,12 +107,14 @@ public class DeleteCommand extends Command {
      * @param lastShownList the list of recipes to search from.
      * @param recipeIndex the index (zero-based) of the recipe to view.
      * @return the recipe from the list matching the specified index.
+     * @throws CommandException if the index specified is out of bounds.
      */
     private Recipe getRecipe(List<Recipe> lastShownList, Index recipeIndex) throws CommandException {
         int zeroBasedIndex = recipeIndex.getZeroBased();
         if (zeroBasedIndex < lastShownList.size()) {
             return lastShownList.get(zeroBasedIndex);
         }
+
         throw new CommandException(Messages.MESSAGE_INVALID_RECIPE_DISPLAYED_INDEX);
     }
 
