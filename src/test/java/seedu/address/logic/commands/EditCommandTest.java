@@ -63,9 +63,9 @@ public class EditCommandTest {
                 .withName(VALID_NAME_CHICKEN_CHOP)
                 .withCompletionTime(VALID_COMPLETION_TIME_CHICKEN_CHOP)
                 .withServingSize(VALID_SERVING_SIZE_CHICKEN_CHOP)
-                .withIngredients(VALID_INGREDIENT_CHICKEN_CHICKEN_CHOP.toString(),
-                        VALID_INGREDIENT_POTATO_CHICKEN_CHOP.toString())
-                .withSteps(VALID_STEP_1_CHICKEN_CHOP.toString())
+                .withIngredients(VALID_INGREDIENT_CHICKEN_CHICKEN_CHOP,
+                        VALID_INGREDIENT_POTATO_CHICKEN_CHOP)
+                .withSteps(VALID_STEP_1_CHICKEN_CHOP)
                 .withTags(VALID_TAG_CHICKEN_CHOP).build();
 
         EditRecipeDescriptor descriptor = new EditRecipeDescriptorBuilder()

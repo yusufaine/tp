@@ -66,6 +66,7 @@ public class EditCommand extends Command {
             + PREFIX_TAG + "Italian "
             + PREFIX_TAG + "Western";
 
+    public static final String MESSAGE_MISSING_RECIPE_INDEX_OR_NAME = "Missing recipe name or index value.";
     public static final String MESSAGE_EDIT_RECIPE_SUCCESS = "Edited Recipe: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_RECIPE = "This recipe already exists in the recipe book.";

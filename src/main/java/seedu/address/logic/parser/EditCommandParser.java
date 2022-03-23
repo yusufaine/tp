@@ -47,8 +47,7 @@ public class EditCommandParser implements Parser<EditCommand> {
         try {
             return getEditCommand(prefix, argMultimap);
         } catch (ParseException pe) {
-            String errorMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE);
-            throw new ParseException(errorMessage, pe);
+            throw pe;
         }
     }
 
@@ -84,9 +83,18 @@ public class EditCommandParser implements Parser<EditCommand> {
             EditRecipeDescriptor editRecipeDescriptor = parseEditArgumentValues(argMultimap);
             return new EditCommand(index, editRecipeDescriptor);
         } else {
-            Name name = RecipeBookParserUtil.parseName(argMultimap.getPreamble());
+            Name name = parseNameOrThrow(argMultimap.getPreamble());
             EditRecipeDescriptor editRecipeDescriptor = parseEditArgumentValues(argMultimap);
             return new EditCommand(name, editRecipeDescriptor);
+        }
+    }
+
+    private Name parseNameOrThrow(String preamble) throws ParseException {
+        try {
+            Name name = RecipeBookParserUtil.parseName(preamble);
+            return name;
+        } catch (ParseException pe) {
+            throw new ParseException(EditCommand.MESSAGE_MISSING_RECIPE_INDEX_OR_NAME);
         }
     }
 
