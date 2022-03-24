@@ -45,7 +45,7 @@ public class ClearCommandParserTest {
     }
 
     @Test
-    public void parse_notForcedClear_returnsClearCommand() {
+    public void parse_notForcedClear_returnsClearCommand_success() {
         ClearCommand expected = new ClearCommand();
         assertParseSuccess(parser, clearCommand, expected);
     }
