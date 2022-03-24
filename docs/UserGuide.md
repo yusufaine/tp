@@ -59,7 +59,7 @@ Example:
 Edits a recipe by specifying its name, ingredients, and steps to prepare the dish.<br>
 Usage: `edit -n <name of recipe> -d <completion time of recipe> -ss <serving size of recipe> -i <ingredients of recipes separated by commas> -s <steps separated by commas> -t <tags associated with recipe> (optional)` <br>
 Example:
-- `edit -n Spicy Aglio Olio -d 5 -ss 1 -i spaghetti 56 grams, garlic 3 cloves, bacon 3 slices, olive oil 110 ml, Chilli flakes 10 teaspoons -s Cook the spaghetti until al dante, Saute the chopped garlic, Toss spaghetti in the sauce, taste and season with salt, black pepper and chilli flakes`
+- `edit -n Spicy Aglio Olio -i spaghetti 56 grams, garlic 3 cloves, bacon 3 slices, olive oil 110 ml, Chilli flakes 10 teaspoons -s Cook the spaghetti until al dante, Saute the chopped garlic, Toss spaghetti in the sauce, taste and season with salt, black pepper and chilli flakes`
     - This edits the recipe named "Aglio Olio" and updates its attributes with a name of "Spicy Aglio Olio", completion time of 5 mins, serving size of 1 person/pax and ingredients consisting of 56 grams of spaghetti, 3 cloves of garlic, 3 slices of bacon, 110 ml of olive oil and 10 teaspoons of chilli flakes with the steps of:
         1. Cook the spaghetti until al dante,
         2. Saute the chopped garlic,
