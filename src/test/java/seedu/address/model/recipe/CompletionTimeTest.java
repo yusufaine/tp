@@ -34,7 +34,7 @@ class CompletionTimeTest {
     }
 
     @Test
-    public void equalityCheck() {
+    public void equals_test() {
         CompletionTime c1Copy = new CompletionTime(c1.value);
 
         // Test CompletionTime::equals
@@ -42,6 +42,11 @@ class CompletionTimeTest {
         assertEquals(c1, c1);
         assertEquals(c1, c1Copy);
         assertNotEquals(c1, c2);
+    }
+
+    @Test
+    public void hashCode_test() {
+        CompletionTime c1Copy = new CompletionTime(c1.value);
 
         // Test hashCode
         assertEquals(c1.hashCode(), c1Copy.hashCode());

@@ -3,12 +3,21 @@ layout: page
 title: Developer Guide
 ---
 * Table of Contents
-{:toc}
+  {:toc}
+
+## **[!] Before reading**
+To help simplify the understanding of the design of our application – `McKitchen` – we would be referring to our application as `RecipeBook` as it makes more intuitive sense
+as our application functions similar to `RecipeBook` which contains a set of `Recipe` and so on.
+
+With that in mind, let's begin.
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Acknowledgements** (TO UPDATE)
 
+* McDonald's for inspiring our project and logo.
+* AddressBook Level-3 from [https://se-education.org/](https://se-education.org/) which served as a base for our application.
+* [JavaFX](https://openjfx.io/) for the GUI functionality.
 * {list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well}
 
 --------------------------------------------------------------------------------------------------------------------
@@ -47,7 +56,7 @@ The rest of the App consists of four components.
 * [**`UI`**](#ui-component): The UI of the App.
 * [**`Logic`**](#logic-component): The command executor.
 * [**`Model`**](#model-component): Holds the data of the App in memory.
-* [**`Storage`**](#storage-component): Reads data from, and writes data to, the hard disk.
+* [**`Storage`**](#storage-component): Reads data from, and writes data to the hard disk.
 
 
 **How the architecture components interact with each other**
@@ -94,10 +103,10 @@ Here's a (partial) class diagram of the `Logic` component:
 <img src="images/LogicClassDiagram.png" width="550"/>
 
 How the `Logic` component works:
-1. When `Logic` is called upon to execute a command, it uses the `AddressBookParser` class to parse the user command.
+1. When `Logic` is called upon to execute a command, it uses the `RecipeBookParser` class to parse the user command.
 1. This results in a `Command` object (more precisely, an object of one of its subclasses e.g., `AddCommand`) which is executed by the `LogicManager`.
-1. The command can communicate with the `Model` when it is executed (e.g. to add a person).
-1. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `Logic`.
+1. The command can communicate with the `Model` when it is executed (e.g. to add a recipe).
+1. The result of the command execution is encapsulated as a `CommandResult` object which is returned from `Logic`.
 
 The Sequence Diagram below illustrates the interactions within the `Logic` component for the `execute("delete 1")` API call.
 
@@ -111,8 +120,8 @@ Here are the other classes in `Logic` (omitted from the class diagram above) tha
 <img src="images/ParserClasses.png" width="600"/>
 
 How the parsing works:
-* When called upon to parse a user command, the `AddressBookParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g., `AddCommand`) which the `AddressBookParser` returns back as a `Command` object.
-* All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
+* When called upon to parse a user command, the `RecipeBookParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g., `AddCommand`) which the `AddressBookParser` returns back as a `Command` object.
+* All `*CommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
 
 ### Model component
 **API** : [`Model.java`]() (TO UPDATE)
@@ -140,13 +149,13 @@ The `Model` component,
 <img src="images/StorageClassDiagram.png" width="550" />
 
 The `Storage` component,
-* can save both address book data and user preference data in json format, and read them back into corresponding objects.
-* inherits from both `AddressBookStorage` and `UserPrefStorage`, which means it can be treated as either one (if only the functionality of only one is needed).
+* can save both recipe book data and user preference data in json format, and read them back into corresponding objects.
+* inherits from both `RecipeBookStorage` and `UserPrefStorage`, which means it can be treated as either one (if only the functionality of only one is needed).
 * depends on some classes in the `Model` component (because the `Storage` component's job is to save/retrieve objects that belong to the `Model`)
 
 ### Common classes
 
-Classes used by multiple components are in the `seedu.addressbook.commons` package.
+Classes used by multiple components are in the `seedu.recipebook.commons` package.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -224,13 +233,13 @@ The following activity diagram summarizes what happens when a user executes a ne
 **Aspect: How undo & redo executes:**
 
 * **Alternative 1 (current choice):** Saves the entire address book.
-  * Pros: Easy to implement.
-  * Cons: May have performance issues in terms of memory usage.
+    * Pros: Easy to implement.
+    * Cons: May have performance issues in terms of memory usage.
 
 * **Alternative 2:** Individual command knows how to undo/redo by
   itself.
-  * Pros: Will use less memory (e.g. for `delete`, just save the person being deleted).
-  * Cons: We must ensure that the implementation of each individual command are correct.
+    * Pros: Will use less memory (e.g. for `delete`, just save the person being deleted).
+    * Cons: We must ensure that the implementation of each individual command are correct.
 
 _{more aspects and alternatives to be added}_
 
@@ -300,22 +309,22 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1. User requests to add recipes
 2. RecipeBook Adds the recipe to a new or existing list of recipes
 
-    Use case ends.
+   Use case ends.
 
 **Extensions**
 
 * 2a. The list is empty.
-  * RecipeBook creates a new list.
+    * RecipeBook creates a new list.
 * 2b. The list is not empty.
-  * RecipeBook checks if the input fields are valid
-    * If input fields are valid,
+    * RecipeBook checks if the input fields are valid
+        * If input fields are valid,
 
-      Use case ends.
+          Use case ends.
 
-    * If input fields are invalid,
-      * RecipeBook shows an error message
+        * If input fields are invalid,
+            * RecipeBook shows an error message
 
-        Use case resumes at step 1
+              Use case resumes at step 1
 
 **Use case: Delete a recipe**
 
@@ -332,7 +341,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 3. User requests to delete a specific recipe in the list
 4. RecipeBook deletes the recipe
 
-    Use case ends.
+   Use case ends.
 
 **Extensions**
 
@@ -341,14 +350,14 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
   Use case ends.
 
 * 4a. RecipeBook checks if the given index is valid.
-  * If index is valid
+    * If index is valid
 
-    Use case ends.
+      Use case ends.
 
-  * If index is invalid,
-    * RecipeBook shows an error message
+    * If index is invalid,
+        * RecipeBook shows an error message
 
-      Use case resumes at step 2
+          Use case resumes at step 2
 
 **Use case: view a recipe**
 
@@ -365,7 +374,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 3. User requests to view a specific recipe in the list
 4. RecipeBook displays the specific recipe requested by the user for viewing
 
-    Use case ends.
+   Use case ends.
 
 **Extensions**
 * 2a. The list is empty.
@@ -400,7 +409,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 5. User edits the recipe
 6. RecipeBook updates the changes in the recipe
 
-    Use case ends.
+   Use case ends.
 
 **Extensions**
 
@@ -423,9 +432,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case ends
     * if input fields are invalid
-      * RecipeBook shows an error message
+        * RecipeBook shows an error message
 
-        Use case resumes at step 4
+          Use case resumes at step 4
 
 *{More to be added}*
 
@@ -461,15 +470,15 @@ testers are expected to do more *exploratory* testing.
 
 1. Initial launch
 
-   1. Download the jar file and copy into an empty folder
+    1. Download the jar file and copy into an empty folder
 
-   1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
+    1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
 
 1. Saving window preferences
 
-   1. Resize the window to an optimum size. Move the window to a different location. Close the window.
+    1. Resize the window to an optimum size. Move the window to a different location. Close the window.
 
-   1. Re-launch the app by double-clicking the jar file.<br>
+    1. Re-launch the app by double-clicking the jar file.<br>
        Expected: The most recent window size and location is retained.
 
 1. _{ more test cases …​ }_
@@ -478,16 +487,16 @@ testers are expected to do more *exploratory* testing.
 
 1. Deleting a person while all persons are being shown
 
-   1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
+    1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
 
-   1. Test case: `delete 1`<br>
-      Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
+    1. Test case: `delete 1`<br>
+       Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
 
-   1. Test case: `delete 0`<br>
-      Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.
+    1. Test case: `delete 0`<br>
+       Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.
 
-   1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
-      Expected: Similar to previous.
+    1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
+       Expected: Similar to previous.
 
 1. _{ more test cases …​ }_
 
@@ -495,6 +504,6 @@ testers are expected to do more *exploratory* testing.
 
 1. Dealing with missing/corrupted data files
 
-   1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
+    1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
 
-1. _{ more test cases …​ }_
+2. _{ more test cases …​ }_
