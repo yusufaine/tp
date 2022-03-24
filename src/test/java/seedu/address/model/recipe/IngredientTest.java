@@ -39,11 +39,11 @@ class IngredientTest {
 
     @Test
     public void constructor_nullIngredientQuantifier_isValid() {
-        String invalidIngredientName = "Spaghetti";
+        String validIngredientName = "Spaghetti";
         double validIngredientQty = 5.5;
-        // String nullIngredientQuantifier = null;
+        String nullIngredientQuantifier = null;
         assertEquals("Spaghetti: 5.5",
-                new Ingredient(invalidIngredientName, validIngredientQty, null).toString());
+                new Ingredient(validIngredientName, validIngredientQty, nullIngredientQuantifier).toString());
     }
 
     @Test
