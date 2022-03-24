@@ -1,6 +1,7 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.parser.RecipeBookSyntax.PREFIX_INDEX;
 
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class DeleteCommand extends Command {
             + "Parameters:\n1. name (must be a valid name, not case-sensitive)\n"
             + "2. index (must be a valid index, no negative numbers)\n\n"
             + "Example: " + COMMAND_WORD + " aglio olio\n"
-            + "Example: " + COMMAND_WORD + " -x 1";
+            + "Example: " + COMMAND_WORD + " " + PREFIX_INDEX + "1";
 
     public static final String MESSAGE_DELETE_RECIPE_SUCCESS = "Deleted Recipe: %1$s";
     public static final String MESSAGE_DELETE_RECIPE_NOT_EXIST = "Recipe does not exist in the recipe book";
@@ -82,21 +83,21 @@ public class DeleteCommand extends Command {
 
     /**
      * Retrieves the {@code Recipe} with the same name as the specified name
-     * from a given list of recipes (non-case-sensitive).
-     * Returns null if a recipe with the same name cannot be found.
+     * from a given list of recipes.
+     * Throws a CommandException if a recipe with the same name cannot be found.
      *
      * @param lastShownList the list of recipes to search from.
      * @param recipeName the name of the recipe to view.
      * @return the recipe from the list matching the specified name.
+     * @throws CommandException displays recipe name not found error message.
      */
-    private Recipe getRecipe(List<Recipe> lastShownList, Name recipeName) {
+    private Recipe getRecipe(List<Recipe> lastShownList, Name recipeName) throws CommandException {
         for (Recipe recipe : lastShownList) {
-            // get lowercase values of recipe names
             if (RecipeBookParserUtil.isRecipeNamesEqual(recipeName, recipe.getName())) {
                 return recipe;
             }
         }
-        return null;
+        throw new CommandException(String.format(Messages.MESSAGE_RECIPE_NOT_FOUND, recipeName));
     }
 
     /**
@@ -110,12 +111,15 @@ public class DeleteCommand extends Command {
      */
     private Recipe getRecipe(List<Recipe> lastShownList, Index recipeIndex) throws CommandException {
         int zeroBasedIndex = recipeIndex.getZeroBased();
-        if (zeroBasedIndex < lastShownList.size()) {
-            return lastShownList.get(zeroBasedIndex);
-        }
+
         if (zeroBasedIndex >= lastShownList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_RECIPE_DISPLAYED_INDEX);
         }
-        return null;
+
+        if (zeroBasedIndex < lastShownList.size()) {
+            return lastShownList.get(zeroBasedIndex);
+        }
+
+        throw new CommandException(Messages.MESSAGE_INVALID_RECIPE_DISPLAYED_INDEX);
     }
 }
