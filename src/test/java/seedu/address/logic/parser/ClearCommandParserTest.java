@@ -39,13 +39,13 @@ public class ClearCommandParserTest {
     }
 
     @Test
-    public void parse_forcedClear_returnsConfirmedClearCommand() {
+    public void parse_forcedClear_returnsConfirmedClearCommand_success() {
         ConfirmedClearCommand expected = new ConfirmedClearCommand();
         assertParseSuccess(parser, forcedClearCommand, expected);
     }
 
     @Test
-    public void parse_notForcedClear_returnsClearCommand() {
+    public void parse_notForcedClear_returnsClearCommand_success() {
         ClearCommand expected = new ClearCommand();
         assertParseSuccess(parser, clearCommand, expected);
     }

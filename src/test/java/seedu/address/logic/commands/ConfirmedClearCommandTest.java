@@ -14,8 +14,8 @@ import seedu.address.model.*;
  * {@code ConfirmedClearCommand}.
  */
 public class ConfirmedClearCommandTest {
-    private final Model model = new ModelManager(getTypicalRecipeBook(), new UserPrefs());
-    private final Model expectedModel = new ModelManager(getTypicalRecipeBook(), new UserPrefs());
+    private final Model model = new RecipeBookModelManager(getTypicalRecipeBook(), new UserPrefs());
+    private final Model expectedModel = new RecipeBookModelManager(getTypicalRecipeBook(), new UserPrefs());
 
     @Test
     public void execute_recipeBookCleared() {
