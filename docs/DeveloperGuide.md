@@ -146,9 +146,9 @@ The `Storage` component,
 * depends on some classes in the `Model` component (because the `Storage` component's job is to save/retrieve objects that belong to the `Model`)
 
 * The `JsonAdaptedRecipe` contains the standard attributes of a `Recipe` in `JsonProperty` format.
-* `JsonAdaptedRecipe` also contains attributes in a list such as 
+* `JsonAdaptedRecipe` also contains attributes in a list such as
 * `List<JsonAdaptedSteps>`, `List<JsonAdaptedIngredient>` and `List<JsonAdaptedTag>` format.
-* 
+*
 
 ### Common classes
 
@@ -432,6 +432,33 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
         * RecipeBook shows an error message
 
           Use case resumes at step 4
+
+**Use case: Clear the recipe book**
+
+*Actor: User*
+
+*Preconditions: None*
+
+**Guarantees**
+1. All recipe entries will be cleared from the recipe book.
+
+**MSS**
+
+1. RecipeBook shows a list of recipes
+2. User requests to clear the list of recipes
+3. RecipeBook asks for confirmation
+4. User confirms to clear
+5. RecipeBook clears all the entries in the recipe book
+   Use case ends.
+
+**Extensions**
+* 2a. User requests to do a force clear on the list of recipes.
+    * 2a1. If the entered input contains the forced clear prefix.
+      Use case resumes from step 5.
+
+* 4a. User cancels the clear request.
+    * 4a1. RecipeBook abort the clear process.
+      Use case ends.
 
 *{More to be added}*
 
