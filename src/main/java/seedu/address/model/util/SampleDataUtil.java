@@ -46,13 +46,14 @@ public class SampleDataUtil {
 
         //Nasi Lemak
         Ingredient i1 = new Ingredient("fish", 10);
-        Ingredient i2 = new Ingredient("rice", 1, "- s cook the rice");
+        Ingredient i2 = new Ingredient("rice", 1);
 
         Ingredient[] ingredientArr2 = new Ingredient[]{i1, i2};
         List<Ingredient> ingredients2 = List.of(ingredientArr2);
 
-        Step s1 = new Step("toss it into the dustbin");
-        List<Step> steps2 = new ArrayList<>(List.of(new Step[]{s1}));
+        Step s1 = new Step("Cook the rice");
+        Step s2 = new Step("toss it into the dustbin");
+        List<Step> steps2 = new ArrayList<>(List.of(new Step[]{s1, s2}));
 
         Recipe recipe2 = new Recipe(new Name("Nasi Lemak"), new CompletionTime(10), new ServingSize(5),
                 ingredients2, steps2, getTagSet("Asian", "Malay"));
