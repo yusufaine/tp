@@ -3,6 +3,8 @@ package seedu.address.logic.parser;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
@@ -30,7 +32,10 @@ public class FindCommandParser implements Parser<FindCommand> {
         }
 
         String[] keywords = trimmedArgs.split(",");
+        List<String> trimmedKeywords = Arrays.stream(keywords)
+                .map(String::trim)
+                .collect(Collectors.toUnmodifiableList());
 
-        return new FindCommand(new RecipeContainsKeywordPredicate(Arrays.asList(keywords)));
+        return new FindCommand(new RecipeContainsKeywordPredicate(trimmedKeywords));
     }
 }

@@ -22,12 +22,12 @@ import seedu.address.model.RecipeBook;
 import seedu.address.model.RecipeBookModelManager;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.util.SampleDataUtil;
-import seedu.address.newstorage.JsonRecipeBookStorage;
-import seedu.address.newstorage.JsonUserPrefsStorage;
-import seedu.address.newstorage.RecipeBookStorage;
-import seedu.address.newstorage.Storage;
-import seedu.address.newstorage.StorageManager;
-import seedu.address.newstorage.UserPrefsStorage;
+import seedu.address.storage.JsonRecipeBookStorage;
+import seedu.address.storage.JsonUserPrefsStorage;
+import seedu.address.storage.RecipeBookStorage;
+import seedu.address.storage.Storage;
+import seedu.address.storage.StorageManager;
+import seedu.address.storage.UserPrefsStorage;
 import seedu.address.ui.Ui;
 import seedu.address.ui.UiManager;
 

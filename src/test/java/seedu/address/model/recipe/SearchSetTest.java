@@ -40,7 +40,7 @@ class SearchSetTest {
     }
 
     @Test
-    void equalityCheck() {
+    void equals_test() {
         SearchSet ss1Copy = new SearchSet();
         SearchSet ss2 = new SearchSet();
         sampleInput.forEach(s -> {
@@ -49,13 +49,22 @@ class SearchSetTest {
         });
         ss2.add("NEW ENTRY");
 
-        // SearchSet::equals
         assertNotEquals(ss1, ss1.getSearchValues());
         assertEquals(ss1, ss1);
         assertEquals(ss1, ss1Copy);
         assertNotEquals(ss1, ss2);
+    }
 
-        // SearchSet::hashCode
+    @Test
+    void hashCode_test() {
+        SearchSet ss1Copy = new SearchSet();
+        SearchSet ss2 = new SearchSet();
+        sampleInput.forEach(s -> {
+            ss1Copy.add(s);
+            ss2.add(s);
+        });
+        ss2.add("NEW ENTRY");
+
         assertEquals(ss1.hashCode(), ss1Copy.hashCode());
         assertNotEquals(ss1.hashCode(), ss2.hashCode());
     }

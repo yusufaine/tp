@@ -34,16 +34,19 @@ class StepTest {
     }
 
     @Test
-    public void equalityCheck() {
+    public void equals_test() {
         Step s1Copy = new Step(s1.value);
 
-        // Step::equals
         assertNotEquals(s1, s1.value);
         assertEquals(s1, s1);
         assertEquals(s1, s1Copy);
         assertNotEquals(s1, s2);
+    }
 
-        // Step::hashCode
+    @Test
+    public void hashCode_test() {
+        Step s1Copy = new Step(s1.value);
+
         assertEquals(s1.hashCode(), s1Copy.hashCode());
         assertNotEquals(s1.hashCode(), s2.hashCode());
     }
