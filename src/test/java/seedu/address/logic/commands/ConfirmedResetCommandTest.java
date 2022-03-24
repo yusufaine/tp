@@ -1,5 +1,10 @@
 package seedu.address.logic.commands;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static seedu.address.testutil.TypicalRecipes.getTypicalRecipeBook;
+
 import org.junit.jupiter.api.Test;
 
 import seedu.address.model.Model;
@@ -8,12 +13,6 @@ import seedu.address.model.RecipeBook;
 import seedu.address.model.RecipeBookModelManager;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.util.SampleDataUtil;
-
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static seedu.address.testutil.TypicalRecipes.getTypicalRecipeBook;
 
 /**
  * Contains integration tests (interaction with the Model) and unit tests for.
@@ -39,12 +38,12 @@ public class ConfirmedResetCommandTest {
 
     @Test
     public void equals_test() {
-        ResetCommand Reset = new ResetCommand();
-        ConfirmedResetCommand c1 = new ConfirmedResetCommand();
-        ConfirmedResetCommand c2 = new ConfirmedResetCommand();
-        assertEquals(c1, c1);
-        assertEquals(c1, c2);
-        assertNotEquals(c1, Reset);
+        ResetCommand reset = new ResetCommand();
+        ConfirmedResetCommand r1 = new ConfirmedResetCommand();
+        ConfirmedResetCommand r2 = new ConfirmedResetCommand();
+        assertEquals(r1, r1);
+        assertEquals(r1, r2);
+        assertNotEquals(r1, reset);
     }
 
 }
