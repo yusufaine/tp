@@ -9,6 +9,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.RecipeBookParserUtil;
 import seedu.address.model.Model;
+import seedu.address.model.recipe.Ingredient;
 import seedu.address.model.recipe.Name;
 import seedu.address.model.recipe.Recipe;
 
@@ -26,10 +27,8 @@ public class ViewCommand extends Command {
             + "Example: " + COMMAND_WORD + " Mac and cheese\n"
             + "Example: " + COMMAND_WORD + " -x 3";
 
-
     private Name targetName;
     private Index targetIndex;
-
 
     /**
      * Create a ViewCommand that displays the contents of stored recipe
@@ -90,19 +89,20 @@ public class ViewCommand extends Command {
     /**
      * Retrieves the {@code Recipe} with the same name as the specified name
      * from a given list of recipes.
-     * Returns null if a recipe with the same name cannot be found.
+     * Throws a CommandException if a recipe with the same name cannot be found.
      *
      * @param lastShownList the list of recipes to search from.
      * @param recipeName the name of the recipe to view.
      * @return the recipe from the list matching the specified name.
+     * @throws CommandException displays recipe name not found error message.
      */
-    private Recipe getRecipe(List<Recipe> lastShownList, Name recipeName) {
+    private Recipe getRecipe(List<Recipe> lastShownList, Name recipeName) throws CommandException {
         for (Recipe recipe : lastShownList) {
             if (RecipeBookParserUtil.isRecipeNamesEqual(recipeName, recipe.getName())) {
                 return recipe;
             }
         }
-        return null;
+        throw new CommandException(String.format(Messages.MESSAGE_RECIPE_NOT_FOUND, recipeName));
     }
 
     /**
@@ -116,12 +116,30 @@ public class ViewCommand extends Command {
      */
     private Recipe getRecipe(List<Recipe> lastShownList, Index recipeIndex) throws CommandException {
         int zeroBasedIndex = recipeIndex.getZeroBased();
-        if (zeroBasedIndex < lastShownList.size()) {
-            return lastShownList.get(zeroBasedIndex);
-        }
+
         if (zeroBasedIndex >= lastShownList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_RECIPE_DISPLAYED_INDEX);
         }
-        return null;
+
+        if (zeroBasedIndex < lastShownList.size()) {
+            return lastShownList.get(zeroBasedIndex);
+        }
+
+        throw new CommandException(Messages.MESSAGE_INVALID_RECIPE_DISPLAYED_INDEX);
+    }
+
+    /**
+     * Parses the {@code Ingredient}s of a given {@code Recipe} into a formatted String for display.
+     *
+     * @param recipe the recipe to parse.
+     * @return the formatted String of ingredients.
+     */
+    private String getIngredients(Recipe recipe) {
+        StringBuilder ingredients = new StringBuilder();
+        for (Ingredient ingredient : recipe.getIngredients()) {
+            ingredients.append(String.format("%s %s %s\n", ingredient.getIngredientName(),
+                    ingredient.getQuantity(), ingredient.getQuantifier()));
+        }
+        return ingredients.toString();
     }
 }
