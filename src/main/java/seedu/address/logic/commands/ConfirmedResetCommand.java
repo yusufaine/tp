@@ -42,7 +42,6 @@ public class ConfirmedResetCommand extends ResetCommand {
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);
-        model.setRecipeBook(new RecipeBook());
         model.setRecipeBook(SampleDataUtil.getSampleRecipeBook());
         return new CommandResult(MESSAGE_SUCCESS);
     }

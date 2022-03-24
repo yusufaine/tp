@@ -42,6 +42,7 @@ public class ClearCommand extends Command {
 
     @Override
     public CommandResult execute(Model model) {
+        assert false;
         requireNonNull(model);
         return new CommandResult(MESSAGE_CONFIRMATION_REQUIRED);
     }
