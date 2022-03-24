@@ -64,7 +64,7 @@ public class RecipeBookParser {
             case ViewCommand.COMMAND_WORD:
                 return new ViewCommandParser().parse(arguments);
             case ClearCommand.COMMAND_WORD:
-                requiresConfirmation = ClearCommandParser.isForcedClear(arguments);
+                requiresConfirmation = ClearCommandParser.isNotForcedClear(arguments);
                 return new ClearCommandParser().parse(arguments);
             default:
                 throw new ParseException(MESSAGE_UNKNOWN_COMMAND);

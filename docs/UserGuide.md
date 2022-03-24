@@ -35,6 +35,7 @@ Note how the app contains some sample data.<br>
     * [**`find`**](#find-recipe): Displays a list of recipes with the specified keywords
     * [**`list`**](#list-recipe): Lists all the stored recipes.
     * [**`view`**](#view-recipe): Displays the full content of a recipe.
+    * [**`clear`**](#clear-recipe): Clears all existing recipes in a recipe book.
 
 6. Refer to the [Features](#features) below for details of each command.
 
@@ -99,10 +100,33 @@ Example:
 - view Aglio Olio
     - This would display the full contents of the recipe matching the name "Aglio Olio" including its ingredients and steps to prepare the dish.
 
+### Clear recipe
+Clears the entire recipe book. A confirmation prompt would show up before the user could clear immediately. <br>
+To clear the recipe book without the confirmation, users simply have to include the prefix `-f` after the `clear` 
+command <br>
+
+####Clear:
+Usage: `clear` <br>
+
+The program would then prompt the user to confirm. Type in `yes` to clear and `no` to cancel the clear request.
+
+Example: 
+- clear
+    - This would generate a clear request that requires a confirmation. To confirm to clear the recipe book, type in 'yes',
+    - else, type in 'no'.
+  
+####Forced Clear:
+Usage: `clear <-f: Prefix for forced Clear>` <br>
+Example:
+- clear -f
+    - This would clear the recipe book without having the need for any confirmation.
+
+=======
 Usage: `view -x <recipe index>` <br>
 Example:
 - view -x 1
     - This would display the full contents of the first recipe in the list which includes its ingredients and steps to prepare the dish.
+
 ###### [return to table of content](#table-of-content)
 
 ### Store recipe

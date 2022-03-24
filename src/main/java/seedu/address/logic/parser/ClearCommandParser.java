@@ -17,7 +17,7 @@ public class ClearCommandParser implements Parser<ClearCommand> {
      * @return true if command is a forced clear.
      */
 
-    public static boolean isForcedClear(String arguments) {
+    public static boolean isNotForcedClear(String arguments) {
         return !arguments.contains(PREFIX);
     }
 
