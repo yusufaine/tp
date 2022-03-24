@@ -1,53 +1,52 @@
 package seedu.address.logic.parser;
 
+import org.junit.jupiter.api.Test;
+import seedu.address.logic.commands.ResetCommand;
+import seedu.address.logic.commands.ConfirmedResetCommand;
+
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 
-import org.junit.jupiter.api.Test;
-
-import seedu.address.logic.commands.ClearCommand;
-import seedu.address.logic.commands.ConfirmedClearCommand;
-
 
 /**
  * Contains integration tests and unit tests for.
- * {@code ClearCommandParser}.
+ * {@code ResetCommandParser}.
  */
-public class ClearCommandParserTest {
+public class ResetCommandParserTest {
 
-    private final ClearCommandParser parser = new ClearCommandParser();
-    private final String clearCommand = "clear";
-    private final String confirmedClear = "clear -f";
-
-    /**
-     * Tests the isNotForcedClearCommand.
-     * Returns false if it is not a forced clear.
-     */
-    @Test
-    public void parse_isForcedClearCommand_returnsFalse() {
-        assertFalse(ClearCommandParser.isNotForcedClear(confirmedClear));
-    }
+    private final ResetCommandParser parser = new ResetCommandParser();
+    private final String ResetCommand = "Reset";
+    private final String confirmedReset = "Reset -f";
 
     /**
-     * Tests the isNotForcedClearCommand.
-     * Returns true if it is not a forced clear.
+     * Tests the isNotForcedResetCommand.
+     * Returns false if it is not a forced Reset.
      */
     @Test
-    public void parse_isNotForcedClearCommand_returnsTrue() {
-        assertTrue(ClearCommandParser.isNotForcedClear(clearCommand));
+    public void parse_isForcedResetCommand_returnsFalse() {
+        assertFalse(ResetCommandParser.isNotForcedReset(confirmedReset));
+    }
+
+    /**
+     * Tests the isNotForcedResetCommand.
+     * Returns true if it is not a forced Reset.
+     */
+    @Test
+    public void parse_isNotForcedResetCommand_returnsTrue() {
+        assertTrue(ResetCommandParser.isNotForcedReset(ResetCommand));
     }
 
     @Test
-    public void parse_forcedClear_returnsConfirmedClearCommand() {
-        ConfirmedClearCommand expected = new ConfirmedClearCommand();
-        assertParseSuccess(parser, confirmedClear, expected);
+    public void parse_forcedReset_returnsConfirmedResetCommand() {
+        ConfirmedResetCommand expected = new ConfirmedResetCommand();
+        assertParseSuccess(parser, confirmedReset, expected);
     }
 
     @Test
-    public void parse_notForcedClear_returnsClearCommand() {
-        ClearCommand expected = new ClearCommand();
-        assertParseSuccess(parser, clearCommand, expected);
+    public void parse_notForcedReset_returnsResetCommand() {
+        ResetCommand expected = new ResetCommand();
+        assertParseSuccess(parser, ResetCommand, expected);
     }
 
 

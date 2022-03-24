@@ -13,7 +13,7 @@ import seedu.address.model.UserPrefs;
 
 /**
  * Contains integration tests (interaction with the Model) and unit tests for.
- * {@code ClearCommand}.
+ * {@code CancelClearCommand}.
  */
 public class CancelClearCommandTest {
     private final Model model = new RecipeBookModelManager(getTypicalRecipeBook(), new UserPrefs());
