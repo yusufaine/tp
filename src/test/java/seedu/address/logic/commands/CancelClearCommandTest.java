@@ -19,7 +19,7 @@ public class CancelClearCommandTest {
     private final Model expectedModel = new ModelManager(getTypicalRecipeBook(), new UserPrefs());
 
     @Test
-    public void execute_showsCancellationMessage() {
+    public void execute_showsCancellationMessage_success() {
         CancelClearCommand command = new CancelClearCommand();
         String expectedMessage = "Clear has been cancelled!";
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
