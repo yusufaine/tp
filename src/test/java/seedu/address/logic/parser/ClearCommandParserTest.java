@@ -17,8 +17,8 @@ import seedu.address.logic.commands.ConfirmedClearCommand;
 public class ClearCommandParserTest {
 
     private final ClearCommandParser parser = new ClearCommandParser();
-    private final static String forcedClearCommand = "clear -f";
-    private final static String clearCommand = "clear";
+    private final String clearCommand = "clear";
+    private final String confirmedClear = "clear -f";
 
     /**
      * Tests the isNotForcedClearCommand.
@@ -26,7 +26,7 @@ public class ClearCommandParserTest {
      */
     @Test
     public void parse_isForcedClearCommand_returnsFalse() {
-        assertFalse(ClearCommandParser.isNotForcedClear(forcedClearCommand));
+        assertFalse(ClearCommandParser.isNotForcedClear(confirmedClear));
     }
 
     /**
@@ -39,13 +39,13 @@ public class ClearCommandParserTest {
     }
 
     @Test
-    public void parse_forcedClear_returnsConfirmedClearCommand_success() {
+    public void parse_forcedClear_returnsConfirmedClearCommand() {
         ConfirmedClearCommand expected = new ConfirmedClearCommand();
-        assertParseSuccess(parser, forcedClearCommand, expected);
+        assertParseSuccess(parser, confirmedClear, expected);
     }
 
     @Test
-    public void parse_notForcedClear_returnsClearCommand_success() {
+    public void parse_notForcedClear_returnsClearCommand() {
         ClearCommand expected = new ClearCommand();
         assertParseSuccess(parser, clearCommand, expected);
     }
