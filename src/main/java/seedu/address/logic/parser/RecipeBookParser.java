@@ -12,6 +12,7 @@ import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.ConfirmedClearCommand;
 import seedu.address.logic.commands.DeleteCommand;
+import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.HelpCommand;
@@ -50,6 +51,8 @@ public class RecipeBookParser {
             switch (commandWord) {
             case AddCommand.COMMAND_WORD:
                 return new AddCommandParser().parse(arguments);
+            case EditCommand.COMMAND_WORD:
+                return new EditCommandParser().parse(arguments);
             case DeleteCommand.COMMAND_WORD:
                 return new DeleteCommandParser().parse(arguments);
             case ExitCommand.COMMAND_WORD:
@@ -61,7 +64,7 @@ public class RecipeBookParser {
             case ViewCommand.COMMAND_WORD:
                 return new ViewCommandParser().parse(arguments);
             case ClearCommand.COMMAND_WORD:
-                requiresConfirmation = ClearCommandParser.isForcedClear(arguments);
+                requiresConfirmation = ClearCommandParser.isNotForcedClear(arguments);
                 return new ClearCommandParser().parse(arguments);
             default:
                 throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
@@ -76,7 +79,6 @@ public class RecipeBookParser {
             default:
                 throw new ParseException(ConfirmedClearCommand.MESSAGE_UNKNOWN_COMMAND + ClearCommand.MESSAGE_USAGE);
             }
-
         }
     }
 }

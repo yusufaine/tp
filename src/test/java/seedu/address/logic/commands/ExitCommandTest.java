@@ -6,11 +6,11 @@ import static seedu.address.logic.commands.ExitCommand.MESSAGE_EXIT_ACKNOWLEDGEM
 import org.junit.jupiter.api.Test;
 
 import seedu.address.model.Model;
-import seedu.address.model.ModelManager;
+import seedu.address.model.RecipeBookModelManager;
 
 public class ExitCommandTest {
-    private Model model = new ModelManager();
-    private Model expectedModel = new ModelManager();
+    private Model model = new RecipeBookModelManager();
+    private Model expectedModel = new RecipeBookModelManager();
 
     @Test
     public void execute_exit_success() {

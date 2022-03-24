@@ -57,7 +57,7 @@ public class Name {
         }
 
         Name other = (Name) o;
-        return this.fullName.equals(other.fullName);
+        return this.fullName.equalsIgnoreCase(other.fullName);
     }
 
     @Override
