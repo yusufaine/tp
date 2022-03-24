@@ -95,7 +95,7 @@ public class Recipe {
     private void initSearchSet() {
         this.searchValues = new SearchSet();
         this.searchValues.add(this.name.fullName.toLowerCase());
-        this.ingredients.forEach(i -> searchValues.add(i.getIngredientName().toLowerCase()));
+        this.ingredients.forEach(i -> searchValues.add(i.ingredientName.toLowerCase()));
         this.tags.forEach(t -> searchValues.add(t.tagName.toLowerCase()));
     }
 
