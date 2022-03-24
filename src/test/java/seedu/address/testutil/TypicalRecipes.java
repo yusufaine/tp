@@ -69,9 +69,6 @@ public class TypicalRecipes {
             .withServingSize(1).withSteps("Heat up your tortillas",
                     "Assemble the avocado and lettuce atop of tortilla").withTags("Mexican", "Vegan").build();
 
-    // Manually added - Person's details found in {@code CommandTestUtil}
-    // Recipes created in the CommandTestUtil Files
-    //public static final String KEYWORD_MATCHING_MEIER = "Meier";  //A keyword that matches MEIER
 
     private TypicalRecipes() {
     } //prevents instantiation
