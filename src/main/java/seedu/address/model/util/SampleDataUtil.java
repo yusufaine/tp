@@ -46,7 +46,7 @@ public class SampleDataUtil {
 
         //Nasi Lemak
         Ingredient i1 = new Ingredient("fish", 10);
-        Ingredient i2 = new Ingredient("rice", 1);
+        Ingredient i2 = new Ingredient("rice", 1, null);
 
         Ingredient[] ingredientArr2 = new Ingredient[]{i1, i2};
         List<Ingredient> ingredients2 = List.of(ingredientArr2);
