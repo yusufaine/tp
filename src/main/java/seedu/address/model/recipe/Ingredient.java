@@ -59,17 +59,17 @@ public class Ingredient {
         this(name, quantity, "");
     }
 
-    public String getIngredientName() {
-        return ingredientName;
-    }
+    // public String getIngredientName() {
+    //     return ingredientName;
+    // }
 
-    public double getQuantity() {
-        return quantity;
-    }
+    // public double getQuantity() {
+    //     return quantity;
+    // }
 
-    public String getQuantifier() {
-        return quantifier;
-    }
+    // public String getQuantifier() {
+    //     return quantifier;
+    // }
 
     public static boolean isValidIngredientName(String test) {
         return test.matches(NAME_VALIDATION_REGEX);
@@ -81,7 +81,8 @@ public class Ingredient {
 
     @Override
     public String toString() {
-        return String.format("%s %s %s", ingredientName, quantity, quantifier);
+        // trim required to remove trailing space when quantifier is blank
+        return String.format("%s %s %s", ingredientName, quantity, quantifier).trim();
     }
 
     @Override

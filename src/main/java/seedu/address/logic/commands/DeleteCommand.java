@@ -56,10 +56,6 @@ public class DeleteCommand extends Command {
                 ? getRecipe(lastShownList, toDeleteIndex)
                 : getRecipe(lastShownList, toDeleteName);
 
-        if (recipeToDelete == null) { // Recipe not found in LastShownList
-            throw new CommandException(String.format(MESSAGE_DELETE_RECIPE_NOT_EXIST));
-        }
-
         model.deleteRecipe(recipeToDelete);
         return new CommandResult(String.format(MESSAGE_DELETE_RECIPE_SUCCESS, recipeToDelete));
     }
@@ -77,8 +73,13 @@ public class DeleteCommand extends Command {
         }
 
         DeleteCommand other = (DeleteCommand) o;
-        return toDeleteName.equals(other.toDeleteName)
-                || toDeleteIndex.equals(other.toDeleteIndex); // state check
+        if (toDeleteName != null && other.toDeleteName != null) {
+            return toDeleteName.equals(other.toDeleteName);
+        } else if (toDeleteIndex != null && other.toDeleteIndex != null) {
+            return toDeleteIndex.equals(other.toDeleteIndex);
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -97,7 +98,7 @@ public class DeleteCommand extends Command {
                 return recipe;
             }
         }
-        throw new CommandException(String.format(Messages.MESSAGE_RECIPE_NOT_FOUND, recipeName));
+        throw new CommandException(Messages.MESSAGE_DELETE_RECIPE_NOT_EXIST);
     }
 
     /**
@@ -112,14 +113,19 @@ public class DeleteCommand extends Command {
     private Recipe getRecipe(List<Recipe> lastShownList, Index recipeIndex) throws CommandException {
         int zeroBasedIndex = recipeIndex.getZeroBased();
 
-        if (zeroBasedIndex >= lastShownList.size()) {
-            throw new CommandException(Messages.MESSAGE_INVALID_RECIPE_DISPLAYED_INDEX);
-        }
-
         if (zeroBasedIndex < lastShownList.size()) {
             return lastShownList.get(zeroBasedIndex);
         }
 
         throw new CommandException(Messages.MESSAGE_INVALID_RECIPE_DISPLAYED_INDEX);
+    }
+
+    public Index getToDeleteIndex() {
+        return toDeleteIndex;
+    }
+
+    public Name getToDeleteName() {
+        return toDeleteName;
+
     }
 }

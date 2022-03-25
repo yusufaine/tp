@@ -27,6 +27,7 @@ import seedu.address.testutil.EditRecipeDescriptorBuilder;
  * Contains helper methods for testing commands.
  */
 public class CommandTestUtil {
+
     public static final String VALID_NAME_AGLIO_OLIO = "Aglio Olio";
     public static final String VALID_NAME_CHICKEN_CHOP = "Chicken Chop";
     public static final int VALID_COMPLETION_TIME_AGLIO_OLIO = 5;
@@ -151,7 +152,7 @@ public class CommandTestUtil {
         assertEquals(expectedFilteredList, actualModel.getFilteredRecipeList());
     }
     /**
-     * Updates {@code model}'s filtered list to show only the person at the given {@code targetIndex} in the
+     * Updates {@code model}'s filtered list to show only the recipe at the given {@code targetIndex} in the
      * {@code model}'s recipe book.
      */
     public static void showRecipeAtIndex(Model model, Index targetIndex) {
