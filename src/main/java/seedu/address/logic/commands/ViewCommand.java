@@ -81,8 +81,8 @@ public class ViewCommand extends Command {
         }
 
         ViewCommand other = (ViewCommand) o;
-        return targetName.equals(other.targetName)
-                || targetIndex.equals(other.targetIndex); // state check
+        return (targetName != null && targetName.equals(other.targetName))
+                || (targetIndex != null && targetIndex.equals(other.targetIndex)); // state check
     }
 
     /**
