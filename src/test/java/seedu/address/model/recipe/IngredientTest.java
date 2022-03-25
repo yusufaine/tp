@@ -42,7 +42,7 @@ class IngredientTest {
         String validIngredientName = "Spaghetti";
         double validIngredientQty = 5.5;
         String nullIngredientQuantifier = null;
-        assertEquals("Spaghetti: 5.5",
+        assertEquals("Spaghetti 5.5",
                 new Ingredient(validIngredientName, validIngredientQty, nullIngredientQuantifier).toString());
     }
 
@@ -99,8 +99,8 @@ class IngredientTest {
 
     @Test
     public void toString_test() {
-        String expectedValue1 = "popcorn chicken: " + "3.2 " + "kg";
-        String expectedValue2 = "popcorn: " + "2.2";
+        String expectedValue1 = "popcorn chicken " + "3.2 " + "kg";
+        String expectedValue2 = "popcorn " + "2.2";
 
         assertEquals(expectedValue1, i1.toString());
         assertEquals(expectedValue2, i2.toString());
