@@ -9,7 +9,6 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.RecipeBookParserUtil;
 import seedu.address.model.Model;
-import seedu.address.model.recipe.Ingredient;
 import seedu.address.model.recipe.Name;
 import seedu.address.model.recipe.Recipe;
 
@@ -126,20 +125,5 @@ public class ViewCommand extends Command {
         }
 
         throw new CommandException(Messages.MESSAGE_INVALID_RECIPE_DISPLAYED_INDEX);
-    }
-
-    /**
-     * Parses the {@code Ingredient}s of a given {@code Recipe} into a formatted String for display.
-     *
-     * @param recipe the recipe to parse.
-     * @return the formatted String of ingredients.
-     */
-    private String getIngredients(Recipe recipe) {
-        StringBuilder ingredients = new StringBuilder();
-        for (Ingredient ingredient : recipe.getIngredients()) {
-            ingredients.append(String.format("%s %s %s\n", ingredient.ingredientName,
-                    ingredient.quantity, ingredient.quantifier));
-        }
-        return ingredients.toString();
     }
 }
