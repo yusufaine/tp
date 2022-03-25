@@ -24,6 +24,7 @@ import seedu.address.model.tag.Tag;
  */
 public class SampleDataUtil {
     private static Recipe[] getSampleRecipes() {
+        //Aglio Olio
         Ingredient ingredient1 = new Ingredient("Garlic", 3, "Cloves");
         Ingredient ingredient2 = new Ingredient("Spaghetti", 1);
         Ingredient ingredient3 = new Ingredient("Olive oil", 500, "ml");
@@ -43,7 +44,21 @@ public class SampleDataUtil {
         Recipe recipe = new Recipe(new Name("Aglio Olio"), new CompletionTime(5), new ServingSize(1),
                 ingredients, steps, getTagSet("Western", "Italian"));
 
-        return new Recipe[] {recipe};
+        //Nasi Lemak
+        Ingredient i1 = new Ingredient("fish", 10);
+        Ingredient i2 = new Ingredient("rice", 1, null);
+
+        Ingredient[] ingredientArr2 = new Ingredient[]{i1, i2};
+        List<Ingredient> nasiLemakIngredients = List.of(ingredientArr2);
+
+        Step s1 = new Step("toss it into the dustbin");
+        List<Step> steps2 = new ArrayList<>(List.of(new Step[]{s1}));
+
+        Recipe recipe2 = new Recipe(new Name("Nasi Lemak"), new CompletionTime(10), new ServingSize(5),
+                nasiLemakIngredients, steps2, getTagSet("Asian", "Malay"));
+
+
+        return new Recipe[] {recipe, recipe2};
     }
 
     public static ReadOnlyRecipeBook getSampleRecipeBook() {

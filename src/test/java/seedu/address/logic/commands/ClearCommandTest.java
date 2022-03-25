@@ -20,7 +20,7 @@ public class ClearCommandTest {
     private final Model expectedModel = new RecipeBookModelManager(getTypicalRecipeBook(), new UserPrefs());
 
     @Test
-    public void execute_showsRequireConfirmationMessage() {
+    public void execute_showsRequireConfirmationMessage_success() {
         ClearCommand command = new ClearCommand();
         String expectedMessage = "Are you sure you want to clear the recipe book?"
                 + " Enter 'yes' if you wish to clear and 'no' if you do not wish to clear";
