@@ -83,9 +83,11 @@ public class Recipe {
      * @return true if both recipes have the same name.
      */
     public boolean isSameRecipe(Recipe otherRecipe) {
-        return otherRecipe == this
-                || (otherRecipe != null
-                && otherRecipe.getName().equals(this.getName()));
+        if (otherRecipe == null) {
+            return false;
+        }
+
+        return otherRecipe.getName().equals(this.getName());
     }
 
     public SearchSet getSearchSet() {
