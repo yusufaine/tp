@@ -61,7 +61,7 @@ public class UniqueRecipeList implements Iterable<Recipe> {
 
         int index = internalList.indexOf(target);
         if (index == -1) {
-            throw new RecipeNotFoundException();
+                throw new RecipeNotFoundException();
         }
 
         if (!target.isSameRecipe(editedRecipe) && contains(editedRecipe)) {
@@ -82,7 +82,7 @@ public class UniqueRecipeList implements Iterable<Recipe> {
         }
     }
 
-    public void setPersons(UniqueRecipeList replacement) {
+    public void setRecipes(UniqueRecipeList replacement) {
         requireNonNull(replacement);
         internalList.setAll(replacement.internalList);
     }
