@@ -1,7 +1,7 @@
 package seedu.address.storage;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static seedu.address.newstorage.JsonAdaptedRecipe.MISSING_FIELD_MESSAGE_FORMAT;
+import static seedu.address.storage.JsonAdaptedRecipe.MISSING_FIELD_MESSAGE_FORMAT;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalRecipes.AGLIO_OLIO;
 
@@ -15,10 +15,6 @@ import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.recipe.CompletionTime;
 import seedu.address.model.recipe.Name;
 import seedu.address.model.recipe.ServingSize;
-import seedu.address.newstorage.JsonAdaptedIngredient;
-import seedu.address.newstorage.JsonAdaptedRecipe;
-import seedu.address.newstorage.JsonAdaptedStep;
-import seedu.address.newstorage.JsonAdaptedTag;
 
 
 public class JsonAdaptedRecipeTest {

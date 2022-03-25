@@ -1,4 +1,4 @@
-package seedu.address.newstorage;
+package seedu.address.storage;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -64,13 +64,13 @@ public class JsonAdaptedRecipe {
         servingSize = source.getServingSize().value;
         completionTime = source.getCompletionTime().value;
         tags.addAll(source.getTags().stream()
-                .map(seedu.address.newstorage.JsonAdaptedTag::new)
+                .map(seedu.address.storage.JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
         steps.addAll(source.getSteps().stream()
-                .map(seedu.address.newstorage.JsonAdaptedStep::new)
+                .map(seedu.address.storage.JsonAdaptedStep::new)
                 .collect(Collectors.toList()));
         ingredients.addAll(source.getIngredients().stream()
-                .map(seedu.address.newstorage.JsonAdaptedIngredient::new)
+                .map(seedu.address.storage.JsonAdaptedIngredient::new)
                 .collect(Collectors.toList()));
     }
 

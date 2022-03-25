@@ -137,8 +137,8 @@ public class ResultDisplay extends UiPart<Region> {
     private String getIngredients(Recipe recipe) {
         StringBuilder ingredients = new StringBuilder();
         for (Ingredient ingredient : recipe.getIngredients()) {
-            ingredients.append(String.format("%s %s %s\n", ingredient.getIngredientName(),
-                    ingredient.getQuantity(), ingredient.getQuantifier()));
+            ingredients.append(String.format("%s %s %s\n", ingredient.ingredientName,
+                    ingredient.quantity, ingredient.quantifier));
         }
         return ingredients.toString();
     }
