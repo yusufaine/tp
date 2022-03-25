@@ -17,6 +17,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.recipe.RecipeContainsKeywordPredicate;
 
@@ -172,7 +173,8 @@ class RecipeBookModelManagerTest {
         userPrefs.setGuiSettings(new GuiSettings(1, 2, 3, 4));
         RecipeBookModelManager modelManager2 = new RecipeBookModelManager(getTypicalRecipeBook(), userPrefs);
         RecipeBookModelManager modelManagerCopy =
-                new RecipeBookModelManager(recipeBookModelManager.getRecipeBook(), recipeBookModelManager.getUserPrefs());
+                new RecipeBookModelManager(recipeBookModelManager.getRecipeBook(),
+                        recipeBookModelManager.getUserPrefs());
 
         assertNotEquals(recipeBookModelManager, recipeBookModelManager.getUserPrefs());
         assertEquals(recipeBookModelManager, recipeBookModelManager);
@@ -187,7 +189,8 @@ class RecipeBookModelManagerTest {
         userPrefs.setGuiSettings(new GuiSettings(1, 2, 3, 4));
         RecipeBookModelManager modelManager2 = new RecipeBookModelManager(getTypicalRecipeBook(), userPrefs);
         RecipeBookModelManager modelManagerCopy =
-                new RecipeBookModelManager(recipeBookModelManager.getRecipeBook(), recipeBookModelManager.getUserPrefs());
+                new RecipeBookModelManager(recipeBookModelManager.getRecipeBook(),
+                        recipeBookModelManager.getUserPrefs());
 
         assertEquals(recipeBookModelManager.hashCode(), modelManagerCopy.hashCode());
         assertNotEquals(recipeBookModelManager.hashCode(), modelManager2.hashCode());

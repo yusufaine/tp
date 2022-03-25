@@ -8,11 +8,12 @@ import static seedu.address.testutil.TypicalRecipes.AGLIO_OLIO;
 import static seedu.address.testutil.TypicalRecipes.FRIED_RICE;
 
 import org.junit.jupiter.api.Test;
+
 import seedu.address.testutil.RecipeBuilder;
 
 class RecipeTest {
-    Recipe validRecipeAglioOlioCopy = new RecipeBuilder(AGLIO_OLIO).build();
-    Recipe validRecipeAglioOlio_differentValues =
+    private Recipe validRecipeAglioOlioCopy = new RecipeBuilder(AGLIO_OLIO).build();
+    private Recipe validRecipeAglioOlioWithDifferentValues =
             new RecipeBuilder()
                     .withName("Aglio Olio")
                     .withCompletionTime(5)
@@ -24,7 +25,7 @@ class RecipeTest {
 
     @Test
     public void getSearchSet_test() {
-        assertEquals(AGLIO_OLIO.getSearchSet(),validRecipeAglioOlioCopy.getSearchSet());
+        assertEquals(AGLIO_OLIO.getSearchSet(), validRecipeAglioOlioCopy.getSearchSet());
     }
 
     @Test
@@ -32,7 +33,7 @@ class RecipeTest {
 
         assertFalse(AGLIO_OLIO.isSameRecipe(null));
         assertTrue(AGLIO_OLIO.isSameRecipe(AGLIO_OLIO));
-        assertTrue(AGLIO_OLIO.isSameRecipe(validRecipeAglioOlio_differentValues));
+        assertTrue(AGLIO_OLIO.isSameRecipe(validRecipeAglioOlioWithDifferentValues));
         assertFalse(AGLIO_OLIO.isSameRecipe(FRIED_RICE));
     }
 
@@ -44,12 +45,12 @@ class RecipeTest {
         assertFalse(AGLIO_OLIO.equals(FRIED_RICE));
 
         assertEquals(AGLIO_OLIO.hashCode(), validRecipeAglioOlioCopy.hashCode());
-        assertNotEquals(AGLIO_OLIO.hashCode(), validRecipeAglioOlio_differentValues.hashCode());
+        assertNotEquals(AGLIO_OLIO.hashCode(), validRecipeAglioOlioWithDifferentValues.hashCode());
     }
 
     @Test
     public void toString_test() {
         assertEquals(AGLIO_OLIO.toString(), validRecipeAglioOlioCopy.toString());
-        assertNotEquals(AGLIO_OLIO.toString(), validRecipeAglioOlio_differentValues.toString());
+        assertNotEquals(AGLIO_OLIO.toString(), validRecipeAglioOlioWithDifferentValues.toString());
     }
 }
