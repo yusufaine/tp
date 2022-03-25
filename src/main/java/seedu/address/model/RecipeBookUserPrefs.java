@@ -12,7 +12,6 @@ import seedu.address.commons.core.GuiSettings;
  * Represents User's preferences.
  */
 public class RecipeBookUserPrefs implements ReadOnlyUserPrefs {
-    //TODO: rename to "UserPrefs" once we confirm that we don't need AB3 files
     private GuiSettings guiSettings = new GuiSettings();
     private Path recipeBookFilePath = Paths.get("data" , "recipebook.json");
 
@@ -79,7 +78,8 @@ public class RecipeBookUserPrefs implements ReadOnlyUserPrefs {
 
     @Override
     public String toString() {
-        return String.format("GUI Settings : %s \nLocal data file location : %s", guiSettings, recipeBookFilePath);
+        return String.format("GUI Settings : \n%s \nLocal data file location : %s",
+                guiSettings, recipeBookFilePath);
     }
 
 }

@@ -18,7 +18,6 @@ import seedu.address.model.recipe.Recipe;
  * Represents the in-memory model of the recipe book data.
  */
 public class RecipeBookModelManager implements Model {
-    //TODO: rename to "ModelManager" once we confirm that we don't need AB3 files
     private static final Logger logger = LogsCenter.getLogger(RecipeBookModelManager.class);
 
     private final RecipeBook recipeBook;
@@ -141,7 +140,7 @@ public class RecipeBookModelManager implements Model {
         }
 
         if (o == this) {
-            return false;
+            return true;
         }
 
         RecipeBookModelManager other = (RecipeBookModelManager) o;

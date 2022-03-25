@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.TypicalRecipes.AGLIO_OLIO;
 import static seedu.address.testutil.TypicalRecipes.BEEF_TACO;
 import static seedu.address.testutil.TypicalRecipes.FRIED_RICE;
+import static seedu.address.testutil.TypicalRecipes.SHOYU_RAMEN;
 import static seedu.address.testutil.TypicalRecipes.getTypicalRecipeBook;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -50,8 +51,7 @@ class RecipeBookTest {
     @Test
     public void hasRecipe_validInput_success() {
         Recipe editedAglioOlio = new RecipeBuilder(AGLIO_OLIO)
-                .withTags("extra")
-                .withTags("tags")
+                .withTags("extra", "tags", "here")
                 .build();
 
         recipeBook.addRecipe(AGLIO_OLIO);
@@ -68,7 +68,9 @@ class RecipeBookTest {
 
     @Test
     public void setRecipe_nullInput_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> recipeBook.removeRecipe(null));
+        assertThrows(NullPointerException.class, () -> recipeBook.setRecipe(null, null));
+        assertThrows(NullPointerException.class, () -> recipeBook.setRecipe(null, SHOYU_RAMEN));
+        assertThrows(NullPointerException.class, () -> recipeBook.setRecipe(SHOYU_RAMEN, null));
     }
 
     @Test

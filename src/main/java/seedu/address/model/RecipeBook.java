@@ -1,6 +1,7 @@
 package seedu.address.model;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.List;
 import java.util.Objects;
@@ -59,8 +60,7 @@ public class RecipeBook implements ReadOnlyRecipeBook {
     }
 
     public void setRecipe(Recipe target, Recipe editedRecipe) {
-        requireNonNull(editedRecipe);
-
+        requireAllNonNull(target, editedRecipe);
         recipes.setRecipe(target, editedRecipe);
     }
 
