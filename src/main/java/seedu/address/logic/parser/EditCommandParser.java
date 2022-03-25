@@ -79,12 +79,10 @@ public class EditCommandParser implements Parser<EditCommand> {
      */
     private EditCommand getEditCommand(Prefix prefix, ArgumentMultimap argMultimap) throws ParseException {
         if (prefix.equals(PREFIX_INDEX)) {
-            System.out.println("prefix index found!");
             Index index = RecipeBookParserUtil.parseIndex(argMultimap.getValue(PREFIX_INDEX).orElseThrow());
             EditRecipeDescriptor editRecipeDescriptor = parseEditArgumentValues(argMultimap);
             return new EditCommand(index, editRecipeDescriptor);
         } else {
-            System.out.println("preamble name: " + argMultimap.getPreamble());
             Name name = parseNameOrThrow(argMultimap.getPreamble());
             EditRecipeDescriptor editRecipeDescriptor = parseEditArgumentValues(argMultimap);
             return new EditCommand(name, editRecipeDescriptor);
