@@ -11,7 +11,7 @@ import seedu.address.commons.util.StringUtil;
  */
 public class Name {
 
-    public static final String MESSAGE_CONSTRAINTS = "Names should not be left blank";
+    public static final String MESSAGE_CONSTRAINTS = "Names should contain valid alpha-numeric characters.";
 
     /*
      * The first character of the name must not be a whitespace,

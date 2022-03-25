@@ -99,7 +99,7 @@ public class StringUtil {
     public static boolean isAlphaNumeric(String s) {
         requireNonNull(s);
 
-        Pattern special = Pattern.compile("[!@#$%*()_+=|<>?{}\\[\\]~-]");
+        Pattern special = Pattern.compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE);
         Matcher hasSpecial = special.matcher(s);
 
         return !hasSpecial.find();

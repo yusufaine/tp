@@ -79,7 +79,7 @@ public class TypicalRecipes {
             .withTags("Japanese", "Asian").build();
 
     public static final Recipe FISH_CHIPS = new RecipeBuilder()
-            .withName("Fish & Chips")
+            .withName("Fish and Chips")
             .withCompletionTime(30)
             .withIngredients("Fish 1 pound", "Fries 5 Cups")
             .withServingSize(1)

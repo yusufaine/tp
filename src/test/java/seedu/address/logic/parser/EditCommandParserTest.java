@@ -3,64 +3,58 @@ package seedu.address.logic.parser;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_RECIPE_INDEX;
 import static seedu.address.commons.core.Messages.MESSAGE_MISSING_RECIPE_INDEX_OR_NAME;
-import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_AGLIO_OLIO;
-import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_CHICKEN_CHOP;
 import static seedu.address.logic.commands.CommandTestUtil.COMPLETION_TIME_DESC_AGLIO_OLIO;
 import static seedu.address.logic.commands.CommandTestUtil.COMPLETION_TIME_DESC_CHICKEN_CHOP;
-import static seedu.address.logic.commands.CommandTestUtil.SERVING_SIZE_DESC_AGLIO_OLIO;
-import static seedu.address.logic.commands.CommandTestUtil.SERVING_SIZE_DESC_CHICKEN_CHOP;
 import static seedu.address.logic.commands.CommandTestUtil.INGREDIENT_DESC_AGLIO_OLIO;
 import static seedu.address.logic.commands.CommandTestUtil.INGREDIENT_DESC_CHICKEN_CHOP;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_COMPLETION_TIME_DESC;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_NAME_DESC;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_SERVING_SIZE_DESC;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_STEP_DESC;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_TAG_DESC;
+import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_AGLIO_OLIO;
+import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_CHICKEN_CHOP;
+import static seedu.address.logic.commands.CommandTestUtil.SERVING_SIZE_DESC_AGLIO_OLIO;
+import static seedu.address.logic.commands.CommandTestUtil.SERVING_SIZE_DESC_CHICKEN_CHOP;
 import static seedu.address.logic.commands.CommandTestUtil.STEP_DESC_AGLIO_OLIO;
 import static seedu.address.logic.commands.CommandTestUtil.STEP_DESC_CHICKEN_CHOP;
 import static seedu.address.logic.commands.CommandTestUtil.TAG_DESC_AGLIO_OLIO;
 import static seedu.address.logic.commands.CommandTestUtil.TAG_DESC_CHICKEN_CHOP;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_NAME_DESC;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_COMPLETION_TIME_DESC;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_SERVING_SIZE_DESC;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_INGREDIENT_DESC;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_STEP_DESC;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_TAG_DESC;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_INGREDIENT_GARLIC_AGLIO_OLIO;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_INGREDIENT_POTATO_CHICKEN_CHOP;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_AGLIO_OLIO;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_CHICKEN_CHOP;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_COMPLETION_TIME_AGLIO_OLIO;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_COMPLETION_TIME_CHICKEN_CHOP;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_INGREDIENT_CHICKEN_CHICKEN_CHOP;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_INGREDIENT_GARLIC_AGLIO_OLIO;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_AGLIO_OLIO;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_CHICKEN_CHOP;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_SERVING_SIZE_AGLIO_OLIO;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_SERVING_SIZE_CHICKEN_CHOP;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_INGREDIENT_SPAGHETTI_AGLIO_OLIO;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_INGREDIENT_CHICKEN_CHICKEN_CHOP;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_STEP_1_AGLIO_OLIO;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_STEP_1_CHICKEN_CHOP;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_AGLIO_OLIO;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_CHICKEN_CHOP;
-import static seedu.address.logic.parser.RecipeBookSyntax.PREFIX_INDEX;
-import static seedu.address.logic.parser.RecipeBookSyntax.PREFIX_TAG;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
-import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_RECIPE;
-import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_RECIPE;
+import static seedu.address.logic.parser.RecipeBookSyntax.PREFIX_INDEX;
+import static seedu.address.logic.parser.RecipeBookSyntax.PREFIX_TAG;
 import static seedu.address.testutil.TypicalIndexes.INDEX_THIRD_RECIPE;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.EditCommand.EditRecipeDescriptor;
-import seedu.address.model.RecipeBook;
-import seedu.address.model.recipe.Name;
 import seedu.address.model.recipe.CompletionTime;
+import seedu.address.model.recipe.Name;
 import seedu.address.model.recipe.ServingSize;
-import seedu.address.model.recipe.Ingredient;
 import seedu.address.model.recipe.Step;
 import seedu.address.model.tag.Tag;
 import seedu.address.testutil.EditRecipeDescriptorBuilder;
 
+
 public class EditCommandParserTest {
 
     private static final String TAG_EMPTY = " " + PREFIX_TAG;
+    private static final String indexPreface = " " + PREFIX_INDEX;
 
     private static final String MESSAGE_INVALID_FORMAT =
             String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE);
@@ -98,19 +92,22 @@ public class EditCommandParserTest {
 
     @Test
     public void parse_invalidValue_failure() {
+        Index targetIndex = INDEX_THIRD_RECIPE;
+        String userInput = indexPreface + targetIndex.getOneBased();
+
         // invalid name
         assertParseFailure(parser,
-                "1" + INVALID_NAME_DESC,
+                userInput + INVALID_NAME_DESC,
                 Name.MESSAGE_CONSTRAINTS);
 
         // invalid completion time
         assertParseFailure(parser,
-                "1" + INVALID_COMPLETION_TIME_DESC,
+                userInput + INVALID_COMPLETION_TIME_DESC,
                 CompletionTime.MESSAGE_CONSTRAINTS);
 
         // invalid serving size
         assertParseFailure(parser,
-                "1" + INVALID_SERVING_SIZE_DESC,
+                userInput + INVALID_SERVING_SIZE_DESC,
                 ServingSize.MESSAGE_CONSTRAINTS);
 
         // invalid ingredient
@@ -118,46 +115,50 @@ public class EditCommandParserTest {
 
         // invalid step
         assertParseFailure(parser,
-                "1" + INVALID_STEP_DESC,
+                userInput + INVALID_STEP_DESC,
                 Step.MESSAGE_CONSTRAINTS);
+
         // invalid tag
         assertParseFailure(parser,
-                "1" + INVALID_TAG_DESC,
+                userInput + INVALID_TAG_DESC,
                 Tag.MESSAGE_CONSTRAINTS);
 
         // invalid completion time followed by valid serving size
         assertParseFailure(parser,
-                "1" + INVALID_COMPLETION_TIME_DESC + SERVING_SIZE_DESC_AGLIO_OLIO,
+                userInput + INVALID_COMPLETION_TIME_DESC + SERVING_SIZE_DESC_AGLIO_OLIO,
                 CompletionTime.MESSAGE_CONSTRAINTS);
 
         // valid completion time followed by invalid completion time. The test case
         // for invalid completion time followed by valid completion time is tested at
         // {@code parse_invalidValueFollowedByValidValue_success()}
         assertParseFailure(parser,
-                "1" + COMPLETION_TIME_DESC_CHICKEN_CHOP + INVALID_COMPLETION_TIME_DESC,
+                userInput + COMPLETION_TIME_DESC_CHICKEN_CHOP + INVALID_COMPLETION_TIME_DESC,
                 CompletionTime.MESSAGE_CONSTRAINTS);
 
         // while parsing {@code PREFIX_TAG} alone will reset the tags of the {@code Person} being edited,
         // parsing it together with a valid tag results in error
         assertParseFailure(parser,
-                "1" + TAG_DESC_AGLIO_OLIO + TAG_DESC_CHICKEN_CHOP + TAG_EMPTY,
+                userInput + TAG_DESC_AGLIO_OLIO + TAG_DESC_CHICKEN_CHOP + TAG_EMPTY,
                 Tag.MESSAGE_CONSTRAINTS);
         assertParseFailure(parser,
-                "1" + TAG_DESC_AGLIO_OLIO + TAG_EMPTY + TAG_DESC_CHICKEN_CHOP,
+                userInput + TAG_DESC_AGLIO_OLIO + TAG_EMPTY + TAG_DESC_CHICKEN_CHOP,
                 Tag.MESSAGE_CONSTRAINTS);
         assertParseFailure(parser,
-                "1" + TAG_EMPTY + TAG_DESC_AGLIO_OLIO + TAG_DESC_CHICKEN_CHOP,
+                userInput + TAG_EMPTY + TAG_DESC_AGLIO_OLIO + TAG_DESC_CHICKEN_CHOP,
                 Tag.MESSAGE_CONSTRAINTS);
 
         // multiple invalid values, but only the first invalid value is captured
-        assertParseFailure(parser, "1" + INVALID_NAME_DESC +
-                INVALID_COMPLETION_TIME_DESC + INVALID_SERVING_SIZE_DESC + INVALID_STEP_DESC,
+        assertParseFailure(parser,
+                userInput
+                + INVALID_NAME_DESC
+                + INVALID_COMPLETION_TIME_DESC
+                + INVALID_SERVING_SIZE_DESC
+                + INVALID_STEP_DESC,
                 Name.MESSAGE_CONSTRAINTS);
     }
 
     @Test
     public void parse_allFieldsSpecified_success() {
-        String indexPreface = " " + PREFIX_INDEX;
         Index targetIndex = INDEX_THIRD_RECIPE;
 
         String userInput = indexPreface + targetIndex.getOneBased()
@@ -182,7 +183,6 @@ public class EditCommandParserTest {
 
     @Test
     public void parse_someFieldsSpecified_success() {
-        String indexPreface = " " + PREFIX_INDEX;
         Index targetIndex = INDEX_THIRD_RECIPE;
 
         String userInput = indexPreface + targetIndex.getOneBased()
@@ -198,8 +198,7 @@ public class EditCommandParserTest {
     }
 
     @Test
-    public void parse_recipeIndex_oneFieldSpecified_success() {
-        String indexPreface = " " + PREFIX_INDEX;
+    public void parse_recipeIndexOneFieldSpecified_success() {
         Index targetIndex = INDEX_THIRD_RECIPE;
 
         // name
@@ -227,7 +226,7 @@ public class EditCommandParserTest {
         assertParseSuccess(parser, userInput, expectedCommand);
 
         // // ingredient
-        userInput =  indexPreface + targetIndex.getOneBased() + INGREDIENT_DESC_AGLIO_OLIO;
+        userInput = indexPreface + targetIndex.getOneBased() + INGREDIENT_DESC_AGLIO_OLIO;
         descriptor = new EditRecipeDescriptorBuilder()
                 .withIngredients(VALID_INGREDIENT_GARLIC_AGLIO_OLIO).build();
         System.out.println(userInput);
@@ -251,7 +250,7 @@ public class EditCommandParserTest {
     }
 
     @Test
-    public void parse_recipeName_oneFieldSpecified_success() {
+    public void parse_recipeNameOneFieldSpecified_success() {
         String indexPreface = " Aglio Olio";
 
         // name
@@ -280,7 +279,7 @@ public class EditCommandParserTest {
         assertParseSuccess(parser, userInput, expectedCommand);
 
         // ingredient
-        userInput =  indexPreface + INGREDIENT_DESC_AGLIO_OLIO;
+        userInput = indexPreface + INGREDIENT_DESC_AGLIO_OLIO;
         descriptor = new EditRecipeDescriptorBuilder()
                 .withIngredients(VALID_INGREDIENT_GARLIC_AGLIO_OLIO).build();
         System.out.println(userInput);
@@ -305,7 +304,6 @@ public class EditCommandParserTest {
 
     @Test
     public void parse_multipleRepeatedFields_acceptsLast() {
-        String indexPreface = " " + PREFIX_INDEX;
         Index targetIndex = INDEX_THIRD_RECIPE;
 
         String userInput = indexPreface + targetIndex.getOneBased()
@@ -334,7 +332,6 @@ public class EditCommandParserTest {
     @Test
     public void parse_invalidValueFollowedByValidValue_success() {
         // no other valid values specified
-        String indexPreface = " " + PREFIX_INDEX;
         Index targetIndex = INDEX_THIRD_RECIPE;
 
         String userInput = indexPreface + targetIndex.getOneBased()
@@ -365,7 +362,6 @@ public class EditCommandParserTest {
 
     @Test
     public void parse_resetTags_success() {
-        String indexPreface = " " + PREFIX_INDEX;
         Index targetIndex = INDEX_THIRD_RECIPE;
 
         String userInput = indexPreface + targetIndex.getOneBased() + TAG_EMPTY;
