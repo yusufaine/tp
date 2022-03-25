@@ -49,6 +49,7 @@ public class SampleDataUtil {
         Ingredient i2 = new Ingredient("rice", 1, null);
 
         Ingredient[] ingredientArr2 = new Ingredient[]{i1, i2};
+
         List<Ingredient> nasiLemakIngredients = List.of(ingredientArr2);
 
         Step s1 = new Step("toss it into the dustbin");
