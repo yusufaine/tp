@@ -25,6 +25,7 @@ import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.EditCommand.EditRecipeDescriptor;
 import seedu.address.model.Model;
+import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.RecipeBook;
 import seedu.address.model.RecipeBookModelManager;
 import seedu.address.model.UserPrefs;
@@ -37,7 +38,9 @@ import seedu.address.testutil.RecipeBuilder;
  */
 public class EditCommandTest {
 
-    private Model model = new RecipeBookModelManager(getTypicalRecipeBook(), new UserPrefs());
+    private final ReadOnlyUserPrefs roup = new UserPrefs();
+    private final RecipeBook recipeBook = getTypicalRecipeBook();
+    private Model model = new RecipeBookModelManager(recipeBook, roup);
 
     @Test
     public void execute_allFieldsSpecifiedUnfilteredList_success() {
@@ -143,7 +146,7 @@ public class EditCommandTest {
         EditRecipeDescriptor descriptor = new EditRecipeDescriptorBuilder().withName(VALID_NAME_CHICKEN_CHOP).build();
         EditCommand editCommand = new EditCommand(outOfBoundIndex, descriptor);
 
-        assertCommandFailure(editCommand, model, Messages.MESSAGE_INVALID_RECIPE_DISPLAYED_INDEX);
+        assertCommandFailure(editCommand, model, Messages.MESSAGE_INVALID_RECIPE_INDEX);
     }
 
     /**
@@ -160,7 +163,7 @@ public class EditCommandTest {
         EditCommand editCommand = new EditCommand(outOfBoundIndex,
                 new EditRecipeDescriptorBuilder().withName(VALID_NAME_CHICKEN_CHOP).build());
 
-        assertCommandFailure(editCommand, model, Messages.MESSAGE_INVALID_RECIPE_DISPLAYED_INDEX);
+        assertCommandFailure(editCommand, model, Messages.MESSAGE_INVALID_RECIPE_INDEX);
     }
 
     @Test
@@ -187,5 +190,4 @@ public class EditCommandTest {
         // different descriptor -> returns false
         assertFalse(standardCommand.equals(new EditCommand(INDEX_FIRST_RECIPE, DESC_CHICKEN_CHOP)));
     }
-
 }

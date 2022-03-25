@@ -1,7 +1,7 @@
 package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.commons.core.Messages.MESSAGE_MISSING_RECIPE_INDEX_OR_NAME;
 import static seedu.address.logic.parser.RecipeBookSyntax.PREFIX_COMPLETION_TIME;
 import static seedu.address.logic.parser.RecipeBookSyntax.PREFIX_INDEX;
 import static seedu.address.logic.parser.RecipeBookSyntax.PREFIX_INGREDIENT;
@@ -79,10 +79,12 @@ public class EditCommandParser implements Parser<EditCommand> {
      */
     private EditCommand getEditCommand(Prefix prefix, ArgumentMultimap argMultimap) throws ParseException {
         if (prefix.equals(PREFIX_INDEX)) {
+            System.out.println("prefix index found!");
             Index index = RecipeBookParserUtil.parseIndex(argMultimap.getValue(PREFIX_INDEX).orElseThrow());
             EditRecipeDescriptor editRecipeDescriptor = parseEditArgumentValues(argMultimap);
             return new EditCommand(index, editRecipeDescriptor);
         } else {
+            System.out.println("preamble name: " + argMultimap.getPreamble());
             Name name = parseNameOrThrow(argMultimap.getPreamble());
             EditRecipeDescriptor editRecipeDescriptor = parseEditArgumentValues(argMultimap);
             return new EditCommand(name, editRecipeDescriptor);
@@ -94,7 +96,7 @@ public class EditCommandParser implements Parser<EditCommand> {
             Name name = RecipeBookParserUtil.parseName(preamble);
             return name;
         } catch (ParseException pe) {
-            throw new ParseException(EditCommand.MESSAGE_MISSING_RECIPE_INDEX_OR_NAME);
+            throw new ParseException(MESSAGE_MISSING_RECIPE_INDEX_OR_NAME);
         }
     }
 

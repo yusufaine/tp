@@ -3,6 +3,8 @@ package seedu.address.model.recipe;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
+import seedu.address.commons.util.StringUtil;
+
 /**
  * Represents a Recipe's name in the recipe book.
  * Guarantees: immutable; is valid as declared in {@link #isValidName(String)}
@@ -38,7 +40,9 @@ public class Name {
      */
     public static boolean isValidName(String test) {
         // if test = " ", test.strip = ""
-        return !test.isEmpty();
+        boolean isNotEmpty = !test.isEmpty();
+        boolean hasNoSpecialCharacters = StringUtil.isAlphaNumeric(test);
+        return isNotEmpty && hasNoSpecialCharacters;
     }
 
     @Override

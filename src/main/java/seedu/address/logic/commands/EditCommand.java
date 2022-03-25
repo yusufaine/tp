@@ -66,7 +66,6 @@ public class EditCommand extends Command {
             + PREFIX_TAG + "Italian "
             + PREFIX_TAG + "Western";
 
-    public static final String MESSAGE_MISSING_RECIPE_INDEX_OR_NAME = "Missing recipe name or index value.";
     public static final String MESSAGE_EDIT_RECIPE_SUCCESS = "Edited Recipe: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_RECIPE = "This recipe already exists in the recipe book.";
@@ -168,6 +167,15 @@ public class EditCommand extends Command {
                 && editRecipeDescriptor.equals(e.editRecipeDescriptor);
     }
 
+    @Override
+    public String toString() {
+        return "EditCommand{"
+                + "targetName=" + targetName
+                + ", targetIndex=" + targetIndex
+                + ", editRecipeDescriptor=" + editRecipeDescriptor
+                + '}';
+    }
+
     /**
      * Retrieves the {@code Recipe} with the same name as the specified name
      * from a given list of recipes.
@@ -200,14 +208,14 @@ public class EditCommand extends Command {
         int zeroBasedIndex = recipeIndex.getZeroBased();
 
         if (zeroBasedIndex >= lastShownList.size()) {
-            throw new CommandException(Messages.MESSAGE_INVALID_RECIPE_DISPLAYED_INDEX);
+            throw new CommandException(Messages.MESSAGE_INVALID_RECIPE_INDEX);
         }
 
         if (zeroBasedIndex < lastShownList.size()) {
             return lastShownList.get(zeroBasedIndex);
         }
 
-        throw new CommandException(String.format(Messages.MESSAGE_INVALID_RECIPE_DISPLAYED_INDEX));
+        throw new CommandException(String.format(Messages.MESSAGE_INVALID_RECIPE_INDEX));
     }
 
     /**
@@ -299,6 +307,18 @@ public class EditCommand extends Command {
          */
         public Optional<Set<Tag>> getTags() {
             return (tags != null) ? Optional.of(Collections.unmodifiableSet(tags)) : Optional.empty();
+        }
+
+        @Override
+        public String toString() {
+            return "EditRecipeDescriptor{"
+                    + "name=" + name
+                    + ", completionTime=" + completionTime
+                    + ", servingSize=" + servingSize
+                    + ", ingredients=" + ingredients
+                    + ", steps=" + steps
+                    + ", tags=" + tags
+                    + '}';
         }
 
         @Override
