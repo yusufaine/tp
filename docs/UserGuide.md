@@ -1,8 +1,7 @@
 ---
 layout: page
-title: User Guide
+title: McKitchen User Guide
 ---
-# McKitchen User Guide
 McKitchen (My-CLI-Kitchen) is a desktop application that can quickly store, edit, and search for recipes by running a single command, ideal for the fast typists, home cooks, and students who want a simple way to store or search for simple recipes to cook.
 
 ## Table of Content
