@@ -57,18 +57,18 @@ public class UserPrefs implements ReadOnlyUserPrefs {
     }
 
     @Override
-    public boolean equals(Object other) {
-        if (other == this) {
-            return true;
-        }
-        if (!(other instanceof UserPrefs)) { //this handles null as well.
+    public boolean equals(Object o) {
+        if (!(o instanceof UserPrefs)) { //this handles null as well.
             return false;
         }
 
-        UserPrefs o = (UserPrefs) other;
+        if (o == this) {
+            return true;
+        }
 
-        return guiSettings.equals(o.guiSettings)
-                && recipeBookFilePath.equals(o.recipeBookFilePath);
+        UserPrefs other = (UserPrefs) o;
+        return this.guiSettings.equals(other.guiSettings)
+                && this.recipeBookFilePath.equals(other.recipeBookFilePath);
     }
 
     @Override

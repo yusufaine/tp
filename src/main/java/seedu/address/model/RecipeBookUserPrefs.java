@@ -46,7 +46,6 @@ public class RecipeBookUserPrefs implements ReadOnlyUserPrefs {
         this.guiSettings = guiSettings;
     }
 
-    //TODO: change this method name after removing AB3
     public Path getRecipeBookFilePath() {
         return recipeBookFilePath;
     }
