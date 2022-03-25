@@ -3,7 +3,6 @@ package seedu.address.logic.commands;
 import static java.util.Objects.requireNonNull;
 
 import seedu.address.model.Model;
-import seedu.address.model.RecipeBook;
 import seedu.address.model.util.SampleDataUtil;
 
 /**
@@ -42,7 +41,6 @@ public class ConfirmedResetCommand extends ResetCommand {
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);
-        model.setRecipeBook(new RecipeBook());
         model.setRecipeBook(SampleDataUtil.getSampleRecipeBook());
         return new CommandResult(MESSAGE_SUCCESS);
     }
