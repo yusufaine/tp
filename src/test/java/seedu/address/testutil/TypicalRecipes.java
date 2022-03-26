@@ -1,8 +1,5 @@
 package seedu.address.testutil;
 
-
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import seedu.address.model.RecipeBook;
@@ -72,9 +69,6 @@ public class TypicalRecipes {
             .withServingSize(1).withSteps("Heat up your tortillas",
                     "Assemble the avocado and lettuce atop of tortilla").withTags("Mexican", "Vegan").build();
 
-    // Manually added - Person's details found in {@code CommandTestUtil}
-    // Recipes created in the CommandTestUtil Files
-    //public static final String KEYWORD_MATCHING_MEIER = "Meier";  //A keyword that matches MEIER
 
     private TypicalRecipes() {
     } //prevents instantiation
@@ -91,7 +85,6 @@ public class TypicalRecipes {
     }
 
     public static List<Recipe> getTypicalRecipes() {
-        return new ArrayList<>(Arrays.asList(AGLIO_OLIO, FRIED_RICE, DUCK_RICE, SUSHI, BEEF_TACO, SHOYU_RAMEN,
-                FISH_CHIPS, BOLOGNESE));
+        return List.of(AGLIO_OLIO, FRIED_RICE, DUCK_RICE, SUSHI, BEEF_TACO, SHOYU_RAMEN, FISH_CHIPS, BOLOGNESE);
     }
 }
