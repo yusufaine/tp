@@ -17,12 +17,12 @@ import seedu.address.model.recipe.Recipe;
 /**
  * Represents the in-memory model of the recipe book data.
  */
-public class RecipeBookModelManager implements Model {
+public class ModelManager implements Model {
     //TODO: rename to "ModelManager" once we confirm that we don't need AB3 files
-    private static final Logger logger = LogsCenter.getLogger(RecipeBookModelManager.class);
+    private static final Logger logger = LogsCenter.getLogger(ModelManager.class);
 
     private final RecipeBook recipeBook;
-    private final RecipeBookUserPrefs userPrefs;
+    private final UserPrefs userPrefs;
     private final FilteredList<Recipe> filteredRecipes;
 
     // ====== Constructors ======
@@ -30,21 +30,21 @@ public class RecipeBookModelManager implements Model {
     /**
      * Initializes a ModelManager with the given recipeBook and userPrefs
      */
-    public RecipeBookModelManager(ReadOnlyRecipeBook recipeBook, ReadOnlyUserPrefs userPrefs) {
+    public ModelManager(ReadOnlyRecipeBook recipeBook, ReadOnlyUserPrefs userPrefs) {
         requireAllNonNull(recipeBook, userPrefs);
 
         logger.fine(String.format("Initializing with recipe book: %s and user prefs %s", recipeBook, userPrefs));
 
         this.recipeBook = new RecipeBook(recipeBook);
-        this.userPrefs = new RecipeBookUserPrefs(userPrefs);
+        this.userPrefs = new UserPrefs(userPrefs);
         filteredRecipes = new FilteredList<>(this.recipeBook.getRecipeList());
     }
 
     /**
      * Initializes a ModelManager with a new recipeBook and userPrefs
      */
-    public RecipeBookModelManager() {
-        this(new RecipeBook(), new RecipeBookUserPrefs());
+    public ModelManager() {
+        this(new RecipeBook(), new UserPrefs());
     }
 
     // ====== UserPrefs ======
@@ -136,7 +136,7 @@ public class RecipeBookModelManager implements Model {
 
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof RecipeBookModelManager)) {
+        if (!(o instanceof ModelManager)) {
             return false;
         }
 
@@ -144,7 +144,7 @@ public class RecipeBookModelManager implements Model {
             return false;
         }
 
-        RecipeBookModelManager other = (RecipeBookModelManager) o;
+        ModelManager other = (ModelManager) o;
         return this.recipeBook.equals(other.recipeBook)
                 && this.userPrefs.equals(other.userPrefs)
                 && this.filteredRecipes.equals(other.filteredRecipes);

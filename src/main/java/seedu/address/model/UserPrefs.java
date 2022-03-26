@@ -11,7 +11,7 @@ import seedu.address.commons.core.GuiSettings;
 /**
  * Represents User's preferences.
  */
-public class RecipeBookUserPrefs implements ReadOnlyUserPrefs {
+public class UserPrefs implements ReadOnlyUserPrefs {
     //TODO: rename to "UserPrefs" once we confirm that we don't need AB3 files
     private GuiSettings guiSettings = new GuiSettings();
     private Path recipeBookFilePath = Paths.get("data" , "recipebook.json");
@@ -19,12 +19,12 @@ public class RecipeBookUserPrefs implements ReadOnlyUserPrefs {
     /**
      * Creates a {@code UserPrefs} with default values.
      */
-    public RecipeBookUserPrefs() {}
+    public UserPrefs() {}
 
     /**
      * Creates a {@code UserPrefs} with the prefs in {@code userPrefs}.
      */
-    public RecipeBookUserPrefs(ReadOnlyUserPrefs userPrefs) {
+    public UserPrefs(ReadOnlyUserPrefs userPrefs) {
         this();
         resetData(userPrefs);
     }
@@ -59,7 +59,7 @@ public class RecipeBookUserPrefs implements ReadOnlyUserPrefs {
 
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof RecipeBookUserPrefs)) {
+        if (!(o instanceof UserPrefs)) {
             return false;
         }
 
@@ -67,7 +67,7 @@ public class RecipeBookUserPrefs implements ReadOnlyUserPrefs {
             return true;
         }
 
-        RecipeBookUserPrefs other = (RecipeBookUserPrefs) o;
+        UserPrefs other = (UserPrefs) o;
         return this.guiSettings.equals(other.guiSettings)
                 && this.recipeBookFilePath.equals(other.recipeBookFilePath);
     }

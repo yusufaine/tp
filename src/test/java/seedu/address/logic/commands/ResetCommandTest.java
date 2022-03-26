@@ -8,7 +8,7 @@ import static seedu.address.testutil.TypicalRecipes.getTypicalRecipeBook;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.model.Model;
-import seedu.address.model.RecipeBookModelManager;
+import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 
 /**
@@ -16,8 +16,8 @@ import seedu.address.model.UserPrefs;
  * {@code ResetCommand}.
  */
 public class ResetCommandTest {
-    private final Model model = new RecipeBookModelManager(getTypicalRecipeBook(), new UserPrefs());
-    private final Model expectedModel = new RecipeBookModelManager(getTypicalRecipeBook(), new UserPrefs());
+    private final Model model = new ModelManager(getTypicalRecipeBook(), new UserPrefs());
+    private final Model expectedModel = new ModelManager(getTypicalRecipeBook(), new UserPrefs());
 
     @Test
     public void execute_showsRequireConfirmationMessage() {
