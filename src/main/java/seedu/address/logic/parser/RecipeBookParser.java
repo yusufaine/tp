@@ -55,24 +55,26 @@ public class RecipeBookParser {
             switch (commandWord) {
             case AddCommand.COMMAND_WORD:
                 return new AddCommandParser().parse(arguments);
-            case EditCommand.COMMAND_WORD:
-                return new EditCommandParser().parse(arguments);
+            case ClearCommand.COMMAND_WORD:
+                requiresConfirmationClear = ClearCommandParser.isNotForcedClear(arguments);
+                return new ClearCommandParser().parse(arguments);
             case DeleteCommand.COMMAND_WORD:
                 return new DeleteCommandParser().parse(arguments);
+            case EditCommand.COMMAND_WORD:
+                return new EditCommandParser().parse(arguments);
             case ExitCommand.COMMAND_WORD:
                 return new ExitCommand();
             case FindCommand.COMMAND_WORD:
                 return new FindCommandParser().parse(arguments);
+            case HelpCommand.COMMAND_WORD:
+                return new HelpCommand();
             case ListCommand.COMMAND_WORD:
                 return new ListCommand();
-            case ViewCommand.COMMAND_WORD:
-                return new ViewCommandParser().parse(arguments);
-            case ClearCommand.COMMAND_WORD:
-                requiresConfirmationClear = ClearCommandParser.isNotForcedClear(arguments);
-                return new ClearCommandParser().parse(arguments);
             case ResetCommand.COMMAND_WORD:
                 requiresConfirmationReset = ResetCommandParser.isNotForcedReset(arguments);
                 return new ResetCommandParser().parse(arguments);
+            case ViewCommand.COMMAND_WORD:
+                return new ViewCommandParser().parse(arguments);
             default:
                 throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
             }
