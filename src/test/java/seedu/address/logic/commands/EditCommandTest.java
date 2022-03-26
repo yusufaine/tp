@@ -25,8 +25,8 @@ import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.EditCommand.EditRecipeDescriptor;
 import seedu.address.model.Model;
+import seedu.address.model.ModelManager;
 import seedu.address.model.RecipeBook;
-import seedu.address.model.RecipeBookModelManager;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.recipe.Recipe;
 import seedu.address.testutil.EditRecipeDescriptorBuilder;
@@ -37,7 +37,7 @@ import seedu.address.testutil.RecipeBuilder;
  */
 public class EditCommandTest {
 
-    private Model model = new RecipeBookModelManager(getTypicalRecipeBook(), new UserPrefs());
+    private Model model = new ModelManager(getTypicalRecipeBook(), new UserPrefs());
 
     @Test
     public void execute_allFieldsSpecifiedUnfilteredList_success() {
@@ -47,7 +47,7 @@ public class EditCommandTest {
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_RECIPE_SUCCESS, editedRecipe);
 
-        Model expectedModel = new RecipeBookModelManager(new RecipeBook(model.getRecipeBook()), new UserPrefs());
+        Model expectedModel = new ModelManager(new RecipeBook(model.getRecipeBook()), new UserPrefs());
         expectedModel.setRecipe(model.getFilteredRecipeList().get(0), editedRecipe);
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
@@ -81,7 +81,7 @@ public class EditCommandTest {
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_RECIPE_SUCCESS, editedRecipe);
 
-        Model expectedModel = new RecipeBookModelManager(new RecipeBook(model.getRecipeBook()), new UserPrefs());
+        Model expectedModel = new ModelManager(new RecipeBook(model.getRecipeBook()), new UserPrefs());
         expectedModel.setRecipe(lastRecipe, editedRecipe);
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
@@ -94,7 +94,7 @@ public class EditCommandTest {
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_RECIPE_SUCCESS, editedRecipe);
 
-        Model expectedModel = new RecipeBookModelManager(new RecipeBook(model.getRecipeBook()), new UserPrefs());
+        Model expectedModel = new ModelManager(new RecipeBook(model.getRecipeBook()), new UserPrefs());
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
     }
@@ -111,7 +111,7 @@ public class EditCommandTest {
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_RECIPE_SUCCESS, editedRecipe);
 
-        Model expectedModel = new RecipeBookModelManager(new RecipeBook(model.getRecipeBook()), new UserPrefs());
+        Model expectedModel = new ModelManager(new RecipeBook(model.getRecipeBook()), new UserPrefs());
         expectedModel.setRecipe(model.getFilteredRecipeList().get(0), editedRecipe);
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
