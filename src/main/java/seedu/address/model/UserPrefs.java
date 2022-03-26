@@ -12,7 +12,6 @@ import seedu.address.commons.core.GuiSettings;
  * Represents User's preferences.
  */
 public class UserPrefs implements ReadOnlyUserPrefs {
-    //TODO: rename to "UserPrefs" once we confirm that we don't need AB3 files
     private GuiSettings guiSettings = new GuiSettings();
     private Path recipeBookFilePath = Paths.get("data" , "recipebook.json");
 
