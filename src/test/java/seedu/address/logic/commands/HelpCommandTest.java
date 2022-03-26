@@ -6,11 +6,11 @@ import static seedu.address.logic.commands.HelpCommand.HELP_MESSAGE;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.model.Model;
-import seedu.address.model.RecipeBookModelManager;
+import seedu.address.model.ModelManager;
 
 class HelpCommandTest {
-    private Model model = new RecipeBookModelManager();
-    private Model expectedModel = new RecipeBookModelManager();
+    private Model model = new ModelManager();
+    private Model expectedModel = new ModelManager();
 
     @Test
     public void execute_help_success() {
