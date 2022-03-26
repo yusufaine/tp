@@ -87,6 +87,10 @@ public class Recipe {
             return false;
         }
 
+        if (this == otherRecipe) {
+            return true;
+        }
+
         return otherRecipe.getName().equals(this.getName());
     }
 
