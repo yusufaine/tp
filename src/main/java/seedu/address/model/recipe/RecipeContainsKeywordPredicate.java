@@ -1,6 +1,7 @@
 package seedu.address.model.recipe;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Predicate;
 
 import seedu.address.commons.util.StringUtil;
@@ -12,7 +13,11 @@ public class RecipeContainsKeywordPredicate implements Predicate<Recipe> {
     private final List<String> keywords;
 
     public RecipeContainsKeywordPredicate(List<String> keywords) {
-        this.keywords = keywords;
+        this.keywords = List.of(keywords.toArray(new String[]{}));
+    }
+
+    public List<String> getKeywords() {
+        return keywords;
     }
 
     @Override
@@ -20,6 +25,7 @@ public class RecipeContainsKeywordPredicate implements Predicate<Recipe> {
         return keywords.stream()
                 .anyMatch(keyword -> StringUtil.recipeContainsIgnoreCase(recipe.getSearchSet().toString(), keyword));
     }
+
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof RecipeContainsKeywordPredicate)) {
@@ -31,7 +37,11 @@ public class RecipeContainsKeywordPredicate implements Predicate<Recipe> {
         }
 
         RecipeContainsKeywordPredicate other = (RecipeContainsKeywordPredicate) o;
-        return this.equals(other);
+        return this.getKeywords().equals(other.getKeywords());
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(this.getKeywords());
+    }
 }

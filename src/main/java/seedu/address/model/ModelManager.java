@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
+import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
@@ -14,7 +15,7 @@ import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.recipe.Recipe;
 
 /**
- * Represents the in-memory model of the address book data.
+ * Represents the in-memory model of the recipe book data.
  */
 public class ModelManager implements Model {
     private static final Logger logger = LogsCenter.getLogger(ModelManager.class);
@@ -23,24 +24,29 @@ public class ModelManager implements Model {
     private final UserPrefs userPrefs;
     private final FilteredList<Recipe> filteredRecipes;
 
+    // ====== Constructors ======
+
     /**
-     * Initializes a ModelManager with the given addressBook and userPrefs.
+     * Initializes a ModelManager with the given recipeBook and userPrefs
      */
     public ModelManager(ReadOnlyRecipeBook recipeBook, ReadOnlyUserPrefs userPrefs) {
         requireAllNonNull(recipeBook, userPrefs);
 
-        logger.fine("Initializing with address book: " + recipeBook + " and user prefs " + userPrefs);
+        logger.fine(String.format("Initializing with recipe book: %s and user prefs %s", recipeBook, userPrefs));
 
         this.recipeBook = new RecipeBook(recipeBook);
         this.userPrefs = new UserPrefs(userPrefs);
         filteredRecipes = new FilteredList<>(this.recipeBook.getRecipeList());
     }
 
+    /**
+     * Initializes a ModelManager with a new recipeBook and userPrefs
+     */
     public ModelManager() {
         this(new RecipeBook(), new UserPrefs());
     }
 
-    //=========== UserPrefs ==================================================================================
+    // ====== UserPrefs ======
 
     @Override
     public void setUserPrefs(ReadOnlyUserPrefs userPrefs) {
@@ -75,7 +81,7 @@ public class ModelManager implements Model {
         userPrefs.setRecipeBookFilePath(recipeBookFilePath);
     }
 
-    //=========== AddressBook ================================================================================
+    // ====== RecipeBook ======
 
     @Override
     public void setRecipeBook(ReadOnlyRecipeBook recipeBook) {
@@ -94,29 +100,26 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public void deleteRecipe(Recipe target) {
-        recipeBook.removeRecipe(target);
+    public void deleteRecipe(Recipe toDelete) {
+        requireNonNull(toDelete);
+        recipeBook.removeRecipe(toDelete);
     }
 
     @Override
-    public void addRecipe(Recipe recipe) {
-        recipeBook.addRecipe(recipe);
+    public void addRecipe(Recipe toAdd) {
+        requireNonNull(toAdd);
+        recipeBook.addRecipe(toAdd);
         updateFilteredRecipeList(PREDICATE_SHOW_ALL_RECIPES);
     }
 
     @Override
-    public void setRecipe(Recipe target, Recipe editedRecipe) {
-        requireAllNonNull(target, editedRecipe);
-
-        recipeBook.setRecipe(target, editedRecipe);
+    public void setRecipe(Recipe toReplace, Recipe editedRecipe) {
+        requireAllNonNull(toReplace, editedRecipe);
+        recipeBook.setRecipe(toReplace, editedRecipe);
     }
 
-    //=========== Filtered Recipe List Accessors =============================================================
+    // ====== Filtered Recipe List Accessors ======
 
-    /**
-     * Returns an unmodifiable view of the list of {@code Recipe} backed by the internal list of
-     * {@code versionedAddressBook}
-     */
     @Override
     public ObservableList<Recipe> getFilteredRecipeList() {
         return filteredRecipes;
@@ -128,23 +131,26 @@ public class ModelManager implements Model {
         filteredRecipes.setPredicate(predicate);
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        // short circuit if same object
-        if (obj == this) {
-            return true;
-        }
+    // ====== Equality ======
 
-        // instanceof handles nulls
-        if (!(obj instanceof ModelManager)) {
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof ModelManager)) {
             return false;
         }
 
-        // state check
-        ModelManager other = (ModelManager) obj;
-        return recipeBook.equals(other.recipeBook)
-                && userPrefs.equals(other.userPrefs)
-                && filteredRecipes.equals(other.filteredRecipes);
+        if (o == this) {
+            return true;
+        }
+
+        ModelManager other = (ModelManager) o;
+        return this.recipeBook.equals(other.recipeBook)
+                && this.userPrefs.equals(other.userPrefs)
+                && this.filteredRecipes.equals(other.filteredRecipes);
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(recipeBook, userPrefs, filteredRecipes);
+    }
 }

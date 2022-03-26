@@ -83,9 +83,15 @@ public class Recipe {
      * @return true if both recipes have the same name.
      */
     public boolean isSameRecipe(Recipe otherRecipe) {
-        return otherRecipe == this
-                || (otherRecipe != null
-                && otherRecipe.getName().equals(this.getName()));
+        if (otherRecipe == null) {
+            return false;
+        }
+
+        if (this == otherRecipe) {
+            return true;
+        }
+
+        return otherRecipe.getName().equals(this.getName());
     }
 
     public SearchSet getSearchSet() {
@@ -95,7 +101,7 @@ public class Recipe {
     private void initSearchSet() {
         this.searchValues = new SearchSet();
         this.searchValues.add(this.name.fullName.toLowerCase());
-        this.ingredients.forEach(i -> searchValues.add(i.getIngredientName().toLowerCase()));
+        this.ingredients.forEach(i -> searchValues.add(i.ingredientName.toLowerCase()));
         this.tags.forEach(t -> searchValues.add(t.tagName.toLowerCase()));
     }
 

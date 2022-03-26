@@ -41,7 +41,7 @@
     "completionTime" : 30,
     "servingSize" : 1,
     "steps" : [ "Place carrots in saucepan and cover with water", "Heat wok" ],
-    "tags" : [ "Chinese", "Asians" ]
+    "tags" : [ "Chinese", "Asian" ]
   },  {
     "name" : "Duck Rice",
     "ingredients" : [ {
