@@ -12,7 +12,6 @@ import seedu.address.commons.core.GuiSettings;
  * Represents User's preferences.
  */
 public class UserPrefs implements ReadOnlyUserPrefs {
-
     private GuiSettings guiSettings = new GuiSettings();
     private Path recipeBookFilePath = Paths.get("data" , "recipebook.json");
 
@@ -58,7 +57,8 @@ public class UserPrefs implements ReadOnlyUserPrefs {
 
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof UserPrefs)) { //this handles null as well.
+
+        if (!(o instanceof UserPrefs)) {
             return false;
         }
 
