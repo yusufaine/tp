@@ -81,7 +81,8 @@ public class Ingredient {
 
     @Override
     public String toString() {
-        return String.format("%s: %s %s", ingredientName, quantity, quantifier).trim();
+        // trim required to remove trailing space when quantifier is blank
+        return String.format("%s %s %s", ingredientName, quantity, quantifier).trim();
     }
 
     @Override

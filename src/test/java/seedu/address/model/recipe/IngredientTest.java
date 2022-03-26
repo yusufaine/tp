@@ -28,15 +28,6 @@ class IngredientTest {
                 new Ingredient(invalidIngredientName, validIngredientQty, validIngredientQuantifier));
     }
 
-    // @Test
-    // public void constructor_nullIngredientQty_throwsIllegalArgumentException() {
-    //     String invalidIngredientName = "Spaghetti";
-    //     double nullIngredientQty = null;
-    //     String validIngredientQuantifier = "g";
-    //     assertThrows(IllegalArgumentException.class,
-    //             () -> new Ingredient(invalidIngredientName, nullIngredientQty, validIngredientQuantifier));
-    // }
-
     @Test
     public void constructor_invalidIngredientQty_throwsIllegalArgumentException() {
         String validIngredientName = "Spaghetti";
@@ -47,12 +38,12 @@ class IngredientTest {
     }
 
     @Test
-    public void constructor_nullIngredientQuantifier_throwsIllegalArgumentException() {
-        String invalidIngredientName = "Spaghetti";
+    public void constructor_nullIngredientQuantifier_isValid() {
+        String validIngredientName = "Spaghetti";
         double validIngredientQty = 5.5;
         String nullIngredientQuantifier = null;
-        assertEquals("Spaghetti: 5.5",
-                new Ingredient(invalidIngredientName, validIngredientQty, nullIngredientQuantifier).toString());
+        assertEquals("Spaghetti 5.5",
+                new Ingredient(validIngredientName, validIngredientQty, nullIngredientQuantifier).toString());
     }
 
     @Test
@@ -64,23 +55,15 @@ class IngredientTest {
                 new Ingredient(nullIngredientName, validIngredientQty, validIngredientQuantifier));
     }
 
-    // @Test
-    // public void constructor_invalidNullIngredientQuantifier_throwsIllegalArgumentException() {
-    //     String invalidIngredientName = "Spaghetti";
-    //     double validIngredientQty = 5.5;
-    //     String invalidIngredientQuantifier = null;
-    //     assertThrows(NullPointerException.class,
-    //             () -> new Ingredient(invalidIngredientName, validIngredientQty, invalidIngredientQuantifier));
-    // }
 
-    // @Test
-    // public void constructor_invalidNegativeIngredientQty_throwsIllegalArgumentException() {
-    //     String invalidIngredientName = "Spaghetti";
-    //     String validIngredientQty = "-12.4";
-    //     String validIngredientQuantifier = "g";
-    //     assertThrows(IllegalArgumentException.class,
-    //             () -> new Ingredient(invalidIngredientName, validIngredientQty, validIngredientQuantifier));
-    // }
+    @Test
+    public void constructor_invalidNegativeIngredientQty_throwsIllegalArgumentException() {
+        String invalidIngredientName = "Spaghetti";
+        double invalidIngredientQty = -12.4;
+        String validIngredientQuantifier = "g";
+        assertThrows(IllegalArgumentException.class, () ->
+                new Ingredient(invalidIngredientName, invalidIngredientQty, validIngredientQuantifier));
+    }
 
     @Test
     public void isValidIngredient() {
@@ -100,10 +83,6 @@ class IngredientTest {
         assertFalse(Ingredient.isValidIngredientName("-1")); // negative value only
         assertFalse(Ingredient.isValidIngredientName("-24.23")); // negative double only
 
-        // invalid ingredient quantifier
-        // assertFalse(Ingredient.isValidQuantifier("")); // empty string
-        // assertFalse(Ingredient.isValidQuantifier(" ")); // spaces only
-        // assertFalse(Ingredient.isValidQuantifier("       ")); // lots of spaces only
 
         // valid ingredient name
         assertTrue(Ingredient.isValidIngredientName("Spaghetti")); // 1 word ingredient
@@ -116,16 +95,12 @@ class IngredientTest {
         assertTrue(Ingredient.isValidQuantity(2.5)); // 1 decimal place double
         assertTrue(Ingredient.isValidQuantity(2.75)); // 2 decimal place double
 
-        // valid ingredient quantifier
-        // assertTrue(Ingredient.isValidQuantifier("kg")); // 2 letter quantifier
-        // assertTrue(Ingredient.isValidQuantifier("clovers")); // 1 word quantifier
-        // assertTrue(Ingredient.isValidQuantifier("metric tons")); // 2 word quantifier
     }
 
     @Test
     public void toString_test() {
-        String expectedValue1 = "popcorn chicken: " + "3.2 " + "kg";
-        String expectedValue2 = "popcorn: " + "2.2";
+        String expectedValue1 = "popcorn chicken " + "3.2 " + "kg";
+        String expectedValue2 = "popcorn " + "2.2";
 
         assertEquals(expectedValue1, i1.toString());
         assertEquals(expectedValue2, i2.toString());

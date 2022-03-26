@@ -1,8 +1,7 @@
 ---
 layout: page
-title: User Guide
+title: McKitchen User Guide
 ---
-# McKitchen User Guide
 McKitchen (My-CLI-Kitchen) is a desktop application that can quickly store, edit, and search for recipes by running a single command, ideal for the fast typists, home cooks, and students who want a simple way to store or search for simple recipes to cook.
 
 ## Table of Content
@@ -35,6 +34,7 @@ Note how the app contains some sample data.<br>
     * [**`find`**](#find-recipe): Displays a list of recipes with the specified keywords
     * [**`list`**](#list-recipe): Lists all the stored recipes.
     * [**`view`**](#view-recipe): Displays the full content of a recipe.
+    * [**`clear`**](#clear-recipe): Clears all existing recipes in a recipe book.
 
 6. Refer to the [Features](#features) below for details of each command.
 
@@ -44,14 +44,27 @@ Note how the app contains some sample data.<br>
 
 ### Add recipe
 Add a recipe by specifying its name, ingredients, and steps to prepare the dish.<br>
-Usage: `create recipe n/ <name of recipe> i/ <ingredients separated by commas> s/ <steps separated by commas>` <br>
+Usage: `add -n <name of recipe> -d <completion time of recipe> -ss <serving size of recipe> -i <ingredients of recipes separated by commas> -s <steps separated by commas> -t <tags associated with recipe> (optional)` <br>
 Example:
-- `create recipe n/ Aglio Olio i/ spaghetti 56 grams, garlic 3 cloves, bacon 3 slices, olive oil 110 ml, salt ?, pepper ? s/ Cook the spaghetti until al dante, Saute the chopped garlic, Toss spaghetti in the sauce, taste and season with salt and black pepper`
-  - This creates a recipe for "Aglio Olio" with 56 grams of spaghetti, 3 cloves of garlic, 3 slices of bacon, 110 ml of olive oil and a non-fixed amount of salt, and pepper (to taste) with the steps of:
+- `add -n Aglio Olio -d 5 -ss 1 -i spaghetti 56 grams, garlic 3 cloves, bacon 3 slices, olive oil 110 ml -s Cook the spaghetti until al dante, Saute the chopped garlic, Toss spaghetti in the sauce, taste and season with salt and black pepper`
+  - This creates a recipe for "Aglio Olio" with a completion time of 5 mins, serving size of 1 person/pax and ingredients consisting of 56 grams of spaghetti, 3 cloves of garlic, 3 slices of bacon, 110 ml of olive oil and a non-fixed amount of salt, and pepper (to taste) with the steps of:
     1. Cook the spaghetti until al dante,
     2. Saute the chopped garlic,
     3. Toss the spaghetti in the sauce,
     4. Taste and season with salt and black pepper.
+
+###### [return to table of content](#table-of-content)
+
+### Edit recipe
+Edits a recipe by specifying its name, ingredients, and steps to prepare the dish.<br>
+Usage: `edit -n <name of recipe> -d <completion time of recipe> -ss <serving size of recipe> -i <ingredients of recipes separated by commas> -s <steps separated by commas> -t <tags associated with recipe> (optional)` <br>
+Example:
+- `edit -n Spicy Aglio Olio -i spaghetti 56 grams, garlic 3 cloves, bacon 3 slices, olive oil 110 ml, Chilli flakes 10 teaspoons -s Cook the spaghetti until al dante, Saute the chopped garlic, Toss spaghetti in the sauce, taste and season with salt, black pepper and chilli flakes`
+    - This edits the recipe named "Aglio Olio" and updates its attributes with a name of "Spicy Aglio Olio", completion time of 5 mins, serving size of 1 person/pax and ingredients consisting of 56 grams of spaghetti, 3 cloves of garlic, 3 slices of bacon, 110 ml of olive oil and 10 teaspoons of chilli flakes with the steps of:
+        1. Cook the spaghetti until al dante,
+        2. Saute the chopped garlic,
+        3. Toss the spaghetti in the sauce,
+        4. Taste and season with salt, black pepper and chilli flakes.
 
 ###### [return to table of content](#table-of-content)
 
@@ -83,10 +96,36 @@ Usage: `list`
 ###### [return to table of content](#table-of-content)
 
 ### View recipe
-View the contents of an existing stored recipe based on the number it is associated with in the `list`. <br>
-Usage: `view <recipe number>` <br>
+View the contents of an existing stored recipe based on recipe name or index. <br>
+Usage: `view <recipe name>` <br>
 Example:
-- view 1
+- view Aglio Olio
+    - This would display the full contents of the recipe matching the name "Aglio Olio" including its ingredients and steps to prepare the dish.
+
+### Clear recipe
+Clears the entire recipe book. A confirmation prompt would show up before the user could clear immediately. <br>
+To clear the recipe book without the confirmation, users simply have to include the prefix `-f` after the `clear` 
+command <br>
+
+####Clear:
+Usage: `clear` <br>
+
+The program would then prompt the user to confirm. Type in `yes` to clear and `no` to cancel the clear request.
+
+Example: 
+- clear
+    - This would generate a clear request that requires a confirmation. To confirm to clear the recipe book, type in 'yes',
+    - else, type in 'no'.
+  
+####Forced Clear:
+Usage: `clear <-f: Prefix for forced Clear>` <br>
+Example:
+- clear -f
+    - This would clear the recipe book without having the need for any confirmation.
+    
+Usage: `view -x <recipe index>` <br>
+Example:
+- view -x 1
     - This would display the full contents of the first recipe in the list which includes its ingredients and steps to prepare the dish.
 
 ###### [return to table of content](#table-of-content)
@@ -114,14 +153,14 @@ Usage: (Automatically loads the recipes upon launching the application).
 
 ## Command Summary
 (To be filled)
-
-| Action               | Command format                                                                                          |
-|----------------------|---------------------------------------------------------------------------------------------------------|
-| add a new recipe     | `create recipe n/ <name of recipe> i/ <ingredients separated by commas> s/ <steps separated by commas>` |
-| delete a recipe      | `delete -x <recipe index>` or `delete <recipe name>`                                                    |
-| find a recipe        | `find <keyword> [, other keywords, seperated by comma]`                                                 |
-| list a recipe        | `list`                                                                                                  |
-| view specific recipe | `view <recipe number from list>`                                                                        |
+| Action               | Command format                                                                                                                                                                                                         |
+|----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| add a new recipe     | `add -n <name of recipe> -d <prep time of recipe> -ss <serving size/portions of recipe> -i <ingredients separated by commas> -s <steps separated by commas> [-t <tags separated by commas>]`                           |
+| edit a recipe        | `edit <name of recipe> -n <name of recipe> -d <prep time of recipe> -ss <serving size/portions of recipe> -i <ingredients separated by commas> -s <steps separated by commas> [-t <tags separated by commas>optional]` |
+| delete a recipe      | `delete -x <recipe number from list> or delete <recipe name>                                                                                                                                                                                    |
+| find a recipe        | `find <keyword> [, other keywords, seperated by comma]`                                                                                                                                                                |
+| list a recipe        | `list`                                                                                                                                                                                                                 |
+| view specific recipe | `view <recipe number from list>`                                                                                                                                                                                       |
 
 ###### [return to table of content](#table-of-content)
 
