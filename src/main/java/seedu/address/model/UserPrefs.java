@@ -77,7 +77,10 @@ public class UserPrefs implements ReadOnlyUserPrefs {
 
     @Override
     public String toString() {
-        return String.format("GUI Settings : %s \nLocal data file location : %s", guiSettings, recipeBookFilePath);
+        StringBuilder sb = new StringBuilder();
+        sb.append("Gui Settings : " + guiSettings);
+        sb.append("\nLocal data file location : " + recipeBookFilePath);
+        return sb.toString();
     }
 
 }
