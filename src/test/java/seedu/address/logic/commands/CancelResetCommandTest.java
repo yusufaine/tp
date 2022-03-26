@@ -11,32 +11,30 @@ import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 
+
 /**
  * Contains integration tests (interaction with the Model) and unit tests for.
- * {@code ClearCommand}.
+ * {@code CancelResetCommand}.
  */
-public class ClearCommandTest {
+public class CancelResetCommandTest {
     private final Model model = new ModelManager(getTypicalRecipeBook(), new UserPrefs());
     private final Model expectedModel = new ModelManager(getTypicalRecipeBook(), new UserPrefs());
 
     @Test
-    public void execute_showsRequireConfirmationMessage_success() {
-        ClearCommand command = new ClearCommand();
-        String expectedMessage = "Are you sure you want to clear the recipe book?"
-                + " Enter 'yes' if you wish to clear and 'no' if you do not wish to clear";
+    public void execute_showsCancellationMessage_success() {
+        CancelResetCommand command = new CancelResetCommand();
+        String expectedMessage = "Reset has been cancelled!";
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
     }
 
     @Test
     public void equals_test() {
-        ClearCommand c1 = new ClearCommand();
-        ClearCommand c2 = new ClearCommand();
-        ConfirmedClearCommand confirmedClear = new ConfirmedClearCommand();
-        CancelClearCommand cancelClear = new CancelClearCommand();
-        assertEquals(c1, c1);
-        assertEquals(c1, c2);
-        assertNotEquals(c1, confirmedClear);
-        assertNotEquals(c1, cancelClear);
+        ResetCommand reset = new ResetCommand();
+        CancelResetCommand r1 = new CancelResetCommand();
+        CancelResetCommand r2 = new CancelResetCommand();
+        assertEquals(r1, r1);
+        assertEquals(r1, r2);
+        assertNotEquals(r1, reset);
     }
 
 }

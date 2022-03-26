@@ -12,35 +12,38 @@ import seedu.address.model.ModelManager;
 import seedu.address.model.ReadOnlyRecipeBook;
 import seedu.address.model.RecipeBook;
 import seedu.address.model.UserPrefs;
+import seedu.address.model.util.SampleDataUtil;
 
 /**
  * Contains integration tests (interaction with the Model) and unit tests for.
- * {@code ConfirmedClearCommand}.
+ * {@code ConfirmedResetCommand}.
  */
-public class ConfirmedClearCommandTest {
+public class ConfirmedResetCommandTest {
     private final Model model = new ModelManager(getTypicalRecipeBook(), new UserPrefs());
     private final Model expectedModel = new ModelManager(getTypicalRecipeBook(), new UserPrefs());
 
     @Test
-    public void execute_recipeBookCleared() {
-        ConfirmedClearCommand command = new ConfirmedClearCommand();
-        ReadOnlyRecipeBook readOnlyBeforeClear = model.getRecipeBook();
-        RecipeBook beforeClear = new RecipeBook(readOnlyBeforeClear);
-        expectedModel.setRecipeBook(new RecipeBook());
-        String expectedMessage = "Recipe book has been cleared!";
+    public void execute_recipeBookReset_success() {
+        ConfirmedResetCommand command = new ConfirmedResetCommand();
+        ReadOnlyRecipeBook readOnlyBeforeReset = model.getRecipeBook();
+        RecipeBook beforeReset = new RecipeBook(readOnlyBeforeReset);
+
+        expectedModel.setRecipeBook(SampleDataUtil.getSampleRecipeBook());
+        String expectedMessage = "Recipe book has been Reset!";
+
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
         assertEquals(model.getRecipeBook(), expectedModel.getRecipeBook());
-        assertNotEquals(beforeClear, new RecipeBook(model.getRecipeBook()));
+        assertNotEquals(beforeReset, new RecipeBook(model.getRecipeBook()));
     }
 
     @Test
     public void equals_test() {
-        ClearCommand clear = new ClearCommand();
-        ConfirmedClearCommand c1 = new ConfirmedClearCommand();
-        ConfirmedClearCommand c2 = new ConfirmedClearCommand();
-        assertEquals(c1, c1);
-        assertEquals(c1, c2);
-        assertNotEquals(c1, clear);
+        ResetCommand reset = new ResetCommand();
+        ConfirmedResetCommand r1 = new ConfirmedResetCommand();
+        ConfirmedResetCommand r2 = new ConfirmedResetCommand();
+        assertEquals(r1, r1);
+        assertEquals(r1, r2);
+        assertNotEquals(r1, reset);
     }
 
 }

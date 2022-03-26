@@ -1,8 +1,7 @@
 ---
 layout: page
-title: User Guide
+title: McKitchen User Guide
 ---
-# McKitchen User Guide
 McKitchen (My-CLI-Kitchen) is a desktop application that can quickly store, edit, and search for recipes by running a single command, ideal for the fast typists, home cooks, and students who want a simple way to store or search for simple recipes to cook.
 
 ## Table of Content
@@ -153,13 +152,14 @@ Usage: (Automatically loads the recipes upon launching the application).
 ## Command Summary
 (To be filled)
 
-| Action               | Command format                                                                                          |
-|----------------------|---------------------------------------------------------------------------------------------------------|
-| add a new recipe     | `create recipe n/ <name of recipe> i/ <ingredients separated by commas> s/ <steps separated by commas>` |
-| delete a recipe      | `delete <recipe number from list>`                                                                      |
-| find a recipe        | `find <keyword> [, other keywords, seperated by comma]`                                                 |
-| list a recipe        | `list`                                                                                                  |
-| view specific recipe | `view <recipe number from list>`                                                                        |
+| Action               | Command format                                                                                                                                                                                                         |
+|----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| add a new recipe     | `add -n <name of recipe> -d <prep time of recipe> -ss <serving size/portions of recipe> -i <ingredients separated by commas> -s <steps separated by commas> [-t <tags separated by commas>]`                           |
+| edit a recipe        | `edit <name of recipe> -n <name of recipe> -d <prep time of recipe> -ss <serving size/portions of recipe> -i <ingredients separated by commas> -s <steps separated by commas> [-t <tags separated by commas>optional]` |
+| delete a recipe      | `delete <recipe number from list>`                                                                                                                                                                                     |
+| find a recipe        | `find <keyword> [, other keywords, seperated by comma]`                                                                                                                                                                |
+| list a recipe        | `list`                                                                                                                                                                                                                 |
+| view specific recipe | `view <recipe number from list>`                                                                                                                                                                                       |
 
 ###### [return to table of content](#table-of-content)
 
