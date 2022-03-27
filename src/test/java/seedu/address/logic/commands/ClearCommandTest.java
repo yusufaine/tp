@@ -23,7 +23,7 @@ public class ClearCommandTest {
     public void execute_showsRequireConfirmationMessage_success() {
         ClearCommand command = new ClearCommand();
         String expectedMessage = "Are you sure you want to clear the recipe book?\n"
-                + "Enter 'yes' if you wish to clear\n'no' if you do not wish to clear";
+                + "Enter 'yes' if you wish to clear \n'no' if you do not wish to clear";
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
     }
 
