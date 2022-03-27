@@ -7,16 +7,20 @@ McKitchen (My-CLI-Kitchen) is a desktop application that can quickly store, edit
 ## Table of Content
 - [Quick start](#quick-start)
 - [Features](#features)
-    * [Add recipe](#add-recipe)
-    * [Edit recipe](#edit-recipe)
-    * [Delete recipe](#delete-recipe)
-    * [Find recipe](#find-recipe)
-    * [List recipe](#list-recipe)
-    * [View recipe](#view-recipe)
+    * [Adding a new recipe: `add`](#adding-a-new-recipe---add-)
+    * [Edit an existing recipe: `edit`](#edit-an-existing-recipe---edit-)
+    * [Delete an existing recipe: `delete`](#delete-an-existing-recipe---delete-)
+    * [List all stored recipes: `list`](#list-all-stored-recipes---list-)
+    * [View recipe an existing recipe: `view`](#view-recipe-an-existing-recipe---view-)
+    * [Clear (delete all) existing recipes: `clear`](#clear--delete-all--existing-recipes---clear-)
+        + [Forced Clear:](#forced-clear-)
     * [Store recipe](#store-recipe)
     * [Load recipe](#load-recipe)
 - [FAQ](#faq)
 - [Command Summary](#command-summary)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 
 ---
 
@@ -124,6 +128,8 @@ Example:
     - This would display the full contents of the first recipe in the list which includes its ingredients and steps to prepare the dish.
 
 > :information_source: Recipe names are case-sensitive! <br>
+
+###### [return to table of content](#table-of-content)
 
 ### Clear (delete all) existing recipes: `clear`
 Clears the entire recipe book. A confirmation prompt would show up before the user could clear immediately. <br>
