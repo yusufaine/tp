@@ -92,12 +92,12 @@ Edits a recipe by specifying its name, ingredients, and steps to prepare the dis
 
 </div>
 
-Usage: `edit <name of recipe to be edited> [-n <new name of recipe>] [-d <new completion time of recipe>] [-ss <new serving size of recipe>] [-i <new ingredients of recipes separated by commas>] [-s <new steps separated by commas>] [-t <new tags associated with recipe>]` <br>
+Usage: `edit <name of recipe to be edited> [-n <new name of recipe> -d <new completion time of recipe> -ss <new serving size of recipe> -i <new ingredients of recipes separated by commas> -s <new steps separated by commas> -t <new tags associated with recipe>]` <br>
    OR <br>
 `edit -x <recipe number to be edited> -n <new name of recipe> -d <new completion time of recipe> -ss <new serving size of recipe> -i <new ingredients of recipes separated by commas> -s <new steps separated by commas> [-t <new tags associated with recipe>]`
 Example:
 - `edit Aglio Olio -n Spicy Aglio Olio -i spaghetti 56 grams, garlic 3 cloves, bacon 3 slices, olive oil 110 ml, Chilli flakes 10 teaspoons -s Cook the spaghetti until al dante, Saute the chopped garlic, Toss spaghetti in the sauce, taste and season with salt, black pepper and chilli flakes`
-    - This edits the recipe named "Aglio Olio" and updates its attributes with a name of "Spicy Aglio Olio", completion time of 5 mins, serving size of 1 person/pax and ingredients consisting of 56 grams of spaghetti, 3 cloves of garlic, 3 slices of bacon, 110 ml of olive oil and 10 teaspoons of chilli flakes with the steps of:
+    - This edits the recipe named "Aglio Olio" and updates its attributes with a name of "Spicy Aglio Olio" and ingredients consisting of 56 grams of spaghetti, 3 cloves of garlic, 3 slices of bacon, 110 ml of olive oil and 10 teaspoons of chilli flakes with the steps of:
         1. Cook the spaghetti until al dante,
         2. Saute the chopped garlic,
         3. Toss the spaghetti in the sauce,
@@ -272,11 +272,11 @@ It will not take effect immediately. A confirmation prompt will allow you to con
 | Action               | Command format                                                                                                                                                                                                 |
 |----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | add a new recipe     | `add -n <name of recipe> -d <prep time of recipe> -ss <serving size/portions of recipe> -i <ingredients separated by commas> -s <steps separated by commas> [-t <tags separated by commas>]`                   |
-| edit a recipe        | `edit <name of recipe> -n <name of recipe> -d <prep time of recipe> -ss <serving size/portions of recipe> -i <ingredients separated by commas> -s <steps separated by commas> [-t <tags separated by commas>]` |
+| edit a recipe        | `edit <name of recipe> [-n <new name of recipe> -d <new prep time of recipe> -ss <new serving size/portions of recipe> -i <new ingredients separated by commas> -s <new steps separated by commas> -t <new tags separated by commas>]` <br/> or <br/> `edit <recipe number from list> [-n <new name of recipe> -d <new prep time of recipe> -ss <new serving size/portions of recipe> -i <new ingredients separated by commas> -s <new steps separated by commas> -t <new tags separated by commas>]` |
 | delete a recipe      | `delete <recipe name>` <br> or <br> `delete -x <recipe number from list>`                                                                                                                                      |
 | find a recipe        | `find <keyword> [other keywords separated by commas]`                                                                                                                                                          |
 | list a recipe        | `list`                                                                                                                                                                                                         |
-| view specific recipe | `view <recipe number from list>` <br/> or <br/> `view <recipe name>`                                                                                                                                           |
+| view specific recipe | `view <recipe name>` <br/> or <br/> `view <recipe number from list>`                                                                                                                                           |
 
 ###### [return to table of content](#table-of-content)
 
