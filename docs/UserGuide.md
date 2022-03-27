@@ -31,10 +31,12 @@ Throughout the document you may encounter some of these symbols, and they denote
 
 ## Quick start
 
+In this section, we will get you started on the things you need to do prior to using McKitchen -- namely, installing Java 11.
+
 1. Ensure you have Java `11` or above installed in your Computer by clicking [here](https://www.java.com/en/download/help/version_manual.html).
    1. If you do not have Java version >= `11` installed, refer to [this installation guide](https://docs.oracle.com/en/java/javase/11/install/overview-jdk-installation.html).
 
-2. Download the latest `McKitchen.jar` from [here](https://github.com/AY2122S2-CS2103T-T17-2/tp/releases).
+2. Download the latest `McKitchen.jar` from [our GitHub page](https://github.com/AY2122S2-CS2103T-T17-2/tp/releases).
 
 3. Copy the file to the folder you want to use as the _home folder_ for your McKitchen.
 
@@ -59,6 +61,14 @@ Note how the app contains some sample data.<br>
 ---
 
 ## Features
+
+In this section we would be going over what each feature does, how to go about doing so, and what it achieves. <br>
+
+<div markdown="block" class="alert alert-info">
+
+:information_source: For a summarised version, feel free to jump to the [Command Summary](#command-summary).
+
+</div>
 
 ### Add a new recipe: `add`
 Add a recipe by specifying its name, ingredients, and steps to prepare the dish.<br>
@@ -158,11 +168,11 @@ Example:
 [<sub>return to table of content<sub>](#table-of-content)
 
 ### Clear (delete all) existing recipes: `clear`
-Clears the entire recipe book. A confirmation prompt would show up before the user could clear immediately. <br>
+Clears the entire recipe book. A confirmation prompt would show up before this operation is executed. <br>
 
 Usage: `clear`
 
-The program would then prompt the user to confirm. Type in `yes` to clear and `no` to cancel the clear request.
+The program would then prompt you to confirm. Type in `yes` to clear and `no` to cancel the clear request.
 
 Example: 
 - clear
@@ -171,7 +181,7 @@ Example:
 
 <div markdown="block" class="alert alert-info">
 
-️:heavy_exclamation_mark: :computer: To clear the recipe book without the confirmation, users simply have to include the prefix `-f` after the `clear` command. McKitchen is only able to restore the default sample recipes by running `reset`. Currently, McKitchen isn't able to undo actions in the application so use this feature with caution! 
+️:heavy_exclamation_mark: :computer: To clear the recipe book without the confirmation, you can include the prefix `-f` after the `clear` (forced clear) command. McKitchen is only able to restore the default sample recipes by running `reset`. Currently, McKitchen isn't able to undo actions in the application so use this feature with caution! 
 
 </div>
 
@@ -184,7 +194,7 @@ Example:
 [<sub>return to table of content<sub>](#table-of-content)
 
 ### Save recipes
-Save the recipes in a human-readable text file on the your computer and is modifiable through a text editor if the user is familiar with the format (JSON). <br>
+Save the recipes in a human-readable text file on your computer and is modifiable through a text editor as it is JSON-formatted. <br>
 Usage: (Automatically updates text file upon each modifying (writing) operation).
 
 <div markdown="block" class="alert alert-info">
@@ -200,14 +210,14 @@ Example: If McKitchen is saved in the "Downloads" folder, recipes would be saved
 [<sub>return to table of content<sub>](#table-of-content)
 
 ### Load recipe
-Load existing recipes from the text file on the user's computer. Modifications to this file would be displayed accordingly as long as the format is followed. <br>
+Load existing recipes from the text file on your computer. Modifications to this file would be displayed accordingly as long as the format is followed. <br>
 Usage: (Automatically loads the recipes upon launching the application).
 
 <div markdown="block" class="alert alert-info">
 
 ️:information_source: Recipes would be loaded from a file called "recipebook.json" in a folder called "data" from where McKitchen is located. <br>
 Example: If McKitchen is stored in the "Downloads" folder, recipes would be loaded in a folder called "data" which should "recipebook.json". <br><br>
-If the file or folder does not exist, McKitchen would automatically create them and provide a sample recipes to allow users to explore the application without needing to input their own recipes. <br>
+If the file or folder does not exist, McKitchen would automatically create them and provide a sample recipes to allow you to explore the application without needing to input their own recipes. <br>
 
 :computer: McKitchen would try to locate and load "recipebook.json" relative to where it's being ran (./data/recipebook.json). <br>
 ️:computer: If you are familiar with JSON, you can modify the file to add new recipes or modify aspects of an existing recipe without needing to run McKitchen. You are advised to strictly follow the formatting of the application as failure to do so may result to certain aspects of the recipes to not load properly, if at all.
@@ -252,7 +262,7 @@ It will not take effect immediately. A confirmation prompt will allow you to con
 ## Command Summary
 
 ### How to read this table?
-1. User actions (what you would want to do) is on the left while the command associated to it is on the right.
+1. Actions (what you would want to do) is on the left while the command associated to it is on the right.
 2. Almost all the details of the commands are needed to be given before the command can be executed properly.
    1. **Compulsory** details are denoted by angled-brackets such as \<mandatory details>.
    2. **Optional** details of the command that are enclosed in square brackets such as [optional details].
