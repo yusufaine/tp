@@ -2,7 +2,15 @@
 layout: page
 title: User Guide
 ---
-McKitchen (My-CLI-Kitchen) is a desktop application that can quickly store, edit, and search for recipes by running a single command, ideal for the fast typists, home cooks, and students who want a simple way to store or search for simple recipes to cook.
+McKitchen (My-CLI-Kitchen) is a desktop application that can quickly store, edit, and search for recipes by running a single command, ideal for the fast typists, amateur cooks, or busy students or executives who want a simple way to store or search for simple recipes to cook.
+
+## About this Guide
+This guide is intended to be used by those who are interested in how to use McKitchen -- whether you're a user of McKitchen or simply doing research, welcome! A [table of content](#table-of-content) is located just below this section to improve navigation of this guide and bring you to the portion of the guide that you are interested in. Additionally, in each of those sections, we've linked a small text titled "return to Table of Content" for you to be able to quickly jump back to the top should you choose to. 
+
+Throughout the document you may encounter some of these symbols, and they denote the following:
+* :information_source: : General tips regarding the section or feature that you are currently on
+* :computer: : Tips for advanced users
+* :heavy_exclamation_mark: : Warning! Pay close attention to them to understand the potential drawbacks of related to the section or feature that you are currently on.
 
 ## Table of Content
 - [Quick start](#quick-start)
@@ -18,9 +26,6 @@ McKitchen (My-CLI-Kitchen) is a desktop application that can quickly store, edit
     * [Load recipe](#load-recipe)
 - [FAQ](#faq)
 - [Command Summary](#command-summary)
-
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
 
 ---
 
@@ -85,8 +90,12 @@ Example:
 - `delete Aglio Olio` 
     - This would delete the recipe called 'Aglio Olio'.
 
-> :information_source: Recipe names are case-sensitive! <br>
-> To prevent accidental deletions, McKitchen requires deletion by name to be case-sensitive. 
+<div markdown="block" class="alert alert-info">
+
+:information_source: **Deletion of recipes by its name are case-sensitive!**<br>
+To prevent accidental deletions, McKitchen makes it _slightly_ inconvenient for users to delete a recipe by its name by making it case-sensitive. A faster way to remove a recipe from McKitchen is through its index.
+
+</div>
 
 [<sub>return to table of content<sub>](#table-of-content)
 
@@ -99,8 +108,12 @@ Example:
         The command that you would execute should look something like this:
     - `find western, spaghetti, garlic`
 
-> :information_source: Keywords are case-insensitive! <br>
-> Don't worry, McKitchen would still be able to find "Secret Family Sauce" even if you search for "secret family sauce" :wink:
+<div markdown="block" class="alert alert-info">
+
+:information_source: **Keywords used for the find feature are case-insensitive!**<br>
+Don't worry, McKitchen would still be able to find "Secret Family Sauce" even if you search for "secret family sauce" (or searching for the secret ingredient) :wink:
+
+</div>
 
 [<sub>return to table of content<sub>](#table-of-content)
 
@@ -136,8 +149,12 @@ Example:
     - This would generate a clear request that requires a confirmation. To confirm to clear the recipe book, type in 'yes',
     - else, type in 'no'.
 
-> ‼️ Advance user tip: To clear the recipe book without the confirmation, users simply have to include the prefix `-f` after the `clear` command.
-  
+<div markdown="block" class="alert alert-info">
+
+️:heavy_exclamation_mark: :computer: To clear the recipe book without the confirmation, users simply have to include the prefix `-f` after the `clear` command. McKitchen is only able to restore the default sample recipes by running `reset`. Currently, McKitchen isn't able to undo actions in the application so use this feature with caution! 
+
+</div>
+
 #### Forced Clear:
 Usage: `clear -f` <br>
 Example:
@@ -150,8 +167,12 @@ Example:
 Save the recipes in a human-readable text file on the your computer and is modifiable through a text editor if the user is familiar with the format (JSON). <br>
 Usage: (Automatically updates text file upon each modifying (writing) operation).
 
-> :information_source: Recipes would be saved in a folder called "data" from where McKitchen is located. <br>
-> Example: If McKitchen is saved in the "Downloads" folder, recipes would be saved in a folder called "data" in "Downloads" as "recipebook.json".
+<div markdown="block" class="alert alert-info">
+
+️:information_source: Recipes would be saved in a folder called "data" from where McKitchen is located. <br>
+Example: If McKitchen is saved in the "Downloads" folder, recipes would be saved in a folder called "data" in "Downloads" as "recipebook.json".
+
+</div>
 
 [<sub>return to table of content<sub>](#table-of-content)
 
@@ -159,11 +180,18 @@ Usage: (Automatically updates text file upon each modifying (writing) operation)
 Load existing recipes from the text file on the user's computer. Modifications to this file would be displayed accordingly as long as the format is followed. <br>
 Usage: (Automatically loads the recipes upon launching the application).
 
-> :information_source: Recipes would be loaded from a file called "recipebook.json" in a folder called "data" from where McKitchen is located. <br>
-> Example: If McKitchen is stored in the "Downloads" folder, recipes would be loaded in a folder called "data" which should "recipebook.json". <br>
-> If the file or folder does not exist, McKitchen would automatically create them and provide a sample recipes to allow users to explore the application without needing to input their own recipes.
+<div markdown="block" class="alert alert-info">
 
-> ‼️ Advance user tip: If you are familiar with JSON, you modify the file to add new recipes or modify aspects of an existing recipe without needing to run McKitchen. You are advised to strictly follow the formatting of the application as failure to do so may result to certain aspects of the recipes to not load properly, if at all.
+️:information_source: Recipes would be loaded from a file called "recipebook.json" in a folder called "data" from where McKitchen is located. <br>
+Example: If McKitchen is stored in the "Downloads" folder, recipes would be loaded in a folder called "data" which should "recipebook.json". <br><br>
+If the file or folder does not exist, McKitchen would automatically create them and provide a sample recipes to allow users to explore the application without needing to input their own recipes.
+</div>
+
+<div markdown="block" class="alert alert-info">
+
+️:computer: Advance user tip: If you are familiar with JSON, you modify the file to add new recipes or modify aspects of an existing recipe without needing to run McKitchen. You are advised to strictly follow the formatting of the application as failure to do so may result to certain aspects of the recipes to not load properly, if at all.
+
+</div>
 
 ###### [return to table of content](#table-of-content)
 
@@ -174,13 +202,13 @@ Usage: (Automatically loads the recipes upon launching the application).
 You cannot save the recipe with empty fields. Instead, you can add a dummy value into the field you are unsure of, then edit it after you are sure of the input values.
 
 **Q: Is there a faster way to delete a recipe instead of copying the recipe name word for word?**<br>
-The fastest way is to delete a recipe by it's index `delete -x <recipe index>`
+The fastest way is to delete a recipe by its index `delete -x <recipe index>`
 
 **Q: How do I transfer my recipes to another computer?**<br>
 Copy the recipebook.json file into your new computer.
 
 **Q: What do I need to consider when adding a new recipe?**<br>
-You need to consider the recipe name, ingredients, steps to prepare the dish and it's completion time. You can also consider adding tags associated with your recipe.
+You need to consider the recipe name, ingredients, steps to prepare the dish, and it's completion time. You can also consider adding tags associated with your recipe.
 
 **Q: If I deleted one of the provided (default) recipe by accident, can I retrieve it back?**<br>
 You can use the reset command to retrieve the recipe. For newly added recipes, you will not be able to undo your deletion. 
