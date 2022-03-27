@@ -36,6 +36,7 @@ McKitchen (My-CLI-Kitchen) is a desktop application that can quickly store, edit
 4. To run the application, if you're on:
    1. Windows: Double-click the file to start the app.
    2. MacOS/UNIX: Open the terminal in the _home folder_ (Step 3) and issue the following command: `java -jar McKitchen.jar`
+      1. (Technically demanding) Alternatively, you can allow the application Full Disk Access and be able to run the McKitchen by double-clicking on it by following [this post](https://discussions.apple.com/thread/252709578).
 
 The GUI similar to the below should appear in a few seconds <to update>. <br>
 Note how the app contains some sample data.<br>
