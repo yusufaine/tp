@@ -29,7 +29,7 @@ public class DeleteCommandParser implements Parser<DeleteCommand> {
         Prefix prefix = userInput.contains(PREFIX_INDEX.getPrefix())
                 ? PREFIX_INDEX
                 : PREFIX_NAME;
-        ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(userInput.trim(), prefix);
+        ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(userInput, prefix);
 
         try {
             if (prefix.equals(PREFIX_INDEX)) {

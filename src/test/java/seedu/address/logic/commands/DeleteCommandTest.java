@@ -17,7 +17,7 @@ import org.junit.jupiter.api.Test;
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.model.Model;
-import seedu.address.model.RecipeBookModelManager;
+import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.recipe.Name;
 import seedu.address.model.recipe.Recipe;
@@ -28,11 +28,11 @@ import seedu.address.model.recipe.Recipe;
 */
 public class DeleteCommandTest {
 
-    private Model model = new RecipeBookModelManager(getTypicalRecipeBook(), new UserPrefs());
+    private Model model = new ModelManager(getTypicalRecipeBook(), new UserPrefs());
 
     @BeforeEach
     public void init() {
-        model = new RecipeBookModelManager(getTypicalRecipeBook(), new UserPrefs());
+        model = new ModelManager(getTypicalRecipeBook(), new UserPrefs());
     }
 
     @Test
@@ -42,7 +42,7 @@ public class DeleteCommandTest {
 
         String expectedMessage = String.format(DeleteCommand.MESSAGE_DELETE_RECIPE_SUCCESS, recipeToDelete);
 
-        RecipeBookModelManager expectedModel = new RecipeBookModelManager(model.getRecipeBook(), new UserPrefs());
+        ModelManager expectedModel = new ModelManager(model.getRecipeBook(), new UserPrefs());
         expectedModel.deleteRecipe(recipeToDelete);
 
         assertCommandSuccess(deleteCommand, model, expectedMessage, expectedModel);
@@ -56,7 +56,7 @@ public class DeleteCommandTest {
         DeleteCommand deleteCommand = new DeleteCommand(recipeToDelete.getName());
         String expectedMessage = String.format(DeleteCommand.MESSAGE_DELETE_RECIPE_SUCCESS, recipeToDelete);
 
-        RecipeBookModelManager expectedModel = new RecipeBookModelManager(model.getRecipeBook(), new UserPrefs());
+        ModelManager expectedModel = new ModelManager(model.getRecipeBook(), new UserPrefs());
         expectedModel.deleteRecipe(recipeToDelete);
 
         assertCommandSuccess(deleteCommand, model, expectedMessage, expectedModel);
@@ -74,7 +74,7 @@ public class DeleteCommandTest {
         Index outOfBoundIndex = Index.fromOneBased(model.getFilteredRecipeList().size() + 1);
         DeleteCommand deleteCommand = new DeleteCommand(outOfBoundIndex);
 
-        assertCommandFailure(deleteCommand, model, Messages.MESSAGE_INVALID_RECIPE_DISPLAYED_INDEX);
+        assertCommandFailure(deleteCommand, model, Messages.MESSAGE_INVALID_RECIPE_INDEX);
     }
 
 
@@ -87,7 +87,7 @@ public class DeleteCommandTest {
 
         String expectedMessage = String.format(DeleteCommand.MESSAGE_DELETE_RECIPE_SUCCESS, recipeToDelete);
 
-        Model expectedModel = new RecipeBookModelManager(model.getRecipeBook(), new UserPrefs());
+        Model expectedModel = new ModelManager(model.getRecipeBook(), new UserPrefs());
         expectedModel.deleteRecipe(recipeToDelete);
         showNoRecipe(expectedModel);
 
@@ -104,7 +104,7 @@ public class DeleteCommandTest {
 
         DeleteCommand deleteCommand = new DeleteCommand(outOfBoundIndex);
 
-        assertCommandFailure(deleteCommand, model, Messages.MESSAGE_INVALID_RECIPE_DISPLAYED_INDEX);
+        assertCommandFailure(deleteCommand, model, Messages.MESSAGE_INVALID_RECIPE_INDEX);
     }
 
     @Test

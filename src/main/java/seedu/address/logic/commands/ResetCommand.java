@@ -9,14 +9,14 @@ import seedu.address.model.Model;
  */
 public class ResetCommand extends Command {
     public static final String COMMAND_WORD = "reset";
-    public static final String MESSAGE_CONFIRMATION_REQUIRED = "Are you sure you want to clear and reset the "
-            + "recipe book to the default preloaded recipes? Enter 'yes' if you wish to clear and 'no' if you "
+    public static final String MESSAGE_CONFIRMATION_REQUIRED = "Are you sure you want to reset the "
+            + "recipe book back to the default preloaded recipes? \nEnter 'yes' if you wish to reset\n'no' if you "
             + "do not wish to clear";
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + " -f executes a forced reset with no need for confirmation.\n"
+            + " -f executes a forced reset.\n"
             + COMMAND_WORD
-            + " without any parameter will require a confirmation \n"
-            + "Example: " + COMMAND_WORD + " -f\n"
+            + "\nExample: " + COMMAND_WORD + " -f\n"
+            + "Reset without any parameter requires confirmation \n"
             + "Example: " + COMMAND_WORD;
 
 

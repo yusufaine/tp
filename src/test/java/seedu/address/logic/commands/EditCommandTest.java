@@ -25,8 +25,9 @@ import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.EditCommand.EditRecipeDescriptor;
 import seedu.address.model.Model;
+import seedu.address.model.ModelManager;
+import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.RecipeBook;
-import seedu.address.model.RecipeBookModelManager;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.recipe.Recipe;
 import seedu.address.testutil.EditRecipeDescriptorBuilder;
@@ -37,7 +38,9 @@ import seedu.address.testutil.RecipeBuilder;
  */
 public class EditCommandTest {
 
-    private Model model = new RecipeBookModelManager(getTypicalRecipeBook(), new UserPrefs());
+    private final ReadOnlyUserPrefs roup = new UserPrefs();
+    private final RecipeBook recipeBook = getTypicalRecipeBook();
+    private Model model = new ModelManager(getTypicalRecipeBook(), new UserPrefs());
 
     @Test
     public void execute_allFieldsSpecifiedUnfilteredList_success() {
@@ -47,7 +50,7 @@ public class EditCommandTest {
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_RECIPE_SUCCESS, editedRecipe);
 
-        Model expectedModel = new RecipeBookModelManager(new RecipeBook(model.getRecipeBook()), new UserPrefs());
+        Model expectedModel = new ModelManager(new RecipeBook(model.getRecipeBook()), new UserPrefs());
         expectedModel.setRecipe(model.getFilteredRecipeList().get(0), editedRecipe);
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
@@ -63,9 +66,9 @@ public class EditCommandTest {
                 .withName(VALID_NAME_CHICKEN_CHOP)
                 .withCompletionTime(VALID_COMPLETION_TIME_CHICKEN_CHOP)
                 .withServingSize(VALID_SERVING_SIZE_CHICKEN_CHOP)
-                .withIngredients(VALID_INGREDIENT_CHICKEN_CHICKEN_CHOP.toString(),
-                        VALID_INGREDIENT_POTATO_CHICKEN_CHOP.toString())
-                .withSteps(VALID_STEP_1_CHICKEN_CHOP.toString())
+                .withIngredients(VALID_INGREDIENT_CHICKEN_CHICKEN_CHOP,
+                        VALID_INGREDIENT_POTATO_CHICKEN_CHOP)
+                .withSteps(VALID_STEP_1_CHICKEN_CHOP)
                 .withTags(VALID_TAG_CHICKEN_CHOP).build();
 
         EditRecipeDescriptor descriptor = new EditRecipeDescriptorBuilder()
@@ -81,7 +84,7 @@ public class EditCommandTest {
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_RECIPE_SUCCESS, editedRecipe);
 
-        Model expectedModel = new RecipeBookModelManager(new RecipeBook(model.getRecipeBook()), new UserPrefs());
+        Model expectedModel = new ModelManager(new RecipeBook(model.getRecipeBook()), new UserPrefs());
         expectedModel.setRecipe(lastRecipe, editedRecipe);
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
@@ -94,7 +97,7 @@ public class EditCommandTest {
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_RECIPE_SUCCESS, editedRecipe);
 
-        Model expectedModel = new RecipeBookModelManager(new RecipeBook(model.getRecipeBook()), new UserPrefs());
+        Model expectedModel = new ModelManager(new RecipeBook(model.getRecipeBook()), new UserPrefs());
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
     }
@@ -111,7 +114,7 @@ public class EditCommandTest {
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_RECIPE_SUCCESS, editedRecipe);
 
-        Model expectedModel = new RecipeBookModelManager(new RecipeBook(model.getRecipeBook()), new UserPrefs());
+        Model expectedModel = new ModelManager(new RecipeBook(model.getRecipeBook()), new UserPrefs());
         expectedModel.setRecipe(model.getFilteredRecipeList().get(0), editedRecipe);
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
@@ -143,7 +146,7 @@ public class EditCommandTest {
         EditRecipeDescriptor descriptor = new EditRecipeDescriptorBuilder().withName(VALID_NAME_CHICKEN_CHOP).build();
         EditCommand editCommand = new EditCommand(outOfBoundIndex, descriptor);
 
-        assertCommandFailure(editCommand, model, Messages.MESSAGE_INVALID_RECIPE_DISPLAYED_INDEX);
+        assertCommandFailure(editCommand, model, Messages.MESSAGE_INVALID_RECIPE_INDEX);
     }
 
     /**
@@ -160,7 +163,7 @@ public class EditCommandTest {
         EditCommand editCommand = new EditCommand(outOfBoundIndex,
                 new EditRecipeDescriptorBuilder().withName(VALID_NAME_CHICKEN_CHOP).build());
 
-        assertCommandFailure(editCommand, model, Messages.MESSAGE_INVALID_RECIPE_DISPLAYED_INDEX);
+        assertCommandFailure(editCommand, model, Messages.MESSAGE_INVALID_RECIPE_INDEX);
     }
 
     @Test
@@ -187,5 +190,4 @@ public class EditCommandTest {
         // different descriptor -> returns false
         assertFalse(standardCommand.equals(new EditCommand(INDEX_FIRST_RECIPE, DESC_CHICKEN_CHOP)));
     }
-
 }

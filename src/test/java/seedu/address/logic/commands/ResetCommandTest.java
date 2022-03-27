@@ -8,7 +8,7 @@ import static seedu.address.testutil.TypicalRecipes.getTypicalRecipeBook;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.model.Model;
-import seedu.address.model.RecipeBookModelManager;
+import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 
 /**
@@ -16,14 +16,14 @@ import seedu.address.model.UserPrefs;
  * {@code ResetCommand}.
  */
 public class ResetCommandTest {
-    private final Model model = new RecipeBookModelManager(getTypicalRecipeBook(), new UserPrefs());
-    private final Model expectedModel = new RecipeBookModelManager(getTypicalRecipeBook(), new UserPrefs());
+    private final Model model = new ModelManager(getTypicalRecipeBook(), new UserPrefs());
+    private final Model expectedModel = new ModelManager(getTypicalRecipeBook(), new UserPrefs());
 
     @Test
     public void execute_showsRequireConfirmationMessage() {
         ResetCommand command = new ResetCommand();
-        String expectedMessage = "Are you sure you want to clear and reset the "
-                + "recipe book to the default preloaded recipes? Enter 'yes' if you wish to clear and 'no' if you "
+        String expectedMessage = "Are you sure you want to reset the "
+                + "recipe book back to the default preloaded recipes? \nEnter 'yes' if you wish to reset\n'no' if you "
                 + "do not wish to clear";
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
     }

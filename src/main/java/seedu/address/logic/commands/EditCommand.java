@@ -167,6 +167,15 @@ public class EditCommand extends Command {
                 && editRecipeDescriptor.equals(e.editRecipeDescriptor);
     }
 
+    @Override
+    public String toString() {
+        return "EditCommand{"
+                + "targetName=" + targetName
+                + ", targetIndex=" + targetIndex
+                + ", editRecipeDescriptor=" + editRecipeDescriptor
+                + '}';
+    }
+
     /**
      * Retrieves the {@code Recipe} with the same name as the specified name
      * from a given list of recipes.
@@ -199,14 +208,14 @@ public class EditCommand extends Command {
         int zeroBasedIndex = recipeIndex.getZeroBased();
 
         if (zeroBasedIndex >= lastShownList.size()) {
-            throw new CommandException(Messages.MESSAGE_INVALID_RECIPE_DISPLAYED_INDEX);
+            throw new CommandException(Messages.MESSAGE_INVALID_RECIPE_INDEX);
         }
 
         if (zeroBasedIndex < lastShownList.size()) {
             return lastShownList.get(zeroBasedIndex);
         }
 
-        throw new CommandException(String.format(Messages.MESSAGE_INVALID_RECIPE_DISPLAYED_INDEX));
+        throw new CommandException(String.format(Messages.MESSAGE_INVALID_RECIPE_INDEX));
     }
 
     /**
@@ -298,6 +307,18 @@ public class EditCommand extends Command {
          */
         public Optional<Set<Tag>> getTags() {
             return (tags != null) ? Optional.of(Collections.unmodifiableSet(tags)) : Optional.empty();
+        }
+
+        @Override
+        public String toString() {
+            return "EditRecipeDescriptor{"
+                    + "name=" + name
+                    + ", completionTime=" + completionTime
+                    + ", servingSize=" + servingSize
+                    + ", ingredients=" + ingredients
+                    + ", steps=" + steps
+                    + ", tags=" + tags
+                    + '}';
         }
 
         @Override
