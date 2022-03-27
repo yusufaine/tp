@@ -62,8 +62,8 @@ public class AddCommandTest {
         assertTrue(addAglioOlioCommand.equals(addAglioOlioCommand));
 
         // same values -> returns true
-        AddCommand addAliceCommandCopy = new AddCommand(aglioOlio);
-        assertTrue(addAglioOlioCommand.equals(addAliceCommandCopy));
+        AddCommand addAglioOlioCommandCopy = new AddCommand(aglioOlio);
+        assertTrue(addAglioOlioCommand.equals(addAglioOlioCommandCopy));
 
         // different types -> returns false
         assertFalse(addAglioOlioCommand.equals(1));
@@ -110,7 +110,7 @@ public class AddCommandTest {
         }
 
         @Override
-        public void addRecipe(Recipe person) {
+        public void addRecipe(Recipe recipe) {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -125,7 +125,7 @@ public class AddCommandTest {
         }
 
         @Override
-        public boolean hasRecipe(Recipe person) {
+        public boolean hasRecipe(Recipe recipe) {
             throw new AssertionError("This method should not be called.");
         }
 

@@ -38,16 +38,16 @@ public class CommandTestUtil {
     public static final String VALID_INGREDIENT_POTATO_CHICKEN_CHOP = "Potato 2";
     public static final List<String> VALID_INGREDIENTS_CHICKEN_CHOP =
             List.of(VALID_INGREDIENT_CHICKEN_CHICKEN_CHOP, VALID_INGREDIENT_POTATO_CHICKEN_CHOP);
-    public static final String VALID_INGREDIENT_SPAGHETTI_AGLIO_OLIO = "Spaghetti 1";
-    public static final String VALID_INGREDIENT_GARLIC_AGLIO_OLIO = "Garlic 3 portions";
+    public static final String VALID_INGREDIENT_SPAGHETTI_AGLIO_OLIO = "Spaghetti 1.0";
+    public static final String VALID_INGREDIENT_GARLIC_AGLIO_OLIO = "Garlic 3 Cloves";
     public static final List<String> VALID_INGREDIENTS_AGLIO_OLIO =
             List.of(VALID_INGREDIENT_GARLIC_AGLIO_OLIO, VALID_INGREDIENT_SPAGHETTI_AGLIO_OLIO);
     public static final String VALID_STEP_1_CHICKEN_CHOP = "Chop the chickens";
     public static final String VALID_STEP_2_CHICKEN_CHOP = "Cook the chicken slices";
     public static final List<String> VALID_STEPS_CHICKEN_CHOP =
             List.of(VALID_STEP_1_CHICKEN_CHOP, VALID_STEP_2_CHICKEN_CHOP);
-    public static final String VALID_STEP_1_AGLIO_OLIO = "Cook the spaghetti";
-    public static final String VALID_STEP_2_AGLIO_OLIO = "Slice the garlics";
+    public static final String VALID_STEP_1_AGLIO_OLIO = "Cook the pasta";
+    public static final String VALID_STEP_2_AGLIO_OLIO = "Saute the garlic";
     public static final List<String> VALID_STEPS_AGLIO_OLIO =
             List.of(VALID_STEP_1_AGLIO_OLIO, VALID_STEP_2_AGLIO_OLIO);
     public static final String VALID_TAG_AGLIO_OLIO = "italian";
