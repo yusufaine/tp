@@ -95,7 +95,7 @@ Edits a recipe by specifying its name, ingredients, and steps to prepare the dis
 
 Usage: `edit <name of recipe to be edited> [-n <new name of recipe> -d <new completion time of recipe> -ss <new serving size of recipe> -i <new ingredients of recipes separated by commas> -s <new steps separated by commas> -t <new tags associated with recipe>]` <br>
    OR <br>
-`edit -x <recipe number to be edited> -n <new name of recipe> -d <new completion time of recipe> -ss <new serving size of recipe> -i <new ingredients of recipes separated by commas> -s <new steps separated by commas> [-t <new tags associated with recipe>]`
+`edit -x <recipe number to be edited> [-n <new name of recipe> -d <new completion time of recipe> -ss <new serving size of recipe> -i <new ingredients of recipes separated by commas> -s <new steps separated by commas> -t <new tags associated with recipe>]`
 Example:
 - `edit Aglio Olio -n Spicy Aglio Olio -i spaghetti 56 grams, garlic 3 cloves, bacon 3 slices, olive oil 110 ml, Chilli flakes 10 teaspoons -s Cook the spaghetti until al dante, Saute the chopped garlic, Toss spaghetti in the sauce, taste and season with salt, black pepper and chilli flakes`
     - This edits the recipe named "Aglio Olio" and updates its attributes with a name of "Spicy Aglio Olio" and ingredients consisting of 56 grams of spaghetti, 3 cloves of garlic, 3 slices of bacon, 110 ml of olive oil and 10 teaspoons of chilli flakes with the steps of:
