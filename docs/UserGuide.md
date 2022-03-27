@@ -133,7 +133,11 @@ Example:
 - `view -x 1`
     - This would display the full contents of the first recipe in the list which includes its ingredients and steps to prepare the dish.
 
-> :information_source: Recipe names are case-sensitive! <br>
+<div markdown="block" class="alert alert-info">
+
+️:information_source: Recipe names are case-sensitive!
+
+</div>
 
 [<sub>return to table of content<sub>](#table-of-content)
 
