@@ -5,7 +5,18 @@ title: User Guide
 McKitchen (My-CLI-Kitchen) is a desktop application that can quickly store, edit, and search for recipes by running a single command, ideal for the fast typists, home cooks, and students who want a simple way to store or search for simple recipes to cook.
 
 ## Table of Content
-{:toc} (TO UPDATE)
+- [Quick start](#quick-start)
+- [Features](#features)
+    * [Add recipe](#add-recipe)
+    * [Edit recipe](#edit-recipe)
+    * [Delete recipe](#delete-recipe)
+    * [Find recipe](#find-recipe)
+    * [List recipe](#list-recipe)
+    * [View recipe](#view-recipe)
+    * [Store recipe](#store-recipe)
+    * [Load recipe](#load-recipe)
+- [FAQ](#faq)
+- [Command Summary](#command-summary)
 
 ---
 
@@ -42,7 +53,7 @@ Note how the app contains some sample data.<br>
 
 ## Features
 
-### Add recipe
+### Adding a new recipe: `add`
 Add a recipe by specifying its name, ingredients, and steps to prepare the dish.<br>
 Usage: `add -n <name of recipe> -d <completion time of recipe> -ss <serving size of recipe> -i <ingredients of recipes separated by commas> -s <steps separated by commas> -t <tags associated with recipe> (optional)` <br>
 Example:
@@ -55,7 +66,7 @@ Example:
 
 ###### [return to table of content](#table-of-content)
 
-### Edit recipe
+### Edit an existing recipe: `edit`
 Edits a recipe by specifying its name, ingredients, and steps to prepare the dish.<br>
 Usage: `edit -n <name of recipe> -d <completion time of recipe> -ss <serving size of recipe> -i <ingredients of recipes separated by commas> -s <steps separated by commas> -t <tags associated with recipe> (optional)` <br>
 Example:
@@ -68,47 +79,57 @@ Example:
 
 ###### [return to table of content](#table-of-content)
 
-### Delete recipe
+### Delete an existing recipe: `delete`
 Removes a stored recipe based on the number it is associated with in the `list` <br>
 Usage: `delete -x <recipe index>` or `delete <recipe name>` <br> 
 Example:
-- delete -x 1
+- `delete -x 1`
     - This would delete the first entry in the list of recipes.
-- delete Aglio Olio 
+- `delete Aglio Olio` 
     - This would delete the recipe called 'Aglio Olio'.
-  
+
+> :information_source: Recipe names are case-sensitive! <br>
+> To prevent accidental deletions, McKitchen requires deletion by name to be case-sensitive. 
 
 ###### [return to table of content](#table-of-content)
 
-### Find recipe
+### Find recipe an existing recipe: `find`
 Searches for a recipe based on the keywords (seperated by comma). <br>
-Usage: `find <keyword> [, other keywords, seperated by comma]` <br>
+Usage: `find <keyword> [other keywords, seperated by commas]` <br>
+
 Example: 
-- find western, fish
-  - This would display all the recipes that are "western", contains "fish", or both.
+- Let's say that you would like to cook a Western cuisine and have spaghetti and garlic on hand. <br>
+        The command that you would execute should look something like this:
+    - `find western, spaghetti, garlic`
+
+> :information_source: Keywords are case-insensitive! <br>
+> Don't worry, McKitchen would still be able to find "Secret Family Sauce" even if you search for "secret family sauce" :wink:
 
 ###### [return to table of content](#table-of-content)
 
-### List recipe
+### List all stored recipes: `list`
 Displays all the available recipes that has been stored locally <br>
 Usage: `list`
 
 ###### [return to table of content](#table-of-content)
 
-### View recipe
+### View recipe an existing recipe: `view`
 View the contents of an existing stored recipe based on recipe name or index. <br>
-Usage: `view <recipe name>` <br>
+Usage: `view <recipe name>` or `view -x <recipe number from list>` <br>
 Example:
-- view Aglio Olio
+- `view Aglio Olio`
     - This would display the full contents of the recipe matching the name "Aglio Olio" including its ingredients and steps to prepare the dish.
 
-### Clear recipe
-Clears the entire recipe book. A confirmation prompt would show up before the user could clear immediately. <br>
-To clear the recipe book without the confirmation, users simply have to include the prefix `-f` after the `clear` 
-command <br>
+- `view -x 1`
+    - This would display the full contents of the first recipe in the list which includes its ingredients and steps to prepare the dish.
 
-####Clear:
-Usage: `clear` <br>
+> :information_source: Recipe names are case-sensitive! <br>
+
+### Clear (delete all) existing recipes: `clear`
+Clears the entire recipe book. A confirmation prompt would show up before the user could clear immediately. <br>
+> ‼️ Advance user tip: To clear the recipe book without the confirmation, users simply have to include the prefix `-f` after the `clear` command. 
+
+Usage: `clear`
 
 The program would then prompt the user to confirm. Type in `yes` to clear and `no` to cancel the clear request.
 
@@ -117,16 +138,11 @@ Example:
     - This would generate a clear request that requires a confirmation. To confirm to clear the recipe book, type in 'yes',
     - else, type in 'no'.
   
-####Forced Clear:
-Usage: `clear <-f: Prefix for forced Clear>` <br>
+#### Forced Clear:
+Usage: `clear -f` <br>
 Example:
 - clear -f
     - This would clear the recipe book without having the need for any confirmation.
-    
-Usage: `view -x <recipe index>` <br>
-Example:
-- view -x 1
-    - This would display the full contents of the first recipe in the list which includes its ingredients and steps to prepare the dish.
 
 ###### [return to table of content](#table-of-content)
 
@@ -152,15 +168,23 @@ Usage: (Automatically loads the recipes upon launching the application).
 ---
 
 ## Command Summary
-(To be filled)
-| Action               | Command format                                                                                                                                                                                                         |
-|----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| add a new recipe     | `add -n <name of recipe> -d <prep time of recipe> -ss <serving size/portions of recipe> -i <ingredients separated by commas> -s <steps separated by commas> [-t <tags separated by commas>]`                           |
-| edit a recipe        | `edit <name of recipe> -n <name of recipe> -d <prep time of recipe> -ss <serving size/portions of recipe> -i <ingredients separated by commas> -s <steps separated by commas> [-t <tags separated by commas>optional]` |
-| delete a recipe      | `delete -x <recipe number from list> <br> OR <br> delete <recipe name>                                                                                                                                                                                    |
-| find a recipe        | `find <keyword> [, other keywords, seperated by comma]`                                                                                                                                                                |
-| list a recipe        | `list`                                                                                                                                                                                                                 |
-| view specific recipe | `view <recipe number from list>`                                                                                                                                                                                       |
+
+### How to read this table?
+1. User actions (what you would want to do) is on the left while the command associated to it is on the right.
+2. Almost all the details of the commands are needed to be given before the command can be executed properly.
+   1. **Compulsory** details are denoted by angled-brackets such as \<mandatory details>.
+   2. **Optional** details of the command that are enclosed in square brackets such as [optional details].
+3. What does it mean when the input command says "... separated by commas"?
+
+
+| Action               | Command format                                                                                                                                                                                                 |
+|----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| add a new recipe     | `add -n <name of recipe> -d <prep time of recipe> -ss <serving size/portions of recipe> -i <ingredients separated by commas> -s <steps separated by commas> [-t <tags separated by commas>]`                   |
+| edit a recipe        | `edit <name of recipe> -n <name of recipe> -d <prep time of recipe> -ss <serving size/portions of recipe> -i <ingredients separated by commas> -s <steps separated by commas> [-t <tags separated by commas>]` |
+| delete a recipe      | `delete -x <recipe number from list>` <br> or <br> `delete <recipe name>`                                                                                                                                      |
+| find a recipe        | `find <keyword> [other keywords separated by commas]`                                                                                                                                                          |
+| list a recipe        | `list`                                                                                                                                                                                                         |
+| view specific recipe | `view <recipe number from list>` <br/> or <br/> `view <recipe name>`                                                                                                                                           |
 
 ###### [return to table of content](#table-of-content)
 
