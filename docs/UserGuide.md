@@ -92,7 +92,7 @@ Edits a recipe by specifying its name, ingredients, and steps to prepare the dis
 
 </div>
 
-Usage: `edit <name of recipe to be edited> [-n <new name of recipe>] [-d <new completion time of recipe>] [-ss <new serving size of recipe>] [-i <new ingredients of recipes separated by commas>] [-s <new steps separated by commas>] [-t <new tags associated with recipe>]` <br>
+Usage: `edit <name of recipe to be edited> [-n <new name of recipe> -d <new completion time of recipe> -ss <new serving size of recipe> -i <new ingredients of recipes separated by commas> -s <new steps separated by commas> -t <new tags associated with recipe>]` <br>
    OR <br>
 `edit -x <index of recipe to be edited> -n <new name of recipe> -d <new completion time of recipe> -ss <new serving size of recipe> -i <new ingredients of recipes separated by commas> -s <new steps separated by commas> [-t <new tags associated with recipe>]`
 Example:
