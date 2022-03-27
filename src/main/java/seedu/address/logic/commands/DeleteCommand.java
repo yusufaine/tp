@@ -117,7 +117,7 @@ public class DeleteCommand extends Command {
             return lastShownList.get(zeroBasedIndex);
         }
 
-        throw new CommandException(Messages.MESSAGE_INVALID_RECIPE_DISPLAYED_INDEX);
+        throw new CommandException(Messages.MESSAGE_INVALID_RECIPE_INDEX);
     }
 
     public Index getToDeleteIndex() {

@@ -117,13 +117,13 @@ public class ViewCommand extends Command {
         int zeroBasedIndex = recipeIndex.getZeroBased();
 
         if (zeroBasedIndex >= lastShownList.size()) {
-            throw new CommandException(Messages.MESSAGE_INVALID_RECIPE_DISPLAYED_INDEX);
+            throw new CommandException(Messages.MESSAGE_INVALID_RECIPE_INDEX);
         }
 
         if (zeroBasedIndex < lastShownList.size()) {
             return lastShownList.get(zeroBasedIndex);
         }
 
-        throw new CommandException(Messages.MESSAGE_INVALID_RECIPE_DISPLAYED_INDEX);
+        throw new CommandException(Messages.MESSAGE_INVALID_RECIPE_INDEX);
     }
 }
