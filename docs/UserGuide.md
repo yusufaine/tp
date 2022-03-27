@@ -41,15 +41,7 @@ The GUI similar to the below should appear in a few seconds <to update>. <br>
 Note how the app contains some sample data.<br>
       ![Ui](images/Ui.png)
 
-5. (TO UPDATE) Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
-   Some commands and what they do:
-
-    * [**`add`**](#add-recipe): Adds a new recipe.
-    * [**`delete`**](#delete-recipe): Deletes a recipe.
-    * [**`find`**](#find-recipe): Displays a list of recipes with the specified keywords
-    * [**`list`**](#list-recipe): Lists all the stored recipes.
-    * [**`view`**](#view-recipe): Displays the full content of a recipe.
-    * [**`clear`**](#clear-recipe): Clears all existing recipes in a recipe book.
+5. Type the command where prompted "Enter command here" and press Enter to execute it. <br> Example: typing **`help`** and pressing Enter will open the help window.
 
 6. Refer to the [Features](#features) below for details of each command.
 
@@ -68,7 +60,7 @@ Example:
     3. Toss the spaghetti in the sauce,
     4. Taste and season with salt and black pepper.
 
-###### [return to table of content](#table-of-content)
+ [<sub>return to table of content<sub>](#table-of-content)
 
 ### Edit an existing recipe: `edit`
 Edits a recipe by specifying its name, ingredients, and steps to prepare the dish.<br>
@@ -81,7 +73,7 @@ Example:
         3. Toss the spaghetti in the sauce,
         4. Taste and season with salt, black pepper and chilli flakes.
 
-###### [return to table of content](#table-of-content)
+[<sub>return to table of content<sub>](#table-of-content)
 
 ### Delete an existing recipe: `delete`
 Removes a stored recipe based on the number it is associated with in the `list` <br>
@@ -95,7 +87,7 @@ Example:
 > :information_source: Recipe names are case-sensitive! <br>
 > To prevent accidental deletions, McKitchen requires deletion by name to be case-sensitive. 
 
-###### [return to table of content](#table-of-content)
+[<sub>return to table of content<sub>](#table-of-content)
 
 ### Find recipe an existing recipe: `find`
 Searches for a recipe based on the keywords (seperated by comma). <br>
@@ -109,13 +101,13 @@ Example:
 > :information_source: Keywords are case-insensitive! <br>
 > Don't worry, McKitchen would still be able to find "Secret Family Sauce" even if you search for "secret family sauce" :wink:
 
-###### [return to table of content](#table-of-content)
+[<sub>return to table of content<sub>](#table-of-content)
 
 ### List all stored recipes: `list`
 Displays all the available recipes that has been stored locally <br>
 Usage: `list`
 
-###### [return to table of content](#table-of-content)
+[<sub>return to table of content<sub>](#table-of-content)
 
 ### View recipe an existing recipe: `view`
 View the contents of an existing stored recipe based on recipe name or index. <br>
@@ -129,11 +121,10 @@ Example:
 
 > :information_source: Recipe names are case-sensitive! <br>
 
-###### [return to table of content](#table-of-content)
+[<sub>return to table of content<sub>](#table-of-content)
 
 ### Clear (delete all) existing recipes: `clear`
 Clears the entire recipe book. A confirmation prompt would show up before the user could clear immediately. <br>
-> ‼️ Advance user tip: To clear the recipe book without the confirmation, users simply have to include the prefix `-f` after the `clear` command. 
 
 Usage: `clear`
 
@@ -143,6 +134,8 @@ Example:
 - clear
     - This would generate a clear request that requires a confirmation. To confirm to clear the recipe book, type in 'yes',
     - else, type in 'no'.
+
+> ‼️ Advance user tip: To clear the recipe book without the confirmation, users simply have to include the prefix `-f` after the `clear` command.
   
 #### Forced Clear:
 Usage: `clear -f` <br>
@@ -150,17 +143,26 @@ Example:
 - clear -f
     - This would clear the recipe book without having the need for any confirmation.
 
-###### [return to table of content](#table-of-content)
+[<sub>return to table of content<sub>](#table-of-content)
 
-### Store recipe
-Store the recipe in a human-readable text file on the user's computer and is modifiable through a text editor if the user is familiar with the format (JSON). <br>
+### Save recipes
+Save the recipes in a human-readable text file on the your computer and is modifiable through a text editor if the user is familiar with the format (JSON). <br>
 Usage: (Automatically updates text file upon each modifying (writing) operation).
 
-###### [return to table of content](#table-of-content)
+> :information_source: Recipes would be saved in a folder called "data" from where McKitchen is located. <br>
+> Example: If McKitchen is saved in the "Downloads" folder, recipes would be saved in a folder called "data" in "Downloads" as "recipebook.json".
+
+[<sub>return to table of content<sub>](#table-of-content)
 
 ### Load recipe
 Load existing recipes from the text file on the user's computer. Modifications to this file would be displayed accordingly as long as the format is followed. <br>
 Usage: (Automatically loads the recipes upon launching the application).
+
+> :information_source: Recipes would be loaded from a file called "recipebook.json" in a folder called "data" from where McKitchen is located. <br>
+> Example: If McKitchen is stored in the "Downloads" folder, recipes would be loaded in a folder called "data" which should "recipebook.json". <br>
+> If the file or folder does not exist, McKitchen would automatically create them and provide a sample recipes to allow users to explore the application without needing to input their own recipes.
+
+> ‼️ Advance user tip: If you are familiar with JSON, you modify the file to add new recipes or modify aspects of an existing recipe without needing to run McKitchen. You are advised to strictly follow the formatting of the application as failure to do so may result to certain aspects of the recipes to not load properly, if at all.
 
 ###### [return to table of content](#table-of-content)
 
