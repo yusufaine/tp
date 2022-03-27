@@ -21,8 +21,8 @@ Throughout the document you may encounter some of these symbols, and they denote
     * [List all stored recipes: `list`](#list-all-stored-recipes---list-)
     * [View recipe an existing recipe: `view`](#view-recipe-an-existing-recipe---view-)
     * [Clear (delete all) existing recipes: `clear`](#clear--delete-all--existing-recipes---clear-)
-        + [Forced Clear:](#forced-clear-)
-    * [Store recipe](#store-recipe)
+        + [Forced Clear](#forced-clear-)
+    * [Save recipes](#save-recipes)
     * [Load recipe](#load-recipe)
 - [FAQ](#faq)
 - [Command Summary](#command-summary)
@@ -33,7 +33,7 @@ Throughout the document you may encounter some of these symbols, and they denote
 
 In this section, we will get you started on the things you need to do prior to using McKitchen -- namely, installing Java 11.
 
-1. Ensure you have Java `11` or above installed in your Computer by clicking [here](https://www.java.com/en/download/help/version_manual.html).
+1. Ensure you have Java `11` or above installed in your computer by clicking [here](https://www.java.com/en/download/help/version_manual.html).
    1. If you do not have Java version >= `11` installed, refer to [this installation guide](https://docs.oracle.com/en/java/javase/11/install/overview-jdk-installation.html).
 
 2. Download the latest `McKitchen.jar` from [our GitHub page](https://github.com/AY2122S2-CS2103T-T17-2/tp/releases).
@@ -94,7 +94,7 @@ Edits a recipe by specifying its name, ingredients, and steps to prepare the dis
 
 Usage: `edit <name of recipe to be edited> [-n <new name of recipe>] [-d <new completion time of recipe>] [-ss <new serving size of recipe>] [-i <new ingredients of recipes separated by commas>] [-s <new steps separated by commas>] [-t <new tags associated with recipe>]` <br>
    OR <br>
-`edit -x <index of recipe to be edited> -n <new name of recipe> -d <new completion time of recipe> -ss <new serving size of recipe> -i <new ingredients of recipes separated by commas> -s <new steps separated by commas> [-t <new tags associated with recipe>]`
+`edit -x <recipe number to be edited> -n <new name of recipe> -d <new completion time of recipe> -ss <new serving size of recipe> -i <new ingredients of recipes separated by commas> -s <new steps separated by commas> [-t <new tags associated with recipe>]`
 Example:
 - `edit Aglio Olio -n Spicy Aglio Olio -i spaghetti 56 grams, garlic 3 cloves, bacon 3 slices, olive oil 110 ml, Chilli flakes 10 teaspoons -s Cook the spaghetti until al dante, Saute the chopped garlic, Toss spaghetti in the sauce, taste and season with salt, black pepper and chilli flakes`
     - This edits the recipe named "Aglio Olio" and updates its attributes with a name of "Spicy Aglio Olio", completion time of 5 mins, serving size of 1 person/pax and ingredients consisting of 56 grams of spaghetti, 3 cloves of garlic, 3 slices of bacon, 110 ml of olive oil and 10 teaspoons of chilli flakes with the steps of:
@@ -216,8 +216,8 @@ Usage: (Automatically loads the recipes upon launching the application).
 <div markdown="block" class="alert alert-info">
 
 ️:information_source: Recipes would be loaded from a file called "recipebook.json" in a folder called "data" from where McKitchen is located. <br>
-Example: If McKitchen is stored in the "Downloads" folder, recipes would be loaded in a folder called "data" which should "recipebook.json". <br><br>
-If the file or folder does not exist, McKitchen would automatically create them and provide a sample recipes to allow you to explore the application without needing to input their own recipes. <br>
+Example: If McKitchen is stored in the "Downloads" folder, recipes would be loaded in a folder called "data" which should contain "recipebook.json". <br><br>
+If the file or folder does not exist, McKitchen would automatically create them and provide sample recipes to allow you to explore the application without needing to input their own recipes. <br>
 
 :computer: McKitchen would try to locate and load "recipebook.json" relative to where it's being ran (./data/recipebook.json). <br>
 ️:computer: If you are familiar with JSON, you can modify the file to add new recipes or modify aspects of an existing recipe without needing to run McKitchen. You are advised to strictly follow the formatting of the application as failure to do so may result to certain aspects of the recipes to not load properly, if at all.
