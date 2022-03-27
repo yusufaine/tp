@@ -114,7 +114,9 @@ public class CommandTestUtil {
      * - the returned {@link CommandResult} matches {@code expectedCommandResult} <br>
      * - the {@code actualModel} matches {@code expectedModel}
      */
-    public static void assertCommandSuccess(Command command, Model actualModel, CommandResult expectedCommandResult,
+    public static void assertCommandSuccess(Command command,
+                                            Model actualModel,
+                                            CommandResult expectedCommandResult,
                                             Model expectedModel) {
         try {
             CommandResult result = command.execute(actualModel);
@@ -164,5 +166,4 @@ public class CommandTestUtil {
 
         assertEquals(1, model.getFilteredRecipeList().size());
     }
-
 }
