@@ -157,8 +157,8 @@ Copy the recipebook.json file into your new computer.
 **Q: What do I need to consider when adding a new recipe?**<br>
 You need to consider the recipe name, ingredients, steps to prepare the dish and it's completion time. You can also consider adding tags associated with your recipe.
 
-**Q: If I deleted a pre-existing recipe by accident, can I retrieve it back?**<br>
-You can use the reset command to retrieve the recipe.
+**Q: If I deleted one of the provided (default) recipe by accident, can I retrieve it back?**<br>
+You can use the reset command to retrieve the recipe. For newly added recipes, you will not be able to undo your deletion. 
 
 **Q: If I typed in 'clear' or 'reset' in the command bar, will it take effect immediately?**<br>
 It will not take effect immediately. A confirmation prompt will allow you to confirm your decision. Alternatively, you can specify the prefix -f to clear or reset without any confirmation prompt. 
