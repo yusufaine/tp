@@ -276,7 +276,7 @@ It will not take effect immediately. A confirmation prompt will allow you to con
 | delete a recipe      | `delete <recipe name>` <br> or <br> `delete -x <recipe number from list>`                                                                                                                                      |
 | find a recipe        | `find <keyword> [other keywords separated by commas]`                                                                                                                                                          |
 | list a recipe        | `list`                                                                                                                                                                                                         |
-| view specific recipe | `view <recipe number from list>` <br/> or <br/> `view <recipe name>`                                                                                                                                           |
+| view specific recipe | `view <recipe name>` <br/> or <br/> `view <recipe number from list>`                                                                                                                                           |
 
 ###### [return to table of content](#table-of-content)
 
