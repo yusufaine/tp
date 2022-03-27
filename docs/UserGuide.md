@@ -22,6 +22,7 @@ Throughout the document you may encounter some of these symbols, and they denote
     * [View recipe an existing recipe: `view`](#view-recipe-an-existing-recipe---view-)
     * [Clear (delete all) existing recipes: `clear`](#clear--delete-all--existing-recipes---clear-)
         + [Forced Clear](#forced-clear-)
+    * [Reset to the default recipes: `reset`](#reset-to-the-default-recipes-reset)
     * [Save recipes](#save-recipes)
     * [Load recipe](#load-recipe)
 - [FAQ](#faq)
@@ -168,7 +169,7 @@ Example:
 [<sub>return to table of content<sub>](#table-of-content)
 
 ### Clear (delete all) existing recipes: `clear`
-Clears the entire recipe book. A confirmation prompt would show up before this operation is executed. <br>
+Removes all existing recipes in McKitchen. A confirmation prompt would show up before this operation is executed. <br>
 
 Usage: `clear`
 
@@ -176,12 +177,12 @@ The program would then prompt you to confirm. Type in `yes` to clear and `no` to
 
 Example: 
 - clear
-    - This would generate a clear request that requires a confirmation. To confirm to clear the recipe book, type in 'yes',
+    - This would generate a clear request that requires a confirmation. To confirm to clear McKitchen, type in 'yes',
     - else, type in 'no'.
 
 <div markdown="block" class="alert alert-info">
 
-️:heavy_exclamation_mark: :computer: To clear the recipe book without the confirmation, you can include the prefix `-f` after the `clear` (forced clear) command. McKitchen is only able to restore the default sample recipes by running `reset`. Currently, McKitchen isn't able to undo actions in the application so use this feature with caution! 
+️:heavy_exclamation_mark: :computer: To clear McKitchen without the confirmation, you can include the prefix `-f` after the `clear` (forced clear) command. McKitchen is only able to restore the default sample recipes by running `reset`. Currently, McKitchen isn't able to undo actions in the application so use this feature with caution! 
 
 </div>
 
@@ -189,7 +190,19 @@ Example:
 Usage: `clear -f` <br>
 Example:
 - clear -f
-    - This would clear the recipe book without having the need for any confirmation.
+    - This would clear McKitchen without having the need for any confirmation.
+
+### Reset to the default recipes: `reset`
+Resets the existing recipes in McKitchen to the default ones that it initially came with.
+
+Usage: `reset`
+
+<div markdown="block" class="alert alert-info">
+
+️:heavy_exclamation_mark: Running this command would also mean that you would clear all existing recipes.
+
+</div>
+
 
 [<sub>return to table of content<sub>](#table-of-content)
 
