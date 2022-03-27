@@ -57,7 +57,7 @@ Note how the app contains some sample data.<br>
 
 ## Features
 
-### Adding a new recipe: `add`
+### Add a new recipe: `add`
 Add a recipe by specifying its name, ingredients, and steps to prepare the dish.<br>
 Usage: `add -n <name of recipe> -d <completion time of recipe> -ss <serving size of recipe> -i <ingredients of recipes separated by commas> -s <steps separated by commas> -t <tags associated with recipe> (optional)` <br>
 Example:
