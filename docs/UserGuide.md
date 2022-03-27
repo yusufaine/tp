@@ -170,7 +170,24 @@ Usage: (Automatically loads the recipes upon launching the application).
 ---
 
 ## FAQ
-(To be filled)
+**Q: If I am unsure of the exact amount of ingredients im adding into my recipe, can I save it first and come back to it later?** <br>
+You cannot save the recipe with empty fields. Instead, you can add a dummy value into the field you are unsure of, then edit it after you are sure of the input values.
+
+**Q: Is there a faster way to delete a recipe instead of copying the recipe name word for word?**<br>
+The fastest way is to delete a recipe by it's index `delete -x <recipe index>`
+
+**Q: How do I transfer my recipes to another computer?**<br>
+Copy the recipebook.json file into your new computer.
+
+**Q: What do I need to consider when adding a new recipe?**<br>
+You need to consider the recipe name, ingredients, steps to prepare the dish and it's completion time. You can also consider adding tags associated with your recipe.
+
+**Q: If I deleted one of the provided (default) recipe by accident, can I retrieve it back?**<br>
+You can use the reset command to retrieve the recipe. For newly added recipes, you will not be able to undo your deletion. 
+
+**Q: If I typed in 'clear' or 'reset' in the command bar, will it take effect immediately?**<br>
+It will not take effect immediately. A confirmation prompt will allow you to confirm your decision. Alternatively, you can specify the prefix -f to clear or reset without any confirmation prompt. 
+
 
 ###### [return to table of content](#table-of-content)
 
