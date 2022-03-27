@@ -1,6 +1,6 @@
 ---
 layout: page
-title: McKitchen Developer Guide
+title: Developer Guide
 ---
 * Table of Contents
   {:toc}
