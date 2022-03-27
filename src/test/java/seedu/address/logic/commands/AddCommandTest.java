@@ -47,8 +47,8 @@ public class AddCommandTest {
         AddCommand addCommand = new AddCommand(validRecipe);
         ModelStub modelStub = new ModelStubWithRecipe(validRecipe);
 
-        assertThrows(CommandException.class, AddCommand.MESSAGE_DUPLICATE_RECIPE,
-                () -> addCommand.execute(modelStub));
+        assertThrows(CommandException.class, AddCommand.MESSAGE_DUPLICATE_RECIPE, () ->
+                addCommand.execute(modelStub));
     }
 
     @Test
