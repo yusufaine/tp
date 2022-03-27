@@ -1,6 +1,6 @@
 ---
 layout: page
-title: McKitchen User Guide
+title: User Guide
 ---
 McKitchen (My-CLI-Kitchen) is a desktop application that can quickly store, edit, and search for recipes by running a single command, ideal for the fast typists, home cooks, and students who want a simple way to store or search for simple recipes to cook.
 
@@ -70,10 +70,13 @@ Example:
 
 ### Delete recipe
 Removes a stored recipe based on the number it is associated with in the `list` <br>
-Usage: `delete <recipe number>` <br>
+Usage: `delete -x <recipe index>` or `delete <recipe name>` <br> 
 Example:
-- delete 1
+- delete -x 1
     - This would delete the first entry in the list of recipes.
+- delete Aglio Olio 
+    - This would delete the recipe called 'Aglio Olio'.
+  
 
 ###### [return to table of content](#table-of-content)
 
@@ -119,8 +122,7 @@ Usage: `clear <-f: Prefix for forced Clear>` <br>
 Example:
 - clear -f
     - This would clear the recipe book without having the need for any confirmation.
-
-=======
+    
 Usage: `view -x <recipe index>` <br>
 Example:
 - view -x 1
@@ -151,12 +153,11 @@ Usage: (Automatically loads the recipes upon launching the application).
 
 ## Command Summary
 (To be filled)
-
 | Action               | Command format                                                                                                                                                                                                         |
 |----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | add a new recipe     | `add -n <name of recipe> -d <prep time of recipe> -ss <serving size/portions of recipe> -i <ingredients separated by commas> -s <steps separated by commas> [-t <tags separated by commas>]`                           |
 | edit a recipe        | `edit <name of recipe> -n <name of recipe> -d <prep time of recipe> -ss <serving size/portions of recipe> -i <ingredients separated by commas> -s <steps separated by commas> [-t <tags separated by commas>optional]` |
-| delete a recipe      | `delete <recipe number from list>`                                                                                                                                                                                     |
+| delete a recipe      | `delete -x <recipe number from list> <br> OR <br> delete <recipe name>                                                                                                                                                                                    |
 | find a recipe        | `find <keyword> [, other keywords, seperated by comma]`                                                                                                                                                                |
 | list a recipe        | `list`                                                                                                                                                                                                                 |
 | view specific recipe | `view <recipe number from list>`                                                                                                                                                                                       |
