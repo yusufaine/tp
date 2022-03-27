@@ -41,7 +41,12 @@ Throughout the document you may encounter some of these symbols, and they denote
 4. To run the application, if you're on:
    1. Windows: Double-click the file to start the app.
    2. MacOS/UNIX: Open the terminal in the _home folder_ (Step 3) and issue the following command: `java -jar McKitchen.jar`
-      1. (Technically demanding) Alternatively, you can allow the application Full Disk Access and be able to run the McKitchen by double-clicking on it by following [this post](https://discussions.apple.com/thread/252709578).
+
+<div markdown="block" class="alert alert-info">
+
+:information_source: **Alternatively**, you can allow the application Full Disk Access and be able to run the McKitchen by double-clicking on it by following [this post](https://discussions.apple.com/thread/252709578).
+
+</div>
 
 The GUI similar to the below should appear in a few seconds <to update>. <br>
 Note how the app contains some sample data.<br>
@@ -70,36 +75,47 @@ Example:
 
 ### Edit an existing recipe: `edit`
 Edits a recipe by specifying its name, ingredients, and steps to prepare the dish.<br>
-Usage: `edit -n <name of recipe> -d <completion time of recipe> -ss <serving size of recipe> -i <ingredients of recipes separated by commas> -s <steps separated by commas> -t <tags associated with recipe> (optional)` <br>
+
+<div markdown="block" class="alert alert-info">
+
+:information_source: **Only specify the parts of the recipe that you want to edit!** The only necessary information needed is the name or number of the recipe that you would like to edit<br>
+
+</div>
+
+Usage: `edit <name of recipe to be edited> [-n <new name of recipe>] [-d <new completion time of recipe>] [-ss <new serving size of recipe>] [-i <new ingredients of recipes separated by commas>] [-s <new steps separated by commas>] [-t <new tags associated with recipe>]` <br>
+   OR <br>
+`edit -x <index of recipe to be edited> -n <new name of recipe> -d <new completion time of recipe> -ss <new serving size of recipe> -i <new ingredients of recipes separated by commas> -s <new steps separated by commas> [-t <new tags associated with recipe>]`
 Example:
-- `edit -n Spicy Aglio Olio -i spaghetti 56 grams, garlic 3 cloves, bacon 3 slices, olive oil 110 ml, Chilli flakes 10 teaspoons -s Cook the spaghetti until al dante, Saute the chopped garlic, Toss spaghetti in the sauce, taste and season with salt, black pepper and chilli flakes`
+- `edit Aglio Olio -n Spicy Aglio Olio -i spaghetti 56 grams, garlic 3 cloves, bacon 3 slices, olive oil 110 ml, Chilli flakes 10 teaspoons -s Cook the spaghetti until al dante, Saute the chopped garlic, Toss spaghetti in the sauce, taste and season with salt, black pepper and chilli flakes`
     - This edits the recipe named "Aglio Olio" and updates its attributes with a name of "Spicy Aglio Olio", completion time of 5 mins, serving size of 1 person/pax and ingredients consisting of 56 grams of spaghetti, 3 cloves of garlic, 3 slices of bacon, 110 ml of olive oil and 10 teaspoons of chilli flakes with the steps of:
         1. Cook the spaghetti until al dante,
         2. Saute the chopped garlic,
         3. Toss the spaghetti in the sauce,
         4. Taste and season with salt, black pepper and chilli flakes.
 
+- `edit -x 1 -n Spicy Aglio Olio [and other information that you would like to edit]`
+
 [<sub>return to table of content<sub>](#table-of-content)
 
 ### Delete an existing recipe: `delete`
 Removes a stored recipe based on the number it is associated with in the `list` <br>
-Usage: `delete -x <recipe index>` or `delete <recipe name>` <br> 
+Usage: `delete <recipe name>` or `delete -x <recipe number>` <br> 
 Example:
-- `delete -x 1`
-    - This would delete the first entry in the list of recipes.
-- `delete Aglio Olio` 
+- `delete Aglio Olio`
     - This would delete the recipe called 'Aglio Olio'.
+- `delete -x 1`
+      - This would delete the first entry in the list of recipes.
 
 <div markdown="block" class="alert alert-info">
 
-:information_source: **Deletion of recipes by its name are case-sensitive!**<br>
-To prevent accidental deletions, McKitchen makes it _slightly_ inconvenient for users to delete a recipe by its name by making it case-sensitive. A faster way to remove a recipe from McKitchen is through its index.
+:information_source: **Deletion of recipes by its name are case-insensitive!**<br>
+To make it a little more convenient for you, McKitchen is able to delete a recipe by its name by making it case-insensitive. This means that `delete aglio olio` works too!
 
 </div>
 
 [<sub>return to table of content<sub>](#table-of-content)
 
-### Find recipe an existing recipe: `find`
+### Find an existing recipe: `find`
 Searches for a recipe based on the keywords (seperated by comma). <br>
 Usage: `find <keyword> [other keywords, seperated by commas]` <br>
 
@@ -123,8 +139,8 @@ Usage: `list`
 
 [<sub>return to table of content<sub>](#table-of-content)
 
-### View recipe an existing recipe: `view`
-View the contents of an existing stored recipe based on recipe name or index. <br>
+### View an existing recipe: `view`
+View the contents of an existing stored recipe based on recipe name or number. <br>
 Usage: `view <recipe name>` or `view -x <recipe number from list>` <br>
 Example:
 - `view Aglio Olio`
@@ -135,7 +151,7 @@ Example:
 
 <div markdown="block" class="alert alert-info">
 
-️:information_source: Recipe names are case-sensitive!
+️:information_source: Recipe names are case-insensitive to make it a little more convenient for you. This means that `view aglio olio` works too!
 
 </div>
 
@@ -176,6 +192,9 @@ Usage: (Automatically updates text file upon each modifying (writing) operation)
 ️:information_source: Recipes would be saved in a folder called "data" from where McKitchen is located. <br>
 Example: If McKitchen is saved in the "Downloads" folder, recipes would be saved in a folder called "data" in "Downloads" as "recipebook.json".
 
+️:computer: If you are familiar with how file paths works in your operating system, the "recipebook.json" file would be created in a folder **relative** to McKitchen.jar (data/recipebook.json) 
+
+
 </div>
 
 [<sub>return to table of content<sub>](#table-of-content)
@@ -188,12 +207,10 @@ Usage: (Automatically loads the recipes upon launching the application).
 
 ️:information_source: Recipes would be loaded from a file called "recipebook.json" in a folder called "data" from where McKitchen is located. <br>
 Example: If McKitchen is stored in the "Downloads" folder, recipes would be loaded in a folder called "data" which should "recipebook.json". <br><br>
-If the file or folder does not exist, McKitchen would automatically create them and provide a sample recipes to allow users to explore the application without needing to input their own recipes.
-</div>
+If the file or folder does not exist, McKitchen would automatically create them and provide a sample recipes to allow users to explore the application without needing to input their own recipes. <br>
 
-<div markdown="block" class="alert alert-info">
-
-️:computer: Advance user tip: If you are familiar with JSON, you modify the file to add new recipes or modify aspects of an existing recipe without needing to run McKitchen. You are advised to strictly follow the formatting of the application as failure to do so may result to certain aspects of the recipes to not load properly, if at all.
+:computer: McKitchen would try to locate and load "recipebook.json" relative to where it's being ran (./data/recipebook.json). <br>
+️:computer: If you are familiar with JSON, you can modify the file to add new recipes or modify aspects of an existing recipe without needing to run McKitchen. You are advised to strictly follow the formatting of the application as failure to do so may result to certain aspects of the recipes to not load properly, if at all.
 
 </div>
 
@@ -206,13 +223,20 @@ If the file or folder does not exist, McKitchen would automatically create them 
 You cannot save the recipe with empty fields. Instead, you can add a dummy value into the field you are unsure of, then edit it after you are sure of the input values.
 
 **Q: Is there a faster way to delete a recipe instead of copying the recipe name word for word?**<br>
-The fastest way is to delete a recipe by its index `delete -x <recipe index>`
+The fastest way is to delete a recipe by its number in the list `delete -x <recipe number>`
 
 **Q: How do I transfer my recipes to another computer?**<br>
 Copy the recipebook.json file into your new computer.
 
 **Q: What do I need to consider when adding a new recipe?**<br>
-You need to consider the recipe name, ingredients, steps to prepare the dish, and it's completion time. You can also consider adding tags associated with your recipe.
+You need to consider the:
+1. Recipe name (`-n`),
+2. Completion time (`-d`),
+3. Serving Size (`-ss`),
+4. Ingredients (`-i`),
+5. Steps (`-s`)
+
+   The tags are optional.
 
 **Q: If I deleted one of the provided (default) recipe by accident, can I retrieve it back?**<br>
 You can use the reset command to retrieve the recipe. For newly added recipes, you will not be able to undo your deletion. 
@@ -239,7 +263,7 @@ It will not take effect immediately. A confirmation prompt will allow you to con
 |----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | add a new recipe     | `add -n <name of recipe> -d <prep time of recipe> -ss <serving size/portions of recipe> -i <ingredients separated by commas> -s <steps separated by commas> [-t <tags separated by commas>]`                   |
 | edit a recipe        | `edit <name of recipe> -n <name of recipe> -d <prep time of recipe> -ss <serving size/portions of recipe> -i <ingredients separated by commas> -s <steps separated by commas> [-t <tags separated by commas>]` |
-| delete a recipe      | `delete -x <recipe number from list>` <br> or <br> `delete <recipe name>`                                                                                                                                      |
+| delete a recipe      | `delete <recipe name>` <br> or <br> `delete -x <recipe number from list>`                                                                                                                                      |
 | find a recipe        | `find <keyword> [other keywords separated by commas]`                                                                                                                                                          |
 | list a recipe        | `list`                                                                                                                                                                                                         |
 | view specific recipe | `view <recipe number from list>` <br/> or <br/> `view <recipe name>`                                                                                                                                           |
