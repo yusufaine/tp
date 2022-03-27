@@ -110,7 +110,7 @@ Example:
 
 ### Delete an existing recipe: `delete`
 Removes a stored recipe based on the number it is associated with in the `list` <br>
-Usage: `delete <recipe name>` or `delete -x <recipe number>` <br> 
+Usage: `delete <recipe name>` or `delete -x <recipe number from list>` <br> 
 Example:
 - `delete Aglio Olio`
     - This would delete the recipe called 'Aglio Olio'.
