@@ -8,8 +8,8 @@ import static seedu.address.testutil.Assert.assertThrows;
 import org.junit.jupiter.api.Test;
 
 class NameTest {
-    private final Name n1 = new Name("test-00");
-    private final Name n2 = new Name("test-01");
+    private final Name n1 = new Name("test 00");
+    private final Name n2 = new Name("test 01");
 
     @Test
     public void constructor_null_throwsNullPointerException() {
@@ -24,7 +24,7 @@ class NameTest {
 
     @Test
     public void toString_test() {
-        assertEquals(n1.toString(), "test-00");
+        assertEquals(n1.toString(), "test 00");
     }
 
     @Test
