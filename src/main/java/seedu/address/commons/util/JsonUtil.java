@@ -134,10 +134,10 @@ public class JsonUtil {
             return Level.parse(loggingLevelString);
         }
 
-        @Override
-        public Class<Level> handledType() {
-            return Level.class;
-        }
+        // @Override
+        // public Class<Level> handledType() {
+        //     return Level.class;
+        // }
     }
 
 }

@@ -154,10 +154,4 @@ public class JsonAdaptedRecipeTest {
                         VALID_STEPS, invalidTags);
         assertThrows(IllegalValueException.class, recipe::toModelType);
     }
-
-    @Test
-    public void toModelType_invalidQuantity_throwsIllegalValueException() {
-
-    }
-
 }
