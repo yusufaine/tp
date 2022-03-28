@@ -12,6 +12,8 @@ Throughout the document you may encounter some of these symbols, and they denote
 * :computer: : Tips for advanced users
 * :heavy_exclamation_mark: : Warning! Pay close attention to them to understand the potential drawbacks of related to the section or feature that you are currently on.
 
+<div style="page-break-after: always;"></div>
+
 ## Table of Content
 - [Quick start](#quick-start)
 - [Features](#features)
@@ -51,7 +53,7 @@ In this section, we will get you started on the things you need to do prior to u
 
 </div>
 
-The GUI similar to the below should appear in a few seconds.Note how the app contains some sample data.<br>
+The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
 
 ![Ui](images/Ui.png)
 
