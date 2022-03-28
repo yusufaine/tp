@@ -51,9 +51,9 @@ In this section, we will get you started on the things you need to do prior to u
 
 </div>
 
-The GUI similar to the below should appear in a few seconds <to update>. <br>
-Note how the app contains some sample data.<br>
-      ![Ui](images/Ui.png)
+The GUI similar to the below should appear in a few seconds.Note how the app contains some sample data.<br>
+
+![Ui](images/Ui.png)
 
 5. Type the command where prompted "Enter command here" and press Enter to execute it. <br> Example: typing **`help`** and pressing Enter will open the help window.
 
@@ -82,7 +82,7 @@ Example:
     3. Toss the spaghetti in the sauce,
     4. Taste and season with salt and black pepper.
 
- [<sub>return to table of content<sub>](#table-of-content)
+ [<sub>return to table of content</sub>](#table-of-content)
 
 ### Edit an existing recipe: `edit`
 Edits a recipe by specifying its name, ingredients, and steps to prepare the dish.<br>
@@ -106,7 +106,7 @@ Example:
 
 - `edit -x 1 -n Spicy Aglio Olio [and other information that you would like to edit]`
 
-[<sub>return to table of content<sub>](#table-of-content)
+[<sub>return to table of content</sub>](#table-of-content)
 
 ### Delete an existing recipe: `delete`
 Removes a stored recipe based on the number it is associated with in the `list` <br>
@@ -124,7 +124,7 @@ To make it a little more convenient for you, McKitchen is able to delete a recip
 
 </div>
 
-[<sub>return to table of content<sub>](#table-of-content)
+[<sub>return to table of content</sub>](#table-of-content)
 
 ### Find an existing recipe: `find`
 Searches for a recipe based on the keywords (seperated by comma). <br>
@@ -142,13 +142,13 @@ Don't worry, McKitchen would still be able to find "Secret Family Sauce" even if
 
 </div>
 
-[<sub>return to table of content<sub>](#table-of-content)
+[<sub>return to table of content</sub>](#table-of-content)
 
 ### List all stored recipes: `list`
 Displays all the available recipes that has been stored locally <br>
 Usage: `list`
 
-[<sub>return to table of content<sub>](#table-of-content)
+[<sub>return to table of content</sub>](#table-of-content)
 
 ### View an existing recipe: `view`
 View the contents of an existing stored recipe based on recipe name or number. <br>
@@ -166,7 +166,7 @@ Example:
 
 </div>
 
-[<sub>return to table of content<sub>](#table-of-content)
+[<sub>return to table of content</sub>](#table-of-content)
 
 ### Clear (delete all) existing recipes: `clear`
 Removes all existing recipes in McKitchen. A confirmation prompt would show up before this operation is executed. <br>
@@ -204,7 +204,7 @@ Usage: `reset`
 </div>
 
 
-[<sub>return to table of content<sub>](#table-of-content)
+[<sub>return to table of content</sub>](#table-of-content)
 
 ### Save recipes
 Save the recipes in a human-readable text file on your computer and is modifiable through a text editor as it is JSON-formatted. <br>
@@ -220,7 +220,7 @@ Example: If McKitchen is saved in the "Downloads" folder, recipes would be saved
 
 </div>
 
-[<sub>return to table of content<sub>](#table-of-content)
+[<sub>return to table of content</sub>](#table-of-content)
 
 ### Load recipe
 Load existing recipes from the text file on your computer. Modifications to this file would be displayed accordingly as long as the format is followed. <br>
@@ -237,7 +237,7 @@ If the file or folder does not exist, McKitchen would automatically create them 
 
 </div>
 
-###### [return to table of content](#table-of-content)
+[<sub>return to table of content</sub>](#table-of-content)
 
 ---
 
@@ -268,7 +268,7 @@ You can use the reset command to retrieve the recipe. For newly added recipes, y
 It will not take effect immediately. A confirmation prompt will allow you to confirm your decision. Alternatively, you can specify the prefix -f to clear or reset without any confirmation prompt. 
 
 
-###### [return to table of content](#table-of-content)
+[<sub>return to table of content</sub>](#table-of-content)
 
 ---
 
@@ -282,14 +282,13 @@ It will not take effect immediately. A confirmation prompt will allow you to con
 3. What does it mean when the input command says "... separated by commas"?
 
 
-| Action               | Command format                                                                                                                                                                                                 |
-|----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| add a new recipe     | `add -n <name of recipe> -d <prep time of recipe> -ss <serving size/portions of recipe> -i <ingredients separated by commas> -s <steps separated by commas> [-t <tags separated by commas>]`                   |
+| Action               | Command format                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+|----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| add a new recipe     | `add -n <name of recipe> -d <prep time of recipe> -ss <serving size/portions of recipe> -i <ingredients separated by commas> -s <steps separated by commas> [-t <tags separated by commas>]`                                                                                                                                                                                                                                                                                                          |
 | edit a recipe        | `edit <name of recipe> [-n <new name of recipe> -d <new prep time of recipe> -ss <new serving size/portions of recipe> -i <new ingredients separated by commas> -s <new steps separated by commas> -t <new tags separated by commas>]` <br/> or <br/> `edit <recipe number from list> [-n <new name of recipe> -d <new prep time of recipe> -ss <new serving size/portions of recipe> -i <new ingredients separated by commas> -s <new steps separated by commas> -t <new tags separated by commas>]` |
-| delete a recipe      | `delete <recipe name>` <br> or <br> `delete -x <recipe number from list>`                                                                                                                                      |
-| find a recipe        | `find <keyword> [other keywords separated by commas]`                                                                                                                                                          |
-| list a recipe        | `list`                                                                                                                                                                                                         |
-| view specific recipe | `view <recipe name>` <br/> or <br/> `view <recipe number from list>`                                                                                                                                           |
+| delete a recipe      | `delete <recipe name>` <br> or <br> `delete -x <recipe number from list>`                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| find a recipe        | `find <keyword> [other keywords separated by commas]`                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| list a recipe        | `list`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| view specific recipe | `view <recipe name>` <br/> or <br/> `view <recipe number from list>`                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
-###### [return to table of content](#table-of-content)
-
+[<sub>return to table of content</sub>](#table-of-content)
