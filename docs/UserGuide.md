@@ -53,7 +53,7 @@ In this section, we will get you started on the things you need to do prior to u
 
 </div>
 
-The GUI similar to the below should appear in a few seconds.Note how the app contains some sample data.<br>
+The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
 
 ![Ui](images/Ui.png)
 
