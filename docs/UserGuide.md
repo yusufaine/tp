@@ -105,7 +105,7 @@ Removes all existing recipes in McKitchen. A confirmation prompt would show up b
 Usage: `clear [-f]`
 
 The program would then prompt you to confirm. Type in `yes` to clear and `no` to cancel the clear request.
-> :warning: By specifying `-f`, you are letting McKitchen know that you are very sure about what you're doing and would proceed to removing all recipes without a confirmation prompt. 
+> :heavy_exclamation_mark: By specifying `-f`, you are letting McKitchen know that you are very sure about what you're doing and would proceed to removing all recipes without a confirmation prompt. 
 
 Example:
 - `clear`
