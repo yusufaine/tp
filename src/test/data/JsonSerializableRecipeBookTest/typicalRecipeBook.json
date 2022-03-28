@@ -129,7 +129,7 @@
     "steps" : [ "Get the soup", "Cook the noodles", "Cook the ingredients" ],
     "tags" : [ "Japanese", "Asian" ]
   },  {
-    "name" : "Fish & Chips",
+    "name" : "Fish and Chips",
     "ingredients" : [ {
       "ingredientName" : "Fish",
       "quantity" : "1.0",

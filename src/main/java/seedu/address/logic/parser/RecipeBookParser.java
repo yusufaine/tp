@@ -86,7 +86,7 @@ public class RecipeBookParser {
             case ConfirmedClearCommand.COMMAND_WORD:
                 return new ConfirmedClearCommand();
             default:
-                throw new ParseException(ConfirmedResetCommand.MESSAGE_UNKNOWN_COMMAND + ResetCommand.MESSAGE_USAGE);
+                throw new ParseException(ConfirmedClearCommand.MESSAGE_UNKNOWN_COMMAND + ClearCommand.MESSAGE_USAGE);
             }
         } else {
             requiresConfirmationReset = false;
