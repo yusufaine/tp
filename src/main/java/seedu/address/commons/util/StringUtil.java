@@ -6,6 +6,8 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Helper functions for handling strings.
@@ -89,5 +91,17 @@ public class StringUtil {
         } catch (NumberFormatException nfe) {
             return false;
         }
+    }
+
+    /**
+     * @return true if {@code s} contains any special characters
+     */
+    public static boolean isAlphaNumeric(String s) {
+        requireNonNull(s);
+
+        Pattern special = Pattern.compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE);
+        Matcher hasSpecial = special.matcher(s);
+
+        return !hasSpecial.find();
     }
 }

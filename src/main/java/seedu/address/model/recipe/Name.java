@@ -3,13 +3,15 @@ package seedu.address.model.recipe;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
+import seedu.address.commons.util.StringUtil;
+
 /**
  * Represents a Recipe's name in the recipe book.
  * Guarantees: immutable; is valid as declared in {@link #isValidName(String)}
  */
 public class Name {
 
-    public static final String MESSAGE_CONSTRAINTS = "Names should not be left blank";
+    public static final String MESSAGE_CONSTRAINTS = "Names should contain valid alpha-numeric characters.";
 
     /*
      * The first character of the name must not be a whitespace,
@@ -38,7 +40,9 @@ public class Name {
      */
     public static boolean isValidName(String test) {
         // if test = " ", test.strip = ""
-        return !test.isEmpty();
+        boolean isNotEmpty = !test.isEmpty();
+        boolean hasNoSpecialCharacters = StringUtil.isAlphaNumeric(test);
+        return isNotEmpty && hasNoSpecialCharacters;
     }
 
     @Override
