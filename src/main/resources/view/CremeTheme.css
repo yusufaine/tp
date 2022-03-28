@@ -63,31 +63,31 @@
 }
 
 /* adapted from https://stackoverflow.com/questions/13200439/ */
-.scroll-pane {
+.scroll-pane .corner,
+.list-view .corner
+{
   -fx-background-color: transparent;
 }
 
-.scroll-bar .increment-button {
+.scroll-bar .increment-button,
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-button,
+.scroll-bar .decrement-arrow
+{
   visibility: hidden;
 }
 
-.scroll-bar .decrement-button {
-  visibility: hidden;
-}
-
-.scroll-bar:vertical {
+.scroll-bar:vertical,
+.scroll-bar:horizontal
+{
   -fx-background-color: transparent;
 }
 
-.scroll-bar:vertical .track-background {
-  visibility: hidden;
-}
 
-.scroll-bar:vertical .track {
-  visibility: hidden;
-}
-
-.hide-thumb .scroll-bar:vertical .thumb {
-  -fx-background-color: transparent;
+.scroll-bar:vertical .thumb,
+.scroll-bar:horizontal .thumb
+{
+  -fx-background-color: -Scrollbar-bg;
+  -fx-background-radius: 2em;
 }
 
