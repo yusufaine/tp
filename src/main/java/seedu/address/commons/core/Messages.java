@@ -15,7 +15,7 @@ public class Messages {
     public static final String MESSAGE_RECIPE_NOT_FOUND = "The recipe for \"%s\" is not found in the recipe book! \n";
     public static final String MESSAGE_DELETE_RECIPE_SUCCESS = "Deleted Recipe: %1$s";
     public static final String MESSAGE_DELETE_RECIPE_NOT_EXIST = "Recipe does not exist in the recipe book";
-    public static final String MESSAGE_MISSING_INGREDIENT_FIELDS =
+    public static final String MESSAGE_INVALID_NUMBER_OF_INGREDIENT_FIELDS =
             "Ingredient is not in the <name> <quantity> [<quantifier>] format.";
 
 }

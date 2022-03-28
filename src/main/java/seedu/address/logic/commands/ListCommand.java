@@ -26,22 +26,6 @@ public class ListCommand extends Command {
 
     @Override
     public boolean equals(Object o) {
-        // instanceof handles nulls
-        if (!(o instanceof ListCommand)) {
-            return false;
-        }
-
-        // short circuit if same object
-        if (this == o) {
-            return true;
-        }
-
-        ListCommand other = (ListCommand) o;
-        return this.toString().equals(other.toString()); // state check
-    }
-
-    @Override
-    public String toString() {
-        return COMMAND_WORD;
+        return o instanceof ListCommand;
     }
 }

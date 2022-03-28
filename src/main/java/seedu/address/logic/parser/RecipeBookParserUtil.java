@@ -126,7 +126,7 @@ public class RecipeBookParserUtil {
             return new Ingredient(name, Double.parseDouble(quantity), quantifier);
 
         default:
-            throw new ParseException(Messages.MESSAGE_MISSING_INGREDIENT_FIELDS);
+            throw new ParseException(Messages.MESSAGE_INVALID_NUMBER_OF_INGREDIENT_FIELDS);
         }
     }
 

@@ -16,4 +16,9 @@ public class ExitCommand extends Command {
     public CommandResult execute(Model model) throws CommandException {
         return new CommandResult(MESSAGE_EXIT_ACKNOWLEDGEMENT, false, true);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        return o instanceof ExitCommand;
+    }
 }

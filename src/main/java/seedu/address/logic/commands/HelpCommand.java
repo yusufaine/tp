@@ -21,4 +21,9 @@ public class HelpCommand extends Command {
         requireNonNull(model);
         return new CommandResult(HELP_MESSAGE, true, false);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        return o instanceof HelpCommand;
+    }
 }

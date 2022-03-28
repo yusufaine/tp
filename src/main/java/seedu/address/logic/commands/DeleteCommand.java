@@ -28,7 +28,6 @@ public class DeleteCommand extends Command {
             + "Example: " + COMMAND_WORD + " " + PREFIX_INDEX + "1";
 
     public static final String MESSAGE_DELETE_RECIPE_SUCCESS = "Deleted Recipe: %1$s";
-    public static final String MESSAGE_DELETE_RECIPE_NOT_EXIST = "Recipe does not exist in the recipe book";
 
     private Name toDeleteName;
     private Index toDeleteIndex;

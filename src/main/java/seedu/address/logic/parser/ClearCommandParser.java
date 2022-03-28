@@ -9,7 +9,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
  * Parses input arguments and creates a new ClearCommand object.
  */
 public class ClearCommandParser implements Parser<ClearCommand> {
-    private static final String PREFIX = "-f";
+    private static final String FORCE_FLAG = "-f";
     /**
      * Checks whether the ClearCommand is a forced clear.
      *
@@ -18,7 +18,7 @@ public class ClearCommandParser implements Parser<ClearCommand> {
      */
 
     public static boolean isNotForcedClear(String arguments) {
-        return !arguments.contains(PREFIX);
+        return !arguments.contains(FORCE_FLAG);
     }
 
     /**
@@ -31,7 +31,7 @@ public class ClearCommandParser implements Parser<ClearCommand> {
      */
     @Override
     public ClearCommand parse(String userInput) throws ParseException {
-        if (userInput.contains(PREFIX)) {
+        if (userInput.contains(FORCE_FLAG)) {
             return new ConfirmedClearCommand();
         } else {
             return new ClearCommand();
