@@ -5,24 +5,25 @@ import static java.util.Objects.requireNonNull;
 import seedu.address.model.Model;
 
 /**
- * Clears the recipe book.
+ * Resets the recipe book.
  */
-public class ClearCommand extends Command {
-    public static final String COMMAND_WORD = "clear";
-    public static final String MESSAGE_CONFIRMATION_REQUIRED = "Are you sure you want to clear the recipe book?\n"
-        + "Enter 'yes' if you wish to clear \n'no' if you do not wish to clear";
+public class ResetCommand extends Command {
+    public static final String COMMAND_WORD = "reset";
+    public static final String MESSAGE_CONFIRMATION_REQUIRED = "Are you sure you want to reset the "
+            + "recipe book back to the default preloaded recipes? \nEnter 'yes' if you wish to reset\n'no' if you "
+            + "do not wish to clear";
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + " -f executes a forced clear.\n"
+            + " -f executes a forced reset.\n"
             + COMMAND_WORD
             + "\nExample: " + COMMAND_WORD + " -f\n"
-            + "Clear without any parameter requires confirmation \n"
+            + "Reset without any parameter requires confirmation \n"
             + "Example: " + COMMAND_WORD;
 
 
     @Override
     public boolean equals(Object o) {
         // instanceof handles nulls
-        if (!(o instanceof ClearCommand)) {
+        if (!(o instanceof ResetCommand)) {
             return false;
         }
 
@@ -31,7 +32,7 @@ public class ClearCommand extends Command {
             return true;
         }
 
-        ClearCommand other = (ClearCommand) o;
+        ResetCommand other = (ResetCommand) o;
         return this.toString().equals(other.toString()); // state check
     }
 

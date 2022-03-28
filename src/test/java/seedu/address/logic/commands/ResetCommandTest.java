@@ -13,30 +13,32 @@ import seedu.address.model.UserPrefs;
 
 /**
  * Contains integration tests (interaction with the Model) and unit tests for.
- * {@code ClearCommand}.
+ * {@code ResetCommand}.
  */
-public class ClearCommandTest {
+public class ResetCommandTest {
     private final Model model = new ModelManager(getTypicalRecipeBook(), new UserPrefs());
     private final Model expectedModel = new ModelManager(getTypicalRecipeBook(), new UserPrefs());
 
     @Test
-    public void execute_showsRequireConfirmationMessage_success() {
-        ClearCommand command = new ClearCommand();
-        String expectedMessage = "Are you sure you want to clear the recipe book?\n"
-                + "Enter 'yes' if you wish to clear \n'no' if you do not wish to clear";
+    public void execute_showsRequireConfirmationMessage() {
+        ResetCommand command = new ResetCommand();
+        String expectedMessage = "Are you sure you want to reset the "
+                + "recipe book back to the default preloaded recipes? \nEnter 'yes' if you wish to reset\n'no' if you "
+                + "do not wish to clear";
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
     }
 
+    //Tests for resetCommand equality
     @Test
     public void equals_test() {
-        ClearCommand c1 = new ClearCommand();
-        ClearCommand c2 = new ClearCommand();
-        ConfirmedClearCommand confirmedClear = new ConfirmedClearCommand();
-        CancelClearCommand cancelClear = new CancelClearCommand();
-        assertEquals(c1, c1);
-        assertEquals(c1, c2);
-        assertNotEquals(c1, confirmedClear);
-        assertNotEquals(c1, cancelClear);
+        ResetCommand r1 = new ResetCommand();
+        ResetCommand r2 = new ResetCommand();
+        ConfirmedResetCommand confirmedReset = new ConfirmedResetCommand();
+        CancelResetCommand cancelReset = new CancelResetCommand();
+        assertEquals(r1, r1);
+        assertEquals(r1, r2);
+        assertNotEquals(r1, confirmedReset);
+        assertNotEquals(r1, cancelReset);
     }
 
 }

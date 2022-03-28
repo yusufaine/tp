@@ -19,7 +19,7 @@ import org.junit.jupiter.api.Test;
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.model.Model;
-import seedu.address.model.RecipeBookModelManager;
+import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.recipe.Name;
 import seedu.address.model.recipe.Recipe;
@@ -30,12 +30,12 @@ import seedu.address.model.recipe.Recipe;
 */
 public class ViewCommandTest {
 
-    private Model model = new RecipeBookModelManager(getTypicalRecipeBook(), new UserPrefs());
-    private Model expectedModel = new RecipeBookModelManager(getTypicalRecipeBook(), new UserPrefs());
+    private Model model = new ModelManager(getTypicalRecipeBook(), new UserPrefs());
+    private Model expectedModel = new ModelManager(getTypicalRecipeBook(), new UserPrefs());
 
     @BeforeEach
     public void init() {
-        model = new RecipeBookModelManager(getTypicalRecipeBook(), new UserPrefs());
+        model = new ModelManager(getTypicalRecipeBook(), new UserPrefs());
     }
 
     @Test
@@ -70,7 +70,7 @@ public class ViewCommandTest {
         Index outOfBoundIndex = Index.fromOneBased(model.getFilteredRecipeList().size() + 1);
         ViewCommand viewCommand = new ViewCommand(outOfBoundIndex);
 
-        assertCommandFailure(viewCommand, model, Messages.MESSAGE_INVALID_RECIPE_DISPLAYED_INDEX);
+        assertCommandFailure(viewCommand, model, Messages.MESSAGE_INVALID_RECIPE_INDEX);
     }
 
     @Test
@@ -83,7 +83,7 @@ public class ViewCommandTest {
 
         ViewCommand viewCommand = new ViewCommand(outOfBoundIndex);
 
-        assertCommandFailure(viewCommand, model, Messages.MESSAGE_INVALID_RECIPE_DISPLAYED_INDEX);
+        assertCommandFailure(viewCommand, model, Messages.MESSAGE_INVALID_RECIPE_INDEX);
     }
 
     @Test
