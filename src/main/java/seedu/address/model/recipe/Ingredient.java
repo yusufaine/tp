@@ -59,18 +59,6 @@ public class Ingredient {
         this(name, quantity, "");
     }
 
-    // public String getIngredientName() {
-    //     return ingredientName;
-    // }
-
-    // public double getQuantity() {
-    //     return quantity;
-    // }
-
-    // public String getQuantifier() {
-    //     return quantifier;
-    // }
-
     public static boolean isValidIngredientName(String test) {
         return test.matches(NAME_VALIDATION_REGEX);
     }

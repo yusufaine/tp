@@ -23,10 +23,14 @@ public class JsonAdaptedRecipeTest {
     private static final String INVALID_STEP = "";
     private static final Integer INVALID_SERVING_SIZE = -5;
     private static final String INVALID_TAG = "";
-    private static final JsonAdaptedIngredient INVALID_INGREDIENT =
-            new JsonAdaptedIngredient("", "-5", "");
+    private static final JsonAdaptedIngredient INVALID_INGREDIENT_NAME =
+            new JsonAdaptedIngredient("  ", "-5", "");
+    private static final JsonAdaptedIngredient INVALID_INGREDIENT_QUANTITY =
+            new JsonAdaptedIngredient("dummy", "-5", "");
+    private static final JsonAdaptedIngredient INVALID_INGREDIENT_QUANTITY_2 =
+            new JsonAdaptedIngredient("dummy", "a", "");
 
-    //Extract parameters from Valid Recipe AGLIO_OGLIO
+    //Extract parameters from Valid Recipe AGLIO_OLIO
     private static final String VALID_NAME = AGLIO_OLIO.getName().toString();
     private static final List<JsonAdaptedIngredient> VALID_INGREDIENTS =
             AGLIO_OLIO.getIngredients().stream().map(JsonAdaptedIngredient::new).collect(Collectors.toList());
@@ -64,9 +68,29 @@ public class JsonAdaptedRecipeTest {
     }
 
     @Test
-    public void toModelType_invalidIngredients_throwsIllegalValueException() {
+    public void toModelType_invalidIngredientName_throwsIllegalValueException() {
         List<JsonAdaptedIngredient> invalidIngredients = new ArrayList<>(VALID_INGREDIENTS);
-        invalidIngredients.add(INVALID_INGREDIENT);
+        invalidIngredients.add(INVALID_INGREDIENT_NAME);
+        JsonAdaptedRecipe recipe =
+                new JsonAdaptedRecipe(VALID_NAME, invalidIngredients, VALID_COMPLETION_TIME, VALID_SERVING_SIZE,
+                        VALID_STEPS, VALID_TAGS);
+        assertThrows(IllegalValueException.class, recipe::toModelType);
+    }
+
+    @Test
+    public void toModelType_invalidIngredientQuantity_throwsIllegalValueException() {
+        List<JsonAdaptedIngredient> invalidIngredients = new ArrayList<>(VALID_INGREDIENTS);
+        invalidIngredients.add(INVALID_INGREDIENT_QUANTITY);
+        JsonAdaptedRecipe recipe =
+                new JsonAdaptedRecipe(VALID_NAME, invalidIngredients, VALID_COMPLETION_TIME, VALID_SERVING_SIZE,
+                        VALID_STEPS, VALID_TAGS);
+        assertThrows(IllegalValueException.class, recipe::toModelType);
+    }
+
+    @Test
+    public void toModelType_invalidIngredientNonNumericQuantity_throwsIllegalValueException() {
+        List<JsonAdaptedIngredient> invalidIngredients = new ArrayList<>(VALID_INGREDIENTS);
+        invalidIngredients.add(INVALID_INGREDIENT_QUANTITY_2);
         JsonAdaptedRecipe recipe =
                 new JsonAdaptedRecipe(VALID_NAME, invalidIngredients, VALID_COMPLETION_TIME, VALID_SERVING_SIZE,
                         VALID_STEPS, VALID_TAGS);
@@ -129,6 +153,11 @@ public class JsonAdaptedRecipeTest {
                 new JsonAdaptedRecipe(VALID_NAME, VALID_INGREDIENTS, VALID_COMPLETION_TIME, VALID_SERVING_SIZE,
                         VALID_STEPS, invalidTags);
         assertThrows(IllegalValueException.class, recipe::toModelType);
+    }
+
+    @Test
+    public void toModelType_invalidQuantity_throwsIllegalValueException() {
+
     }
 
 }
