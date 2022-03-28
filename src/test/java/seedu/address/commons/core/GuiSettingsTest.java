@@ -9,7 +9,7 @@ class GuiSettingsTest {
 
     @Test
     void equals_test() {
-        final GuiSettings guiSettings = new GuiSettings( 1, 2, 3, 4);
+        final GuiSettings guiSettings = new GuiSettings(1, 2, 3, 4);
         final GuiSettings guiSettings2 = new GuiSettings(2, 3, 4, 5);
         final GuiSettings guiSettingsCopy = new GuiSettings(guiSettings.getWindowWidth(),
                 guiSettings.getWindowHeight(),
