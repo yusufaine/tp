@@ -4,11 +4,14 @@ import static java.util.Objects.requireNonNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.Assert.assertThrows;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.function.Predicate;
 
 import org.junit.jupiter.api.Test;
@@ -31,13 +34,21 @@ public class AddCommandTest {
     }
 
     @Test
-    public void execute_personAcceptedByModel_addSuccessful() throws Exception {
+    public void execute_recipeAcceptedByModel_addSuccessful() throws Exception {
+        // create empty model for command to be executed on
         ModelStubAcceptingRecipeAdded modelStub = new ModelStubAcceptingRecipeAdded();
         Recipe validRecipe = new RecipeBuilder().build();
 
-        CommandResult commandResult = new AddCommand(validRecipe).execute(modelStub);
+        // create model containing recipe
+        ModelStubAcceptingRecipeAdded modelStubAdded = new ModelStubAcceptingRecipeAdded();
+        modelStubAdded.addRecipe(validRecipe);
 
-        assertEquals(String.format(AddCommand.MESSAGE_SUCCESS, validRecipe), commandResult.getFeedbackToUser());
+        AddCommand addCommand = new AddCommand(validRecipe);
+
+        String expectedMessage = String.format(AddCommand.MESSAGE_SUCCESS, validRecipe);
+
+        // check that empty model now contains recipe added from AddCommand
+        assertCommandSuccess(addCommand, modelStub, expectedMessage, modelStubAdded);
         assertEquals(Arrays.asList(validRecipe), modelStub.recipesAdded);
     }
 
@@ -71,7 +82,7 @@ public class AddCommandTest {
         // null -> returns false
         assertFalse(addAglioOlioCommand.equals(null));
 
-        // different person -> returns false
+        // different recipe -> returns false
         assertFalse(addAglioOlioCommand.equals(addChickenChopCommand));
     }
 
@@ -151,7 +162,7 @@ public class AddCommandTest {
     }
 
     /**
-     * A Model stub that contains a single person.
+     * A Model stub that contains a single recipe.
      */
     private class ModelStubWithRecipe extends ModelStub {
         private final Recipe recipe;
@@ -189,6 +200,33 @@ public class AddCommandTest {
         @Override
         public ReadOnlyRecipeBook getRecipeBook() {
             return new RecipeBook();
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (!(o instanceof ModelStubAcceptingRecipeAdded)) {
+                return false;
+            }
+
+            if (this == o) {
+                return true;
+            }
+
+            ModelStubAcceptingRecipeAdded that = (ModelStubAcceptingRecipeAdded) o;
+            return recipesAdded.equals(that.recipesAdded);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(recipesAdded);
+        }
+
+        @Override
+        public String toString() {
+            return "ModelStubAcceptingRecipeAdded{"
+                    + "recipesAdded="
+                    + recipesAdded
+                    + '}';
         }
     }
 }
