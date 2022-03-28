@@ -26,6 +26,7 @@ public class ViewCommandParserTest {
     public void parse_validArgs_returnsViewCommand() {
         assertParseSuccess(parser, " -x 1", new ViewCommand(INDEX_FIRST_RECIPE));
         assertParseSuccess(parser, " Aglio Olio\n", new ViewCommand(AGLIO_OLIO.getName()));
+        assertParseSuccess(parser, " aglio olio\n", new ViewCommand(AGLIO_OLIO.getName()));
     }
 
     /**
