@@ -110,10 +110,14 @@ public class MainWindow extends UiPart<Stage> {
      * Fills up all the placeholders of this window.
      */
     void fillInnerParts() {
+        String welcomeMessage = "Welcome to McKitchen!\n\n"
+                + "To begin, you can use the \"help\" command to access our the Command Summary in our User Guide.";
+
         recipeListPanel = new RecipeListPanel(logic.getFilteredRecipeList());
         recipeListPanelPlaceholder.getChildren().add(recipeListPanel.getRoot());
 
         resultDisplay = new ResultDisplay();
+        resultDisplay.setFeedbackToUser(welcomeMessage);
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
 
         // StatusBarFooter statusBarFooter = new StatusBarFooter(logic.getRecipeBookFilePath());

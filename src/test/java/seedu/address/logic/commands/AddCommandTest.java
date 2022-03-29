@@ -44,7 +44,7 @@ public class AddCommandTest {
 
         AddCommand addCommand = new AddCommand(validRecipe);
 
-        String expectedMessage = String.format(AddCommand.MESSAGE_SUCCESS, validRecipe);
+        String expectedMessage = String.format(AddCommand.MESSAGE_SUCCESS, validRecipe.getName());
 
         // check that empty model now contains recipe added from AddCommand
         assertCommandSuccess(addCommand, modelStub, expectedMessage, modelStubAdded);

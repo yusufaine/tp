@@ -36,9 +36,15 @@ public class FindCommand extends Command {
         requireNonNull(model);
 
         model.updateFilteredRecipeList(recipePredicate);
-        return new CommandResult(
-                String.format(Messages.MESSAGE_RECIPES_LISTED_OVERVIEW, model.getFilteredRecipeList().size())
-        );
+
+        if (model.getFilteredRecipeList().size() == 0) {
+            return new CommandResult(
+                    String.format(Messages.MESSAGE_FIND_RETURNS_NO_RECIPES_FOUND, recipePredicate.toString()));
+        } else {
+            return new CommandResult(
+                    String.format(Messages.MESSAGE_RECIPES_LISTED_OVERVIEW, model.getFilteredRecipeList().size())
+            );
+        }
     }
 
     @Override
