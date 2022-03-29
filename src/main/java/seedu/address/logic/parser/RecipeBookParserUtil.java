@@ -199,6 +199,10 @@ public class RecipeBookParserUtil {
         requireNonNull(tags);
         final Set<Tag> tagSet = new HashSet<>();
 
+        if (tags.isEmpty()) {
+            return tagSet;
+        }
+
         if (isReset(tags)) {
             return tagSet;
         }
