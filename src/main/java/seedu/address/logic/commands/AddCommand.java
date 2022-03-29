@@ -70,7 +70,7 @@ public class AddCommand extends Command {
     @Override
     public boolean equals(Object o) {
         // instanceof handles nulls
-        if (!(o instanceof ViewCommand)) {
+        if (!(o instanceof AddCommand)) {
             return false;
         }
 
@@ -81,5 +81,12 @@ public class AddCommand extends Command {
 
         AddCommand other = (AddCommand) o;
         return toAdd.equals(other.toAdd); // state check
+    }
+
+    @Override
+    public String toString() {
+        return "AddCommand{"
+                + "toAdd="
+                + toAdd + '}';
     }
 }

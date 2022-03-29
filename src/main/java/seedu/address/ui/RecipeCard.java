@@ -27,13 +27,12 @@ public class RecipeCard extends UiPart<Region> {
      */
 
     public final Recipe recipe;
+    public final int index;
 
     @FXML
     private HBox cardPane;
     @FXML
     private Label name;
-    @FXML
-    private Label id;
     @FXML
     private Label steps;
     @FXML
@@ -47,9 +46,10 @@ public class RecipeCard extends UiPart<Region> {
     public RecipeCard(Recipe recipe, int displayedIndex) {
         super(FXML);
         this.recipe = recipe;
-        id.setText(displayedIndex + ". ");
+        this.index = displayedIndex;
+
         name.setWrapText(true);
-        name.setText(recipe.getName().fullName);
+        name.setText(index + ". " + recipe.getName().fullName);
         steps.setText(String.valueOf(recipe.getSteps().size()) + " steps");
         completionTime.setText(String.valueOf(recipe.getCompletionTime().value) + " mins");
         recipe.getTags().stream()
@@ -61,7 +61,7 @@ public class RecipeCard extends UiPart<Region> {
     private void copyName() {
         final Clipboard clipboard = Clipboard.getSystemClipboard();
         final ClipboardContent recipeName = new ClipboardContent();
-        recipeName.putString(name.getText());
+        recipeName.putString(recipe.getName().fullName);
         clipboard.setContent(recipeName);
     }
 
@@ -79,7 +79,7 @@ public class RecipeCard extends UiPart<Region> {
 
         // state check
         RecipeCard card = (RecipeCard) other;
-        return id.getText().equals(card.id.getText())
+        return this.index == card.index
                 && recipe.equals(card.recipe);
     }
 }
