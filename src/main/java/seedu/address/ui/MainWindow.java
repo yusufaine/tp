@@ -16,6 +16,7 @@ import seedu.address.logic.Logic;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.recipe.Recipe;
 
 /**
  * The Main Window. Provides the basic application layout containing
@@ -112,6 +113,7 @@ public class MainWindow extends UiPart<Stage> {
     void fillInnerParts() {
         recipeListPanel = new RecipeListPanel(logic.getFilteredRecipeList());
         recipeListPanelPlaceholder.getChildren().add(recipeListPanel.getRoot());
+        setRecipeChangeListener(recipeListPanel);
 
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
@@ -192,5 +194,27 @@ public class MainWindow extends UiPart<Stage> {
             resultDisplay.setFeedbackToUser(e.getMessage());
             throw e;
         }
+    }
+
+    /**
+     * Attaches a listener to a given RecipeListPanel to call a function to update the result display
+     * whenever the selected recipe changes.
+     */
+    private void setRecipeChangeListener(RecipeListPanel recipeListPanel) {
+        recipeListPanel.selectedRecipeProperty().addListener((o, oldVal, newVal) -> {
+            if (newVal != null) {
+                updateResultDisplay(newVal);
+            }
+        });
+    }
+
+    /**
+     * Updates the result display to display the contents of a specified recipe.
+     *
+     * @param recipe the recipe to be displayed. Must not be null.
+     */
+    private void updateResultDisplay(Recipe recipe) {
+        assert recipe != null;
+        resultDisplay.setFeedbackToUser(new CommandResult(recipe));
     }
 }
