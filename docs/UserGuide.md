@@ -55,7 +55,7 @@ The GUI similar to the below should appear in a few seconds <to update>. <br>
 Note how the app contains some sample data.<br>
       ![Ui](images/Ui.png)
 
-5. Type the command where prompted "Enter command here" and press Enter to execute it. <br> Example: typing **`help`** and pressing Enter will open the help window.
+5. Type the command where prompted "Enter command here" and press Enter to execute it. <br> Example: typing **`help`** and pressing Enter will display a link to our help commands for easier reference.
 
 6. Refer to the [Features](#features) below for details of each command.
 
@@ -257,9 +257,8 @@ You need to consider the:
 2. Completion time (`-d`),
 3. Serving Size (`-ss`),
 4. Ingredients (`-i`),
-5. Steps (`-s`)
-
-   The tags are optional.
+5. Steps (`-s`),
+6. Tags (`-t`) (optional)
 
 **Q: If I deleted one of the provided (default) recipe by accident, can I retrieve it back?**<br>
 You can use the reset command to retrieve the recipe. For newly added recipes, you will not be able to undo your deletion. 
@@ -276,6 +275,7 @@ It will not take effect immediately. A confirmation prompt will allow you to con
 
 ### How to read this table?
 1. Actions (what you would want to do) is on the left while the command associated to it is on the right.
+   1. Actions and prefixes must be case sensitive (no caps allowed).
 2. Almost all the details of the commands are needed to be given before the command can be executed properly.
    1. **Compulsory** details are denoted by angled-brackets such as \<mandatory details>.
    2. **Optional** details of the command that are enclosed in square brackets such as [optional details].
