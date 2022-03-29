@@ -15,4 +15,6 @@ public class RecipeBookSyntax {
 
     /** Used to indicate index in a command */
     public static final Prefix PREFIX_INDEX = new Prefix("-x ");
+
+    public static final String SEPARATOR_SYMBOL = "  ";
 }
