@@ -71,8 +71,7 @@ The GUI similar to the below should appear in a few seconds. Note how the app co
 ## Command Summary
 ### Understanding the command format
 1. Almost all the details of the commands are needed to be given before the command can be executed properly.
-    * **Compulsory** details are denoted by angled-brackets such as \<mandatory details\>.
-    * **Optional** details of the command that are enclosed in square brackets such as [optional details].
+    * **Optional** details of the command are enclosed in square brackets such as [optional details].
         + Example: `command <recipe name or -x <recipe number from the list>> [optional details]`
         + A clearer example of this can be seen in the [delete command](#delete-an-existing-recipe-delete), or [edit command](#edit-an-existing-recipe-edit).
       
