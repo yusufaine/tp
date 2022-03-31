@@ -71,8 +71,7 @@ The GUI similar to the below should appear in a few seconds. Note how the app co
 ## Command Summary
 ### Understanding the command format
 1. Almost all the details of the commands are needed to be given before the command can be executed properly.
-    * **Compulsory** details are denoted by angled-brackets such as \<mandatory details\>.
-    * **Optional** details of the command that are enclosed in square brackets such as [optional details].
+    * **Optional** details of the command are enclosed in square brackets such as [optional details].
         + Example: `command <recipe name or -x <recipe number from the list>> [optional details]`
         + A clearer example of this can be seen in the [delete command](#delete-an-existing-recipe-delete), or [edit command](#edit-an-existing-recipe-edit).
       
@@ -106,7 +105,7 @@ In this section we would be going over what each feature does, how to go about d
 
 <div markdown="block" class="alert alert-info">
 
-:information_source: :computer: **Quick note on [Save](#save-recipes) and [Load](#load-recipes)** these commands are done automatically, just like how Google documents automatically save your changes without you needing to explicitly run them. There are some advanced things that you can do with those features, and we recommend you jump to their section to find out more about them. <br><br>**Hint**: There's a way that you can share your recipe book with your friends if they also use McKitchen.
+:information_source: :computer: **Quick note on [Save](#save-recipes) and [Load](#load-recipes)** these commands are done automatically, just like how Google documents automatically save your changes without you needing to explicitly run them. There are some advanced things that you can do with those features, and we recommend you to explore these features to find out more. <br><br>**Hint**: If your friends is using McKitchen, there's a way for you to share your recipe book with them.
 
 </div>
 
