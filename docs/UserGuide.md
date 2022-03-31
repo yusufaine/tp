@@ -105,7 +105,7 @@ In this section we would be going over what each feature does, how to go about d
 
 <div markdown="block" class="alert alert-info">
 
-:information_source: :computer: **Quick note on [Save](#save-recipes) and [Load](#load-recipes)** these commands are done automatically, just like how Google documents automatically save your changes without you needing to explicitly run them. There are some advanced things that you can do with those features, and we recommend you jump to their section to find out more about them. <br><br>**Hint**: There's a way that you can share your recipe book with your friends if they also use McKitchen.
+:information_source: :computer: **Quick note on [Save](#save-recipes) and [Load](#load-recipes)** these commands are done automatically, just like how Google documents automatically save your changes without you needing to explicitly run them. There are some advanced things that you can do with those features, and we recommend you to explore these features to find out more. <br><br>**Hint**: If your friends is using McKitchen, there's a way for you to share your recipe book with them.
 
 </div>
 
