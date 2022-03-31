@@ -77,7 +77,7 @@ The GUI similar to the below should appear in a few seconds. Note how the app co
         + A clearer example of this can be seen in the [delete command](#delete-an-existing-recipe-delete), or [edit command](#edit-an-existing-recipe-edit).
       
 2. What does it mean when the input command says "... separated by pipe"?
-    * Pipe is typically located above the "Enter" button on the keyboard and can be typed by using `Shift` + ``\ ``, resulting in `|`.
+    * The pipe symbol is typically located above the "Enter" button on the keyboard and can be typed by using `Shift` + ``\ ``, resulting in `|`.
     * This means that the data you enter would be separated by the pipe symbol and would be as though you had entered them separately.
         + Example: `-t Western | Italian | Vegetarian` would be the same as `-t Western -t Italian -t Vegetarian`
 
@@ -284,7 +284,7 @@ Resets the existing recipes in McKitchen to the default ones that it initially c
 Usage: `reset`
 
 Example:
-- Oops! You've made the mistake of running `clear -f` before exploring the default recipes. Don't worry, we've got you. All you need to do is run:
+- Oops! You've made the mistake of running `clear -f` before exploring the default recipes, or maybe you've played around with the application and want to revert it back to the original recipes? <br>Don't worry, we've got you. All you need to do is run:
     1. `reset`
         - Similar to `clear`, this would generate a reset request that requires a confirmation as seen in the screenshot below.
     ![Reset confirmation](images/ResetConfirmation.png)
