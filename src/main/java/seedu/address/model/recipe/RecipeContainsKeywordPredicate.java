@@ -36,7 +36,6 @@ public class RecipeContainsKeywordPredicate implements Predicate<Recipe> {
                 sb.append(String.format("\"%s\", ", keywords.get(i)));
             }
         }
-        // this.keywords.forEach(k -> sb.append(String.format("%s ", k)));
         return sb.toString().trim();
     }
 
