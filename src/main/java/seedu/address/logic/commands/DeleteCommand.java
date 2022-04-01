@@ -1,6 +1,5 @@
 package seedu.address.logic.commands;
 
-import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.RecipeBookSyntax.PREFIX_INDEX;
 
 import java.util.List;
@@ -46,7 +45,7 @@ public class DeleteCommand extends Command {
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
-        requireNonNull(model);
+        assert model != null;
 
         List<Recipe> lastShownList = model.getFilteredRecipeList();
 
