@@ -32,6 +32,7 @@ Throughout the document you may encounter some of these symbols, and they denote
     * [Save recipes](#save-recipes)
     * [Reset to the default recipes: `reset`](#reset-to-the-default-recipes-reset)
     * [View an existing recipe: `view`](#view-an-existing-recipe-view)
+    * [Exiting the program: `Exit`](#exiting-the-program)
 - [FAQ](#faq)
 
 ---
@@ -83,17 +84,18 @@ The GUI similar to the below should appear in a few seconds. Note how the app co
 4. For more details on each action, feel free to click on it. It would direct you to the explanation of the feature.
 
 
-| Action                                                                                   | Command format                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-|------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [add a new recipe](#add-a-new-recipe-add)                                                | `add <-n name of recipe> <-d prep time of recipe> <-ss serving size/portions of recipe> <-i ingredients separated by pipe> <-s steps separated by pipe> [-t tags separated by pipe]`                                                                                                                                                                                                                                                                                                                 |
-| [clear existing list of recipes](#clear-delete-all-existing-recipes-clear)               | `clear` (confirmation would be prompted) <br></br> or <br></br> `clear -f` (no confirmation prompt)                                                                                                                                                                                                                                                                                                                                                                                                  |
-| [delete an existing recipe](#delete-an-existing-recipe-delete)                           | `delete <recipe name>` <br></br> or <br></br> `delete <-x recipe number from list>`                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| [edit a recipe](#edit-an-existing-recipe-edit)                                           | `edit <name of recipe> [<-n new name of recipe> <-d new prep time of recipe> <-ss new serving size/portions of recipe> <-i new ingredients separated by pipe> <-s new steps separated by pipe> <-t new tags separated by pipe>]` <br></br> or <br><br/> `edit <-x recipe number from list> [-n <new name of recipe> -d <new prep time of recipe> -ss <new serving size/portions of recipe> -i <new ingredients separated by pipe> -s <new steps separated by pipe> -t <new tags separated by pipe>]` |
-| [find a recipe](#find-an-existing-recipe-find)                                           | `find <keyword> [other keywords separated by pipe]`                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| [get help on using McKitchen](#get-help-on-how-to-use-mckitchen-help) <br>(you're here!) | `help`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| [list all recipes](#list-all-stored-recipes-list)                                        | `list`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| [reset to the default recipes](#reset-to-the-default-recipes-reset)                      | `reset` (confirmation would be prompted) <br></br> or <br></br> `reset -f` (no confirmation prompt)                                                                                                                                                                                                                                                                                                                                                                                                  |
-| [view a specific recipe](#view-an-existing-recipe-view)                                  | `view <recipe name>` <br></br> or <br></br> `view <recipe number from list>`                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| Action                                                                                   | Command format                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+|------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [add a new recipe](#add-a-new-recipe-add)                                                | `add <-n name of recipe> <-d prep time of recipe> <-ss serving size/portions of recipe> <-i ingredients separated by pipe> <-s steps separated by pipe> [-t tags separated by pipe]`                                                                                                                                                                                                                                                                                                       |
+| [clear existing list of recipes](#clear-delete-all-existing-recipes-clear)               | `clear` (confirmation would be prompted) <br> or <br> `clear -f` (no confirmation prompt)                                                                                                                                                                                                                                                                                                                                                                                                  |
+| [delete an existing recipe](#delete-an-existing-recipe-delete)                           | `delete <recipe name>` <br> or <br> `delete <-x recipe number from list>`                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| [edit a recipe](#edit-an-existing-recipe-edit)                                           | `edit <name of recipe> [<-n new name of recipe> <-d new prep time of recipe> <-ss new serving size/portions of recipe> <-i new ingredients separated by pipe> <-s new steps separated by pipe> <-t new tags separated by pipe>]` <br> or <br> `edit <-x recipe number from list> [-n <new name of recipe> -d <new prep time of recipe> -ss <new serving size/portions of recipe> -i <new ingredients separated by pipe> -s <new steps separated by pipe> -t <new tags separated by pipe>]` |
+| [find a recipe](#find-an-existing-recipe-find)                                           | `find <keyword> [other keywords separated by pipe]`                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| [get help on using McKitchen](#get-help-on-how-to-use-mckitchen-help) <br>(you're here!) | `help`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| [list all recipes](#list-all-stored-recipes-list)                                        | `list`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| [reset to the default recipes](#reset-to-the-default-recipes-reset)                      | `reset` (confirmation would be prompted) <br> or <br> `reset -f` (no confirmation prompt)                                                                                                                                                                                                                                                                                                                                                                                                  |
+| [view a specific recipe](#view-an-existing-recipe-view)                                  | `view <recipe name>` <br> or <br> `view <recipe number from list>`                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| [Exit the program](#exiting-the-program)                                                 | `exit`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 
 [<sub>return to table of content</sub>](#table-of-content)
 
@@ -209,8 +211,14 @@ Example:
 
 ### Find an existing recipe: `find`
 Searches for a recipe based on the keywords (seperated by pipe). <br>
+These `Keywords` consists of ingredients, tags or recipe names. `find` will return any recipe that contains these keywords even if there is a partial matching. <br>
+
 Usage: 
 * `find <keyword> [other keywords seperated by pipe]`
+
+<div markdown="block" class="alert alert-info">
+️:heavy_exclamation_mark: At least one keyword must be provided in the user input.
+</div>
 
 Example: 
 - Let's say that you would like to cook a Western cuisine and have spaghetti and garlic on hand. <br>
@@ -221,6 +229,9 @@ Example:
 
 :information_source: **Keywords used for the find feature are case-insensitive!**<br>
 Don't worry, McKitchen would still be able to find "Secret Family Sauce" even if you search for "secret family sauce" (or searching for the secret ingredient). :wink:
+
+:information_source: **Order of the specified keyword does not matter!**<br>
+McKitchen will still return the same result despite how you order the keywords!
 
 </div>
 
@@ -239,15 +250,6 @@ Displays all the available recipes that has been stored locally <br>
 Usage: `list`
 
 Example:
-<<<<<<< HEAD
-- view Aglio Olio
-    - This would display the full contents of the recipe matching the name "Aglio Olio" including its ingredients and steps to prepare the dish.
-    
-### Clear recipe
-Clears the entire recipe book. A confirmation prompt would show up before the user could clear immediately. <br>
-To clear the recipe book without the confirmation, users simply have to include the prefix `-f` after the `clear` 
-command <br>
-=======
 - So, you've searched for some values and got no matches and would like to see the full list of recipes again? All you need to do is run the following command:
     - `list`
 
@@ -316,16 +318,11 @@ Usage:
 * `view <recipe name>` <br>or
 * `view <-x recipe number from list>`
 
-<<<<<<< HEAD
-
-###### [return to table of content](#table-of-content)
-=======
 Example:
 - After all this talk about Aglio Olio and you've yet to view the details of the recipe? Don't worry, all you have to do is run
     - `view Aglio Olio`
       - This would display the full contents of the recipe matching the name "Aglio Olio" including its ingredients and steps to prepare the dish.
->>>>>>> upstream/master
-
+      
 - Aglio Olio is the first recipe? Even better! You just have to run:
     - `view -x 1`
       - This would display the full contents of the first recipe in the list which includes its ingredients and steps to prepare the dish.
@@ -337,6 +334,11 @@ Example:
 ️:information_source: **Bonus**: You can also double-click on the recipe card that's on the left, and it would automatically display its contents on the right panel. :wink: 
 
 </div>
+
+### Exiting the program: `exit`
+Type exit to quit the program, alternatively you can exit by clicking on the :X button at the top right hand corner of the program. <br>
+Usage:
+* `exit` <br>
 
 [<sub>return to table of content</sub>](#table-of-content)
 
