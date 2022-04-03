@@ -9,13 +9,13 @@ import seedu.address.model.Model;
  */
 public class ClearCommand extends Command {
     public static final String COMMAND_WORD = "clear";
-    public static final String MESSAGE_CONFIRMATION_REQUIRED = "Are you sure you want to clear the recipe book?"
-        + " Enter 'yes' if you wish to clear and 'no' if you do not wish to clear";
+    public static final String MESSAGE_CONFIRMATION_REQUIRED = "Are you sure you want to clear the recipe book?\n\n"
+            + "Enter 'yes' if you wish to clear \n'no' if you do not wish to clear";
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + " -f executes a forced clear with no need for confirmation.\n"
+            + " -f executes a forced clear.\n"
             + COMMAND_WORD
-            + " without any parameter will require a confirmation \n"
-            + "Example: " + COMMAND_WORD + " -f\n"
+            + "\nExample: " + COMMAND_WORD + " -f\n"
+            + "Clear without any parameter requires confirmation \n"
             + "Example: " + COMMAND_WORD;
 
 

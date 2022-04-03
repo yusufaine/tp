@@ -85,6 +85,13 @@ class RecipeContainsKeywordPredicateTest {
     }
 
     @Test
+    public void toString_test() {
+        RecipeContainsKeywordPredicate doublePred =
+                new RecipeContainsKeywordPredicate(List.of("Western", "Italian", "test"));
+        assertEquals("\"Western\", \"Italian\", \"test\"", doublePred.toString());
+    }
+
+    @Test
     public void equals_test() {
         RecipeContainsKeywordPredicate singlePred = new RecipeContainsKeywordPredicate(List.of("Bacon"));
         RecipeContainsKeywordPredicate doublePred = new RecipeContainsKeywordPredicate(List.of("Eggs", "Caviar"));

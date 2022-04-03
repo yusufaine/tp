@@ -26,10 +26,8 @@ public class ViewCommand extends Command {
             + "Example: " + COMMAND_WORD + " Mac and cheese\n"
             + "Example: " + COMMAND_WORD + " -x 3";
 
-
     private Name targetName;
     private Index targetIndex;
-
 
     /**
      * Create a ViewCommand that displays the contents of stored recipe
@@ -83,26 +81,27 @@ public class ViewCommand extends Command {
         }
 
         ViewCommand other = (ViewCommand) o;
-        return targetName.equals(other.targetName)
-                || targetIndex.equals(other.targetIndex); // state check
+        return (targetName != null && targetName.equals(other.targetName))
+                || (targetIndex != null && targetIndex.equals(other.targetIndex)); // state check
     }
 
     /**
      * Retrieves the {@code Recipe} with the same name as the specified name
      * from a given list of recipes.
-     * Returns null if a recipe with the same name cannot be found.
+     * Throws a CommandException if a recipe with the same name cannot be found.
      *
      * @param lastShownList the list of recipes to search from.
      * @param recipeName the name of the recipe to view.
      * @return the recipe from the list matching the specified name.
+     * @throws CommandException displays recipe name not found error message.
      */
-    private Recipe getRecipe(List<Recipe> lastShownList, Name recipeName) {
+    private Recipe getRecipe(List<Recipe> lastShownList, Name recipeName) throws CommandException {
         for (Recipe recipe : lastShownList) {
             if (RecipeBookParserUtil.isRecipeNamesEqual(recipeName, recipe.getName())) {
                 return recipe;
             }
         }
-        return null;
+        throw new CommandException(String.format(Messages.MESSAGE_RECIPE_NOT_FOUND, recipeName));
     }
 
     /**
@@ -116,12 +115,15 @@ public class ViewCommand extends Command {
      */
     private Recipe getRecipe(List<Recipe> lastShownList, Index recipeIndex) throws CommandException {
         int zeroBasedIndex = recipeIndex.getZeroBased();
+
+        if (zeroBasedIndex >= lastShownList.size()) {
+            throw new CommandException(Messages.MESSAGE_INVALID_RECIPE_INDEX);
+        }
+
         if (zeroBasedIndex < lastShownList.size()) {
             return lastShownList.get(zeroBasedIndex);
         }
-        if (zeroBasedIndex >= lastShownList.size()) {
-            throw new CommandException(Messages.MESSAGE_INVALID_RECIPE_DISPLAYED_INDEX);
-        }
-        return null;
+
+        throw new CommandException(Messages.MESSAGE_INVALID_RECIPE_INDEX);
     }
 }

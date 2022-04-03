@@ -2,6 +2,7 @@ package seedu.address.ui;
 
 import java.util.logging.Logger;
 
+import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListCell;
@@ -27,6 +28,15 @@ public class RecipeListPanel extends UiPart<Region> {
         super(FXML);
         recipeListView.setItems(recipeList);
         recipeListView.setCellFactory(listView -> new RecipeListViewCell());
+    }
+
+    /**
+     * Returns the {@code ReadOnlyObjectProperty} of the current selected recipe in the list.
+     *
+     * @return the {@code ReadOnlyObjectProperty} of the current selected recipe.
+     */
+    public ReadOnlyObjectProperty<Recipe> selectedRecipeProperty() {
+        return recipeListView.getSelectionModel().selectedItemProperty();
     }
 
     /**
