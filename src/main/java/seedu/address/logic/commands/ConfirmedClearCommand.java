@@ -12,8 +12,8 @@ public class ConfirmedClearCommand extends ClearCommand {
     public static final String COMMAND_WORD = "yes";
     public static final String COMMAND_NAME = "Confirmed Clear";
     public static final String MESSAGE_SUCCESS = "Recipe book has been cleared!";
-    public static final String MESSAGE_UNKNOWN_COMMAND = "Unknown command! Confirm clear by typing in yes or "
-            + "no to cancel\n";
+    public static final String MESSAGE_UNKNOWN_COMMAND = "Unknown command! Type in the clear command again if you wish "
+            + "to clear\n";
 
 
     @Override
