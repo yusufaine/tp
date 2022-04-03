@@ -56,8 +56,8 @@ public class RecipeBookParser {
             case AddCommand.COMMAND_WORD:
                 return new AddCommandParser().parse(arguments);
             case ClearCommand.COMMAND_WORD:
-                requiresConfirmationClear = ClearCommandParser.isNotForcedClear(arguments);
-                return new ClearCommandParser().parse(arguments);
+                requiresConfirmationClear = ClearCommandParser.isNotForcedClear(userInput);
+                return new ClearCommandParser().parse(userInput);
             case DeleteCommand.COMMAND_WORD:
                 return new DeleteCommandParser().parse(arguments);
             case EditCommand.COMMAND_WORD:
@@ -71,8 +71,8 @@ public class RecipeBookParser {
             case ListCommand.COMMAND_WORD:
                 return new ListCommand();
             case ResetCommand.COMMAND_WORD:
-                requiresConfirmationReset = ResetCommandParser.isNotForcedReset(arguments);
-                return new ResetCommandParser().parse(arguments);
+                requiresConfirmationReset = ResetCommandParser.isNotForcedReset(userInput);
+                return new ResetCommandParser().parse(userInput);
             case ViewCommand.COMMAND_WORD:
                 return new ViewCommandParser().parse(arguments);
             default:
