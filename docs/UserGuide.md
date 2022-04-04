@@ -254,7 +254,6 @@ Example:
     - `list`
 
 [<sub>return to table of content</sub>](#table-of-content)
->>>>>>> upstream/master
 
 ### Load recipes
 Load existing recipes from the text file on your computer. Modifications to this file would be displayed accordingly as long as the format is followed. <br>
