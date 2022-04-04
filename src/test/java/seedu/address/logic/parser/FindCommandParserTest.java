@@ -27,7 +27,7 @@ class FindCommandParserTest {
         RecipeContainsKeywordPredicate pred = new RecipeContainsKeywordPredicate(List.of("Western", "Bacon"));
         FindCommand expected = new FindCommand(pred);
 
-        assertParseSuccess(parser, "Western, Bacon", expected);
-        assertParseSuccess(parser, "      Western \r\n\t\t,    Bacon", expected);
+        assertParseSuccess(parser, "Western| Bacon", expected);
+        assertParseSuccess(parser, "      Western \r\n\t\t|    Bacon", expected);
     }
 }

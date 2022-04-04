@@ -8,5 +8,5 @@
     <stylesheets>
         <URL value="@RecipeListPanelAndCard.css"/>
     </stylesheets>
-    <ListView fx:id="recipeListView" VBox.vgrow="ALWAYS" styleClass="list-cell" minWidth="231" minHeight="492"/>
+    <ListView fx:id="recipeListView" VBox.vgrow="ALWAYS" styleClass="list-cell" minWidth="250" minHeight="492"/>
 </VBox>

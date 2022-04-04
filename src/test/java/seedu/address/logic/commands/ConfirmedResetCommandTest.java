@@ -29,7 +29,7 @@ public class ConfirmedResetCommandTest {
         RecipeBook beforeReset = new RecipeBook(readOnlyBeforeReset);
 
         expectedModel.setRecipeBook(SampleDataUtil.getSampleRecipeBook());
-        String expectedMessage = "Recipe book has been Reset!";
+        String expectedMessage = "Recipe book has been reset!";
 
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
         assertEquals(model.getRecipeBook(), expectedModel.getRecipeBook());
