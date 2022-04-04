@@ -22,9 +22,8 @@ public class ResetCommandTest {
     @Test
     public void execute_showsRequireConfirmationMessage() {
         ResetCommand command = new ResetCommand();
-        String expectedMessage = "Are you sure you want to reset the "
-                + "recipe book back to the default preloaded recipes? \nEnter 'yes' if you wish to reset\n'no' if you "
-                + "do not wish to clear";
+        String expectedMessage = ResetCommand.MESSAGE_CONFIRMATION_REQUIRED;
+
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
     }
 
