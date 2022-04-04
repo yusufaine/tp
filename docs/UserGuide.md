@@ -96,6 +96,7 @@ The GUI similar to the below should appear in a few seconds. Note how the app co
 | [reset to the default recipes](#reset-to-the-default-recipes-reset)                      | `reset` (confirmation would be prompted) <br> or <br> `reset -f` (no confirmation prompt)                                                                                                                                                                                                                                                                                                                                                                                                  |
 | [view a specific recipe](#view-an-existing-recipe-view)                                  | `view <recipe name>` <br> or <br> `view <recipe number from list>`                                                                                                                                                                                                                                                                                                                                                                                                                         |
 
+
 [<sub>return to table of content</sub>](#table-of-content)
 
 ---
@@ -210,7 +211,7 @@ Example:
 
 ### Find an existing recipe: `find`
 Searches for a recipe based on the keywords (seperated by pipe). <br>
-These `Keywords` consists of ingredients, tags or recipe names. `find` will return any recipe that contains these keywords even if there is a partial matching. <br>
+These `keywords` can consists of ingredients, tags or recipe names. `find` will return any recipe that contains these keywords even if there is a partial matching. <br>
 
 Usage: 
 * `find <keyword> [other keywords seperated by pipe]`
@@ -253,7 +254,6 @@ Example:
     - `list`
 
 [<sub>return to table of content</sub>](#table-of-content)
->>>>>>> upstream/master
 
 ### Load recipes
 Load existing recipes from the text file on your computer. Modifications to this file would be displayed accordingly as long as the format is followed. <br>
