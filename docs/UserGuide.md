@@ -211,7 +211,7 @@ Example:
 
 ### Find an existing recipe: `find`
 Searches for a recipe based on the keywords (seperated by pipe). <br>
-These `Keywords` consists of ingredients, tags or recipe names. `find` will return any recipe that contains these keywords even if there is a partial matching. <br>
+These `keywords` can consists of ingredients, tags or recipe names. `find` will return any recipe that contains these keywords even if there is a partial matching. <br>
 
 Usage: 
 * `find <keyword> [other keywords seperated by pipe]`
