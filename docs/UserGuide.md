@@ -41,7 +41,7 @@ Throughout the document you may encounter some of these symbols, and they denote
 In this section, we will get you started on the things you need to do prior to using McKitchen -- namely, installing Java 11.
 
 1. Ensure you have Java `11` or above installed in your computer by clicking [here](https://www.java.com/en/download/help/version_manual.html).
-    - If you do not have Java version >= `11` installed, refer to [this installation guide](https://docs.oracle.com/en/java/javase/11/install/overview-jdk-installation.html).
+    - If you do not have Java version >= (greater than or equals to) `11` installed, refer to [this installation guide](https://docs.oracle.com/en/java/javase/11/install/overview-jdk-installation.html).
 
 2. Download the latest `McKitchen.jar` from [our GitHub page](https://github.com/AY2122S2-CS2103T-T17-2/tp/releases).
 
