@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.commons.core.Messages.MESSAGE_FIND_RETURNS_NO_RECIPES_FOUND;
 import static seedu.address.commons.core.Messages.MESSAGE_RECIPES_LISTED_OVERVIEW;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TestUtil.filteredListEquality;
@@ -45,7 +46,7 @@ class FindCommandTest {
     public void execute_singleKeyword_zeroResult() {
         RecipeContainsKeywordPredicate zeroPred = new RecipeContainsKeywordPredicate(List.of("STILL MAINDENLESS?"));
         FindCommand cmd = new FindCommand(zeroPred);
-        String expectedMessage = String.format(MESSAGE_RECIPES_LISTED_OVERVIEW, 0);
+        String expectedMessage = String.format(MESSAGE_FIND_RETURNS_NO_RECIPES_FOUND, zeroPred);
 
         expectedModel.updateFilteredRecipeList(zeroPred);
         assertCommandSuccess(cmd, model, expectedMessage, expectedModel);

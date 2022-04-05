@@ -27,6 +27,19 @@ public class RecipeContainsKeywordPredicate implements Predicate<Recipe> {
     }
 
     @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < keywords.size(); i++) {
+            if (i == keywords.size() - 1) {
+                sb.append(String.format("\"%s\"", keywords.get(i)));
+            } else {
+                sb.append(String.format("\"%s\", ", keywords.get(i)));
+            }
+        }
+        return sb.toString().trim();
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (!(o instanceof RecipeContainsKeywordPredicate)) {
             return false;
