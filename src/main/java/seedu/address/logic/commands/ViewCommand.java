@@ -22,7 +22,7 @@ public class ViewCommand extends Command {
             + ": Displays the details of a recipe identified by the name of "
             + "the recipe in the recipe list.\n\n"
             + "Parameters:\n1. name (must be a valid name, not case-sensitive)\n"
-            + "2. index (must be a valid non-zero positive index)\n\n"
+            + "2. index (must be a valid non-zero positive number)\n\n"
             + "Example: " + COMMAND_WORD + " Mac and cheese\n"
             + "Example: " + COMMAND_WORD + " -x 3";
 
