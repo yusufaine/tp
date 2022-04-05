@@ -112,7 +112,7 @@ public class MainWindow extends UiPart<Stage> {
      */
     void fillInnerParts() {
         String welcomeMessage = "Welcome to McKitchen!\n\n"
-                + "To begin, you can use the \"help\" command to access our Command Summary in our User Guide.";
+                + "To begin, you can use the \"help\" command to access the Command Summary in our User Guide.";
 
         recipeListPanel = new RecipeListPanel(logic.getFilteredRecipeList());
         recipeListPanelPlaceholder.getChildren().add(recipeListPanel.getRoot());
