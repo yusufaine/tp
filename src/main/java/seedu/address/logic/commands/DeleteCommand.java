@@ -22,7 +22,7 @@ public class DeleteCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Deletes the recipe identified by the name used in the displayed list of recipes.\n\n"
             + "Parameters:\n1. name (must be a valid name, not case-sensitive)\n"
-            + "2. index (must be a valid, non-zero positive integer)\n\n"
+            + "2. index (must be a valid, non-zero positive number)\n\n"
             + "Example: " + COMMAND_WORD + " aglio olio\n"
             + "Example: " + COMMAND_WORD + " " + PREFIX_INDEX + "1";
 
