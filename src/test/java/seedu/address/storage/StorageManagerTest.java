@@ -44,6 +44,7 @@ public class StorageManagerTest {
         original.setGuiSettings(new GuiSettings(300, 600, 4, 6));
         storageManager.saveUserPrefs(original);
         UserPrefs retrieved = storageManager.readUserPrefs().orElse(null);
+        assertNotNull(storageManager.getUserPrefsFilePath());
         assertEquals(original, retrieved);
     }
 
