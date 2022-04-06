@@ -28,7 +28,7 @@ Given below are my contributions to the project.
   * Updated the GUI Styling (Pull requests [\#86](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/86))
   
   * Contributed to implementation details for Clear command 
-  (Pull requests [\#49](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/49)
+  (Pull requests [\#127](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/127))
   * Bug fixes (Pull requests [\#33](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/33), 
     [\#58](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/58), 
     [\#164](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/164), 
