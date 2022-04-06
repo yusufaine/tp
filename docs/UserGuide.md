@@ -209,6 +209,13 @@ Example:
 
 [<sub>return to table of content</sub>](#table-of-content)
 
+### Exiting the program: `exit`
+Type exit to quit the program, alternatively you can exit by clicking on the :X button at the top right hand corner of the program. <br>
+Usage:
+* `exit` <br>
+
+[<sub>return to table of content</sub>](#table-of-content)
+
 ### Find an existing recipe: `find`
 Searches for a recipe based on the keywords (seperated by pipe). <br>
 These `keywords` can consists of ingredients, tags or recipe names. `find` will return any recipe that contains these keywords even if there is a partial matching. <br>
@@ -333,14 +340,6 @@ Example:
 ️:information_source: **Bonus**: You can also double-click on the recipe card that's on the left, and it would automatically display its contents on the right panel. :wink: 
 
 </div>
-
-### Exiting the program: `exit`
-Type exit to quit the program, alternatively you can exit by clicking on the :X button at the top right hand corner of the program. <br>
-Usage:
-* `exit` <br>
-
-[<sub>return to table of content</sub>](#table-of-content)
-
 
 ---
 
