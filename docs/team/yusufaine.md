@@ -16,21 +16,19 @@ Given below are my contributions to the project with majority of the credits giv
 * [**New Parser**](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/47): Update AB3's Parser class for our own needs.
   * What it does: Parses user input to create a valid object in McKitchen
   * Justification: As we modified the files in `model/`, we also had to modify how user inputs were parsed and checked for validity.
-* **Update Feature**: Update the `Exit` feature to allow users to exit by typing in a command.
-* **Update Feature**: Update the `Help` command to direct our users to our User Guide in our product page.
-* **Update Feature**: Update the `List` feature to list all recipes that are stored in McKitchen.
-  * What it does: List all recipes that are stored in McKitchen.
-  * Justification: We would want our users to be able to view all the recipes that they have stored.
-* **Update Feature**: Update the `Find` feature to find a Recipe based on the inputs given.
+* **New Feature**: Update the `Find` feature to find a Recipe based on the inputs given.
   * What it does: Allows users to search for a recipe that contains any of the keywords given. 
-  * Justification: This features improves the product significantly because a user is able to search for recipes based on what ingredient they have on hand or feel like eating. As such, the functionality of `Find` is not very strict or verbose as it returns a list of recipes that matches any of the keywords that match.
-  * Highlights: This enhancement requires all `Recipe`s to be searchable as it should match the recipe's `Name`, `Ingredient`, or `Tag`. This implementation was challenging as I had to think of how to make `Recipe` searchable based on its data fields as well. Our team thought of using `Trie`s and such but also felt like that would be an over-engineered solution and resorted to create `SearchSet` which essentially represents a `Recipe` into its keywords, making it easy to search and match.
+  * Justification: This features improves the user experience of our users by enabling them to search for recipes based on what ingredient they have on hand or feel like eating.
+  * Highlights: This enhancement requires all `Recipe`s to be searchable as it should match the recipe's `Name`, `Ingredient`, or `Tag`. This implementation was challenging as I had to think of how to make `Recipe` searchable based on its data fields as well. Our team settled with creating `SearchSet` which represents a `Recipe` into its keywords, making it easy to search and match.
 * **New Feature**: Access (`edit`, `view`, `delete`) recipe by index.
   * What it does: Allows the above-mentioned features to work by specifying the index of the recipe in the current list view. This means that the index is based on what the user is currently seeing so that it would work as intended after `find` has been executed.
   * Justification: Improve user-experience. The commands for our application are long due to the nature of recipe books. As such, we would like to alleviate some of those problems by allowing users to specify `-x <recipe number from list>` so that users would not have to type the full name of a `Recipe`.
   * Highlights: This enhancement requires a new `Prefix` to denote that the data afterwards is an `Index`. I then had to add a new method to get a `Recipe` based on its index and update the affected commands. We then abstracted this out to reduce repetitive code.
-* **Improved testing and code coverage**:
-  * Achieved 100% code coverage for files in: `model/*`, `FindCommand`, and `FindCommandParser`.
+
+* **Modifications to existing features**:
+  * Update `Exit`, `Help`, and `List` to work as how we intended for it to from AB-3's to McKitchen.
+  * Achieved 100% code coverage for files in: `model/*`, `FindCommand`, and `FindCommandParser`, along with other files.
+
 
 * **Code contributed**: Click [here](https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=yusufaine&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code~other&since=2022-02-18&tabOpen=true&tabType=authorship&zFR=false&tabAuthor=yusufaine&tabRepo=AY2122S2-CS2103T-T17-2%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code~other&authorshipIsBinaryFileTypeChecked=false) to see the code that I've contributed on RepoSense.
 
@@ -38,10 +36,6 @@ Given below are my contributions to the project with majority of the credits giv
   * Managed releases `v1.3` - `v1.4rc` (3 releases) on GitHub
   * Planned and organised [weekly meetings](https://docs.google.com/document/d/1NpyQ7--KhO6W1OKzQWIu728AawXXmeFbyTlrjPOvS4c/edit?usp=sharing) as a way to keep the team updated with each other's work and update them on what needs to be done for the week.
   * Aggregated issues to improve [code coverage](https://github.com/AY2122S2-CS2103T-T17-2/tp/issues/77) and address [issues found by other testers](https://github.com/AY2122S2-CS2103T-T17-2/tp/issues/219)
-
-* **Enhancements to existing features**:
-  * Updated the GUI color scheme (Pull requests [\#33](), [\#34]())
-  * Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests [\#36](), [\#38]())
 
 * **Documentation**:
   * User Guide:
@@ -59,19 +53,12 @@ Given below are my contributions to the project with majority of the credits giv
   * Maintaining the issue tracker
   * Release management
   * PRs reviewed (with non-trivial review comments): 
-    * [\#127](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/127#discussion_r832093006), 
-    * [\#128](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/128#issuecomment-1076317905),
-    * [\#172](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/172#discussion_r836634342), and 
-    * [\#179](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/179#discussion_r838115404)
+    * [\#127](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/127#discussion_r832093006), [\#128](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/128#issuecomment-1076317905), [\#172](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/172#discussion_r836634342), and [\#179](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/179#discussion_r838115404)
   * Contributed to forum discussions 
     * [Discussion on error handling](https://github.com/nus-cs2103-AY2122S2/forum/issues/21), 
     * [Help another student with a GUI issue that I had also faced and resolved](https://github.com/nus-cs2103-AY2122S2/forum/issues/112#issuecomment-1030658101), 
     * [Help another student understand and set up their forking workflow](https://github.com/nus-cs2103-AY2122S2/forum/issues/194#issuecomment-1055672552), and
     * [Conversion to PDF -- Update header from AB-3 to the name of your project](https://github.com/nus-cs2103-AY2122S2/forum/issues/259)
   * Reported bugs and suggestions for other teams in the class
-    * [\#7](https://github.com/yusufaine/ped/issues/7),
-    * [\#8](https://github.com/yusufaine/ped/issues/8),
-    * [\#19](https://github.com/yusufaine/ped/issues/19),
-    * [\#22](https://github.com/yusufaine/ped/issues/22), and
-    * more can be found [here](https://github.com/yusufaine/ped/issues?q=is%3Aissue+is%3Aopen)
+    * [\#7](https://github.com/yusufaine/ped/issues/7), [\#8](https://github.com/yusufaine/ped/issues/8), [\#19](https://github.com/yusufaine/ped/issues/19), [\#22](https://github.com/yusufaine/ped/issues/22). More can be found [here](https://github.com/yusufaine/ped/issues?q=is%3Aissue+is%3Aopen)
   
