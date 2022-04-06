@@ -19,9 +19,9 @@ Listed below are my contributions to the project with majority of the credits gi
   * Justification: This features improves the user experience of our users by enabling them to search for recipes based on what ingredient they have on hand or feel like eating.
   * Highlights: This enhancement requires all recipes to be searchable as it should match the recipe's name, ingredient, or tag. I implemented this by creating `SearchSet` which represents a recipe into its keywords, making it easy to search and match.
 * **New Feature**: Access (`edit`, `view`, `delete`) recipe by index.
-  * What it does: Allows the above-mentioned features to work by specifying the index of the recipe in the current list view. This means that the index is based on what the user is currently seeing so that it would work as intended after `find` has been executed.
+  * What it does: Allows the above-mentioned features to work by specifying the index of the recipe in the current list view. 
   * Justification: Improve user-experience by alleviating the issue of long commands by allowing users to specify `-x <recipe number from list>` so that users would not have to type the full name of a recipe.
-  * Highlights: This enhancement requires a new `Prefix` to denote that the data afterwards is an `Index`. I then had to add a new method to get a recipe based on its index and update the affected commands. We then abstracted this out to reduce repetitive code.
+  * Highlights: This enhancement requires a new `Prefix` to denote that the data after it is an `Index`. I then had to add a new method to get a recipe based on its index and update the affected commands.
 
 * **Modifications to existing features**:
   * Update `Exit`, `Help`, and `List` to work as how we intended for it to from AB-3's to McKitchen.
