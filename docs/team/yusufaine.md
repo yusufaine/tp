@@ -9,20 +9,18 @@ McKitchen (My-CLI-Kitchen) is a desktop application that can quickly store, edit
 
 The user interacts with it using a CLI-like interface, and it has a GUI created with JavaFX. It is written in Java and has about 9.5k LoC.
 
-Given below are my contributions to the project with majority of the credits given to AB-3 as it served as a strong foundation for our application.
+Listed below are my contributions to the project with majority of the credits given to AB-3 as it served as a strong foundation for our application.
 * [**New Model**](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/12): Added the skeleton code for what classes in McKitchen are going to be based and improved on. 
-  * What it does: Creates the necessary objects that we need to get started with creating McKitchen such as `Recipe` and its relevant dependencies.
-  * Justification: As our application is morphing AB-3, we had to modify some base files to suit our needs, and I took charge of updating the files in `model/`.
+  * As our application is morphing AB-3, we had to modify some base files to suit our needs, and I took charge of updating the files in `model/`.
 * [**New Parser**](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/47): Update AB3's Parser class for our own needs.
-  * What it does: Parses user input to create a valid object in McKitchen
-  * Justification: As we modified the files in `model/`, we also had to modify how user inputs were parsed and checked for validity.
+  * As we modified the files in `model/`, we also had to modify how user inputs were parsed and checked for validity.
 * **New Feature**: Update the `Find` feature to find a Recipe based on the inputs given.
   * What it does: Allows users to search for a recipe that contains any of the keywords given. 
   * Justification: This features improves the user experience of our users by enabling them to search for recipes based on what ingredient they have on hand or feel like eating.
-  * Highlights: This enhancement requires all `Recipe`s to be searchable as it should match the recipe's name, ingredient, or tag. I implemented this by creating `SearchSet` which represents a recipe into its keywords, making it easy to search and match.
+  * Highlights: This enhancement requires all recipes to be searchable as it should match the recipe's name, ingredient, or tag. I implemented this by creating `SearchSet` which represents a recipe into its keywords, making it easy to search and match.
 * **New Feature**: Access (`edit`, `view`, `delete`) recipe by index.
   * What it does: Allows the above-mentioned features to work by specifying the index of the recipe in the current list view. This means that the index is based on what the user is currently seeing so that it would work as intended after `find` has been executed.
-  * Justification: Improve user-experience. The commands for our application are long due to the nature of recipe books. As such, we would like to alleviate some of those problems by allowing users to specify `-x <recipe number from list>` so that users would not have to type the full name of a recipe.
+  * Justification: Improve user-experience by alleviating the issue of long commands by allowing users to specify `-x <recipe number from list>` so that users would not have to type the full name of a recipe.
   * Highlights: This enhancement requires a new `Prefix` to denote that the data afterwards is an `Index`. I then had to add a new method to get a recipe based on its index and update the affected commands. We then abstracted this out to reduce repetitive code.
 
 * **Modifications to existing features**:
@@ -39,13 +37,12 @@ Given below are my contributions to the project with majority of the credits giv
 
 * **Documentation**:
   * User Guide:
-    * Major refactor of User Guide
-      * Update the flow and formatting of the User Guide,
-      * Ensured that it was more user-centric and friendly,
-      * Improved navigability by introducing links to jump to different sections of the guide,
-      * Added tips to features to help users understand how to best use certain features and included advanced tips for users who are more technically-proficient, and
-      * Assisted the other members with writing the features they had implemented.
+    * Update the flow and formatting of the User Guide,
+    * Ensured that it was more user-centric and friendly,
+    * Added tips to features to help users understand how to best use certain features and included tips for advanced users 
+    * Assisted the other members with writing the features they had implemented.
   * Developer Guide:
+    * Update the flow and formatting of the Developer Guide
     * Assisted Gigi with the creation of UML diagrams for the Developer Guide
 
 * **Community**:
