@@ -25,7 +25,7 @@ Throughout the document you may encounter some of these symbols, and they denote
     * [Clear (delete all) existing recipes: `clear`](#clear-delete-all-existing-recipes-clear)
     * [Delete an existing recipe: `delete`](#delete-an-existing-recipe-delete)
     * [Edit an existing recipe: `edit`](#edit-an-existing-recipe-edit)
-    * [Exiting the program: `Exit`](#exiting-the-program)
+    * [Exiting the program: `Exit`](#exiting-the-program-exit)
     * [Find an existing recipe: `find`](#find-an-existing-recipe-find)
     * [Get help on how to use McKitchen: `help`](#get-help-on-how-to-use-mckitchen-help)
     * [List all stored recipes: `list`](#list-all-stored-recipes-list)
@@ -89,7 +89,7 @@ The GUI similar to the below should appear in a few seconds. Note how the app co
 | [clear existing list of recipes](#clear-delete-all-existing-recipes-clear)               | `clear` (confirmation would be prompted) <br> or <br> `clear -f` (no confirmation prompt)                                                                                                                                                                                                                                                                                                                                                                                                  |
 | [delete an existing recipe](#delete-an-existing-recipe-delete)                           | `delete <recipe name>` <br> or <br> `delete <-x recipe number from list>`                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | [edit a recipe](#edit-an-existing-recipe-edit)                                           | `edit <name of recipe> [<-n new name of recipe> <-d new prep time of recipe> <-ss new serving size/portions of recipe> <-i new ingredients separated by pipe> <-s new steps separated by pipe> <-t new tags separated by pipe>]` <br> or <br> `edit <-x recipe number from list> [-n <new name of recipe> -d <new prep time of recipe> -ss <new serving size/portions of recipe> -i <new ingredients separated by pipe> -s <new steps separated by pipe> -t <new tags separated by pipe>]` |
-| [Exit the program](#exiting-the-program)                                                 | `exit`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| [exit the program](#exiting-the-program-exit)                                            | `exit`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | [find a recipe](#find-an-existing-recipe-find)                                           | `find <keyword> [other keywords separated by pipe]`                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | [get help on using McKitchen](#get-help-on-how-to-use-mckitchen-help) <br>(you're here!) | `help`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | [list all recipes](#list-all-stored-recipes-list)                                        | `list`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
@@ -207,6 +207,13 @@ Example:
 :information_source: Notice how we did not specify the completion time (`-d`), serving size (`-ss`), and the tags (`-t`)? <br>This is because we want them to remain the same and as mentioned earlier, you will only need to specify the updated values.
 
 </div>
+
+[<sub>return to table of content</sub>](#table-of-content)
+
+### Exiting the program: `exit`
+Type exit to quit the program, alternatively you can exit by clicking on the :X button at the top right hand corner of the program. <br>
+Usage:
+* `exit` <br>
 
 [<sub>return to table of content</sub>](#table-of-content)
 
@@ -334,14 +341,6 @@ Example:
 ️:information_source: **Bonus**: You can also click on the recipe card that's on the left, and it would automatically display its contents on the right panel. :wink: 
 
 </div>
-
-### Exiting the program: `exit`
-Type exit to quit the program, alternatively you can exit by clicking on the :X button at the top right hand corner of the program. <br>
-Usage:
-* `exit` <br>
-
-[<sub>return to table of content</sub>](#table-of-content)
-
 
 ---
 
