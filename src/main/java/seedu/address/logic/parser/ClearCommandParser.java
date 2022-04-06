@@ -11,8 +11,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
  * Parses input arguments and creates a new ClearCommand object.
  */
 public class ClearCommandParser implements Parser<ClearCommand> {
-    private static final String COMMAND_WORD = "clear";
-    private static final String FORCED_COMMAND_WORD = "clear -f";
+    private static final String FORCED_COMMAND_TAG = " -f";
     /**
      * Checks whether the ClearCommand is a forced clear.
      *
@@ -21,7 +20,7 @@ public class ClearCommandParser implements Parser<ClearCommand> {
      */
 
     public static boolean isNotForcedClear(String arguments) {
-        return arguments.equals(COMMAND_WORD);
+        return arguments.isEmpty();
     }
 
     /**
@@ -34,9 +33,9 @@ public class ClearCommandParser implements Parser<ClearCommand> {
      */
     @Override
     public ClearCommand parse(String userInput) throws ParseException {
-        if (userInput.equals(FORCED_COMMAND_WORD)) {
+        if (userInput.equals(FORCED_COMMAND_TAG)) {
             return new ConfirmedClearCommand();
-        } else if (userInput.equals(COMMAND_WORD)) {
+        } else if (userInput.isEmpty()) {
             return new ClearCommand();
         } else {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, ClearCommand.MESSAGE_USAGE));

@@ -11,8 +11,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
  * Parses input arguments and creates a new ResetCommand object.
  */
 public class ResetCommandParser implements Parser<ResetCommand> {
-    private static final String COMMAND_WORD = "reset";
-    private static final String FORCED_COMMAND_WORD = "reset -f";
+    private static final String FORCED_COMMAND_TAG = " -f";
     /**
      * Checks whether the ResetCommand is a forced Reset.
      *
@@ -21,7 +20,7 @@ public class ResetCommandParser implements Parser<ResetCommand> {
      */
 
     public static boolean isNotForcedReset(String arguments) {
-        return arguments.equals(COMMAND_WORD);
+        return arguments.isEmpty();
     }
 
     /**
@@ -34,9 +33,9 @@ public class ResetCommandParser implements Parser<ResetCommand> {
      */
     @Override
     public ResetCommand parse(String userInput) throws ParseException {
-        if (userInput.equals(FORCED_COMMAND_WORD)) {
+        if (userInput.equals(FORCED_COMMAND_TAG)) {
             return new ConfirmedResetCommand();
-        } else if (userInput.equals(COMMAND_WORD)) {
+        } else if (userInput.isEmpty()) {
             return new ResetCommand();
         } else {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, ResetCommand.MESSAGE_USAGE));
