@@ -33,9 +33,10 @@ Throughout the document you may encounter some of these symbols, and they denote
     * [Save recipes](#save-recipes)
     * [Reset to the default recipes: `reset`](#reset-to-the-default-recipes-reset)
     * [View an existing recipe: `view`](#view-an-existing-recipe-view)
-    
 - [FAQ](#faq)
+
 ---
+
 ## Quick start
 
 In this section, we will get you started on the things you need to do prior to using McKitchen -- namely, installing Java 11.
@@ -131,6 +132,8 @@ Example:
 
  [<sub>return to table of content</sub>](#table-of-content)
 
+---
+
 ### Clear (delete all) existing recipes: `clear`
 Removes all existing recipes in McKitchen. A confirmation prompt would show up before this operation is executed. <br>
 
@@ -155,6 +158,10 @@ Example:
 
 </div>
 
+[<sub>return to table of content</sub>](#table-of-content)
+
+---
+
 ### Delete an existing recipe: `delete`
 Removes a stored recipe based on the number it is associated with in the `list` <br>
 Usage: 
@@ -178,6 +185,8 @@ To make it a little more convenient for you, McKitchen is able to delete a recip
 </div>
 
 [<sub>return to table of content</sub>](#table-of-content)
+
+---
 
 ### Edit an existing recipe: `edit`
 Edits a recipe by specifying its name, ingredients, and steps to prepare the dish.<br>
@@ -210,12 +219,16 @@ Example:
 
 [<sub>return to table of content</sub>](#table-of-content)
 
+---
+
 ### Exiting the program: `exit`
 Type exit to quit the program, alternatively you can exit by clicking on the :X button at the top right hand corner of the program. <br>
 Usage:
 * `exit` <br>
 
 [<sub>return to table of content</sub>](#table-of-content)
+
+---
 
 ### Find an existing recipe: `find`
 Searches for a recipe based on the keywords (separated by pipe). <br>
@@ -243,6 +256,10 @@ McKitchen will still return the same result despite how you order the keywords!
 
 </div>
 
+[<sub>return to table of content</sub>](#table-of-content)
+
+---
+
 ### Get help on how to use McKitchen: `help`
 Opens a pop-up that allows you to copy a link to our User Guide (this page) but directs you to the [Command Summary](#command-summary) immediately so that you can see what commands to type in order to achieve what you want to do with McKitchen. <br>
 Usage: `help`
@@ -253,6 +270,8 @@ Example:
 
 [<sub>return to table of content</sub>](#table-of-content)
 
+---
+
 ### List all stored recipes: `list`
 Displays all the available recipes that has been stored locally <br>
 Usage: `list`
@@ -262,6 +281,8 @@ Example:
     - `list`
 
 [<sub>return to table of content</sub>](#table-of-content)
+
+---
 
 ### Load recipes
 Load existing recipes from the text file on your computer. Modifications to this file would be displayed accordingly as long as the format is followed. <br>
@@ -280,6 +301,8 @@ If the file or folder does not exist, McKitchen would automatically create them 
 
 [<sub>return to table of content</sub>](#table-of-content)
 
+---
+
 ### Save recipes
 Save the recipes in a human-readable text file on your computer and is modifiable through a text editor as it is JSON-formatted. <br>
 Usage: Automatically updates when the text file is modified.
@@ -295,6 +318,8 @@ Example: If McKitchen is saved in the "Downloads" folder, recipes would be saved
 </div>
 
 [<sub>return to table of content</sub>](#table-of-content)
+
+---
 
 ### Reset to the default recipes: `reset`
 Resets the existing recipes in McKitchen to the default ones that it initially came with.
@@ -318,6 +343,7 @@ Example:
 
 [<sub>return to table of content</sub>](#table-of-content)
 
+---
 
 ### View an existing recipe: `view`
 View the contents of an existing stored recipe based on recipe name or number. <br>
@@ -341,6 +367,8 @@ Example:
 ️:information_source: **Bonus**: You can also click on the recipe card that's on the left, and it would automatically display its contents on the right panel. :wink: 
 
 </div>
+
+[<sub>return to table of content</sub>](#table-of-content)
 
 ---
 
