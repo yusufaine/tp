@@ -14,13 +14,16 @@ Given below are my contributions to the project.
   * Justification: This feature improves the product significantly because a user can quickly remove any unwanted recipes in the application.
   * wrote test cases for delete command to ensure that it meets 100% code coverage [\#128]()
 
+
 * **Code contributed**: [RepoSense link]()
+
 
 * **Enhancements to existing features**:
   * wrote CommandTestUtil for testing of different commands. [\#106]()
   * wrote test cases for ingredients to ensure that 100% code coverage is met. (Pull requests [\#131](), [\#132]())
   * Wrote test cases for Exit Command. [\#106]()
   * Made amendments based on the issues found by other students [\#226]()
+
 
 * **Documentation**:
   * User Guide:
@@ -37,6 +40,7 @@ Given below are my contributions to the project.
     * Added User stories and prioritised them accordingly. [\#39]()
     * Added use cases, guarantees, MSS and Extensions for adding a recipe, deleting a recipe, Editing a recipe and Clearing the recipe book. [\#39]()
     * Designed UML diagrams to suit our McKitchen theme. [\#48]() [\#122]()
+
 
 * **Community**:
   * PRs reviewed (with non-trivial review comments): [\#47](), [\#59](), [\#177](), [\#135]()
