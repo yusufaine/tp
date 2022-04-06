@@ -2,7 +2,7 @@
 layout: page
 title: User Guide
 ---
-McKitchen (My-CLI-Kitchen) is a desktop application that can quickly store, edit, and search for recipes by running a single command. This is ideal for the fast typists, amateur cooks, or busy students or executives who want a simple way to store or search for simple recipes to cook.
+McKitchen (My-CLI-Kitchen) is a desktop application that can quickly store, edit, and search for recipes by running a single command. This is ideal for the fast typists, amateur cooks, busy students or executives who want a simple way to store or search for simple recipes to cook.
 
 ## About this guide
 This guide is intended to be used by those who are interested in how to use McKitchen -- whether you're a user of McKitchen or simply doing research, welcome! A [table of content](#table-of-content) is located just below this section to improve navigation of this guide and bring you to the portion of the guide that you are interested in. Additionally, in each of those sections, we've linked a small text titled "return to Table of Content" for you to be able to quickly jump back to the top should you choose to. 
@@ -25,7 +25,7 @@ Throughout the document you may encounter some of these symbols, and they denote
     * [Clear (delete all) existing recipes: `clear`](#clear-delete-all-existing-recipes-clear)
     * [Delete an existing recipe: `delete`](#delete-an-existing-recipe-delete)
     * [Edit an existing recipe: `edit`](#edit-an-existing-recipe-edit)
-    * [Exiting the program: `Exit`](#exiting-the-program)
+    * [Exiting the program: `Exit`](#exiting-the-program-exit)
     * [Find an existing recipe: `find`](#find-an-existing-recipe-find)
     * [Get help on how to use McKitchen: `help`](#get-help-on-how-to-use-mckitchen-help)
     * [List all stored recipes: `list`](#list-all-stored-recipes-list)
@@ -41,7 +41,7 @@ Throughout the document you may encounter some of these symbols, and they denote
 In this section, we will get you started on the things you need to do prior to using McKitchen -- namely, installing Java 11.
 
 1. Ensure you have Java `11` or above installed in your computer by clicking [here](https://www.java.com/en/download/help/version_manual.html).
-    - If you do not have Java version >= `11` installed, refer to [this installation guide](https://docs.oracle.com/en/java/javase/11/install/overview-jdk-installation.html).
+    - If you do not have Java version `11` or later installed, refer to [this installation guide](https://docs.oracle.com/en/java/javase/11/install/overview-jdk-installation.html).
 
 2. Download the latest `McKitchen.jar` from [our GitHub page](https://github.com/AY2122S2-CS2103T-T17-2/tp/releases).
 
@@ -72,7 +72,7 @@ The GUI similar to the below should appear in a few seconds. Note how the app co
 ### Understanding the command format
 1. Almost all the details of the commands are needed to be given before the command can be executed properly.
     * **Optional** details of the command are enclosed in square brackets such as [optional details].
-        + Example: `command <recipe name or -x <recipe number from the list>> [optional details]`
+        + Example: `command <recipe name> or -x <recipe number from the list> [optional details]`
         + A clearer example of this can be seen in the [delete command](#delete-an-existing-recipe-delete), or [edit command](#edit-an-existing-recipe-edit).
       
 2. What does it mean when the input command says "... separated by pipe"?
@@ -89,7 +89,7 @@ The GUI similar to the below should appear in a few seconds. Note how the app co
 | [clear existing list of recipes](#clear-delete-all-existing-recipes-clear)               | `clear` (confirmation would be prompted) <br> or <br> `clear -f` (no confirmation prompt)                                                                                                                                                                                                                                                                                                                                                                                                  |
 | [delete an existing recipe](#delete-an-existing-recipe-delete)                           | `delete <recipe name>` <br> or <br> `delete <-x recipe number from list>`                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | [edit a recipe](#edit-an-existing-recipe-edit)                                           | `edit <name of recipe> [<-n new name of recipe> <-d new prep time of recipe> <-ss new serving size/portions of recipe> <-i new ingredients separated by pipe> <-s new steps separated by pipe> <-t new tags separated by pipe>]` <br> or <br> `edit <-x recipe number from list> [-n <new name of recipe> -d <new prep time of recipe> -ss <new serving size/portions of recipe> -i <new ingredients separated by pipe> -s <new steps separated by pipe> -t <new tags separated by pipe>]` |
-| [Exit the program](#exiting-the-program)                                                 | `exit`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| [exit the program](#exiting-the-program-exit)                                            | `exit`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | [find a recipe](#find-an-existing-recipe-find)                                           | `find <keyword> [other keywords separated by pipe]`                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | [get help on using McKitchen](#get-help-on-how-to-use-mckitchen-help) <br>(you're here!) | `help`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | [list all recipes](#list-all-stored-recipes-list)                                        | `list`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
@@ -114,7 +114,8 @@ In this section we would be going over what each feature does, how to go about d
 ### Add a new recipe: `add`
 Add a recipe by specifying its name, ingredients, and steps to prepare the dish.<br>
 Usage: `add <-n name of recipe> <-d completion time of recipe in minutes> <-ss serving size of recipe> <-i ingredients of recipes separated by pipe> <-s steps separated by pipe> [-t tags associated with recipe]`
-> :information_source: Ingredients, steps, and tags can be separated by pipe.
+> :information_source: Ingredients, steps, and tags can be separated by pipe. </br>
+> :heavy_exclamation_mark: It is compulsory to specify the quantity of each ingredient that is to be added to the recipe. 
 
 Example:
 - Let's say you would like to add a new pasta recipe for "Aglio Olio" You'll need to specify:
@@ -209,8 +210,15 @@ Example:
 
 [<sub>return to table of content</sub>](#table-of-content)
 
+### Exiting the program: `exit`
+Type exit to quit the program, alternatively you can exit by clicking on the :X button at the top right hand corner of the program. <br>
+Usage:
+* `exit` <br>
+
+[<sub>return to table of content</sub>](#table-of-content)
+
 ### Find an existing recipe: `find`
-Searches for a recipe based on the keywords (seperated by pipe). <br>
+Searches for a recipe based on the keywords (separated by pipe). <br>
 These `keywords` can consists of ingredients, tags or recipe names. `find` will return any recipe that contains these keywords even if there is a partial matching. <br>
 
 Usage: 
@@ -330,17 +338,9 @@ Example:
 
 ️:information_source: Recipe names are case-insensitive to make it a little more convenient for you. This means that `view aglio olio` works too! <br>
 
-️:information_source: **Bonus**: You can also double-click on the recipe card that's on the left, and it would automatically display its contents on the right panel. :wink: 
+️:information_source: **Bonus**: You can also click on the recipe card that's on the left, and it would automatically display its contents on the right panel. :wink: 
 
 </div>
-
-### Exiting the program: `exit`
-Type exit to quit the program, alternatively you can exit by clicking on the :X button at the top right hand corner of the program. <br>
-Usage:
-* `exit` <br>
-
-[<sub>return to table of content</sub>](#table-of-content)
-
 
 ---
 
@@ -369,5 +369,7 @@ You can use the reset command to retrieve the recipe. For newly added recipes, y
 **Q: If I typed in 'clear' or 'reset' in the command bar, will it take effect immediately?**<br>
 It will not take effect immediately. A confirmation prompt will allow you to confirm your decision. Alternatively, you can specify the prefix -f to clear or reset without any confirmation prompt. 
 
+**Q: With the find command, Can I exclude recipes with ingredients that I don't have?**<br>
+Unfortunately, our application only allows you to find recipes base on what you have. 
 
 [<sub>return to table of content</sub>](#table-of-content)
