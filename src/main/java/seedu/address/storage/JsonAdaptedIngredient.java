@@ -11,9 +11,9 @@ import seedu.address.model.recipe.Ingredient;
  */
 public class JsonAdaptedIngredient {
 
-    private final String ingredientName;
-    private final String quantity;
-    private final String quantifier;
+    public final String ingredientName;
+    public final String quantity;
+    public final String quantifier;
 
     /**
      * Constructs a {@code JsonAdaptedIngredient} with the given {@code ingredientName},
@@ -35,18 +35,6 @@ public class JsonAdaptedIngredient {
         ingredientName = source.ingredientName;
         quantity = String.valueOf(source.quantity);
         quantifier = source.quantifier;
-    }
-
-    public String getIngredientName() {
-        return ingredientName;
-    }
-
-    public String getQuantity() {
-        return quantity;
-    }
-
-    public String getQuantifier() {
-        return quantifier;
     }
 
     /**
