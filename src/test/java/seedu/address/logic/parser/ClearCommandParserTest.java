@@ -17,8 +17,8 @@ import seedu.address.logic.commands.ConfirmedClearCommand;
 public class ClearCommandParserTest {
 
     private final ClearCommandParser parser = new ClearCommandParser();
-    private final String clearCommand = "clear";
-    private final String confirmedClear = "clear -f";
+    private final String clearCommand = "";
+    private final String confirmedClear = " -f";
 
     /**
      * Tests the isNotForcedClearCommand.
