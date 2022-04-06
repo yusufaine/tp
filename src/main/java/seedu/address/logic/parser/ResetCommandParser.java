@@ -1,5 +1,7 @@
 package seedu.address.logic.parser;
 
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+
 import seedu.address.logic.commands.ConfirmedResetCommand;
 import seedu.address.logic.commands.ResetCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
@@ -9,7 +11,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
  * Parses input arguments and creates a new ResetCommand object.
  */
 public class ResetCommandParser implements Parser<ResetCommand> {
-    private static final String PREFIX = "-f";
+    private static final String FORCED_COMMAND_TAG = " -f";
     /**
      * Checks whether the ResetCommand is a forced Reset.
      *
@@ -18,7 +20,7 @@ public class ResetCommandParser implements Parser<ResetCommand> {
      */
 
     public static boolean isNotForcedReset(String arguments) {
-        return !arguments.contains(PREFIX);
+        return arguments.isEmpty();
     }
 
     /**
@@ -31,10 +33,12 @@ public class ResetCommandParser implements Parser<ResetCommand> {
      */
     @Override
     public ResetCommand parse(String userInput) throws ParseException {
-        if (userInput.contains(PREFIX)) {
+        if (userInput.equals(FORCED_COMMAND_TAG)) {
             return new ConfirmedResetCommand();
-        } else {
+        } else if (userInput.isEmpty()) {
             return new ResetCommand();
+        } else {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, ResetCommand.MESSAGE_USAGE));
         }
     }
 }
