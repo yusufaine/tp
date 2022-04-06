@@ -19,11 +19,11 @@ Given below are my contributions to the project with majority of the credits giv
 * **New Feature**: Update the `Find` feature to find a Recipe based on the inputs given.
   * What it does: Allows users to search for a recipe that contains any of the keywords given. 
   * Justification: This features improves the user experience of our users by enabling them to search for recipes based on what ingredient they have on hand or feel like eating.
-  * Highlights: This enhancement requires all `Recipe`s to be searchable as it should match the recipe's `Name`, `Ingredient`, or `Tag`. This implementation was challenging as I had to think of how to make `Recipe` searchable based on its data fields as well. Our team settled with creating `SearchSet` which represents a `Recipe` into its keywords, making it easy to search and match.
+  * Highlights: This enhancement requires all `Recipe`s to be searchable as it should match the recipe's name, ingredient, or tag. I implemented this by creating `SearchSet` which represents a recipe into its keywords, making it easy to search and match.
 * **New Feature**: Access (`edit`, `view`, `delete`) recipe by index.
   * What it does: Allows the above-mentioned features to work by specifying the index of the recipe in the current list view. This means that the index is based on what the user is currently seeing so that it would work as intended after `find` has been executed.
-  * Justification: Improve user-experience. The commands for our application are long due to the nature of recipe books. As such, we would like to alleviate some of those problems by allowing users to specify `-x <recipe number from list>` so that users would not have to type the full name of a `Recipe`.
-  * Highlights: This enhancement requires a new `Prefix` to denote that the data afterwards is an `Index`. I then had to add a new method to get a `Recipe` based on its index and update the affected commands. We then abstracted this out to reduce repetitive code.
+  * Justification: Improve user-experience. The commands for our application are long due to the nature of recipe books. As such, we would like to alleviate some of those problems by allowing users to specify `-x <recipe number from list>` so that users would not have to type the full name of a recipe.
+  * Highlights: This enhancement requires a new `Prefix` to denote that the data afterwards is an `Index`. I then had to add a new method to get a recipe based on its index and update the affected commands. We then abstracted this out to reduce repetitive code.
 
 * **Modifications to existing features**:
   * Update `Exit`, `Help`, and `List` to work as how we intended for it to from AB-3's to McKitchen.
@@ -40,7 +40,7 @@ Given below are my contributions to the project with majority of the credits giv
 * **Documentation**:
   * User Guide:
     * Major refactor of User Guide
-      * Update the flow of user guide,
+      * Update the flow and formatting of the User Guide,
       * Ensured that it was more user-centric and friendly,
       * Improved navigability by introducing links to jump to different sections of the guide,
       * Added tips to features to help users understand how to best use certain features and included advanced tips for users who are more technically-proficient, and
@@ -55,10 +55,7 @@ Given below are my contributions to the project with majority of the credits giv
   * PRs reviewed (with non-trivial review comments): 
     * [\#127](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/127#discussion_r832093006), [\#128](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/128#issuecomment-1076317905), [\#172](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/172#discussion_r836634342), and [\#179](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/179#discussion_r838115404)
   * Contributed to forum discussions 
-    * [Discussion on error handling](https://github.com/nus-cs2103-AY2122S2/forum/issues/21), 
-    * [Help another student with a GUI issue that I had also faced and resolved](https://github.com/nus-cs2103-AY2122S2/forum/issues/112#issuecomment-1030658101), 
-    * [Help another student understand and set up their forking workflow](https://github.com/nus-cs2103-AY2122S2/forum/issues/194#issuecomment-1055672552), and
-    * [Conversion to PDF -- Update header from AB-3 to the name of your project](https://github.com/nus-cs2103-AY2122S2/forum/issues/259)
+    * [Discussion on error handling](https://github.com/nus-cs2103-AY2122S2/forum/issues/21), [Help another student with a GUI issue that I had also faced and resolved](https://github.com/nus-cs2103-AY2122S2/forum/issues/112#issuecomment-1030658101), [Help another student understand and set up their forking workflow](https://github.com/nus-cs2103-AY2122S2/forum/issues/194#issuecomment-1055672552), and [Conversion to PDF -- Update header from AB-3 to the name of your project](https://github.com/nus-cs2103-AY2122S2/forum/issues/259)
   * Reported bugs and suggestions for other teams in the class
     * [\#7](https://github.com/yusufaine/ped/issues/7), [\#8](https://github.com/yusufaine/ped/issues/8), [\#19](https://github.com/yusufaine/ped/issues/19), [\#22](https://github.com/yusufaine/ped/issues/22). More can be found [here](https://github.com/yusufaine/ped/issues?q=is%3Aissue+is%3Aopen)
   
