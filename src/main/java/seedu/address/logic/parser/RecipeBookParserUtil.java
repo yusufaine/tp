@@ -10,6 +10,7 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
@@ -25,10 +26,6 @@ import seedu.address.model.tag.Tag;
  */
 public class RecipeBookParserUtil {
 
-    public static final String MESSAGE_INVALID_INDEX = "Index is not a non-zero positive integer.";
-    public static final String MESSAGE_MISSING_INGREDIENT_FIELDS =
-            "Ingredient is not in the <name> <quantity> [<quantifier>] format.";
-
     /**
      * Parses a {@code String oneBasedIndex} into an {@code Index} and returns it. <br>
      * Leading and trailing whitespaces will be trimmed.
@@ -37,7 +34,7 @@ public class RecipeBookParserUtil {
     public static Index parseIndex(String oneBasedIndex) throws ParseException {
         String trimmedIndex = oneBasedIndex.trim();
         if (!StringUtil.isNonZeroUnsignedInteger(trimmedIndex)) {
-            throw new ParseException(MESSAGE_INVALID_INDEX);
+            throw new ParseException(Messages.MESSAGE_INVALID_RECIPE_INDEX);
         }
         return Index.fromOneBased(Integer.parseInt(trimmedIndex));
     }
@@ -129,7 +126,7 @@ public class RecipeBookParserUtil {
             return new Ingredient(name, Double.parseDouble(quantity), quantifier);
 
         default:
-            throw new ParseException(MESSAGE_MISSING_INGREDIENT_FIELDS);
+            throw new ParseException(Messages.MESSAGE_MISSING_INGREDIENT_FIELDS);
         }
     }
 
@@ -189,15 +186,31 @@ public class RecipeBookParserUtil {
         return new Tag(trimmedTag);
     }
 
+    private static boolean isReset(List<String> tags) {
+        boolean containsOneTag = tags.size() == 1;
+        boolean containsEmptyTag = tags.get(0).trim().equals("");
+        return (containsOneTag && containsEmptyTag);
+    }
+
     /**
      * Parses {@code Collection<String> tags} into a {@code Set<Tag>}.
      */
-    public static Set<Tag> parseTags(Collection<String> tags) throws ParseException {
+    public static Set<Tag> parseTags(List<String> tags) throws ParseException {
         requireNonNull(tags);
         final Set<Tag> tagSet = new HashSet<>();
+
+        if (tags.isEmpty()) {
+            return tagSet;
+        }
+
+        if (isReset(tags)) {
+            return tagSet;
+        }
+
         for (String tagName : tags) {
             tagSet.add(parseTag(tagName));
         }
+
         return tagSet;
     }
 

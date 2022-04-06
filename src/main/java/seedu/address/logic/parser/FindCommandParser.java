@@ -31,7 +31,7 @@ public class FindCommandParser implements Parser<FindCommand> {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE));
         }
 
-        String[] keywords = trimmedArgs.split(",");
+        String[] keywords = trimmedArgs.split(RecipeBookSyntax.SEPARATOR_SYMBOL);
         List<String> trimmedKeywords = Arrays.stream(keywords)
                 .map(String::trim)
                 .collect(Collectors.toUnmodifiableList());

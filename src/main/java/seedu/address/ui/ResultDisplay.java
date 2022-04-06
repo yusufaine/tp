@@ -20,6 +20,8 @@ public class ResultDisplay extends UiPart<Region> {
     private CommandResult commandResult;
 
     @FXML
+    private VBox resultPane;
+    @FXML
     private Label response;
     @FXML
     private VBox recipeFields;
@@ -42,8 +44,13 @@ public class ResultDisplay extends UiPart<Region> {
         super(FXML);
         response.setWrapText(true);
         recipeName.setWrapText(true);
+        ingredients.setWrapText(true);
+        steps.setWrapText(true);
+
         setVisibleResponseField(false);
         setVisibleRecipeFields(false);
+
+        bindMaxWidthProperty();
     }
 
     /**
@@ -128,6 +135,19 @@ public class ResultDisplay extends UiPart<Region> {
     }
 
     /**
+     * Binds the max width property of the labels to make text wrap according to current result display window size.
+     */
+    private void bindMaxWidthProperty() {
+        /* Subtract a number of pixels from the left as padding to ensure that text does not extend past current
+           result display window size.
+        */
+        response.maxWidthProperty().bind(resultPane.widthProperty().subtract(50));
+        recipeName.maxWidthProperty().bind(resultPane.widthProperty().subtract(50));
+        ingredients.maxWidthProperty().bind(resultPane.widthProperty().subtract(250));
+        steps.maxWidthProperty().bind(resultPane.widthProperty().subtract(70));
+    }
+
+    /**
      * Formats the {@code the Ingredient}s of a recipe to a formatted String to display on the
      * result display.
      *
@@ -137,8 +157,8 @@ public class ResultDisplay extends UiPart<Region> {
     private String getIngredients(Recipe recipe) {
         StringBuilder ingredients = new StringBuilder();
         for (Ingredient ingredient : recipe.getIngredients()) {
-            ingredients.append(String.format("%s %s %s\n", ingredient.getIngredientName(),
-                    ingredient.getQuantity(), ingredient.getQuantifier()));
+            ingredients.append(String.format("%s %s %s\n", ingredient.ingredientName,
+                    ingredient.quantity, ingredient.quantifier));
         }
         return ingredients.toString();
     }

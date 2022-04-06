@@ -1,5 +1,6 @@
 package seedu.address.logic.parser;
 
+import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.RecipeBookSyntax.PREFIX_INDEX;
 import static seedu.address.logic.parser.RecipeBookSyntax.PREFIX_NAME;
@@ -25,6 +26,7 @@ public class ViewCommandParser implements Parser<ViewCommand> {
      */
     @Override
     public ViewCommand parse(String userInput) throws ParseException {
+        requireNonNull(userInput);
         // Prefix defaults to name if indexFlag is not specified
         Prefix prefix = userInput.contains(PREFIX_INDEX.getPrefix())
                 ? PREFIX_INDEX
@@ -32,11 +34,11 @@ public class ViewCommandParser implements Parser<ViewCommand> {
         ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(userInput, prefix);
 
         try {
-            if (userInput.contains(PREFIX_INDEX.getPrefix())) {
+            if (prefix.equals(PREFIX_INDEX)) {
                 Index index = RecipeBookParserUtil.parseIndex(argMultimap.getValue(PREFIX_INDEX).get());
                 return new ViewCommand(index);
             } else {
-                Name name = RecipeBookParserUtil.parseName(userInput);
+                Name name = RecipeBookParserUtil.parseName(argMultimap.getPreamble());
                 return new ViewCommand(name);
             }
         } catch (ParseException pe) {

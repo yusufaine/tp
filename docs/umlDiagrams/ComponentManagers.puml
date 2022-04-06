@@ -1,0 +1,35 @@
+@startuml
+HIDE CIRCLE
+!define DARKBLUE2
+!include style.puml
+
+skinparam arrowThickness 1.1
+skinparam arrowColor LOGIC_COLOR_T4
+skinparam classBackgroundColor LOGIC_COLOR
+skinparam classFontColor Black
+
+package Logic {
+Class "<<interface>>\nLogic" as Logic
+Class LogicManager
+}
+
+package Model{
+Class "<<interface>>\nModel" as Model
+Class ModelManager
+}
+
+package Storage{
+Class "<<interface>>\nStorage" as Storage
+Class StorageManager
+}
+
+Class HiddenOutside #faf8de
+HiddenOutside ..> Logic
+
+LogicManager .up.|> Logic
+ModelManager .up.|> Model
+StorageManager .up.|> Storage
+
+LogicManager --> Model
+LogicManager --> Storage
+@enduml

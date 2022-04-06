@@ -1,5 +1,5 @@
 @startuml
-!define DARKBLUE
+!define DARKBLUE2
 !include style.puml
 
 class RecipeBook {
