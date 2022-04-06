@@ -40,7 +40,7 @@ Given below are my contributions to the project with majority of the credits giv
 * **Documentation**:
   * User Guide:
     * Major refactor of User Guide
-      * Update the flow of user guide,
+      * Update the flow and formatting of the User Guide,
       * Ensured that it was more user-centric and friendly,
       * Improved navigability by introducing links to jump to different sections of the guide,
       * Added tips to features to help users understand how to best use certain features and included advanced tips for users who are more technically-proficient, and
