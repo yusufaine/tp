@@ -1,6 +1,9 @@
 @startuml
+HIDE CIRCLE
 !define DARKBLUE2
 !include style.puml
+skinparam classFontColor Black
+skinparam arrowColor LOGIC_COLOR_T4
 
 class RecipeBook {
     recipes: List<Recipe>

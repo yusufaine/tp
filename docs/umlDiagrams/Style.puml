@@ -129,7 +129,7 @@ skinparam backgroundColor fff
 !ifdef DARKSTYLE2
 !$PRIMARYFONTCOLOR = "000"
 !$SECONDARY = "aaa"
-!$ARROWCOLOR = "fff"
+!$ARROWCOLOR = "aaa"
 !$ARROWFONTCOLOR = "bbb"
 !$BORDERCOLOR = "1b1b1b"
 !$BOXBG = "7e7e7e"
