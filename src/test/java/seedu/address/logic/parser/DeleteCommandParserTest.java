@@ -9,6 +9,7 @@ import static seedu.address.testutil.TypicalRecipes.AGLIO_OLIO;
 
 import org.junit.jupiter.api.Test;
 
+import seedu.address.commons.core.Messages;
 import seedu.address.logic.commands.DeleteCommand;
 
 /**
@@ -32,6 +33,6 @@ public class DeleteCommandParserTest {
     @Test
     public void parse_invalidArgs_throwsParseException() {
         assertParseFailure(parser, COMMAND_WORD + " -x -1",
-                String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteCommand.MESSAGE_USAGE));
+                Messages.MESSAGE_INVALID_RECIPE_INDEX);
     }
 }
