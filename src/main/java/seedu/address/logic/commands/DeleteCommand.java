@@ -1,6 +1,5 @@
 package seedu.address.logic.commands;
 
-import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.RecipeBookSyntax.PREFIX_INDEX;
 
 import java.util.List;
@@ -23,12 +22,11 @@ public class DeleteCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Deletes the recipe identified by the name used in the displayed list of recipes.\n\n"
             + "Parameters:\n1. name (must be a valid name, not case-sensitive)\n"
-            + "2. index (must be a valid index, no negative numbers)\n\n"
+            + "2. index (must be a valid, non-zero positive number)\n\n"
             + "Example: " + COMMAND_WORD + " aglio olio\n"
             + "Example: " + COMMAND_WORD + " " + PREFIX_INDEX + "1";
 
     public static final String MESSAGE_DELETE_RECIPE_SUCCESS = "Deleted Recipe: %1$s";
-    public static final String MESSAGE_DELETE_RECIPE_NOT_EXIST = "Recipe does not exist in the recipe book";
 
     private Name toDeleteName;
     private Index toDeleteIndex;
@@ -47,7 +45,7 @@ public class DeleteCommand extends Command {
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
-        requireNonNull(model);
+        assert model != null;
 
         List<Recipe> lastShownList = model.getFilteredRecipeList();
 
@@ -57,7 +55,7 @@ public class DeleteCommand extends Command {
                 : getRecipe(lastShownList, toDeleteName);
 
         model.deleteRecipe(recipeToDelete);
-        return new CommandResult(String.format(MESSAGE_DELETE_RECIPE_SUCCESS, recipeToDelete));
+        return new CommandResult(String.format(MESSAGE_DELETE_RECIPE_SUCCESS, recipeToDelete.getName()));
     }
 
     @Override

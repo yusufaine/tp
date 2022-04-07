@@ -10,10 +10,9 @@ import seedu.address.model.util.SampleDataUtil;
  */
 public class ConfirmedResetCommand extends ResetCommand {
     public static final String COMMAND_WORD = "yes";
-    public static final String COMMAND_NAME = "Confirmed Reset";
-    public static final String MESSAGE_SUCCESS = "Recipe book has been Reset!";
-    public static final String MESSAGE_UNKNOWN_COMMAND = "Unknown command! Confirm Reset by typing in yes or "
-            + "no to cancel\n";
+    public static final String COMMAND_NAME = "Confirmed reset";
+    public static final String MESSAGE_SUCCESS = "Recipe book has been reset!";
+    public static final String MESSAGE_UNKNOWN_COMMAND = "Unknown command! Type in reset again if you wish to reset.\n";
 
 
     @Override

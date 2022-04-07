@@ -144,7 +144,7 @@ public class ResultDisplay extends UiPart<Region> {
         response.maxWidthProperty().bind(resultPane.widthProperty().subtract(50));
         recipeName.maxWidthProperty().bind(resultPane.widthProperty().subtract(50));
         ingredients.maxWidthProperty().bind(resultPane.widthProperty().subtract(250));
-        steps.maxWidthProperty().bind(resultPane.widthProperty().subtract(50));
+        steps.maxWidthProperty().bind(resultPane.widthProperty().subtract(70));
     }
 
     /**
