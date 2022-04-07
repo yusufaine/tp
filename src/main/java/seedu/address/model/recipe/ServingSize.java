@@ -10,7 +10,8 @@ import java.util.Objects;
  */
 public class ServingSize {
     public static final String MESSAGE_CONSTRAINTS =
-            "ServingSize size should not be left blank or less than or equals to 0";
+            "ServingSize size should be a valid, reasonable amount of servings that's greater than 0 "
+                    + "and less than 1000 servings";
 
     public final Integer value;
 
@@ -29,7 +30,7 @@ public class ServingSize {
      * Checks if the size is a valid Integer value > 0.
      */
     public static boolean isValidServingSize(Integer test) {
-        return test > 0;
+        return (test > 0 && test <= 1000);
     }
 
     @Override
