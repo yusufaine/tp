@@ -3,12 +3,13 @@ hide circle
 !define DARKBLUE2
 !include style.puml
 skinparam arrowThickness 1.1
-skinparam arrowColor LOGIC_COLOR_T4
+skinparam arrowColor LOGIC_COLOR
 skinparam classBackgroundColor LOGIC_COLOR
 skinparam classFontColor black
 skinparam noteFontColor black
+skinparam rectanglefontcolor white
 
-package Logic {
+package Logic <<Rectangle>> {
 
 Class RecipeBookParser
 Class "*Command"
@@ -20,10 +21,10 @@ Class "<<interface>>\nLogic" as Logic
 Class LogicManager
 }
 
-package Model{
+package Model <<Rectangle>>{
 }
 
-package Storage{
+package Storage <<Rectangle>>{
 
 }
 

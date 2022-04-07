@@ -1,0 +1,23 @@
+@startuml
+!define DARKBLUE2
+!include style.puml
+hide circle
+skinparam arrowThickness 1.1
+skinparam arrowColor MODEL_COLOR
+skinparam classBackgroundColor MODEL_COLOR
+
+RecipeBook *-right-> "1" UniqueRecipeList
+RecipeBook *-right-> "1" UniqueTagList
+UniqueTagList -[hidden]down- UniquePersonList
+UniqueTagList -[hidden]down- UniquePersonList
+
+UniqueTagList *-right-> "*" Tag
+UniquePersonList -right-> Person
+
+Person -up-> "*" Tag
+
+Person *--> Name
+Person *--> Phone
+Person *--> Email
+Person *--> Address
+@enduml
