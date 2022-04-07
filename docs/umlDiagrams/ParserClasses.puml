@@ -6,11 +6,12 @@ skinparam arrowThickness 1.1
 skinparam arrowColor LOGIC_COLOR_T4
 skinparam classBackgroundColor LOGIC_COLOR
 skinparam classFontColor Black
+skinparam rectanglefontcolor white
 
 Class "{abstract}\nCommand" as Command
 Class "*Command"
 
-package "Parser classes"{
+package "Parser classes" <<>Rectangle>>{
 Class "<<interface>>\nParser" as Parser
 Class RecipeBookParser
 Class "*CommandParser"
