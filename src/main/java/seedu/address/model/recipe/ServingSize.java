@@ -11,7 +11,7 @@ import java.util.Objects;
 public class ServingSize {
     public static final String MESSAGE_CONSTRAINTS =
             "ServingSize size should be a valid, reasonable amount of servings that's greater than 0 "
-                    + "and less than 1000 servings (that's literally impossible)";
+                    + "and less than 1000 servings";
 
     public final Integer value;
 
