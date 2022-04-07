@@ -31,8 +31,8 @@ Class HiddenOutside #faf8de
 HiddenOutside ..> Logic
 
 LogicManager .right.|> Logic
-LogicManager -right->"1" AddressBookParser
-AddressBookParser ..> "*Command" : creates >
+LogicManager -right->"1" RecipeBookParser
+RecipeBookParser ..> "*Command" : creates >
 
 "*Command" -up-|> Command
 LogicManager .left.> Command : executes >
