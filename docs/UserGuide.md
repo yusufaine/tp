@@ -115,8 +115,11 @@ In this section we would be going over what each feature does, how to go about d
 ### Add a new recipe: `add`
 Add a recipe by specifying its name, ingredients, and steps to prepare the dish.<br>
 Usage: `add <-n name of recipe> <-d completion time of recipe in minutes> <-ss serving size of recipe> <-i ingredients of recipes separated by pipe> <-s steps separated by pipe> [-t tags associated with recipe]`
-> :information_source: Ingredients, steps, and tags can be separated by pipe. </br>
-> :heavy_exclamation_mark: It is compulsory to specify the quantity of each ingredient that is to be added to the recipe. 
+
+<div markdown="block" class="alert alert-info">
+:information_source: Ingredients, steps, and tags can be separated by pipe. <br>
+:heavy_exclamation_mark: It is compulsory to specify the quantity of each ingredient that is to be added to the recipe. 
+</div>
 
 Example:
 - Let's say you would like to add a new pasta recipe for "Aglio Olio" You'll need to specify:
@@ -140,7 +143,10 @@ Removes all existing recipes in McKitchen. A confirmation prompt would show up b
 Usage: `clear [-f]`
 
 The program would then prompt you to confirm. Type in `yes` to clear and `no` to cancel the clear request.
-> :heavy_exclamation_mark: By specifying `-f`, you are letting McKitchen know that you are very sure about what you're doing and would proceed to removing all recipes without a confirmation prompt. 
+
+<div markdown="block" class="alert alert-info">
+:heavy_exclamation_mark: By specifying `-f`, you are letting McKitchen know that you are very sure about what you're doing and would proceed to removing all recipes without a confirmation prompt. 
+</div>
 
 Example:
 - Let's say you would like to start from a clean slate and would like to populate McKitchen with your own recipes that you've created or sourced. Instead of deleting the default recipes one-by-one, you can do:
@@ -397,7 +403,7 @@ You can use the reset command to retrieve the recipe. For newly added recipes, y
 **Q: If I typed in 'clear' or 'reset' in the command bar, will it take effect immediately?**<br>
 It will not take effect immediately. A confirmation prompt will allow you to confirm your decision. Alternatively, you can specify the prefix -f to clear or reset without any confirmation prompt. 
 
-**Q: With the find command, Can I exclude recipes with ingredients that I don't have?**<br>
+**Q: With the find command, can I exclude recipes with ingredients that I don't have?**<br>
 Unfortunately, our application only allows you to find recipes base on what you have. 
 
 [<sub>return to table of content</sub>](#table-of-content)
