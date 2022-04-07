@@ -30,7 +30,7 @@
 !define MODEL_COLOR_T4 #f0a8b0
 
 /'YELLOW'/
-!define STORAGE_COLOR #FAF8DE
+!define STORAGE_COLOR #f6b26b
 !define STORAGE_COLOR_T1 #c2b62f
 !define STORAGE_COLOR_T2 #f5e107
 !define STORAGE_COLOR_T3 #ba9007

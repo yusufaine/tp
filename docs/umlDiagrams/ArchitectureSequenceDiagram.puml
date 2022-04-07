@@ -1,8 +1,6 @@
 @startuml
 !define DARKBLUE2
-skinparam DefaultFontColor black
 !include style.puml
-
 
 Actor User as user USER_COLOR
 Participant ":UI" as ui UI_COLOR
@@ -25,12 +23,12 @@ deactivate model
 logic -[LOGIC_COLOR]> storage : storeRecipe(recipe)
 activate storage STORAGE_COLOR
 
-storage -[USER_COLOR]> storage : Save to file
+storage -[STORAGE_COLOR]> storage : Save to file
 activate storage STORAGE_COLOR
-storage --[USER_COLOR]> storage
+storage --[STORAGE_COLOR]> storage
 deactivate storage
 
-storage --[USER_COLOR]> logic
+storage --[STORAGE_COLOR]> logic
 deactivate storage
 
 logic --[LOGIC_COLOR]> ui
