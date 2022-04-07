@@ -2,8 +2,8 @@
 HIDE CIRCLE
 !define DARKBLUE2
 !include style.puml
-skinparam classFontColor Black
 skinparam arrowColor LOGIC_COLOR_T4
+skinparam classFontColor white
 
 class RecipeBook {
     recipes: List<Recipe>
@@ -21,7 +21,6 @@ class Recipe {
     getSteps(): List<step>
     getTags(): Set<Tag>
     isSameRecipe(): Boolean
-
 }
 
 class Name {
@@ -74,8 +73,8 @@ interface Iterable<Recipe> {
 
 RecipeBook<|-- Recipe
 Recipe <|-- Name
-Recipe <|-- Ingredient
-Recipe <|-- ServingSize
+Recipe <|--- Ingredient
+Recipe <|--- ServingSize
 Recipe <|-- Steps
 Recipe <|-- CompletionTime
 Iterable <|.. UniqueRecipeList

@@ -1,7 +1,7 @@
 @startuml
 
 !if (%not(%variable_exists("$FONTNAME")))
-!$FONTNAME = "Verdana"
+!$FONTNAME = "Calibri Light"
 !endif
 
 !if (%not(%variable_exists("$FONTSIZE")))
@@ -128,9 +128,9 @@ skinparam backgroundColor fff
 
 !ifdef DARKSTYLE2
 !$PRIMARYFONTCOLOR = "000"
-!$SECONDARY = "aaa"
+!$SECONDARY = "ffffff"
 !$ARROWCOLOR = "aaa"
-!$ARROWFONTCOLOR = "bbb"
+!$ARROWFONTCOLOR = "000"
 !$BORDERCOLOR = "1b1b1b"
 !$BOXBG = "7e7e7e"
 !$LIGHTBORDERCOLOR = "767676"

@@ -1,6 +1,8 @@
 @startuml
 !define DARKBLUE2
+skinparam DefaultFontColor black
 !include style.puml
+
 
 Actor User as user USER_COLOR
 Participant ":UI" as ui UI_COLOR
