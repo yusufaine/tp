@@ -11,7 +11,9 @@ import java.util.Objects;
  */
 public class CompletionTime {
 
-    public static final String MESSAGE_CONSTRAINTS = "Completion time should be greater than 0";
+    public static final String MESSAGE_CONSTRAINTS =
+            "Completion time should be a valid, reasonable amount of time in minutes that's greater than 0 "
+                    + "and less than a year";
 
     public final Integer value;
 
@@ -28,7 +30,7 @@ public class CompletionTime {
     }
 
     public static boolean isValidCompletionTime(Integer test) {
-        return (test > 0);
+        return (test > 0 && test <= 525600);
     }
 
     @Override
