@@ -30,7 +30,7 @@ public class CompletionTime {
     }
 
     public static boolean isValidCompletionTime(Integer test) {
-        return (test > 0 && test < 525600);
+        return (test > 0 && test <= 525600);
     }
 
     @Override

@@ -30,7 +30,7 @@ public class ServingSize {
      * Checks if the size is a valid Integer value > 0.
      */
     public static boolean isValidServingSize(Integer test) {
-        return (test > 0 && test < 1000);
+        return (test > 0 && test <= 1000);
     }
 
     @Override
