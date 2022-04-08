@@ -28,8 +28,8 @@ Class JsonAdaptedIngredient
 
 }
 
-Class HiddenOutside #faf8de
-HiddenOutside ..> Storage
+Class OutsideClass #faf8de
+OutsideClass ..> Storage
 
 StorageManager .up.|> Storage
 StorageManager -up-> "1" UserPrefsStorage
@@ -43,7 +43,7 @@ JsonRecipeBookStorage .up.|> RecipeBookStorage
 JsonRecipeBookStorage ..> JsonSerializableRecipeBook
 JsonSerializableRecipeBook --> "*" JsonAdaptedRecipe
 JsonAdaptedRecipe --> "*" JsonAdaptedTag
-JsonAdaptedRecipe --> "*" JsonAdaptedStep
-JsonAdaptedRecipe --> "*" JsonAdaptedIngredient
+JsonAdaptedRecipe --> "1..." JsonAdaptedStep
+JsonAdaptedRecipe --> "1..." JsonAdaptedIngredient
 
 @enduml

@@ -23,6 +23,7 @@ Class Ingredient
 Class Tag
 Class ServingSize
 Class Step
+Class SearchSet
 
 }
 
@@ -45,11 +46,14 @@ Recipe *--> CompletionTime
 Recipe *--> Ingredient
 Recipe*--> ServingSize
 Recipe*--> Step
+Recipe*--> SearchSet
 Recipe *--> "*" Tag
+
 
 Name -[hidden]right-> Ingredient
 Ingredient -[hidden]right-> CompletionTime
 CompletionTime -[hidden]right-> ServingSize
 ServingSize -[hidden]right-> Step
+Step -[hidden]right->SearchSet
 ModelManager ---->"~* filtered" Recipe
 @enduml
