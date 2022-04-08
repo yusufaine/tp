@@ -10,17 +10,17 @@ The user interacts with it using a CLI-like interface, and it has a GUI created 
 
 Given below are my contributions to the project.
 
-  * **New Feature** Added `Storage` for `Recipe` class,and its respective fields (Pull request [\44](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/44))
+* **New Feature** Added `Storage` for `Recipe` class,and its respective fields (Pull request [\44](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/44))
   * What it does: Allows the application to store and load recipe to the data file automatically. 
   * Justification: This feature is essential for users to be able to load and save existing recipe information automatically upon executing any commands.
   * Highlights: This enhancement required extensive changes to the components in the `Storage` package.
 
-  * **New Feature** Added `Clear` command for the application (Pull request [\127](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/127))
+* **New Feature** Added `Clear` command for the application (Pull request [\127](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/127))
   * What it does: Allows the application to clear all the existing recipes in the application.
   * Justification: This good-to-have feature allows users to be able to delete all the existing recipes in one command.
   * Highlights: This enhancement allows users to delete with and without a confirmation prompt. The confirmation prompt serves as a safeguard for users to think twice before deleting all their recipes.
 
-  * **New Feature** Added `Reset` command for the application (Pull request [\142](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/142))
+* **New Feature** Added `Reset` command for the application (Pull request [\142](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/142))
   * What it does: Allows the application to reset the current recipe book to the default recipes in the application.
   * Justification: This good-to-have feature allows users to be able to reset the recipe book back to the default recipes. 
   * Highlights: This enhancement allows users to reset with and without a confirmation prompt. The confirmation prompt serves as a safeguard for users to think twice before deleting all their recipes and resetting it back to the default configuration.
