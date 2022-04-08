@@ -9,13 +9,22 @@ McKitchen (My-CLI-Kitchen) is a desktop application that can quickly store, edit
 
 Given below are my contributions to the project.
 
-* **New Feature** (to Update): Added the ability to undo/redo previous commands.
-  * What it does: allows the user to ...
-  * Justification: This feature improves the product significantly because a user can ...
-  * Highlights: This enhancement ...
-  * Credits: *{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}*
+  * **New Feature** Added `Storage` for `Recipe` class,and its respective fields (Pull request [\44](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/44))
+  * What it does: Allows the application to store and load recipe to the data file automatically. 
+  * Justification: This feature is essential for users to be able to load and save existing recipe information automatically upon executing any commands.
+  * Highlights: This enhancement required extensive changes to the components in the `Storage` package.
 
-* **Code contributed**: [RepoSense link (to update)]()
+  * **New Feature** Added `Clear` command for the application (Pull request [\127](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/127))
+  * What it does: Allows the application to clear all the existing recipes in the application.
+  * Justification: This good-to-have feature allows users to be able to delete all the existing recipes in one command.
+  * Highlights: This enhancement allows users to delete with and without a confirmation prompt. The confirmation prompt serves as a safeguard for users to think twice before deleting all their recipes.
+
+  * **New Feature** Added `Reset` command for the application (Pull request [\142](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/142))
+  * What it does: Allows the application to reset the current recipe book to the default recipes in the application.
+  * Justification: This good-to-have feature allows users to be able to reset the recipe book back to the default recipes. 
+  * Highlights: This enhancement allows users to reset with and without a confirmation prompt. The confirmation prompt serves as a safeguard for users to think twice before deleting all their recipes and resetting it back to the default configuration.
+  
+* **Code contributed**: [RepoSense link (https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=blaketingyu&brekdown=true)]()
 
 * **Project management**:
   * Managed releases `v1.1` - `v1.5rc` (5 releases) on GitHub
