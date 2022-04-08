@@ -1,5 +1,5 @@
 @startuml
-!define DARKBLUE3
+!define DARKBLUE2
 !include style.puml
 
 Actor User as user USER_COLOR
