@@ -24,8 +24,8 @@ Class "<<interface>>\nStorage" as Storage
 Class StorageManager
 }
 
-Class HiddenOutside #faf8de
-HiddenOutside ..> Logic
+Class OutsideClass #faf8de
+OutsideClass ..> Logic
 
 LogicManager .up.|> Logic
 ModelManager .up.|> Model

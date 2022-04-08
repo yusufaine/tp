@@ -27,8 +27,8 @@ Class SearchSet
 
 }
 
-Class HiddenOutside #faf8de
-HiddenOutside ..> Model
+Class OutsideClass #faf8de
+OutsideClass ..> Model
 
 RecipeBook .up.|> ReadOnlyRecipeBook
 

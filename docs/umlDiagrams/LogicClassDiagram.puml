@@ -28,8 +28,8 @@ package Storage <<Rectangle>>{
 
 }
 
-Class HiddenOutside #faf8de
-HiddenOutside ..> Logic
+Class OutsideClass #faf8de
+OutsideClass ..> Logic
 
 LogicManager .right.|> Logic
 LogicManager -right->"1" RecipeBookParser
