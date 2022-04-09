@@ -17,7 +17,7 @@ public class ResetCommandParserTest {
 
     private final ResetCommandParser parser = new ResetCommandParser();
     private final String resetCommand = "";
-    private final String confirmedReset = " -f";
+    private final String confirmedReset = "-f";
 
     /**
      * Tests the isNotForcedResetCommand.
