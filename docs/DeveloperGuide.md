@@ -2,8 +2,6 @@
 layout: page
 title: Developer Guide
 ---
-* Table of Contents
-  {:toc}
 
 ## **[!] Before reading**
 To help simplify the understanding of the design of our application – `McKitchen` – we would be referring to our application as `RecipeBook` as it makes more intuitive sense
