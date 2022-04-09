@@ -399,7 +399,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
           Use case resumes at step 2
 
-**Use case: view a recipe**
+**Use case: View a recipe**
 
 *Actor: User*
 
@@ -501,8 +501,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 4a. User cancels the clear request.
     * 4a1. RecipeBook abort the clear process.
       Use case ends.
-
-*{More to be added}*
+    
 
 
 **Use case: Find a recipe**
@@ -531,6 +530,33 @@ _Preconditions: None_
     RecipeBook informs user that there are no recipes that match the keyword(s) provided and shows an empty list of recipes <br>
     Use case ends.
 
+    
+**Use case: Resets the recipe book**
+
+*Actor: User*
+
+*Preconditions: None*
+
+**Guarantees**
+1. All recipe entries will be cleared from the recipe book and be loaded with the default preloaded recipes.
+
+**MSS**
+
+1. RecipeBook shows a list of recipes
+2. User requests to reset the list of recipes
+3. RecipeBook asks for confirmation
+4. User confirms to reset
+5. RecipeBook clears all the entries in the recipe book and the recipe book will be loaded with the preloaded recipes.
+   Use case ends.
+
+**Extensions**
+* 2a. User requests to do a force reset on the list of recipes.
+    * 2a1. If the entered input contains the forced reset prefix.
+      Use case resumes from step 5.
+
+* 4a. User cancels the reset request.
+    * 4a1. RecipeBook abort the reset process.
+      Use case ends.
 ---
 
 ### Non-Functional Requirements
@@ -631,3 +657,50 @@ testers are expected to do more *exploratory* testing.
    5. Test case: `find gja390j4fa3` <br>
       Expected: Result display would show that there are no recipes that match or contain "gja390j4fa3". This input extends to any arbitrary string that does not match any of the recipe or its contents (name, ingredient, tag).
 
+### Clearing the recipe book
+1. Clearing the recipe book populated with existing recipes
+   1. Prerequisites: List all recipes using the `list` command. Multiple recipes in the list.
+   2. Test case: `clear -f` <br>
+      1. Expected: All the recipes will be cleared from the recipe book.
+   3. Test case: `clear` <br>
+      - Expected: Confirmation prompt shows up, requesting for confirmation. <br>
+        - Test case: `yes`
+          - Expected: All the recipes will be cleared from the recipe book.
+        - Test case: `no`
+          - Expected: There will be no changes made to the existing list of recipes.
+
+
+### Resetting the recipe book
+1. Resetting the recipe book populated with recipes that are not in the list of preloaded recipes. 
+    1. Prerequisites: List all recipes using the `list` command. Multiple recipes in the list with recipes that are not in the list of preloaded recipes.
+    2. Test case: `reset -f` <br>
+       1. Expected: The recipe book will reset back to the default preloaded recipes and all the recipes that are not in the default preloaded recipe provided by the application are cleared from the recipe book. 
+    3. Test case: `reset` <br>
+        - Expected: Confirmation prompt shows up, requesting for confirmation. <br>
+            - Test case: `yes`
+               - Expected: The recipe book will reset back to the default preloaded recipes and all the recipes that are not in the default preloaded recipe provided by the application are cleared from the recipe book.
+            - Test case: `no`
+               - Expected: There will be no changes made to the existing list of recipes.
+                
+2. Resetting the recipe book populated with an empty recipe book. 
+    1. Prerequisites: Clear all the recipes from the recipe book using the `clear` command.
+    2. Test case: `reset -f` <br>
+       1. Expected: The recipe book will reset back to the default preloaded recipes.
+    3. Test case: `reset` <br>
+       - Expected: Confirmation prompt shows up, requesting for confirmation. <br>
+           - Test case: `yes`
+             - Expected: The recipe book will reset back to the default preloaded recipes.
+           - Test case: `no`
+             - Expected: There will be no changes made to the existing list of recipes and the recipe book will remain empty.
+
+3. Resetting the recipe book with corrupted data in the data json file.
+    1. Prerequisites: Deleting an attribute from a recipe in the json file. For example, deleting the name field for a recipe.
+    2. Expected: McKitchen contains 0 recipes when the application launches.
+    3. Test case: `reset -f` <br>
+        - Expected: The recipe book will reset back to the default preloaded recipes.
+    4. Test case: `reset` <br>
+        - Expected: Confirmation prompt shows up, requesting for confirmation. <br>
+            - Test case: `yes`
+                - Expected: The recipe book will reset back to the default preloaded recipes.
+            - Test case: `no`
+                - Expected: There will be no changes made to the existing list of recipes and the recipe book will remain empty.      
