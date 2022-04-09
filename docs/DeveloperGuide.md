@@ -594,7 +594,7 @@ testers are expected to do more *exploratory* testing.
     4. Test case: `view -x i` (where i is larger than the list size)<br>
        Expected: Recipe not found message is displayed in the result box. 
 
-    5. Other incorrect view commands to try: `view`, `view -t`, `view -s`<br>
+    5. Other incorrect view commands to try: `view`, `view -t`, `view -s`, `view -x 0`<br>
           Expected: Similar to test case 3.
 
 
