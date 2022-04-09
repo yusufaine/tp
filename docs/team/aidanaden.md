@@ -9,38 +9,44 @@ McKitchen (My-CLI-Kitchen) is a desktop application that can quickly store, edit
 
 Given below are my contributions to the project.
 
-* **New Feature**: Added the ability to undo/redo previous commands.
-    * What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.
-    * Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.
-    * Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.
-    * Credits: *{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}*
+* **New Feature**: Added the ability to add new recipes.
+    * What it does: allows the user to add new recipes to the application. Recipes require details such as the recipe name, completion time (in minutes), serving size (no. of portions), ingredients (name and quantity required), steps and lastly tags (optional).
+    * Justification: This feature improves the product significantly because users can add their own recipes to the application to view or refer to in the future.
+    * Highlights: This enhancement required the use of individual classes for each attribute of the recipe as well as individual `Prefix` to parse and handle each attribute.
 
-* **New Feature**: Added a history command that allows the user to navigate to previous commands using up/down keys.
+* **New Feature**: Added the ability to edit existing recipes.
+  * What it does: allows the user to edit existing recipes in the application. At least one of the recipe attributes must be updated/edited for the edit command to be successful.
+  * Justification: This feature improves the product significantly because users can change/update existing recipes in the application instead of having to delete and re-add the recipe with the updated attributes all over again.
+  * Highlights: This enhancement required the use of individual classes for each attribute of the recipe as well as individual `Prefix` to parse and handle each attribute. The `EditRecipeDescriptor` was also required to copy each updated value provided by the user over to the existing recipe.
 
-* **Code contributed**: [RepoSense link]()
+* **New Feature**: Access (`edit`, `view`, `delete`) recipe by index and name.
+  * What it does: Allows the above-mentioned features to work by specifying either the index of the recipe in the current list view with the `-x` flag or by specifying the name of the recipe.
+  * Justification: Improve user-experience by alleviating the issue of long commands by allowing users to specify either `-x <recipe number from list>` or `<recipe name>` so that users would have the optionality of running command either by its name or index.
+  * Highlights: This enhancement requires the command parser to determine if the user used a recipe index with `-x` or if a recipe name was used. The parser would then have to obtain the specified recipe based on the index or name specified before one of the above-mentioned features can continue running.
 
-* **Project management**:
-    * Managed releases `v1.3` - `v1.5rc` (3 releases) on GitHub
+* **New Feature**: Add multiple values within a single `Prefix` using `|` as a delimiter.
+  * What it does: Allows users to add multiple values for each attribute within a single `Prefix`.
+  * Justification: Improve user-experience by alleviating the issue of long commands by allowing users to specify multiple values of an attribute within a single `Prefix` instead of having to enter the `Prefix` for every value that the user wants to add to an attribute (e.g. having to enter `Prefix` for every ingredient of a recipe).
+  * Highlights: This enhancement upgrades the `ArgumentMultiMap` class and splits all argument values found for each `Prefix` with the specified delimiter ( which in this case is `|`) and adds them to the attribute specified.
+
+* **Code contributed**: Click [here](https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=aidanaden&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code~other&since=2022-02-18&tabOpen=true&tabType=authorship&zFR=false&tabAuthor=yusufaine&tabRepo=AY2122S2-CS2103T-T17-2%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code~other&authorshipIsBinaryFileTypeChecked=false) to see the code that I've contributed on RepoSense.
 
 * **Enhancements to existing features**:
-    * Updated the GUI color scheme (Pull requests [\#33](), [\#34]())
-    * Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests [\#36](), [\#38]())
+  * Designed a user-friendly UI with a coherent and relevant color scheme, fonts and layout for the McKitchen application using Figma.
+  * Wrote tests for existing `Edit` command and `EditCommandParser` to increase coverage to 69.91% (Pull request [\#156](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/156))
+  * Wrote tests for existing `Add` command and `AddCommandParser` to increase coverage to 74.03% (Pull request [\#126](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/126))
+  * Bug fixes for integer overflow (Pull request [\#237](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/237))
+  * Bug fixes for invalid prefixes (Pull request [\#239](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/239))
+  * Bug fixes to allow storing of `Ingredient` class attributes to json file (Pull request [\#60](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/60))
 
 * **Documentation**:
-    * User Guide:
-        * Added documentation for the features `delete` and `find` [\#72]()
-        * Did cosmetic tweaks to existing documentation of features `clear`, `exit`: [\#74]()
-    * Developer Guide:
-        * Added implementation details of the `delete` feature.
+  * User Guide:
+    * Added documentation for the Add and Edit commands (Pull request [\#136](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/140))
+    * Update command summary with Add and Edit commands (Pull request [\#149](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/149))
+  * Developer Guide:
+    * Added implementation details for the Add and Edit Commands (Pull request [\#136](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/136))
 
 * **Community**:
-    * PRs reviewed (with non-trivial review comments): [\#12](), [\#32](), [\#19](), [\#42]()
-    * Contributed to forum discussions (examples: [1](), [2](), [3](), [4]())
-    * Reported bugs and suggestions for other teams in the class (examples: [1](), [2](), [3]())
-    * Some parts of the history feature I added was adopted by several other class mates ([1](), [2]())
-
-* **Tools**:
-    * Integrated a third party library (Natty) to the project ([\#42]())
-    * Integrated a new Github plugin (CircleCI) to the team repo
-
-* _{you can add/remove categories in the list above}_
+  * [Top 10](https://nus-cs2103-ay2122s2.github.io/dashboards/contents/tp-comments.html#9-ryan-riya-aidanaden-93-comments) in cohort for PR review comments made
+  * PRs reviewed (with non-trivial review comments):
+    * [\#73](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/73#discussion_r825432423), [\#109](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/109#discussion_r829317770), [\#152](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/152#discussion_r835604664), [\#162](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/162#discussion_r835927374) and [\#143](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/143#discussion_r834116368)
