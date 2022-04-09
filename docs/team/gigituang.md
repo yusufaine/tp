@@ -32,7 +32,7 @@ Given below are my contributions to the project.
     * Made amendments based on the issues found by other students. [\#226]()
   * Developer Guide:
     * Added Non-Functional Requirements to describe the system's operation capabilities and constraints that enhance its functionality. [\#39]()
-    * Added Glossary [\#39]()
+    * Added Glossary [\#39]() 
     * Added instructions for manual testing for launch and shutdown and deleting a recipe. [\#39]()
     * Added User stories and prioritised them accordingly. [\#39]()
     * Added use cases, guarantees, MSS and Extensions for adding a recipe, deleting a recipe, Editing a recipe and Clearing the recipe book. [\#39]()
