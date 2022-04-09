@@ -14,7 +14,8 @@ public class Ingredient {
 
     public static final String NAME_CONSTRAINTS = "Ingredients name should not be left blank";
     public static final String QUANTITY_CONSTRAINTS =
-            "Ingredient quantity should be a valid number (greater than 0.0) and should not be left blank";
+            "Ingredient should contain a valid name and quantity (greater than 0.0) and should not be"
+                    + " left blank";
     public static final String QUANTIFIER_CONSTRAINTS = "Quantifier name should not be left blank";
 
     /*
