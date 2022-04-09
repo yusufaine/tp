@@ -25,18 +25,18 @@ Given below are my contributions to the project.
 * **Documentation**:
   * User Guide:
     * Helped in designing the mock up UI for Mckitchen 
-    * Added documentation for the features `delete` [\#132]()
+    * Added documentation for the features `delete` [\#132]() [\#257]()
     * Added FAQs for our application [\#163]()
     * Suggested ways to improve the structure, design and clarity of the UG
     * Did cosmetic tweaks to existing documentation of features `clear`, `exit`: [\#74]()
     * Made amendments based on the issues found by other students. [\#226]()
   * Developer Guide:
     * Added Non-Functional Requirements to describe the system's operation capabilities and constraints that enhance its functionality. [\#39]()
-    * Added Glossary [\#39]() 
-    * Added instructions for manual testing for launch and shutdown and deleting a recipe. [\#39]()
+    * Added Glossary [\#39]() [\#257]()
+    * Added instructions for manual testing for launch and shutdown and deleting a recipe. [\#39]() [\#257]()
     * Added User stories and prioritised them accordingly. [\#39]()
     * Added use cases, guarantees, MSS and Extensions for adding a recipe, deleting a recipe, Editing a recipe and Clearing the recipe book. [\#39]()
-    * Designed UML diagrams to suit our McKitchen theme. [\#48]() [\#122]()
+    * Designed UML diagrams to suit our McKitchen theme. [\#48]() [\#122]() [\#257]()
 
 * **Community**:
   * PRs reviewed (with non-trivial review comments): [\#47](), [\#59](), [\#177](), [\#135]()

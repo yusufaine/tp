@@ -610,9 +610,12 @@ testers are expected to do more *exploratory* testing.
 
     3. Test case: `view -x -1`<br>
        Expected: No recipe is displayed in the result box. Invalid command format error is displayed in the result box with an example showing the correct usage of the view command. 
+    
+    4. Test case: `view -x i` (where i is larger than the list size)<br>
+       Expected: Recipe not found message is displayed in the result box. 
 
-    4. Other incorrect view commands to try: `view`, `view -x i` (where i is larger than the list size)<br>
-        Expected: An error showing recipe does not exists will appear.
+    5. Other incorrect view commands to try: `view`, `view -t`, `view -s`, `view -x 0`<br>
+          Expected: Similar to test case 3.
 
 
 ### Finding a recipe

@@ -20,7 +20,7 @@ public class ClearCommandParser implements Parser<ClearCommand> {
      */
 
     public static boolean isNotForcedClear(String arguments) {
-        return arguments.isEmpty();
+        return arguments.trim().isEmpty();
     }
 
     /**
@@ -35,7 +35,7 @@ public class ClearCommandParser implements Parser<ClearCommand> {
     public ClearCommand parse(String userInput) throws ParseException {
         if (userInput.equals(FORCED_COMMAND_TAG)) {
             return new ConfirmedClearCommand();
-        } else if (userInput.isEmpty()) {
+        } else if (userInput.trim().isEmpty()) {
             return new ClearCommand();
         } else {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, ClearCommand.MESSAGE_USAGE));
