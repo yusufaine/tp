@@ -362,13 +362,15 @@ Usage:
 Example:
 - After all this talk about Aglio Olio and you've yet to view the details of the recipe? Don't worry, all you have to do is run
     - `view Aglio Olio`
-      - This would display the full contents of the recipe matching the name "Aglio Olio" including its ingredients and steps to prepare the dish.
+      - This would display the full contents of the recipe matching the name "Aglio Olio" including the ingredients and steps to prepare the dish.
       
 - Aglio Olio is the first recipe? Even better! You just have to run:
     - `view -x 1`
-      - This would display the full contents of the first recipe in the list which includes its ingredients and steps to prepare the dish.
+      - This would display the full contents of the first recipe in displayed list including the ingredients and steps to prepare the dish.
 
 <div markdown="block" class="alert alert-info">
+
+️:heavy_exclamation_mark: The view command can only display recipes that are currently in the displayed list. To see all available recipes for viewing, use the [list](#list-all-stored-recipes-list) command first!
 
 ️:information_source: Recipe names are case-insensitive to make it a little more convenient for you. This means that `view aglio olio` works too! <br>
 
