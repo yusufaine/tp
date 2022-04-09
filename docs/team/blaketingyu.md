@@ -37,13 +37,16 @@ The user interacts with it using a CLI-like interface, and it has a GUI created 
   
 * **Documentation**:
   * User Guide:
-    * Added documentation for the Storage Command (Pull requests [\#140](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/140))
-    * Added documentation for the Clear Command (Pull requests [\#140](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/140))
-    * Added documentation for the Exit Command (Pull requests [\#221](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/221))
+    * Added documentation for the `Storage` Package (Pull requests [\#140](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/140))
+    * Added documentation for the `Clear` Command (Pull requests [\#140](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/140))
+    * Added documentation for the `Exit` Command (Pull requests [\#221](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/221))
+    * Added screenshots for `Clear` and `Reset` Command Confirmation Prompt (Pull requests [\#262](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/262))
   * Developer Guide:
-    * Added implementation details for the feature Clear (Pull requests [\#140](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/140))
-    * Added Manual Testing section for Clear Command 
-    * Added Manual Testing section for Reset Command.
+    * Added implementation details for the feature `Clear` command (Pull requests [\#140](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/140))
+    * Added MSS Use Cases for the `Clear` command (Pull requests [\#140](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/140))
+    * Added Manual Testing section for `Clear` Command (Pull requests [\#262](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/262))
+    * Added Manual Testing section for `Reset` Command (Pull requests [\#262](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/262))
+    * Added MSS Use Cases for `Reset` Command (Pull requests [\#262](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/262))
 
 * **Contributions to team-based tasks**:
   * Helped with photo editing tasks ( Coming up with the logo for McKitchen using Adobe Photoshop)
