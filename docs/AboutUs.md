@@ -13,12 +13,11 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 <img src="images/yusufaine.png" width="200px">
 
-[[homepage](http://www.comp.nus.edu.sg/~damithch)]
 [[github](https://github.com/yusufaine)]
 [[portfolio](team/yusufaine.md)]
 
 * Role: Team Lead, GitHub and IntelliJ expert
-* Responsibilities: Integration, Deliverables, and Scheduling and Tracking 
+* Responsibilities: Developer, Integration, Deliverables, and Scheduling and Tracking 
 
 ### Gigi Tuang
 

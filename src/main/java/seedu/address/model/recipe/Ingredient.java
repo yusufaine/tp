@@ -14,7 +14,8 @@ public class Ingredient {
 
     public static final String NAME_CONSTRAINTS = "Ingredients name should not be left blank";
     public static final String QUANTITY_CONSTRAINTS =
-            "Quantity should be a valid number (greater than 0.0) and should not be left blank";
+            "Ingredient should contain a valid name and quantity (greater than 0.0) and should not be"
+                    + " left blank";
     public static final String QUANTIFIER_CONSTRAINTS = "Quantifier name should not be left blank";
 
     /*
@@ -58,18 +59,6 @@ public class Ingredient {
     public Ingredient(String name, double quantity) {
         this(name, quantity, "");
     }
-
-    // public String getIngredientName() {
-    //     return ingredientName;
-    // }
-
-    // public double getQuantity() {
-    //     return quantity;
-    // }
-
-    // public String getQuantifier() {
-    //     return quantifier;
-    // }
 
     public static boolean isValidIngredientName(String test) {
         return test.matches(NAME_VALIDATION_REGEX);

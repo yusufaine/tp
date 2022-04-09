@@ -16,8 +16,8 @@ import seedu.address.logic.commands.ResetCommand;
 public class ResetCommandParserTest {
 
     private final ResetCommandParser parser = new ResetCommandParser();
-    private final String resetCommand = "Reset";
-    private final String confirmedReset = "Reset -f";
+    private final String resetCommand = "";
+    private final String confirmedReset = " -f";
 
     /**
      * Tests the isNotForcedResetCommand.

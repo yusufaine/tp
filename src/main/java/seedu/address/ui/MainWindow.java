@@ -40,16 +40,11 @@ public class MainWindow extends UiPart<Stage> {
     private StackPane commandBoxPlaceholder;
 
     @FXML
-    private MenuItem helpMenuItem;
-
-    @FXML
     private StackPane recipeListPanelPlaceholder;
 
     @FXML
     private StackPane resultDisplayPlaceholder;
 
-    @FXML
-    private StackPane statusbarPlaceholder;
 
     /**
      * Creates a {@code MainWindow} with the given {@code Stage} and {@code Logic}.
@@ -64,17 +59,11 @@ public class MainWindow extends UiPart<Stage> {
         // Configure the UI
         setWindowDefaultSize(logic.getGuiSettings());
 
-        // setAccelerators();
-
         helpWindow = new HelpWindow();
     }
 
     public Stage getPrimaryStage() {
         return primaryStage;
-    }
-
-    private void setAccelerators() {
-        setAccelerator(helpMenuItem, KeyCombination.valueOf("F1"));
     }
 
     /**
@@ -112,7 +101,7 @@ public class MainWindow extends UiPart<Stage> {
      */
     void fillInnerParts() {
         String welcomeMessage = "Welcome to McKitchen!\n\n"
-                + "To begin, you can use the \"help\" command to access our the Command Summary in our User Guide.";
+                + "To begin, you can use the \"help\" command to access the Command Summary in our User Guide.";
 
         recipeListPanel = new RecipeListPanel(logic.getFilteredRecipeList());
         recipeListPanelPlaceholder.getChildren().add(recipeListPanel.getRoot());
@@ -121,9 +110,6 @@ public class MainWindow extends UiPart<Stage> {
         resultDisplay = new ResultDisplay();
         resultDisplay.setFeedbackToUser(welcomeMessage);
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
-
-        // StatusBarFooter statusBarFooter = new StatusBarFooter(logic.getRecipeBookFilePath());
-        // statusbarPlaceholder.getChildren().add(statusBarFooter.getRoot());
 
         CommandBox commandBox = new CommandBox(this::executeCommand);
         commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
