@@ -233,6 +233,8 @@ Given below is an example usage scenario and how the undo/redo mechanism behaves
 
 :information_source: **Note:** If the `currentStatePointer` is at index 0, pointing to the initial RecipeBook state, then there are no previous RecipeBook states to restore. The `undo` command uses `Model#canUndoRecipeBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform  `undo`. <br>
 
+</div>
+
 The following sequence diagram shows how the undo operation works:
 
 <img src="umlDiagrams/img/UndoSequenceDiagram.png"/>
