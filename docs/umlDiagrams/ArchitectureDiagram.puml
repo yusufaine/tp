@@ -4,6 +4,7 @@
 !include <office/Users/user>
 !define DARKBLUE2
 !include style.puml
+hide circle
 
 Package " "<<Rectangle>>{
     Class UI UI_COLOR
