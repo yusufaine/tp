@@ -32,7 +32,7 @@ The user interacts with it using a CLI-like interface, and it has a GUI created 
   * Wrote tests for existing `storage` package to increase coverage by 66.66% (Pull requests [\#73](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/73))
   * Wrote tests for existing `Clear` command to increase coverage by 64.15% (Pull requests [\#135](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/135))
   * Wrote tests for existing `Reset` command to increase coverage (Pull requests [\#143](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/143))
-  * Bug fixes for (Pull requests [\#221](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/221))
+  * Bug fixes for (Pull requests [\#221](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/221), [\#263](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/263))
   * Populated dummy values for recipes (Pull requests [\#159](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/159))
   
 * **Documentation**:
