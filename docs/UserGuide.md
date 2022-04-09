@@ -410,4 +410,7 @@ It will not take effect immediately. A confirmation prompt will allow you to con
 **Q: With the find command, can I exclude recipes with ingredients that I don't have?**<br>
 Unfortunately, our application only allows you to find recipes base on what you have. 
 
+**Q: ?**<br>
+Unfortunately, our application only allows you to find recipes base on what you have.
+
 [<sub>return to table of content</sub>](#table-of-content)
