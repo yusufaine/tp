@@ -389,12 +389,12 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
   Use case ends.
 
-* 4a. RecipeBook checks if the given index is valid.
-    * If index is valid
+* 4a. RecipeBook checks if the given recipe index or name is valid.
+    * If recipe index or name is valid <br>
 
       Use case ends.
 
-    * If index is invalid,
+    * If recipe index or name is invalid,
         * RecipeBook shows an error message
 
           Use case resumes at step 2
@@ -587,18 +587,17 @@ testers are expected to do more *exploratory* testing.
 
 1. Deleting a recipe while all recipes are being shown
 
-    1. Prerequisites: List all recipes using the `list` command. Multiple recipes in the list.
+    1. Prerequisites: List all recipes using the `list` command. Only 9 recipes in the list.
 
-    1. Test case: `delete 1`<br>
-       Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
+    1. Test case: `delete -x 1`<br>
+       Expected: First recipe is deleted from the list. Details of the deleted recipe shown in the status message.
 
-    1. Test case: `delete 0`<br>
-       Expected: No recipe is deleted. Error details shown in the status message. Status bar remains the same.
+    1. Test case: `delete -x 0`<br>
+       Expected: No recipe is deleted. Error details shown in the status message.
 
-    1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
+    1. Other incorrect delete commands to try: `delete`, `delete -x -1`, `delete -x 10`, `delete 1`, `delete -x aglio olio` <br>
        Expected: Similar to previous.
-
-2. _{ more test cases …​ }_
+    
 
 ### Viewing a recipe
 
