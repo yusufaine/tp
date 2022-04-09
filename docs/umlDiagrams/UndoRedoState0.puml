@@ -6,7 +6,7 @@ skinparam ClassBorderColor #000000
 
 title Initial state
 
-package States {
+package States  <<Rectangle>> #white{
     class State1 as "__rb0:RecipeBook__"
     class State2 as "__rb1:RecipeBook__"
     class State3 as "__rb2:RecipeBook__"

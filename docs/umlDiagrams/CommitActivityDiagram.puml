@@ -1,0 +1,17 @@
+@startuml
+!define DARKBLUE2
+!include style.puml
+start
+:User executes Clear command;
+:Check confirmation;
+
+'Since the beta syntax does not support placing the condition outside the
+'diamond we place it as the true branch instead.
+
+if () then ([yes])
+    :Clear request;
+
+else ([no])
+endif
+stop
+@enduml
