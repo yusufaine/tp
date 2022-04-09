@@ -209,7 +209,7 @@ Given below is an example usage scenario and how the undo/redo mechanism behaves
 
 **Step 1**. The user launches the application for the first time. The `VersionedRecipeBook` will be initialized with the initial recipe book state, and the `currentStatePointer` pointing to that single recipe book state.
 
-<img src="umlDiagrams/img/UndoRedoState0-initial_state.png"/>
+<img src="umlDiagrams/img/UndoRedoState0-Initial_state.png"/>
 
 **Step 2**. The user executes `delete -x 5` command to delete the 5th recipe in the recipe book. The `delete` command calls `Model#commitRecipeBook()`, causing the modified state of the recipe book after the `delete -x 5` command executes to be saved in the `recipeBookStateList`, and the `currentStatePointer` is shifted to the newly inserted recipe book state.
 
@@ -232,6 +232,8 @@ Given below is an example usage scenario and how the undo/redo mechanism behaves
 <div markdown="span" class="alert alert-info">
 
 :information_source: **Note:** If the `currentStatePointer` is at index 0, pointing to the initial RecipeBook state, then there are no previous RecipeBook states to restore. The `undo` command uses `Model#canUndoRecipeBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform  `undo`. <br>
+
+</div>
 
 The following sequence diagram shows how the undo operation works:
 
