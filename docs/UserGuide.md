@@ -366,7 +366,7 @@ Example:
       
 - Aglio Olio is the first recipe? Even better! You just have to run:
     - `view -x 1`
-      - This would display the full contents of the first recipe in displayed list including the ingredients and steps to prepare the dish.
+      - This would display the full contents of the first recipe in the displayed list including the ingredients and steps to prepare the dish.
 
 <div markdown="block" class="alert alert-info">
 
