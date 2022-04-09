@@ -20,7 +20,7 @@ public class ResetCommandParser implements Parser<ResetCommand> {
      */
 
     public static boolean isNotForcedReset(String arguments) {
-        return arguments.isEmpty();
+        return arguments.trim().isEmpty();
     }
 
     /**
@@ -35,7 +35,7 @@ public class ResetCommandParser implements Parser<ResetCommand> {
     public ResetCommand parse(String userInput) throws ParseException {
         if (userInput.equals(FORCED_COMMAND_TAG)) {
             return new ConfirmedResetCommand();
-        } else if (userInput.isEmpty()) {
+        } else if (userInput.trim().isEmpty()) {
             return new ResetCommand();
         } else {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, ResetCommand.MESSAGE_USAGE));
