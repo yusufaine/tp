@@ -256,7 +256,7 @@ The `redo` command does the opposite — it calls `Model#redoRecipeBook()`, whic
 
 The following activity diagram summarizes what happens when a user executes a clear command without prefix -f
 
-<img src="umlDiagrams/img/ClearActivityDiagram.png"/>
+<img src="umlDiagrams/img/CommitActivityDiagram.png" width="200" />
 
 #### Design considerations:
 
@@ -548,13 +548,13 @@ _Preconditions: None_
 ### Glossary
 
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
-* **Valid name**:
-* **Valid ingredient name**:
-* **Valid quantity**:
-* **Valid serving size**:
-* **Valid tag name**:
-* **Valid completion time**:
-
+* **DBMS**: Database Management System
+* **GUI**: Graphic User interface
+* **JAR**: Java Archive (Java executable file)
+* **MSS**: Main Success Scenario
+* **Extensions**: are "add-on"s to the MSS that describe exceptional/alternative flow of events. They describe variations of the scenario that can happen if certain things are not as expected by the MSS.
+* **Guarantees**: Specify what the use case promises to give us at the end of its operation
+* **Preconditions**: Specify the specific state you expect the system to be in before the use case starts
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Appendix: Instructions for manual testing**
@@ -612,7 +612,7 @@ testers are expected to do more *exploratory* testing.
        Expected: No recipe is displayed in the result box. Invalid command format error is displayed in the result box with an example showing the correct usage of the view command. 
 
     4. Other incorrect view commands to try: `view`, `view -x i` (where i is larger than the list size)<br>
-        Expected: Similar to previous.
+        Expected: An error showing recipe does not exists will appear.
 
 
 ### Finding a recipe
