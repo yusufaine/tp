@@ -2,8 +2,6 @@
 layout: page
 title: Developer Guide
 ---
-* Table of Contents
-  {:toc}
 
 ## **[!] Before reading**
 To help simplify the understanding of the design of our application – `McKitchen` – we would be referring to our application as `RecipeBook` as it makes more intuitive sense
@@ -11,14 +9,42 @@ as our application functions similar to `RecipeBook` which contains a set of `Re
 
 With that in mind, let's begin.
 
+---
+
+## Table of Content
+- [**Acknowledgements**](#acknowledgements)
+- [**Setting up, getting started**](#setting-up-getting-started)
+- [**Design**](#design)
+    * [Architecture](#architecture)
+    * [UI component](#ui-component)
+    * [Logic component](#logic-component)
+    * [Model component](#model-component)
+    * [Storage component](#storage-component)
+    * [Common classes](#common-classes)
+- [**Implementation**](#implementation)
+    * [\[Proposed\] Undo/redo feature](#proposed-undoredo-feature)
+    * [\[Proposed\] Advance find feature](#proposed-advance-find-feature)
+- [**Documentation, logging, testing, configuration, dev-ops**](#documentation-logging-testing-configuration-dev-ops)
+- [**Appendix: Requirements**](#appendix-requirements)
+    * [Product scope](#product-scope)
+    * [User stories](#user-stories)
+    * [Use cases](#use-cases)
+    * [Non-Functional Requirements](#non-functional-requirements)
+    * [Glossary](#glossary)
+- [**Appendix: Instructions for manual testing**](#appendix-instructions-for-manual-testing)
+    * [Launch and shutdown](#launch-and-shutdown)
+    * [Deleting a recipe](#deleting-a-recipe)
+    * [Viewing a recipe](#viewing-a-recipe)
+    * [Finding a recipe](#finding-a-recipe)
+    
+
 --------------------------------------------------------------------------------------------------------------------
 
-## **Acknowledgements** (TO UPDATE)
+## **Acknowledgements**
 
 * McDonald's for inspiring our project and logo.
 * AddressBook Level-3 from [https://se-education.org/](https://se-education.org/) which served as a base for our application.
 * [JavaFX](https://openjfx.io/) for the GUI functionality.
-* {list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well}
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -32,12 +58,12 @@ Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 <div markdown="span" class="alert alert-primary">
 
-:bulb: **Tip:** The `.puml` files used to create diagrams in this document can be found in the [diagrams](https://github.com/se-edu/recipebook-level3/tree/master/docs/diagrams/) folder. Refer to the [_PlantUML Tutorial_ at se-edu/guides](https://se-education.org/guides/tutorials/plantUml.html) to learn how to create and edit diagrams.
+:bulb: **Tip:** The `.puml` files used to create diagrams in this document can be found in the [diagrams](https://github.com/AY2122S2-CS2103T-T17-2/tp/tree/master/docs/umlDiagrams) folder. Refer to the [_PlantUML Tutorial_ at se-edu/guides](https://se-education.org/guides/tutorials/plantUml.html) to learn how to create and edit diagrams.
 </div>
 
 ### Architecture
 
-<img src="images/ArchitectureDiagram.png" width="280" />
+<img src="umlDiagrams/img/ArchitectureDiagram.png"/>
 
 The ***Architecture Diagram*** given above explains the high-level design of the App.
 
@@ -45,7 +71,7 @@ Given below is a quick overview of main components and how they interact with ea
 
 **Main components of the architecture**
 
-**`Main`** has two classes called [`Main`](https://github.com/se-edu/recipebook-level3/tree/master/src/main/java/seedu/recipe/Main.java) and [`MainApp`](https://github.com/se-edu/recipebook-level3/tree/master/src/main/java/seedu/recipe/MainApp.java). It is responsible for,
+**`Main`** has two classes called [`Main`](https://github.com/AY2122S2-CS2103T-T17-2/tp/blob/master/src/main/java/seedu/address/Main.java) and [`MainApp`](https://github.com/AY2122S2-CS2103T-T17-2/tp/blob/master/src/main/java/seedu/address/MainApp.java). It is responsible for,
 * At app launch: Initializes the components in the correct sequence, and connects them up with each other.
 * At shut down: Shuts down the components and invokes cleanup methods where necessary.
 
@@ -63,7 +89,7 @@ The rest of the App consists of four components.
 
 The *Sequence Diagram* below shows how the components interact with each other for the scenario where the user issues the command `delete 1`.
 
-<img src="images/ArchitectureSequenceDiagram.png" width="574" />
+<img src="umlDiagrams/img/ArchitectureSequenceDiagram.png"/>
 
 Each of the four main components (also shown in the diagram above),
 
@@ -72,20 +98,19 @@ Each of the four main components (also shown in the diagram above),
 
 For example, the `Logic` component defines its API in the `Logic.java` interface and implements its functionality using the `LogicManager.java` class which follows the `Logic` interface. Other components interact with a given component through its interface rather than the concrete class (reason: to prevent outside component's being coupled to the implementation of a component), as illustrated in the (partial) class diagram below.
 
-<img src="images/ComponentManagers.png" width="300" />
+<img src="umlDiagrams/img/ComponentManagers.png" width="300" />
 
 The sections below give more details of each component.
 
 ### UI component
-(TO UPDATE)
 
-The **API** of this component is specified in [`Ui.java`](https://github.com/se-edu/recipebook-level3/tree/master/src/main/java/seedu/recipe/ui/Ui.java)
+The **API** of this component is specified in [`Ui.java`](https://github.com/AY2122S2-CS2103T-T17-2/tp/blob/master/src/main/java/seedu/address/ui/Ui.java)
 
-![Structure of the UI Component](images/UiClassDiagram.png)
+![Structure of the UI Component](umlDiagrams/img/UiClassDiagram.png)
 
-The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `RecipeListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
+The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `RecipeListPanel`, etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
 
-The `UI` component uses the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/se-edu/recipebook-level3/tree/master/src/main/java/seedu/recipe/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/se-edu/recipebook-level3/tree/master/src/main/resources/view/MainWindow.fxml)
+The `UI` component uses the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/AY2122S2-CS2103T-T17-2/tp/blob/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/AY2122S2-CS2103T-T17-2/tp/blob/master/src/main/resources/view/MainWindow.fxml)
 
 The `UI` component,
 
@@ -96,11 +121,11 @@ The `UI` component,
 
 ### Logic component
 
-**API** : [`Logic.java`]() (TO UPDATE)
+**API** : [`Logic.java`](https://github.com/AY2122S2-CS2103T-T17-2/tp/blob/master/src/main/java/seedu/address/logic/Logic.java)
 
 Here's a (partial) class diagram of the `Logic` component:
 
-<img src="images/LogicClassDiagram.png" width="550"/>
+<img src="umlDiagrams/img/LogicClassDiagram.png" width="550"/>
 
 How the `Logic` component works:
 1. When `Logic` is called upon to execute a command, it uses the `RecipeBookParser` class to parse the user command.
@@ -110,23 +135,21 @@ How the `Logic` component works:
 
 The Sequence Diagram below illustrates the interactions within the `Logic` component for the `execute("delete 1")` API call.
 
-![Interactions Inside the Logic Component for the `delete topokki` Command]
-
 <img src="umlDiagrams/img/ArchitectureSequenceDiagram.png"/>
 <div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
 
 Here are the other classes in `Logic` (omitted from the class diagram above) that are used for parsing a user command:
 
-<img src="images/ParserClasses.png" width="600"/>
+<img src="umlDiagrams/img/ParserClasses.png" width="600"/>
 
 How the parsing works:
-* When called upon to parse a user command, the `RecipeBookParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g., `AddCommand`) which the `RecipeBookParser` returns back as a `Command` object.
-* All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
+* When called upon to parse a user command, the `RecipeBookParser` class creates an `*CommandParser` (`*` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `*Command` object (e.g., `AddCommand`) which the `RecipeBookParser` returns back as a `Command` object.
+* All `*CommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
 
 
 ### Model component
-**API** : [`Model.java`]() (TO UPDATE)
+**API** : [`Model.java`](https://github.com/AY2122S2-CS2103T-T17-2/tp/blob/master/src/main/java/seedu/address/model/Model.java)
 
 <img src="umlDiagrams/img/ModelClassDiagram.png"/>
 
@@ -146,9 +169,9 @@ The `Model` component,
 
 
 ### Storage component
-**API** : [`Storage.java`]() (TO UPDATE)
+**API** : [`Storage.java`](https://github.com/AY2122S2-CS2103T-T17-2/tp/blob/master/src/main/java/seedu/address/storage/Storage.java)
 
-<img src="images/StorageClassDiagram.png" width="550" />
+<img src="umlDiagrams/img/StorageClassDiagram.png" width="550" />
 
 The `Storage` component,
 * can save recipe book data in json format, and read them back into corresponding objects
@@ -162,7 +185,7 @@ The `Storage` component,
 
 ### Common classes
 
-Classes used by multiple components are in the `seedu.recipebook.commons` package.
+Classes used by multiple components are in the `seedu.address.commons` package.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -176,64 +199,43 @@ This section describes some noteworthy details on how certain features are imple
 
 The proposed undo/redo mechanism is facilitated by `VersionedRecipeBook`. It extends `RecipeBook` with an undo/redo history, stored internally as an `recipeBookStateList` and `currentStatePointer`. Additionally, it implements the following operations:
 
-* `VersionedRecipeBook#commit()` — Saves the current recipe book state in its history.
-* `VersionedRecipeBook#undo()` — Restores the previous recipe book state from its history.
-* `VersionedRecipeBook#redo()` — Restores a previously undone recipe book state from its history.
+* `VersionedRecipeBook#commit()` — Saves the current recipe book state in its history.
+* `VersionedRecipeBook#undo()` — Restores the previous recipe book state from its history.
+* `VersionedRecipeBook#redo()`— Restores a previously undone recipe book state from its history.
 
 These operations are exposed in the `Model` interface as `Model#commitRecipeBook()`, `Model#undoRecipeBook()` and `Model#redoRecipeBook()` respectively.
 
 Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.
 
-Step 1. The user launches the application for the first time. The `VersionedRecipeBook` will be initialized with the initial recipe book state, and the `currentStatePointer` pointing to that single recipe book state.
+**Step 1**. The user launches the application for the first time. The `VersionedRecipeBook` will be initialized with the initial recipe book state, and the `currentStatePointer` pointing to that single recipe book state.
 
-![UndoRedoState0](images/UndoRedoState0.png)
+**Step 2**. The user executes `delete -x 5` command to delete the 5th recipe in the recipe book. The `delete` command calls `Model#commitRecipeBook()`, causing the modified state of the recipe book after the `delete -x 5` command executes to be saved in the `recipeBookStateList`, and the `currentStatePointer` is shifted to the newly inserted recipe book state.
 
-Step 2. The user executes `delete 5` command to delete the 5th recipe in the recipe book. The `delete` command calls `Model#commitRecipeBook()`, causing the modified state of the recipe book after the `delete 5` command executes to be saved in the `recipeBookStateList`, and the `currentStatePointer` is shifted to the newly inserted recipe book state.
+**Step 3**. The user executes `add -n Miso Soup …` to add a new recipe. The `add` command also calls `Model#commitRecipeBook()`, causing another modified recipe book state to be saved into the `recipeBookStateList`.
 
-![UndoRedoState1](images/UndoRedoState1.png)
+<div markdown="span" class="alert alert-info">
 
-Step 3. The user executes `add n/David …​` to add a new recipe. The `add` command also calls `Model#commitRecipeBook()`, causing another modified recipe book state to be saved into the `recipeBookStateList`.
-
-![UndoRedoState2](images/UndoRedoState2.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If a command fails its execution, it will not call `Model#commitRecipeBook()`, so the recipe book state will not be saved into the `recipeBookStateList`.
+:information_source: **Note:** If a command fails its execution, it will not call `Model#commitRecipeBook()`, so the recipe book state will not be saved into the `recipeBookStateList`.
 
 </div>
 
-Step 4. The user now decides that adding the recipe was a mistake, and decides to undo that action by executing the `undo` command. The `undo` command will call `Model#undoRecipeBook()`, which will shift the `currentStatePointer` once to the left, pointing it to the previous recipe book state, and restores the recipe book to that state.
+**Step 4**. The user now decides that adding the recipe was a mistake, and decides to undo that action by executing the `undo` command. The `undo` command will call `Model#undoRecipeBook()`, which will shift the `currentStatePointer` once to the left, pointing it to the previous recipe book state, and restores the recipe book to that state.
 
-![UndoRedoState3](images/UndoRedoState3.png)
+<div markdown="span" class="alert alert-info">
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index 0, pointing to the initial RecipeBook state, then there are no previous RecipeBook states to restore. The `undo` command uses `Model#canUndoRecipeBook()` to check if this is the case. If so, it will return an error to the user rather
-than attempting to perform the undo.
+:information_source: **Note:** If the `currentStatePointer` is at index 0, pointing to the initial RecipeBook state, then there are no previous RecipeBook states to restore. The `undo` command uses `Model#canUndoRecipeBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform  `undo`.
 
-</div>
+The `redo` command does the opposite — it calls `Model#redoRecipeBook()`, which shifts the `currentStatePointer` once to the right, pointing to the previously undone state, and restores the recipe book to that state.
 
-The following sequence diagram shows how the undo operation works:
+<div markdown="span" class="alert alert-info">
 
-![UndoSequenceDiagram](images/UndoSequenceDiagram.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `UndoCommand` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+:information_source: **Note:** If the `currentStatePointer` is at index `recipeBookStateList.size() - 1`, pointing to the latest recipe book state, then there are no undone RecipeBook states to restore. The `redo` command uses `Model#canRedoRecipeBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
 
 </div>
 
-The `redo` command does the opposite — it calls `Model#redoRecipeBook()`, which shifts the `currentStatePointer` once to the right, pointing to the previously undone state, and restores the recipe book to that state.
+**Step 5**. The user then decides to execute the command `list`. Commands that do not modify the recipe book, such as `list`, will usually not call `Model#commitRecipeBook()`, `Model#undoRecipeBook()` or `Model#redoRecipeBook()`. Thus, the `recipeBookStateList` remains unchanged.
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index `recipeBookStateList.size() - 1`, pointing to the latest recipe book state, then there are no undone RecipeBook states to restore. The `redo` command uses `Model#canRedoRecipeBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-
-</div>
-
-Step 5. The user then decides to execute the command `list`. Commands that do not modify the recipe book, such as `list`, will usually not call `Model#commitRecipeBook()`, `Model#undoRecipeBook()` or `Model#redoRecipeBook()`. Thus, the `recipeBookStateList` remains unchanged.
-
-![UndoRedoState4](images/UndoRedoState4.png)
-
-Step 6. The user executes `clear`, which calls `Model#commitRecipeBook()`. Since the `currentStatePointer` is not pointing at the end of the `recipeBookStateList`, all recipe book states after the `currentStatePointer` will be purged. Reason: It no longer makes sense to redo the `add n/David …​` command. This is the behavior that most modern desktop applications follow.
-
-![UndoRedoState5](images/UndoRedoState5.png)
-
-The following activity diagram summarizes what happens when a user executes a new command:
-
-<img src="images/CommitActivityDiagram.png" width="250" />
+**Step 6**. The user executes `clear -f`, which calls `Model#commitRecipeBook()`. Since the `currentStatePointer` is not pointing at the end of the `recipeBookStateList`, all recipe book states after the `currentStatePointer` will be purged. Reason: It no longer makes sense to redo the `add -n Miso Soup …` command. This is the behavior that most modern desktop applications follow.
 
 #### Design considerations:
 
@@ -248,12 +250,21 @@ The following activity diagram summarizes what happens when a user executes a ne
     * Pros: Will use less memory (e.g. for `delete`, just save the recipe being deleted).
     * Cons: We must ensure that the implementation of each individual command are correct.
 
-_{more aspects and alternatives to be added}_
+---
 
-### \[Proposed\] Data archiving
+### \[Proposed\] Advance find feature
+#### Proposed Implementation
+The proposed advanced find feature refines how the current find command works by introducing `RecipeDoesNotContainKeywordPredicate`. 
 
-_{Explain here how the data archiving feature will be implemented}_
+Currently, the purpose of the `find` feature of our application is to give users the possibility of what `Recipe` they can cook based on the specified keywords such as recipe name, ingredients available, or cuisine in the form of tags. As such, we would like to improve how the find feature works but allowing the users to specify "must not contain" as part of their keywords to allow greater user experience.
 
+Given below is an example usage scenario and how the advanced find would behave.
+
+**Step 1**. The user launches the application after filling in some recipes and wants to narrow down their search due to their dietary restriction. The user executes `find noodle -peanut`. The `find` command separates the user input to 2 sets based on whether it has been prefixed with `-`.
+
+**Step 2**. The `find` command filters out the recipes that match `RecipeDoesNotContainKeywordPredicate`. In this case, that would mean that it filters out recipes that contain "peanut".
+
+**Step 3**. The `find` command then collects all the recipes that match `RecipeContainsKeywordPredicate` and displays it to the `RecipeListPanel`
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -471,8 +482,35 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       Use case ends.
 
 *{More to be added}*
-=======
 
+
+**Use case: Find a recipe**
+
+_Actor: User_ <br>
+
+_Preconditions: None_
+
+**Guarantees**
+1. Returns a list of recipes that match any of the keywords that the user provided, or 
+2. Informs the user that no recipe matches the keyword that they had provided.
+
+**MSS**
+1. User requests to list recipes
+2. RecipeBook shows a list of recipes
+3. User requests to search for a recipe based on the keywords provided
+4. RecipeBook displays a list of recipes that match any of the keywords provided.
+
+**Extensions**
+* 2a. The list is empty <br>
+  Use case ends
+* 4a. RecipeBook checks if any of the keywords match any of the recipes inside it
+  * There are one or more matches <br>
+    Use case ends.
+  * There are no matches
+    RecipeBook informs user that there are no recipes that match the keyword(s) provided and shows an empty list of recipes <br>
+    Use case ends.
+
+---
 
 ### Non-Functional Requirements
 
@@ -489,7 +527,12 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 ### Glossary
 
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
-* **Private contact detail**: A contact detail that is not meant to be shared with others
+* **Valid name**:
+* **Valid ingredient name**:
+* **Valid quantity**:
+* **Valid serving size**:
+* **Valid tag name**:
+* **Valid completion time**:
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -552,10 +595,16 @@ testers are expected to do more *exploratory* testing.
         Expected: Similar to previous.
 
 
-### Saving data
+### Finding a recipe
 
-1. Dealing with missing/corrupted data files
+1. Finding a recipe while all recipes are being shown
+   1. Prerequisites: List all recipes using the `list` command. Multiple recipes in the list.
+   2. Test case: `find garlic`<br>
+      Expected: List of recipes will be filtered out to recipes that have garlic as one of their ingredients.
+   3. Test case: `find garlic | western` <br>
+      Expected: List of recipes will be filtered out to recipes that have garlic as one of their ingredients **or** is a western dish.
+   4. Test case: `find aglio olio` <br>
+      Expected: List of recipes will be filtered out to recipes that contain "aglio olio". In this case it is the name of a dish that exists in the recipe book and it would be the only recipe that is shown in the recipe list.
+   5. Test case: `find gja390j4fa3` <br>
+      Expected: Result display would show that there are no recipes that match or contain "gja390j4fa3". This input extends to any arbitrary string that does not match any of the recipe or its contents (name, ingredient, tag).
 
-    1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
-
-2. _{ more test cases …​ }_

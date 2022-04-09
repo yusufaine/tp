@@ -1,6 +1,5 @@
 package seedu.address.logic.parser;
 
-import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.RecipeBookSyntax.PREFIX_INDEX;
 import static seedu.address.logic.parser.RecipeBookSyntax.PREFIX_NAME;
 
@@ -40,8 +39,7 @@ public class DeleteCommandParser implements Parser<DeleteCommand> {
                 return new DeleteCommand(recipeName);
             }
         } catch (ParseException pe) {
-            throw new ParseException(
-                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteCommand.MESSAGE_USAGE), pe);
+            throw pe;
         }
     }
 }

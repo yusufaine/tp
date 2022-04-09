@@ -1,7 +1,7 @@
 @startuml
 
 !if (%not(%variable_exists("$FONTNAME")))
-!$FONTNAME = "Verdana"
+!$FONTNAME = "Calibri Light"
 !endif
 
 !if (%not(%variable_exists("$FONTSIZE")))
@@ -30,7 +30,7 @@
 !define MODEL_COLOR_T4 #f0a8b0
 
 /'YELLOW'/
-!define STORAGE_COLOR #FAF8DE
+!define STORAGE_COLOR #f6b26b
 !define STORAGE_COLOR_T1 #c2b62f
 !define STORAGE_COLOR_T2 #f5e107
 !define STORAGE_COLOR_T3 #ba9007
@@ -128,9 +128,9 @@ skinparam backgroundColor fff
 
 !ifdef DARKSTYLE2
 !$PRIMARYFONTCOLOR = "000"
-!$SECONDARY = "aaa"
-!$ARROWCOLOR = "fff"
-!$ARROWFONTCOLOR = "bbb"
+!$SECONDARY = "ffffff"
+!$ARROWCOLOR = "aaa"
+!$ARROWFONTCOLOR = "000"
 !$BORDERCOLOR = "1b1b1b"
 !$BOXBG = "7e7e7e"
 !$LIGHTBORDERCOLOR = "767676"
