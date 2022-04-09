@@ -10,7 +10,7 @@ The user interacts with it using a CLI-like interface, and it has a GUI created 
 
 **Summary of contributions**
 
-* **Code contributed:** : [RepoSense link (https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=blaketingyu&brekdown=true)]()
+* **Code contributed:** : [RepoSense link] (https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=blaketingyu&brekdown=true) ()
 
 * **Features and Enhancements implemented:**
 * Added `Storage` for `Recipe` class,and its respective fields (PR [#44](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/44))

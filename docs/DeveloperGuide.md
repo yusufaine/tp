@@ -703,4 +703,5 @@ testers are expected to do more *exploratory* testing.
             - Test case: `yes`
                 - Expected: The recipe book will reset back to the default preloaded recipes.
             - Test case: `no`
-                - Expected: There will be no changes made to the existing list of recipes and the recipe book will remain empty.      
+                - Expected: There will be no changes made to the existing list of recipes and the recipe book will remain empty.
+            
