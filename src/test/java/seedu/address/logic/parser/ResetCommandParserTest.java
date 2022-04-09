@@ -25,7 +25,6 @@ public class ResetCommandParserTest {
      */
     @Test
     public void parse_isForcedResetCommand_returnsFalse() {
-
         assertFalse(ResetCommandParser.isNotForcedReset(confirmedReset));
     }
 
