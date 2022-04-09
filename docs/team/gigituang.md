@@ -9,38 +9,39 @@ McKitchen (My-CLI-Kitchen) is a desktop application that can quickly store, edit
 
 Given below are my contributions to the project.
 
-* **New Feature**: Added the ability to undo/redo previous commands.
-  * What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.
-  * Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.
-  * Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.
-  * Credits: *{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}*
-
-* **New Feature**: Added a history command that allows the user to navigate to previous commands using up/down keys.
+* **New Feature**: Added a delete command (Pull requests [\#61](),[\#75]()
+  * What it does: Allows the user to delete recipes either by the recipe name or its index
+  * Justification: This feature improves the product significantly because a user can quickly remove any unwanted recipes in the application.
+  * wrote test cases for delete command to ensure that it meets 100% code coverage [\#128]()
 
 * **Code contributed**: [RepoSense link]()
 
-* **Project management**:
-  * Managed releases `v1.3` - `v1.5rc` (3 releases) on GitHub
-
 * **Enhancements to existing features**:
-  * Updated the GUI color scheme (Pull requests [\#33](), [\#34]())
-  * Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests [\#36](), [\#38]())
+  * wrote CommandTestUtil for testing of different commands. [\#106]()
+  * wrote test cases for ingredients to ensure that 100% code coverage is met. (Pull requests [\#131](), [\#132]())
+  * Wrote test cases for Exit Command. [\#106]()
+  * Made amendments based on the issues found by other students [\#226]()
 
 * **Documentation**:
   * User Guide:
-    * Added documentation for the features `delete` and `find` [\#72]()
+    * Helped in designing the mock up UI for Mckitchen 
+    * Added documentation for the features `delete` [\#132]()
+    * Added FAQs for our application [\#163]()
+    * Suggested ways to improve the structure, design and clarity of the UG
     * Did cosmetic tweaks to existing documentation of features `clear`, `exit`: [\#74]()
+    * Made amendments based on the issues found by other students. [\#226]()
   * Developer Guide:
-    * Added implementation details of the `delete` feature.
+    * Added Non-Functional Requirements to describe the system's operation capabilities and constraints that enhance its functionality. [\#39]()
+    * Added Glossary [\#39]()
+    * Added instructions for manual testing for launch and shutdown and deleting a recipe. [\#39]()
+    * Added User stories and prioritised them accordingly. [\#39]()
+    * Added use cases, guarantees, MSS and Extensions for adding a recipe, deleting a recipe, Editing a recipe and Clearing the recipe book. [\#39]()
+    * Designed UML diagrams to suit our McKitchen theme. [\#48]() [\#122]()
 
 * **Community**:
-  * PRs reviewed (with non-trivial review comments): [\#12](), [\#32](), [\#19](), [\#42]()
-  * Contributed to forum discussions (examples: [1](), [2](), [3](), [4]())
-  * Reported bugs and suggestions for other teams in the class (examples: [1](), [2](), [3]())
-  * Some parts of the history feature I added was adopted by several other class mates ([1](), [2]())
+  * PRs reviewed (with non-trivial review comments): [\#47](), [\#59](), [\#177](), [\#135]()
+  * Contributed to forum discussions (examples: )
+  * Reported bugs and suggestions for other teams in the class
+  
 
-* **Tools**:
-  * Integrated a third party library (Natty) to the project ([\#42]())
-  * Integrated a new Github plugin (CircleCI) to the team repo
 
-* _{you can add/remove categories in the list above}_

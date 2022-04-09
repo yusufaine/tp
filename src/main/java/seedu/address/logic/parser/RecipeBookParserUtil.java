@@ -75,7 +75,7 @@ public class RecipeBookParserUtil {
      */
     public static ServingSize parseServingSize(String servingSize) throws ParseException {
         String trimmedSize = servingSize.trim();
-        if (!StringUtil.isNonZeroPositiveDouble(trimmedSize)) {
+        if (!StringUtil.isNonZeroUnsignedInteger(trimmedSize)) {
             throw new ParseException(ServingSize.MESSAGE_CONSTRAINTS);
         }
         return new ServingSize(Integer.parseInt(servingSize));
