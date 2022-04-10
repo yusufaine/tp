@@ -124,6 +124,8 @@ The `UI` component,
 * keeps a reference to the `Logic` component, because the `UI` relies on the `Logic` to execute commands.
 * depends on some classes in the `Model` component, as it displays `Recipe` object residing in the `Model`.
 
+<div style="page-break-after: always;"></div>
+
 ### Logic component
 
 **API** : [`Logic.java`](https://github.com/AY2122S2-CS2103T-T17-2/tp/blob/master/src/main/java/seedu/address/logic/Logic.java)
@@ -152,6 +154,7 @@ How the parsing works:
 * When called upon to parse a user command, the `RecipeBookParser` class creates an `*CommandParser` (`*` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `*Command` object (e.g., `AddCommand`) which the `RecipeBookParser` returns back as a `Command` object.
 * All `*CommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
 
+<div style="page-break-after: always;"></div>
 
 ### Model component
 **API** : [`Model.java`](https://github.com/AY2122S2-CS2103T-T17-2/tp/blob/master/src/main/java/seedu/address/model/Model.java)
@@ -193,6 +196,8 @@ The `Storage` component,
 Classes used by multiple components are in the `seedu.address.commons` package.
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## **Implementation**
 
@@ -307,7 +312,7 @@ Given below is an example usage scenario and how the advanced find would behave.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Documentation, logging, testing, configuration, dev-ops**
+## **Miscellaneous guides**
 
 * [Documentation guide](Documentation.md)
 * [Testing guide](Testing.md)
@@ -316,6 +321,8 @@ Given below is an example usage scenario and how the advanced find would behave.
 * [DevOps guide](DevOps.md)
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## **Appendix: Requirements**
 
@@ -598,6 +605,8 @@ _Preconditions: None_
 
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## **Appendix: Instructions for manual testing**
 
