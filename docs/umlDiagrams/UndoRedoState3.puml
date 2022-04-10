@@ -4,18 +4,18 @@
 skinparam ClassFontColor #000000
 skinparam ClassBorderColor #000000
 
-title Initial state
+title After command "undo"
 
-package States {
+package States <<rectangle>> #white{
     class State1 as "__rb0:RecipeBook__"
     class State2 as "__rb1:RecipeBook__"
     class State3 as "__rb2:RecipeBook__"
 }
+
 State1 -[hidden]right-> State2
 State2 -[hidden]right-> State3
-hide State2
-hide State3
 
 class Pointer as "Current State"
-Pointer -up-> State1
+
+Pointer -up-> State2
 @end

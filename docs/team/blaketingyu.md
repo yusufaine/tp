@@ -10,17 +10,17 @@ The user interacts with it using a CLI-like interface, and it has a GUI created 
 
 Given below are my contributions to the project.
 
-* **New Feature** Added `Storage` for `Recipe` class,and its respective fields (Pull request [\44](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/44))
+* **New Feature** Added `Storage` for `Recipe` class,and its respective fields (Pull request [#44](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/44))
   * What it does: Allows the application to store and load recipe to the data file automatically. 
   * Justification: This feature is essential for users to be able to load and save existing recipe information automatically upon executing any commands.
   * Highlights: This enhancement required extensive changes to the components in the `Storage` package.
 
-* **New Feature** Added `Clear` command for the application (Pull request [\127](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/127))
+* **New Feature** Added `Clear` command for the application (Pull request [#127](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/127))
   * What it does: Allows the application to clear all the existing recipes in the application.
   * Justification: This good-to-have feature allows users to be able to delete all the existing recipes in one command.
   * Highlights: This enhancement allows users to delete with and without a confirmation prompt. The confirmation prompt serves as a safeguard for users to think twice before deleting all their recipes.
 
-* **New Feature** Added `Reset` command for the application (Pull request [\142](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/142))
+* **New Feature** Added `Reset` command for the application (Pull request [#142](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/142))
   * What it does: Allows the application to reset the current recipe book to the default recipes in the application.
   * Justification: This good-to-have feature allows users to be able to reset the recipe book back to the default recipes. 
   * Highlights: This enhancement allows users to reset with and without a confirmation prompt. The confirmation prompt serves as a safeguard for users to think twice before deleting all their recipes and resetting it back to the default configuration.
@@ -28,7 +28,7 @@ Given below are my contributions to the project.
 * **Code contributed**: [RepoSense link (https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=blaketingyu&brekdown=true)]()
 
 * **Project management**:
-  * Managed releases `v1.1` - `v1.5rc` (5 releases) on GitHub
+  * Managed releases `v1.1` - `v1.4` (4 releases) on GitHub
 
 * **Enhancements to existing features**:
   * Helped come up with the logo for McKitchen using Adobe Photoshop
@@ -50,8 +50,6 @@ Given below are my contributions to the project.
   * Setting up the GitHub organisation and team repo
   * Maintaining the issue tracker
   * Release management
-  * ————
-  * PRs reviewed (with non-trivial review comments):(Pull requests [\#47](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/47), [\#237](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/237), [\#152](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/152), [\#112](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/112), [\#84](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/84)
-  * Reported bugs and suggestions for other teams in the class (examples: [1](), [2](), [3]())
-
-* _{you can add/remove categories in the list above}_
+  * PRs reviewed (with non-trivial review comments):(Pull requests [\#47](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/47), [\#237](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/237), [\#152](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/152), [\#112](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/112), [\#84](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/84))
+  * Reported bugs and suggestions for other teams in the class ([\#186](https://github.com/AY2122S2-CS2103T-T17-3/tp/issues/186), [\#2](https://github.com/blaketingyu/ped/issues/2), [\#3](https://github.com/blaketingyu/ped/issues/3), [\#4](https://github.com/blaketingyu/ped/issues/4), [\#5](https://github.com/blaketingyu/ped/issues/5), [\#6](https://github.com/blaketingyu/ped/issues/6), [\#7](https://github.com/blaketingyu/ped/issues/7), [\#8](https://github.com/blaketingyu/ped/issues/8), [\#9](https://github.com/blaketingyu/ped/issues/9), [\#10](https://github.com/blaketingyu/ped/issues/10), [\#11](https://github.com/blaketingyu/ped/issues/11), [\#12](https://github.com/blaketingyu/ped/issues/12), [\#13](https://github.com/blaketingyu/ped/issues/13))
+  

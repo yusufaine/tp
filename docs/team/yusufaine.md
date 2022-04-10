@@ -43,7 +43,9 @@ Listed below are my contributions to the project with majority of the credits gi
     * Assisted the other members with writing the features they had implemented.
   * Developer Guide:
     * Update the flow and formatting of the Developer Guide
-    * Assisted Gigi with the creation of UML diagrams for the Developer Guide
+    * Assisted with the creation of UML diagrams for the Developer Guide
+    * Update the undo/redo future feature to fit our need
+    * Include enhancement to find as a future feature and explain its implementation
 
 * **Community**:
   * Setting up the GitHub organisation and team repo
