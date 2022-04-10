@@ -67,6 +67,7 @@ The GUI similar to the below should appear in a few seconds. Note how the app co
 6. Refer to the [Features](#features) below for details of each command.
 
 ---
+<div style="page-break-after: always;"></div>
 
 ## Command Summary
 ### Understanding the command format
@@ -381,6 +382,8 @@ Example:
 [<sub>return to table of content</sub>](#table-of-content)
 
 ---
+
+<div style="page-break-after: always;"></div>
 
 ## FAQ
 **Q: If I am unsure of the exact amount of ingredients im adding into my recipe, can I save it first and come back to it later?** <br>
