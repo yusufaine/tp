@@ -600,16 +600,46 @@ testers are expected to do more *exploratory* testing.
 
     1. Download the jar file and copy into an empty folder
 
-    1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
+    2. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
 
-1. Saving window preferences
+3. Saving window preferences
 
     1. Resize the window to an optimum size. Move the window to a different location. Close the window.
 
-    1. Re-launch the app by double-clicking the jar file.<br>
-       Expected: The most recent window size and location is retained.
+    2. Re-launch the app by double-clicking the jar file.<br>
+        Expected: The most recent window size and location is retained.
 
-1. _{ more test cases …​ }_
+4. _{ more test cases …​ }_
+
+### Adding a recipe
+
+1. Adding a new recipe
+
+    1. Prerequisites: Prepare a list of required attributes including recipe name, completion time (in mins), serving size (no. of portions), ingredients, steps and tags (optional).
+
+    2. Test case: `add -n Recipename1 -d 5 -ss 2 -i Ingredient1 | Ingredient2 | Ingredient3 -s Step 1 | Step 2 | Step 3 -t Tag1 | Tag2 | Tag3`<br>
+        Expected: A new recipe with the name "Recipename1" with a 5 min completion time and serving size of 2 pax with the ingredients "Ingredient1", "Ingredient2" and "Ingredient3" as well as the steps of "Step1", "Step2" and "Step3" with tags of "Tag1", "Tag2", "Tag3".
+
+    3. Test case: `add -n Recipename1 -d 5 -ss 2 -i Ingredient1 | Ingredient2 | Ingredient3`<br>
+       Expected: No recipe is added due to missing recipe steps. Valid command details are shown in the error message.
+
+    4. Other incorrect delete commands to try: `add -n`, `add`, `add -ss`, `add -d`, `add -s Step2` <br>
+       Expected: Similar to previous.
+
+### Editing a recipe
+
+1. Editing a new recipe
+
+    1. Prerequisites: List all recipes using the `list` command. Only 9 recipes in the list. Prepare the attributes to be updated.
+
+    2. Test case: `edit -x 1 -n Recipename1 -d 5 -ss 2 -i Ingredient1 | Ingredient2 | Ingredient3 -s Step 1 | Step 2 | Step 3`<br>
+        Expected: Edits recipe with index 1 with a new name of "Recipename1", completion time of 5, serving size of 2, ingredients of "Ingredient1", "Ingredient2" and "Ingredient3" as well as steps of "Step1", "Step2" and "Step3".
+
+    3. Test case: `edit -n Recipename1 -d 5 -ss 2 -i Ingredient1 | Ingredient2 | Ingredient3 -s Step 1 | Step 2 | Step 3`<br>
+       Expected: No recipe is edited due to missing recipe index. Error details shown in the status message.
+
+    4. Other incorrect delete commands to try: `edit 1`, `edit -x 1`, `edit -x 1 -ss`, `edit -x 1 -d` <br>
+       Expected: No recipe is edited due to missing recipe attributes. Error details shown in the status message.
 
 ### Deleting a recipe
 
