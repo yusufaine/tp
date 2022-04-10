@@ -39,6 +39,8 @@
 /'BLACK'/
 !define USER_COLOR #000000
 
+skinparam Shadowing false
+
 !ifdef DARKBLUE
 skinparam backgroundColor 777
 !$ACCENT = "1a66c2"
@@ -336,5 +338,9 @@ skinparam storage {
   basic_style()
   font_style()
 }
+
+hide footbox
+hide members
+hide circle
 
 @enduml

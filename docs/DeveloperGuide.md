@@ -87,7 +87,7 @@ The rest of the App consists of four components.
 
 **How the architecture components interact with each other**
 
-The *Sequence Diagram* below shows how the components interact with each other for the scenario where the user issues the command `delete 1`.
+The *Sequence Diagram* below shows how the components interact with each other for the scenario where the user issues the command `delete Aglio Olio`.
 
 <img src="umlDiagrams/img/ArchitectureSequenceDiagram.png"/>
 
@@ -108,7 +108,7 @@ The **API** of this component is specified in [`Ui.java`](https://github.com/AY2
 
 ![Structure of the UI Component](umlDiagrams/img/UiClassDiagram.png)
 
-The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `RecipeListPanel`, etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
+The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `HelpWindow`,`RecipeListPanel` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
 
 The `UI` component uses the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/AY2122S2-CS2103T-T17-2/tp/blob/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/AY2122S2-CS2103T-T17-2/tp/blob/master/src/main/resources/view/MainWindow.fxml)
 
@@ -133,9 +133,9 @@ How the `Logic` component works:
 3. The command can communicate with the `Model` when it is executed (e.g. to add a recipe).
 4. The result of the command execution is encapsulated as a `CommandResult` object which is returned from `Logic`.
 
-The Sequence Diagram below illustrates the interactions within the `Logic` component for the `execute("delete 1")` API call.
+The Sequence Diagram below illustrates the interactions within the `Logic` component for the `execute("delete -x 1")` API call.
 
-<img src="umlDiagrams/img/ArchitectureSequenceDiagram.png"/>
+<img src="umlDiagrams/img/DeleteSequenceDiagram.png"/>
 <div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
 
@@ -163,7 +163,7 @@ The `Model` component,
 
 <div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `RecipeBook`, which `Recipe` references. This allows `RecipeBook` to only require one `Tag` object per unique tag, instead of each `Recipe` needing their own `Tag` objects.<br>
 
-<img src="images/BetterModelClassDiagram.png" width="450" />
+<img src="umlDiagrams/img/BetterModelClassDiagram.png" width="450" />
 
 </div>
 
@@ -209,9 +209,15 @@ Given below is an example usage scenario and how the undo/redo mechanism behaves
 
 **Step 1**. The user launches the application for the first time. The `VersionedRecipeBook` will be initialized with the initial recipe book state, and the `currentStatePointer` pointing to that single recipe book state.
 
+<img src="umlDiagrams/img/UndoRedoState0-Initial_state.png"/>
+
 **Step 2**. The user executes `delete -x 5` command to delete the 5th recipe in the recipe book. The `delete` command calls `Model#commitRecipeBook()`, causing the modified state of the recipe book after the `delete -x 5` command executes to be saved in the `recipeBookStateList`, and the `currentStatePointer` is shifted to the newly inserted recipe book state.
 
+<img src="umlDiagrams/img/UndoRedoState1-After_command__delete__x_5_.png"/>
+
 **Step 3**. The user executes `add -n Miso Soup …` to add a new recipe. The `add` command also calls `Model#commitRecipeBook()`, causing another modified recipe book state to be saved into the `recipeBookStateList`.
+
+<img src="umlDiagrams/img/UndoRedoState2-After_command__add__n_Miso_Soup____.png"/>
 
 <div markdown="span" class="alert alert-info">
 
@@ -221,9 +227,17 @@ Given below is an example usage scenario and how the undo/redo mechanism behaves
 
 **Step 4**. The user now decides that adding the recipe was a mistake, and decides to undo that action by executing the `undo` command. The `undo` command will call `Model#undoRecipeBook()`, which will shift the `currentStatePointer` once to the left, pointing it to the previous recipe book state, and restores the recipe book to that state.
 
+<img src="umlDiagrams/img/UndoRedoState3-After_command__undo_.png"/>
+
 <div markdown="span" class="alert alert-info">
 
-:information_source: **Note:** If the `currentStatePointer` is at index 0, pointing to the initial RecipeBook state, then there are no previous RecipeBook states to restore. The `undo` command uses `Model#canUndoRecipeBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform  `undo`.
+:information_source: **Note:** If the `currentStatePointer` is at index 0, pointing to the initial RecipeBook state, then there are no previous RecipeBook states to restore. The `undo` command uses `Model#canUndoRecipeBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform  `undo`. <br>
+
+</div>
+
+The following sequence diagram shows how the undo operation works:
+
+<img src="umlDiagrams/img/UndoSequenceDiagram.png"/>
 
 The `redo` command does the opposite — it calls `Model#redoRecipeBook()`, which shifts the `currentStatePointer` once to the right, pointing to the previously undone state, and restores the recipe book to that state.
 
@@ -233,9 +247,18 @@ The `redo` command does the opposite — it calls `Model#redoRecipeBook()`, whic
 
 </div>
 
+
 **Step 5**. The user then decides to execute the command `list`. Commands that do not modify the recipe book, such as `list`, will usually not call `Model#commitRecipeBook()`, `Model#undoRecipeBook()` or `Model#redoRecipeBook()`. Thus, the `recipeBookStateList` remains unchanged.
 
+<img src="umlDiagrams/img/UndoRedoState4-After_command__list_.png"/>
+
 **Step 6**. The user executes `clear -f`, which calls `Model#commitRecipeBook()`. Since the `currentStatePointer` is not pointing at the end of the `recipeBookStateList`, all recipe book states after the `currentStatePointer` will be purged. Reason: It no longer makes sense to redo the `add -n Miso Soup …` command. This is the behavior that most modern desktop applications follow.
+
+<img src="umlDiagrams/img/UndoRedoState5-After_command__clear__f_.png"/>
+
+The following activity diagram summarizes what happens when a user executes a clear command without prefix -f
+
+<img src="umlDiagrams/img/CommitActivityDiagram.png" width="200" />
 
 #### Design considerations:
 
@@ -368,12 +391,12 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
   Use case ends.
 
-* 4a. RecipeBook checks if the given index is valid.
-    * If index is valid
+* 4a. RecipeBook checks if the given recipe index or name is valid.
+    * If recipe index or name is valid <br>
 
       Use case ends.
 
-    * If index is invalid,
+    * If recipe index or name is invalid,
         * RecipeBook shows an error message
 
           Use case resumes at step 2
@@ -527,13 +550,13 @@ _Preconditions: None_
 ### Glossary
 
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
-* **Valid name**:
-* **Valid ingredient name**:
-* **Valid quantity**:
-* **Valid serving size**:
-* **Valid tag name**:
-* **Valid completion time**:
-
+* **DBMS**: Database Management System
+* **GUI**: Graphic User interface
+* **JAR**: Java Archive (Java executable file)
+* **MSS**: Main Success Scenario
+* **Extensions**: are "add-on"s to the MSS that describe exceptional/alternative flow of events. They describe variations of the scenario that can happen if certain things are not as expected by the MSS.
+* **Guarantees**: Specify what the use case promises to give us at the end of its operation
+* **Preconditions**: Specify the specific state you expect the system to be in before the use case starts
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Appendix: Instructions for manual testing**
@@ -566,18 +589,17 @@ testers are expected to do more *exploratory* testing.
 
 1. Deleting a recipe while all recipes are being shown
 
-    1. Prerequisites: List all recipes using the `list` command. Multiple recipes in the list.
+    1. Prerequisites: List all recipes using the `list` command. Only 9 recipes in the list.
 
-    1. Test case: `delete 1`<br>
-       Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
+    1. Test case: `delete -x 1`<br>
+       Expected: First recipe is deleted from the list. Details of the deleted recipe shown in the status message.
 
-    1. Test case: `delete 0`<br>
-       Expected: No recipe is deleted. Error details shown in the status message. Status bar remains the same.
+    1. Test case: `delete -x 0`<br>
+       Expected: No recipe is deleted. Error details shown in the status message.
 
-    1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
+    1. Other incorrect delete commands to try: `delete`, `delete -x -1`, `delete -x 10`, `delete 1`, `delete -x aglio olio` <br>
        Expected: Similar to previous.
-
-2. _{ more test cases …​ }_
+    
 
 ### Viewing a recipe
 
@@ -590,7 +612,7 @@ testers are expected to do more *exploratory* testing.
 
     3. Test case: `view -x -1`<br>
        Expected: No recipe is displayed in the result box. Invalid command format error is displayed in the result box with an example showing the correct usage of the view command. 
-
+    
     4. Test case: `view -x i` (where i is larger than the list size)<br>
        Expected: Recipe not found message is displayed in the result box. 
 

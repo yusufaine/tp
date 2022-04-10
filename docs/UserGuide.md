@@ -25,7 +25,7 @@ Throughout the document you may encounter some of these symbols, and they denote
     * [Clear (delete all) existing recipes: `clear`](#clear-delete-all-existing-recipes-clear)
     * [Delete an existing recipe: `delete`](#delete-an-existing-recipe-delete)
     * [Edit an existing recipe: `edit`](#edit-an-existing-recipe-edit)
-    * [Exiting the program: `Exit`](#exiting-the-program-exit)
+    * [Exiting the program: `exit`](#exiting-the-program-exit)
     * [Find an existing recipe: `find`](#find-an-existing-recipe-find)
     * [Get help on how to use McKitchen: `help`](#get-help-on-how-to-use-mckitchen-help)
     * [List all stored recipes: `list`](#list-all-stored-recipes-list)
@@ -48,10 +48,9 @@ In this section, we will get you started on the things you need to do prior to u
 
 3. Copy the file to the folder you want to use as the _home folder_ for your McKitchen.
 
-4. To run the application, if you're on:
-    - Windows: Double-click the file to start the app.
-    - MacOS/UNIX: Open the terminal in the _home folder_ (Step 3) and issue the following command: `java -jar McKitchen.jar`
-
+4. To run the application:
+   - Open the terminal in the _home folder_ (Step 3) and issue the following command: `java -jar McKitchen.jar`
+   
 <div markdown="block" class="alert alert-info">
 
 :information_source: :computer: **Alternatively**, you can allow the application Full Disk Access and be able to run the McKitchen by double-clicking on it by following [this post](https://discussions.apple.com/thread/252709578).
@@ -133,7 +132,8 @@ Example:
     * **optionally**, the tags: `-t Western | Italian`
 
     <br>Putting them together, the command would look something like this:
-  - `add -n Aglio Olio -d 15 -ss 1 -i spaghetti 56 grams | garlic 3 cloves | bacon 3 slices | olive oil 110 ml -s Cook the spaghetti until al dante | Saute the chopped garlic | Toss spaghetti in the sauce | taste and season with salt and black pepper`
+  - `add -n Aglio Olio -d 15 -ss 1 -i spaghetti 56 grams | garlic 3 cloves | bacon 3 slices | olive oil 110 ml -s Cook the spaghetti until al dante | Saute the chopped garlic | Toss spaghetti in the sauce | taste and season with salt and black pepper` <br>
+    (Note that this recipe already exists in the recipe book. If you want to test using this example, do a `delete Aglio Olio` first before continuing)
 
  [<sub>return to table of content</sub>](#table-of-content)
 
@@ -240,7 +240,7 @@ Usage:
 
 ### Find an existing recipe: `find`
 Searches for a recipe based on the keywords (separated by pipe). <br>
-These `keywords` can consists of ingredients, tags or recipe names. `find` will return any recipe that contains these keywords even if there is a partial matching. <br>
+These `keywords` can consists of ingredients, tags or recipe names. `find` will return any recipe that contains **any** of these keywords. <br>
 
 Usage: 
 * `find <keyword> [other keywords seperated by pipe]`
@@ -250,7 +250,7 @@ Usage:
 </div>
 
 Example: 
-- Let's say that you would like to cook a Western cuisine and have spaghetti and garlic on hand. <br>
+- Let's say that you would like to cook a Western cuisine or want to cook something with spaghetti, or just want something with garlic. <br>
     The command that you would execute should look something like this:
     - `find western | spaghetti | garlic`
 
@@ -281,7 +281,7 @@ Example:
 ---
 
 ### List all stored recipes: `list`
-Displays all the available recipes that has been stored locally <br>
+Displays all the available recipes that has been stored locally. <br>
 Usage: `list`
 
 Example:

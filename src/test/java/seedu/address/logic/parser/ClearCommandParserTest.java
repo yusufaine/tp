@@ -18,7 +18,7 @@ public class ClearCommandParserTest {
 
     private final ClearCommandParser parser = new ClearCommandParser();
     private final String clearCommand = "";
-    private final String confirmedClear = " -f";
+    private final String confirmedClear = "-f";
 
     /**
      * Tests the isNotForcedClearCommand.
