@@ -181,7 +181,7 @@ The `Storage` component,
 * The `JsonAdaptedRecipe` contains the standard attributes of a `Recipe` in `JsonProperty` format.
 * `JsonAdaptedRecipe` also contains attributes in a list such as
 * `List<JsonAdaptedSteps>`, `List<JsonAdaptedIngredient>` and `List<JsonAdaptedTag>` format.
-*
+
 
 ### Common classes
 
@@ -192,6 +192,20 @@ Classes used by multiple components are in the `seedu.address.commons` package.
 ## **Implementation**
 
 This section describes some noteworthy details on how certain features are implemented.
+
+### Clear feature
+This feature allows the application to clear all the existing recipes in the application. Users will be able to delete all the existing recipes in one command.
+
+<img src="umlDiagrams/img/ClearActivityDiagram.png"/>
+
+**Step 1**. The user launches the application. <br>
+**Step 2**. The user executes `clear` command to clear all recipes. <br>
+**Step 3**. The user will be prompted a `yes` and `no` to confirm his clearance
+- if the user inputs `yes`, the RecipeBook will be cleared
+- if the user inputs `no`, the `clear` command is cancelled. 
+- if the user inputs neither `yes` or `no`, 
+  Expected: Unknown Command!Type in the clear command again if you wish to clear
+
 
 ### \[Proposed\] Undo/redo feature
 
@@ -256,7 +270,7 @@ The `redo` command does the opposite — it calls `Model#redoRecipeBook()`, whic
 
 <img src="umlDiagrams/img/UndoRedoState5-After_command__clear__f_.png"/>
 
-The following activity diagram summarizes what happens when a user executes a clear command without prefix -f
+The following activity diagram summarizes what happens when a user executes a new command
 
 <img src="umlDiagrams/img/CommitActivityDiagram.png" width="200" />
 
@@ -332,8 +346,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *`    | user with dietary restrictions         | be able to prepare suitable recipes               | cook more of them easily                                             |
 | `* *`    | student who has online classes at home | cook with what I have at home                     | save money                                                           |
 | `* *`    | person who cooks well                  | be able to export my recipes                      | share them with people who are curious about a certain dish          |
-
-*{More to be added}*
 
 ### Use cases
 
@@ -583,6 +595,8 @@ _Preconditions: None_
 * **Extensions**: are "add-on"s to the MSS that describe exceptional/alternative flow of events. They describe variations of the scenario that can happen if certain things are not as expected by the MSS.
 * **Guarantees**: Specify what the use case promises to give us at the end of its operation
 * **Preconditions**: Specify the specific state you expect the system to be in before the use case starts
+
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Appendix: Instructions for manual testing**
@@ -598,18 +612,19 @@ testers are expected to do more *exploratory* testing.
 
 1. Initial launch
 
-    1. Download the jar file and copy into an empty folder
+    1. Download the latest McKitchen.jar file and copy into the folder you want to use as the home folder for your McKitchen.
 
-    2. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
+    2. To run the application: Open Terminal/Command Prompt in home folder (step 1) and issue the following command: `java -jar McKitchen.jar`.
+
 
 3. Saving window preferences
 
     1. Resize the window to an optimum size. Move the window to a different location. Close the window.
 
-    2. Re-launch the app by double-clicking the jar file.<br>
-        Expected: The most recent window size and location is retained.
+    2. Re-launch the app from the Terminal/Command Prompt in home folder and issue the command `java -jar McKithen.jar`.<br>
+       Expected: The most recent window size and location is retained.
 
-4. _{ more test cases …​ }_
+
 
 ### Adding a recipe
 
@@ -647,13 +662,19 @@ testers are expected to do more *exploratory* testing.
 
     1. Prerequisites: List all recipes using the `list` command. Only 9 recipes in the list.
 
-    1. Test case: `delete -x 1`<br>
+    2. Test case: `delete -x 1`<br>
        Expected: First recipe is deleted from the list. Details of the deleted recipe shown in the status message.
+   
+    3. Test case: `delete Aglio Olio` <br>
+       Expected: First recipe is deleted from the list. Details of the deleted recipe shown in the status message. 
 
-    1. Test case: `delete -x 0`<br>
+    4. Test case: `delete -x 0`<br>
        Expected: No recipe is deleted. Error details shown in the status message.
 
-    1. Other incorrect delete commands to try: `delete`, `delete -x -1`, `delete -x 10`, `delete 1`, `delete -x aglio olio` <br>
+    5. Test case: `delete nuggets`<br>
+       Expected: Recipe does not exist in the recipe book.
+
+    7. Other incorrect delete commands to try: `delete`, `delete -x -1`, `delete -x 10`, `delete 1`, `delete -x aglio olio` <br>
        Expected: Similar to previous.
     
 
@@ -693,46 +714,46 @@ testers are expected to do more *exploratory* testing.
 1. Clearing the recipe book populated with existing recipes
    1. Prerequisites: List all recipes using the `list` command. Multiple recipes in the list.
    2. Test case: `clear -f` <br>
-      1. Expected: All the recipes will be cleared from the recipe book.
+      Expected: All the recipes will be cleared from the recipe book.
    3. Test case: `clear` <br>
-      - Expected: Confirmation prompt shows up, requesting for confirmation. <br>
-        - Test case: `yes`
-          - Expected: All the recipes will be cleared from the recipe book.
-        - Test case: `no`
-          - Expected: There will be no changes made to the existing list of recipes.
+      Expected: Confirmation prompt shows up, requesting for confirmation. <br>
+      - Test case: `yes` <br>
+        Expected: All the recipes will be cleared from the recipe book.
+      - Test case: `no` <br>
+        Expected: There will be no changes made to the existing list of recipes.
 
 
 ### Resetting the recipe book
 1. Resetting the recipe book populated with recipes that are not in the list of preloaded recipes. 
     1. Prerequisites: List all recipes using the `list` command. Multiple recipes in the list with recipes that are not in the list of preloaded recipes.
     2. Test case: `reset -f` <br>
-       1. Expected: The recipe book will reset back to the default preloaded recipes and all the recipes that are not in the default preloaded recipe provided by the application are cleared from the recipe book. 
+       Expected: The recipe book will reset back to the default preloaded recipes and all the recipes that are not in the default preloaded recipe provided by the application are cleared from the recipe book. 
     3. Test case: `reset` <br>
-        - Expected: Confirmation prompt shows up, requesting for confirmation. <br>
-            - Test case: `yes`
-               - Expected: The recipe book will reset back to the default preloaded recipes and all the recipes that are not in the default preloaded recipe provided by the application are cleared from the recipe book.
-            - Test case: `no`
-               - Expected: There will be no changes made to the existing list of recipes.
+       Expected: Confirmation prompt shows up, requesting for confirmation. <br>
+       - Test case: `yes`
+                 - Expected: The recipe book will reset back to the default preloaded recipes and all the recipes that are not in the default preloaded recipe provided by the application are cleared from the recipe book.
+              - Test case: `no`
+                 - Expected: There will be no changes made to the existing list of recipes.
                 
 2. Resetting the recipe book populated with an empty recipe book. 
     1. Prerequisites: Clear all the recipes from the recipe book using the `clear` command.
     2. Test case: `reset -f` <br>
-       1. Expected: The recipe book will reset back to the default preloaded recipes.
+       Expected: The recipe book will reset back to the default preloaded recipes.
     3. Test case: `reset` <br>
-       - Expected: Confirmation prompt shows up, requesting for confirmation. <br>
-           - Test case: `yes`
-             - Expected: The recipe book will reset back to the default preloaded recipes.
-           - Test case: `no`
-             - Expected: There will be no changes made to the existing list of recipes and the recipe book will remain empty.
+       Expected: Confirmation prompt shows up, requesting for confirmation. <br>
+       - Test case: `yes` <br>
+         Expected: The recipe book will reset back to the default preloaded recipes.
+       - Test case: `no` <br>
+         Expected: There will be no changes made to the existing list of recipes and the recipe book will remain empty.
 
 3. Resetting the recipe book with corrupted data in the data json file.
     1. Prerequisites: Deleting an attribute from a recipe in the json file. For example, deleting the name field for a recipe.
-    2. Expected: McKitchen contains 0 recipes when the application launches.
-    3. Test case: `reset -f` <br>
-        - Expected: The recipe book will reset back to the default preloaded recipes.
-    4. Test case: `reset` <br>
-        - Expected: Confirmation prompt shows up, requesting for confirmation. <br>
-            - Test case: `yes`
-                - Expected: The recipe book will reset back to the default preloaded recipes.
-            - Test case: `no`
-                - Expected: There will be no changes made to the existing list of recipes and the recipe book will remain empty.
+       Expected: McKitchen contains 0 recipes when the application launches.
+    2. Test case: `reset -f` <br>
+       Expected: The recipe book will reset back to the default preloaded recipes.
+    3. Test case: `reset` <br>
+       Expected: Confirmation prompt shows up, requesting for confirmation. <br>
+       - Test case: `yes` <br>
+         Expected: The recipe book will reset back to the default preloaded recipes.
+       - Test case: `no` <br>
+         Expected: There will be no changes made to the existing list of recipes and the recipe book will remain empty.
