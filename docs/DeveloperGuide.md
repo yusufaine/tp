@@ -181,7 +181,7 @@ The `Storage` component,
 * The `JsonAdaptedRecipe` contains the standard attributes of a `Recipe` in `JsonProperty` format.
 * `JsonAdaptedRecipe` also contains attributes in a list such as
 * `List<JsonAdaptedSteps>`, `List<JsonAdaptedIngredient>` and `List<JsonAdaptedTag>` format.
-*
+
 
 ### Common classes
 
@@ -192,6 +192,20 @@ Classes used by multiple components are in the `seedu.address.commons` package.
 ## **Implementation**
 
 This section describes some noteworthy details on how certain features are implemented.
+
+### Clear feature
+This feature allows the application to clear all the existing recipes in the application. Users will be able to delete all the existing recipes in one command.
+
+<img src="umlDiagrams/img/ClearActivityDiagram.png"/>
+
+**Step 1**. The user launches the application. <br>
+**Step 2**. The user executes `clear` command to clear all recipes. <br>
+**Step 3**. The user will be prompted a `yes` and `no` to confirm his clearance
+- if the user inputs `yes`, the RecipeBook will be cleared
+- if the user inputs `no`, the `clear` command is cancelled. 
+- if the user inputs neither `yes` or `no`, 
+  Expected: Unknown Command!Type in the clear command again if you wish to clear
+
 
 ### \[Proposed\] Undo/redo feature
 
@@ -260,7 +274,7 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 <img src="umlDiagrams/img/CommitActivityDiagram.png" width="200" />
 
-### Design considerations:
+#### Design considerations:
 
 **Aspect: How undo & redo executes:**
 
