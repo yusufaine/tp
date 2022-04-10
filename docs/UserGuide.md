@@ -118,6 +118,7 @@ Add a recipe by specifying its name, ingredients, and steps to prepare the dish.
 Usage: `add -n <name of recipe> -d <completion time of recipe in minutes (max: 525600 mins)> -ss <serving size of recipe (max: 1000 servings)> -i <ingredients of recipes separated by pipe> -s <steps separated by pipe> [-t tags associated with recipe]`
 
 <div markdown="block" class="alert alert-info">
+:information_source: Ingredients must be added in the format: Name Quantity [Quantifier] (note that names should not contain numbers or special characters). <br>
 :information_source: Ingredients, steps, and tags can be separated by pipe. <br>
 :heavy_exclamation_mark: It is compulsory to specify the quantity of each ingredient that is to be added to the recipe. 
 </div>
@@ -207,6 +208,12 @@ Usage:
 * `edit <name of recipe to be edited> [-n <new name of recipe> -d <new completion time of recipe (max: 525600 mins)> -ss <new serving size of recipe (max: 1000 servings)> -i <new ingredients of recipes separated by pipe> -s <new steps separated by pipe> -t <new tags associated with recipe>]` <br>
     or 
 * `edit <-x recipe number to be edited> [-n <new name of recipe> -d <new completion time of recipe (max: 525600 mins)> -ss <new serving size of recipe (max: 1000 servings)> -i <new ingredients of recipes separated by pipe> -s <new steps separated by pipe> -t <new tags associated with recipe>]`
+
+<div markdown="block" class="alert alert-info">
+:information_source: Ingredients must be added in the format: Name Quantity [Quantifier] (note that names should not contain numbers or special characters). <br>
+:information_source: Ingredients, steps, and tags can be separated by pipe. <br>
+:heavy_exclamation_mark: It is compulsory to specify the quantity of each ingredient that is to be added to the recipe. 
+</div>
 
 Example:
 - Maybe Aglio Olio was missing some... spice? You can edit the existing Aglio Olio recipe by specifying:
