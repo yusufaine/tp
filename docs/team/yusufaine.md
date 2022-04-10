@@ -31,7 +31,7 @@ Listed below are my contributions to the project with majority of the credits gi
 * **Code contributed**: Click [here](https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=yusufaine&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code~other&since=2022-02-18&tabOpen=true&tabType=authorship&zFR=false&tabAuthor=yusufaine&tabRepo=AY2122S2-CS2103T-T17-2%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code~other&authorshipIsBinaryFileTypeChecked=false) to see the code that I've contributed on RepoSense.
 
 * **Project management**:
-  * Managed releases `v1.3` - `v1.4rc` (3 releases) on GitHub
+  * Managed releases `v1.3` - `v1.4.1` (4 releases) on GitHub
   * Planned and organised [weekly meetings](https://docs.google.com/document/d/1NpyQ7--KhO6W1OKzQWIu728AawXXmeFbyTlrjPOvS4c/edit?usp=sharing) as a way to keep the team updated with each other's work and update them on what needs to be done for the week.
   * Aggregated issues to improve [code coverage](https://github.com/AY2122S2-CS2103T-T17-2/tp/issues/77) and address [issues found by other testers](https://github.com/AY2122S2-CS2103T-T17-2/tp/issues/219)
 
