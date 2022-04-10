@@ -68,8 +68,11 @@ Listed below are my contributions to the project with majority of the credits gi
     [\#44](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/44#discussion_r814684465),
     [\#47](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/47#discussion_r816941190),
     [\#118](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/118#discussion_r831903024)
-  * Reported bugs and suggestions for other teams in the class (examples: 
-  [1](https://github.com/AY2122S2-CS2103T-T17-3/tp/issues/186#issuecomment-1093080386), 
-  [2](https://github.com/AY2122S2-CS2103T-T17-3/tp/issues/186#issuecomment-1093073086), 
-  [3](https://github.com/AY2122S2-CS2103T-T17-3/tp/issues/186#issuecomment-1093070307))
+  * Reported bugs and suggestions for other teams in the class: 
+    * [\#1](https://github.com/Oddcorner/ped/issues/1), 
+      [\#2](https://github.com/Oddcorner/ped/issues/2), 
+      [\#3](https://github.com/Oddcorner/ped/issues/3),
+      [\#4](https://github.com/Oddcorner/ped/issues/4).
+      More can be found [here](https://github.com/Oddcorner/ped/issues)
+      
 
