@@ -12,31 +12,36 @@ With that in mind, let's begin.
 ---
 
 ## Table of Content
-- [**Acknowledgements**](#acknowledgements)
-- [**Setting up, getting started**](#setting-up-getting-started)
-- [**Design**](#design)
+- [Acknowledgements](#acknowledgements)
+- [Setting up, getting started](#setting-up-getting-started)
+- [Design](#design)
     * [Architecture](#architecture)
     * [UI component](#ui-component)
     * [Logic component](#logic-component)
     * [Model component](#model-component)
     * [Storage component](#storage-component)
     * [Common classes](#common-classes)
-- [**Implementation**](#implementation)
+- [Implementation](#implementation)
+    * [Clear feature](#clear-feature)
     * [\[Proposed\] Undo/redo feature](#proposed-undoredo-feature)
+        + [Design considerations](#design-considerations)
     * [\[Proposed\] Advance find feature](#proposed-advance-find-feature)
-- [**Documentation, logging, testing, configuration, dev-ops**](#documentation-logging-testing-configuration-dev-ops)
-- [**Appendix: Requirements**](#appendix-requirements)
+- [Documentation, logging, testing, configuration, dev-ops](#documentation-logging-testing-configuration-dev-ops)
+- [Appendix: Requirements](#appendix-requirements)
     * [Product scope](#product-scope)
     * [User stories](#user-stories)
     * [Use cases](#use-cases)
     * [Non-Functional Requirements](#non-functional-requirements)
     * [Glossary](#glossary)
-- [**Appendix: Instructions for manual testing**](#appendix-instructions-for-manual-testing)
+- [Appendix: Instructions for manual testing](#appendix-instructions-for-manual-testing)
     * [Launch and shutdown](#launch-and-shutdown)
+    * [Adding a recipe](#adding-a-recipe)
+    * [Editing a recipe](#editing-a-recipe)
     * [Deleting a recipe](#deleting-a-recipe)
     * [Viewing a recipe](#viewing-a-recipe)
     * [Finding a recipe](#finding-a-recipe)
-    
+    * [Clearing the recipe book](#clearing-the-recipe-book)
+    * [Resetting the recipe book](#resetting-the-recipe-book)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -209,8 +214,6 @@ This feature allows the application to clear all the existing recipes in the app
 
 ### \[Proposed\] Undo/redo feature
 
-#### Proposed Implementation
-
 The proposed undo/redo mechanism is facilitated by `VersionedRecipeBook`. It extends `RecipeBook` with an undo/redo history, stored internally as an `recipeBookStateList` and `currentStatePointer`. Additionally, it implements the following operations:
 
 * `VersionedRecipeBook#commit()` — Saves the current recipe book state in its history.
@@ -274,7 +277,7 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 <img src="umlDiagrams/img/CommitActivityDiagram.png" width="200" />
 
-#### Design considerations:
+#### Design considerations
 
 **Aspect: How undo & redo executes:**
 
@@ -290,7 +293,6 @@ The following activity diagram summarizes what happens when a user executes a ne
 ---
 
 ### \[Proposed\] Advance find feature
-#### Proposed Implementation
 The proposed advanced find feature refines how the current find command works by introducing `RecipeDoesNotContainKeywordPredicate`. 
 
 Currently, the purpose of the `find` feature of our application is to give users the possibility of what `Recipe` they can cook based on the specified keywords such as recipe name, ingredients available, or cuisine in the form of tags. As such, we would like to improve how the find feature works but allowing the users to specify "must not contain" as part of their keywords to allow greater user experience.
@@ -583,8 +585,6 @@ _Preconditions: None_
 6. GUI should be usable with resolutions 1280x720 and higher, for screen scales 150%
 7. Should package everything into a single JAR file
 
-*{More to be added}*
-
 ### Glossary
 
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
@@ -614,14 +614,14 @@ testers are expected to do more *exploratory* testing.
 
     1. Download the latest McKitchen.jar file and copy into the folder you want to use as the home folder for your McKitchen.
 
-    2. To run the application: Open Terminal/Command Prompt in home folder (step 1) and issue the following command: `java -jar McKitchen.jar`.
+    2. To run the application: Open Terminal/Command Prompt in home folder (step 1) and run the following command: `java -jar McKitchen.jar`.
 
 
 3. Saving window preferences
 
     1. Resize the window to an optimum size. Move the window to a different location. Close the window.
 
-    2. Re-launch the app from the Terminal/Command Prompt in home folder and issue the command `java -jar McKithen.jar`.<br>
+    2. Re-launch the app from the Terminal/Command Prompt in home folder and run the command `java -jar McKithen.jar`.<br>
        Expected: The most recent window size and location is retained.
 
 
@@ -638,7 +638,7 @@ testers are expected to do more *exploratory* testing.
     3. Test case: `add -n Recipename1 -d 5 -ss 2 -i Ingredient1 | Ingredient2 | Ingredient3`<br>
        Expected: No recipe is added due to missing recipe steps. Valid command details are shown in the error message.
 
-    4. Other incorrect delete commands to try: `add -n`, `add`, `add -ss`, `add -d`, `add -s Step2` <br>
+    4. Other incorrect add commands to try: `add -n`, `add`, `add -ss`, `add -d`, `add -s Step2` <br>
        Expected: Similar to previous.
 
 ### Editing a recipe
