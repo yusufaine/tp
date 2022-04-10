@@ -5,7 +5,7 @@ title: Gigi's Project Portfolio Page
 
 ### Project: McKitchen
 
-McKitchen (My-CLI-Kitchen) is a desktop application that can quickly store, edit, and search for recipes by running a single command, ideal for the fast typists, home cooks, and students who want a simple way to store or search for simple recipes to cook. The user interacts with it using a CLI-like interface, and it has a GUI created with JavaFX. It is written in Java and has about 9.5 kLoC.
+McKitchen (My-CLI-Kitchen) is a desktop application that can quickly store, edit, and search for recipes by running a single command, ideal for the fast typists, home cooks, and students who want a simple way to store or search for simple recipes to cook. The user interacts with it using a CLI-like interface, and it has a GUI created with JavaFX. It is written in Java and has about 8 kLoC.
 
 Listed below are my contributions to the project with majority of the credits given to AB-3 as it served as a strong foundation for our application.
 
