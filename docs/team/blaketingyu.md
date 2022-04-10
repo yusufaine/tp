@@ -6,11 +6,11 @@ title: Blake Tan Ting Yu's Project Portfolio Page
 ### Project: McKitchen
 
 McKitchen (My-CLI-Kitchen) is a desktop application that can quickly store, edit, and search for recipes by running a single command. This is ideal for the fast typists, amateur cooks, busy students or executives who want a simple way to store or search for simple recipes to cook.
-The user interacts with it using a CLI-like interface, and it has a GUI created with JavaFX. It is written in Java and has about (to update) kLoC.
+The user interacts with it using a CLI-like interface, and it has a GUI created with JavaFX. It is written in Java and has about 10.3 kLoC.
 
 **Summary of contributions**
 
-* **Code contributed:** : [RepoSense link] (https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=blaketingyu&brekdown=true) ()
+* **Code contributed:** : [RepoSense link] Click [here](https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=blaketingyu&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code~other&since=2022-02-18&tabOpen=true&tabType=authorship&zFR=false&tabAuthor=blaketingyu&tabRepo=AY2122S2-CS2103T-T17-2%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code~other&authorshipIsBinaryFileTypeChecked=false) to see the code that I've contributed on RepoSense.
 
 * **Features and Enhancements implemented:**
 * Added `Storage` for `Recipe` class,and its respective fields (PR [#44](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/44))
