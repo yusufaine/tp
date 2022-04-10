@@ -7,7 +7,7 @@ title: Yusuf's Project Portfolio Page
 
 McKitchen (My-CLI-Kitchen) is a desktop application that can quickly store, edit, and search for recipes by running a single command. This is ideal for the fast typists, amateur cooks, busy students or executives who want a simple way to store or search for simple recipes to cook.
 
-The user interacts with it using a CLI-like interface, and it has a GUI created with JavaFX. It is written in Java and has about 9.5k LoC.
+The user interacts with it using a CLI-like interface, and it has a GUI created with JavaFX. It is written in Java and has about 8k LoC.
 
 Listed below are my contributions to the project with majority of the credits given to AB-3 as it served as a strong foundation for our application.
 * [**New Model**](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/12): Added the skeleton code for what classes in McKitchen are going to be based and improved on. 
