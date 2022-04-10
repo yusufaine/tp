@@ -49,7 +49,7 @@ In this section, we will get you started on the things you need to do prior to u
 3. Copy the file to the folder you want to use as the _home folder_ for your McKitchen.
 
 4. To run the application:
-   - Open the terminal in the _home folder_ (Step 3) and issue the following command: `java -jar McKitchen.jar`
+   - Open the Terminal/Command Prompt in the _home folder_ (Step 3) and issue the following command: `java -jar McKitchen.jar`
    
 <div markdown="block" class="alert alert-info">
 
