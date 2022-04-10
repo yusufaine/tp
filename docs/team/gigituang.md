@@ -51,7 +51,7 @@ Listed below are my contributions to the project with majority of the credits gi
 
 * **Community**:
   * PRs reviewed (with non-trivial review comments): (Pull requests[\#47](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/47), [\#59](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/59), [\#177](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/177), [\#135](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/135), [\#225](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/225), [\#192](https://github.com/AY2122S2-CS2103T-T17-2/tp/pull/192))
-  * Contributed to forum discussions (examples: e0543517's [\#164](https://github.com/nus-cs2103-AY2122S2/forum/issues/164) )
+  * Contributed to forum discussions  [\#164](https://github.com/nus-cs2103-AY2122S2/forum/issues/164) 
   * Reported bugs and suggestions for other teams in the class [\#10](https://github.com/gigituang/ped/issues/10), [\#2](https://github.com/gigituang/ped/issues/2), [\#3](https://github.com/gigituang/ped/issues/3), [\#11](https://github.com/gigituang/ped/issues/11)
   
 
