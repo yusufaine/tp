@@ -410,4 +410,8 @@ It will not take effect immediately. A confirmation prompt will allow you to con
 **Q: With the find command, can I exclude recipes with ingredients that I don't have?**<br>
 Unfortunately, our application only allows you to find recipes base on what you have. 
 
+**Q: Why is there no recipes when I launch McKitchen ?**<br>
+If the data file, located at "_[McKitchen location/data/]". is corrupted, McKitchen would launch with an empty recipe book.
+Though there is no way to retrieve the existing recipe book before the corrupted state. You can do a `reset` to revert the recipe book back to the default preloaded recipe state.
+
 [<sub>return to table of content</sub>](#table-of-content)
