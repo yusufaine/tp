@@ -240,7 +240,7 @@ Usage:
 
 ### Find an existing recipe: `find`
 Searches for a recipe based on the keywords (separated by pipe). <br>
-These `keywords` can consists of ingredients, tags or recipe names. `find` will return any recipe that contains these keywords even if there is a partial matching. <br>
+These `keywords` can consists of ingredients, tags or recipe names. `find` will return any recipe that contains **any** of these keywords. <br>
 
 Usage: 
 * `find <keyword> [other keywords seperated by pipe]`
@@ -250,7 +250,7 @@ Usage:
 </div>
 
 Example: 
-- Let's say that you would like to cook a Western cuisine and have spaghetti and garlic on hand. <br>
+- Let's say that you would like to cook a Western cuisine or want to cook something with spaghetti, or just want something with garlic. <br>
     The command that you would execute should look something like this:
     - `find western | spaghetti | garlic`
 
